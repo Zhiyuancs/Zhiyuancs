@@ -6,24 +6,24 @@
     
 
     
-    <title>LeetCode-验证回文串 | Zhiyuan的博客</title>
+    <title>LeetCode-下一个更大元素1 | Zhiyuan的博客</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="Python,LeetCode">
+        <meta name="keywords" content="LeetCode">
     
-    <meta name="description" content="filter(str.isalnum,s)1、filter() 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成的新列表。该接收两个参数，第一个为函数，第二个为序列，序列的每个元素作为参数传递给函数进行判，然后返回 True 或 False，最后将返回 True 的元素放到新列表中。2、Python isalnum()方法isalnum() 方法检测字符串是否由字母和数字组成。">
-<meta name="keywords" content="Python,LeetCode">
+    <meta name="description" content="题目地址 数据结构：栈、哈希表 思路：遍历nums2，哈希表存储每个元素后第一个大于它的元素。栈为递减栈，当遇到比栈顶元素大的元素，依次弹出元素，存入哈希表。最后遍历nums1，hash[nums[i]]组成的列表即为所求。 如 nums1 = [4,1,2], nums2 = [1,3,4,2].  stack=[1]  hash[1]=3  hash[3]=-1(第一次出现该元素，hash值为">
+<meta name="keywords" content="LeetCode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode-验证回文串">
-<meta property="og:url" content="http://Zhiyuancs.github.io/2019/08/30/Python-回文字符串/index.html">
+<meta property="og:title" content="LeetCode-下一个更大元素1">
+<meta property="og:url" content="http://Zhiyuancs.github.io/2019/09/04/LeetCode-下一个更大元素1/index.html">
 <meta property="og:site_name" content="Zhiyuan的博客">
-<meta property="og:description" content="filter(str.isalnum,s)1、filter() 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成的新列表。该接收两个参数，第一个为函数，第二个为序列，序列的每个元素作为参数传递给函数进行判，然后返回 True 或 False，最后将返回 True 的元素放到新列表中。2、Python isalnum()方法isalnum() 方法检测字符串是否由字母和数字组成。">
+<meta property="og:description" content="题目地址 数据结构：栈、哈希表 思路：遍历nums2，哈希表存储每个元素后第一个大于它的元素。栈为递减栈，当遇到比栈顶元素大的元素，依次弹出元素，存入哈希表。最后遍历nums1，hash[nums[i]]组成的列表即为所求。 如 nums1 = [4,1,2], nums2 = [1,3,4,2].  stack=[1]  hash[1]=3  hash[3]=-1(第一次出现该元素，hash值为">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-02T06:55:18.923Z">
+<meta property="og:updated_time" content="2019-09-04T07:28:02.806Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode-验证回文串">
-<meta name="twitter:description" content="filter(str.isalnum,s)1、filter() 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成的新列表。该接收两个参数，第一个为函数，第二个为序列，序列的每个元素作为参数传递给函数进行判，然后返回 True 或 False，最后将返回 True 的元素放到新列表中。2、Python isalnum()方法isalnum() 方法检测字符串是否由字母和数字组成。">
+<meta name="twitter:title" content="LeetCode-下一个更大元素1">
+<meta name="twitter:description" content="题目地址 数据结构：栈、哈希表 思路：遍历nums2，哈希表存储每个元素后第一个大于它的元素。栈为递减栈，当遇到比栈顶元素大的元素，依次弹出元素，存入哈希表。最后遍历nums1，hash[nums[i]]组成的列表即为所求。 如 nums1 = [4,1,2], nums2 = [1,3,4,2].  stack=[1]  hash[1]=3  hash[3]=-1(第一次出现该元素，hash值为">
     
 
     
@@ -130,19 +130,19 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/学习笔记/">学习笔记</a>
+    <a class="page-title-link" href="/categories/LeetCode/">LeetCode</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-Python-回文字符串" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-LeetCode-下一个更大元素1" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        LeetCode-验证回文串
+        LeetCode-下一个更大元素1
         </h1>
     
 
@@ -152,8 +152,8 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2019/08/30/Python-回文字符串/" class="article-date">
-            <time datetime="2019-08-30T08:17:00.000Z" itemprop="datePublished">2019-08-30</time>
+        <a href="/2019/09/04/LeetCode-下一个更大元素1/" class="article-date">
+            <time datetime="2019-09-04T07:17:00.000Z" itemprop="datePublished">2019-09-04</time>
         </a>
     </div>
 
@@ -162,14 +162,21 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/LeetCode/">LeetCode</a>, <a class="tag-link" href="/tags/Python/">Python</a>
+        <a class="tag-link" href="/tags/LeetCode/">LeetCode</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p><strong>filter(str.isalnum,s)</strong><br>1、<strong>filter()</strong> 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成的新列表。该接收两个参数，第一个为函数，第二个为序列，序列的每个元素作为参数传递给函数进行判，然后返回 True 或 False，最后将返回 True 的元素放到新列表中。<br>2、Python <strong>isalnum()</strong>方法<br><strong>isalnum()</strong> 方法检测字符串是否由字母和数字组成。</p>
+            <p><a href="https://leetcode-cn.com/problems/next-greater-element-i/" target="_blank" rel="noopener">题目地址</a></p>
+<p>数据结构：栈、哈希表</p>
+<p>思路：遍历nums2，哈希表存储每个元素后第一个大于它的元素。栈为递减栈，当遇到比栈顶元素大的元素，依次弹出元素，存入哈希表。最后遍历nums1，hash[nums[i]]组成的列表即为所求。</p>
+<p>如 nums1 = [4,1,2], nums2 = [1,3,4,2]. </p>
+<p>stack=[1]  hash[1]=3  hash[3]=-1(第一次出现该元素，hash值为-1)</p>
+<p>stack=[3]  hash[3]=4 hash[4]=-1 stack=[4]  stack=[4,2] hash[2]=-1</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">nextGreaterElement</span><span class="params">(self, nums1, nums2)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums1: List[int]</span></span><br><span class="line"><span class="string">        :type nums2: List[int]</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        stack=[]</span><br><span class="line">        hashmap=&#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> nums2:</span><br><span class="line">            <span class="keyword">while</span>  len(stack)&gt;<span class="number">0</span> <span class="keyword">and</span> stack[<span class="number">-1</span>]&lt;num :</span><br><span class="line">                hashmap[stack.pop()]=num</span><br><span class="line">            hashmap[num]=<span class="number">-1</span></span><br><span class="line">            stack.append(num)</span><br><span class="line">        <span class="keyword">return</span> [hashmap[i] <span class="keyword">for</span> i <span class="keyword">in</span> nums1]</span><br></pre></td></tr></table></figure>
+
 
         </div>
         <footer class="article-footer">
@@ -177,7 +184,7 @@
 
 
 
-    <a data-url="http://Zhiyuancs.github.io/2019/08/30/Python-回文字符串/" data-id="ck04xhirm0000donoluqoz45q" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://Zhiyuancs.github.io/2019/09/04/LeetCode-下一个更大元素1/" data-id="ck04xied6000edonon9nasnx1" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -247,17 +254,20 @@
             "@type": "Person",
             "name": "Zhiyuan"
         },
-        "headline": "LeetCode-验证回文串",
+        "headline": "LeetCode-下一个更大元素1",
         "image": "http://Zhiyuancs.github.io",
-        "keywords": "Python LeetCode",
-        "genre": "学习笔记",
-        "datePublished": "2019-08-30",
-        "dateCreated": "2019-08-30",
-        "dateModified": "2019-09-02",
-        "url": "http://Zhiyuancs.github.io/2019/08/30/Python-回文字符串/",
-        "description": "filter(str.isalnum,s)1、filter() 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成的新列表。该接收两个参数，第一个为函数，第二个为序列，序列的每个元素作为参数传递给函数进行判，然后返回 True 或 False，最后将返回 True 的元素放到新列表中。2、Python isalnum()方法isalnum() 方法检测字符串是否由字母和数字组成。
-"
-        "wordCount": 9
+        "keywords": "LeetCode",
+        "genre": "LeetCode",
+        "datePublished": "2019-09-04",
+        "dateCreated": "2019-09-04",
+        "dateModified": "2019-09-04",
+        "url": "http://Zhiyuancs.github.io/2019/09/04/LeetCode-下一个更大元素1/",
+        "description": "题目地址
+数据结构：栈、哈希表
+思路：遍历nums2，哈希表存储每个元素后第一个大于它的元素。栈为递减栈，当遇到比栈顶元素大的元素，依次弹出元素，存入哈希表。最后遍历nums1，hash[nums[i]]组成的列表即为所求。
+如 nums1 = [4,1,2], nums2 = [1,3,4,2]. 
+stack=[1]  hash[1]=3  hash[3]=-1(第一次出现该元素，hash值为"
+        "wordCount": 229
     }
 </script>
 
@@ -297,16 +307,12 @@
         
 <nav id="article-nav">
     
-        <a href="/2019/09/02/LeetCode-质数排列/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            LeetCode-质数排列
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
+        <a href="/2019/09/02/LeetCode-质数排列/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">LeetCode-质数排列</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
     
 </nav>
 
@@ -482,7 +488,7 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://Zhiyuancs.github.io/2019/08/30/Python-回文字符串/';
+    var disqus_url = 'http://Zhiyuancs.github.io/2019/09/04/LeetCode-下一个更大元素1/';
     
     (function() {
     var dsq = document.createElement('script');
