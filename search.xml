@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Deep Reinforcement Learning for Unsupervised V-S]]></title>
+    <url>%2F2019%2F09%2F15%2FDeep-Reinforcement-Learning-for-Unsupervised-Video-Summarization%2F</url>
+    <content type="text"><![CDATA[Abstract&emsp;&emsp;本文创新点：1、构建DSN网络；2、设计一个新的奖励函数（基于帧的多样性和代表性）；3、设计一个端到端的、基于强化学习的框架来训练网络。 Introduction&emsp;&emsp;DPP-LSTM效果较好，但是视频摘要的评价时，人类具有更多的主观性，所以非监督方法很有必要。&emsp;&emsp;本文的DSN网络：encoder：CNN（在视频帧上进行特征提取）；decoder：BiLSTM（产生概率分布来选择帧）。RL（增强学习）：通过迭代方式训练agent。&emsp;&emsp;主要贡献：将无监督方法扩展到监督版本，以利用标签；首次将RL应用到无监督视频摘要上。 Model OverviewDeep Summarization Network&emsp;&emsp;采用encoder-decoder结构，CNN选用在ImageNet上预训练好的GoogLeNet，从它倒数第二层提取出视觉特征向量x_{t}。LSTM用来捕获视频帧之间的长时间依赖性。训练中只更新decoder。 &emsp;&emsp;将BiLSTM网络的正向和反向的隐藏层输出拼接作为相应的隐状态，网络输入为视觉特征向量。全连接层结束于sigmoid函数，得出每个帧选择的概率分布，帧是否选择服从二项分布。视频摘要由这些选择的帧组成。 Diversity-Representativeness Reward Function&emsp;&emsp;训练时DSN的目的是最大化奖励函数。&emsp;&emsp;Diversity reward:通过计算选择帧之间的差异性（取平均值）来度量多样性， &emsp;&emsp;公式3忽视了序列数据时间上的关联性，事实上，时间相距较大的两个相似帧对故事线的构筑都很重要。所以设置如下， 入控制时间距离。 &emsp;&emsp;Representativeness reward:视频摘要代表性的度量是一个k-medoids问题， &emsp;&emsp;reward function使用这两个相加，训练时，保持这两个数量级一致。 Training with Policy Gradient&emsp;&emsp;这里介绍使用的强化学习的训练方法，和一些tricks。&emsp;&emsp;因为选择更多的帧也能提高reward，所以加入正则项。和防止过拟合的改进。&emsp;&emsp;这里给出更新参数的公式和最优化算法（Adam），详情见论文。 Summary Generation&emsp;&emsp;通过最大化得分选择子热点，同时控制帧数量不超过总长度15%。热点得分是通过平均化同一个热点中帧的得分来计算的。时间分割算法使用KTS。]]></content>
+      <categories>
+        <category>AI</category>
+      </categories>
+      <tags>
+        <tag>视频摘要</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Video Summarization with LSTM]]></title>
+    <url>%2F2019%2F09%2F15%2FVideo-Summarization-with-Long-Short-term-Memory%2F</url>
+    <content type="text"><![CDATA[Abstract&emsp;&emsp;这篇文章提出一个新奇的监督学习方法用来进行视频摘要，用来自动选择关键帧或者关键子热点。将这项任务看成一个结构预测问题（structured prediction problem），主要思路是用LSTM对帧的时间依赖性进行建模。 Introduction&emsp;&emsp;视频摘要如今有两个重要的方法：关键帧选择（keyframe selection，选择一些具有代表性的帧来组成摘要）；关键子热点选择（Key subshot selection，选择一系列在短时间类连续的帧组成摘要，即选择视频中具有代表性的每个时间点，将这些时间点的帧选择）。&emsp;&emsp;非监督学习方法：通过直观标准选择帧&emsp;&emsp;监督学习方法：通过视频帧的标注训练模型，使模型自动学习选择帧的标准。&emsp;&emsp;模型输入是视频的帧序列，输出是一个二元数组（表示这些帧是否选择）。由此得到启发使用LSTM。视频帧内部的依赖性是复杂且不均匀的。&emsp;&emsp;使用LSTM从时间上建立帧的联系，比从视觉上建立联系好（比如不同帧的相似性）。时间上相近的帧，包含的信息会冗余且相似。但是相似的帧包含的信息并不一定相同，且时间不一定相近。使用LSTM来学习时间线。&emsp;&emsp;这篇文章研究如何将LSTM及其变体应用到Video Summarization中。将LSTM与DPP（determinantalpoint process）结合，等一些改进方法。]]></content>
+      <categories>
+        <category>AI</category>
+      </categories>
+      <tags>
+        <tag>视频摘要</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hexo-Hueman Insight-Search配置]]></title>
+    <url>%2F2019%2F09%2F09%2FHexo-Hueman-Insight-Search%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[博客中的搜索功能一直无法使用，使用npm install -S hexo-generator-json-content安装插件后，仍然无法使用。 通过阅读hexo-generator-json-content的源码配置文件后得知，还需要对hexo的config文件做相应配置： 1234567891011121314151617181920212223242526272829303132333435363738jsonContent: meta: true dafts: false file: content.json keywords: undefined dateFormat: undefined pages: title: true slug: true date: true updated: true comments: true path: true link: true permalink: true excerpt: true keywords: false text: true raw: false content: false author: true posts: title: true slug: true date: true updated: true comments: true path: true link: true permalink: true excerpt: true keywords: false text: true raw: false content: false author: true categories: true tags: true]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python3 while-else、//]]></title>
     <url>%2F2019%2F09%2F08%2FPython3-while-else%E3%80%81%2F</url>
     <content type="text"><![CDATA[在LeetCode-自除数答案中学到的几个语法和技巧， While-else: 1、在Python中，else 可以和 while 循环搭配使用，当 while 循环正常执行完的情况下，执行 else 输出； 2、如果当 while 循环中执行了跳出循环的语句，比如 break，将不执行 else 代码块的内容。 //:向下取整 12345678910class Solution: def selfDividingNumbers(self, left: int, right: int) -&gt; List[int]: ans = [] for num in range(left,right + 1): copy = num while copy &gt; 0: div, copy = copy % 10, copy // 10 if div == 0 or num % div != 0: break else: ans.append(num) # while … else 在循环条件为 false 时执行 else 语句块 return ans]]></content>
@@ -64,8 +94,8 @@
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>LeetCode</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
 </search>
