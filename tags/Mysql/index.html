@@ -6,26 +6,21 @@
     
 
     
-    <title>Video Summarization with LSTM | Zhiyuan的博客</title>
+    <title>标签: Mysql | Zhiyuan的博客</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="视频摘要">
-    
-    <meta name="description" content="Abstract&amp;emsp;&amp;emsp;这篇文章提出一个新奇的监督学习方法用来进行视频摘要，用来自动选择关键帧或者关键子热点。将这项任务看成一个结构预测问题（structured prediction problem），主要思路是用LSTM对帧的时间依赖性进行建模。 Introduction&amp;emsp;&amp;emsp;视频摘要如今有两个重要的方法：关键帧选择（keyframe selection，选择">
-<meta name="keywords" content="视频摘要">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Video Summarization with LSTM">
-<meta property="og:url" content="http://Zhiyuancs.github.io/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/index.html">
+    <meta name="description" content="东北大学，中国矿业大学">
+<meta name="keywords" content="初学者">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Zhiyuan的博客">
+<meta property="og:url" content="http://Zhiyuancs.github.io/tags/Mysql/index.html">
 <meta property="og:site_name" content="Zhiyuan的博客">
-<meta property="og:description" content="Abstract&amp;emsp;&amp;emsp;这篇文章提出一个新奇的监督学习方法用来进行视频摘要，用来自动选择关键帧或者关键子热点。将这项任务看成一个结构预测问题（structured prediction problem），主要思路是用LSTM对帧的时间依赖性进行建模。 Introduction&amp;emsp;&amp;emsp;视频摘要如今有两个重要的方法：关键帧选择（keyframe selection，选择">
+<meta property="og:description" content="东北大学，中国矿业大学">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://zhiyuancs.github.io/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/1.png">
-<meta property="og:updated_time" content="2019-09-19T08:38:39.833Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Video Summarization with LSTM">
-<meta name="twitter:description" content="Abstract&amp;emsp;&amp;emsp;这篇文章提出一个新奇的监督学习方法用来进行视频摘要，用来自动选择关键帧或者关键子热点。将这项任务看成一个结构预测问题（structured prediction problem），主要思路是用LSTM对帧的时间依赖性进行建模。 Introduction&amp;emsp;&amp;emsp;视频摘要如今有两个重要的方法：关键帧选择（keyframe selection，选择">
-<meta name="twitter:image" content="http://zhiyuancs.github.io/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/1.png">
+<meta name="twitter:title" content="Zhiyuan的博客">
+<meta name="twitter:description" content="东北大学，中国矿业大学">
     
 
     
@@ -132,173 +127,225 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/AI/">AI</a>
+    <i class="icon fa fa-tag"></i>标签: <em>Mysql</em>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-Video-Summarization-with-Long-Short-term-Memory" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+                            
+
+    
+    
         
-            <header class="article-header">
-                
+        
+        <section class="archives-wrap">
+            <div class="archive-year-wrap">
+                <a href="/archives/2019" class="archive-year"><i class="icon fa fa-calendar-o"></i>2019</a>
+            </div>
+            <div class="archives">
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2019/09/21/Mysql学习笔记（三）/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://Zhiyuancs.github.io/2019/09/21/Mysql学习笔记（三）/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>
+            </div>
+            <div class="date"><time datetime="2019-09-21T12:17:00.000Z" itemprop="datePublished">2019-09-21</time></div>
+        </div>
+        
     
         <h1 class="article-title" itemprop="name">
-        Video Summarization with LSTM
+        <a href="/2019/09/21/Mysql学习笔记（三）/">Mysql学习笔记（三）</a>
         </h1>
     
 
-            </header>
-        
-        
-            <div class="article-meta">
-                
-    <div class="article-date">
-        <a href="/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/" class="article-date">
-            <time datetime="2019-09-15T03:04:00.000Z" itemprop="datePublished">2019-09-15</time>
-        </a>
+        <p class="article-excerpt">
+            select 字段列表form 表名where 查询筛选条件group by 指定分组的列列表having 指定分组后的筛选条件order by 排序列的列表limit 起始索引值，要查询的记录条数
+1、分组查询：group by分组函数（聚合函数）：将多行的值进行统计返回一行结果sum() ; avg();  min();  max(); count().注：分组函数不能和与分组无关的列一起使用
+        </p>
     </div>
-
-		
-
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/视频摘要/">视频摘要</a>
-    </div>
-
-            </div>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-            <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>&emsp;&emsp;这篇文章提出一个新奇的监督学习方法用来进行视频摘要，用来自动选择关键帧或者关键子热点。将这项任务看成一个结构预测问题（structured prediction problem），主要思路是用LSTM对帧的时间依赖性进行建模。</p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>&emsp;&emsp;视频摘要如今有两个重要的方法：关键帧选择（keyframe selection，选择一些具有代表性的帧来组成摘要）；关键子热点选择（Key subshot selection，选择一系列在短时间类连续的帧组成摘要，即选择视频中具有代表性的每个时间点，将这些时间点的帧选择）。<br>&emsp;&emsp;非监督学习方法：通过直观标准选择帧<br>&emsp;&emsp;监督学习方法：通过视频帧的标注训练模型，使模型自动学习选择帧的标准。<br>&emsp;&emsp;模型输入是视频的帧序列，输出是一个二元数组（表示这些帧是否选择）。由此得到启发使用LSTM。视频帧内部的依赖性是复杂且不均匀的。<br>&emsp;&emsp;使用LSTM从时间上建立帧的联系，比从视觉上建立联系好（比如不同帧的相似性）。时间上相近的帧，包含的信息会冗余且相似。但是相似的帧包含的信息并不一定相同，且时间不一定相近。使用LSTM来学习时间线。<br>&emsp;&emsp;这篇文章研究如何将LSTM及其变体应用到Video Summarization中。将LSTM与DPP（determinantalpoint process）结合，等一些改进方法。</p>
-<h2 id="Model-Overview"><a href="#Model-Overview" class="headerlink" title="Model Overview"></a>Model Overview</h2><p><strong>vsLSTM</strong>网络结构：</p>
-<p><img src="/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/1.png" alt></p>
-<p><strong>MLP</strong>（多层感知机）：输出为标量</p>
-<p><img src="/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/2.png" alt="2"></p>
-<p>使用SGD更新参数，这里是监督学习的方法，使用帧级别重要性得分（连续变量）或者选择的关键帧编码（二元向量）</p>
-<p>由于LSTM（查全率高，查准率低），DPP（查准率高，查全率低），现在将这两个结合，</p>
-<p><strong>DPP</strong>（行列式点过程）：DPP编码了从全集中选取任意一个子集的概率</p>
-<p><img src="/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/3.png" alt="3"></p>
-<p>z是子集,Z为全集，L为N*N的核矩阵（记录任意连个帧之间的相似性，实对称<strong>半正定</strong>方阵），det()为行列式的值，I是N*N的单位矩阵，子集z的概率与矩阵Lz的主子式行列式的值成正比。如果子集中有两个相同的元素时，det(Lz)将等于0。Lz是z在Z中标号对应元素组成的子方阵。</p>
-<p>关于DDP的数学证明：<a href="https://blog.csdn.net/qq_23947237/article/details/90698325" target="_blank" rel="noopener">https://blog.csdn.net/qq_23947237/article/details/90698325</a></p>
-<p><strong>dppLSTM</strong>：</p>
-<p><img src="/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/4.png" alt="4"></p>
-<p>MLP是由256个sigmoid隐单元、sigmoid和线性输出单元组成的单层神经网络，两个MLP（第一个计算frame-level importance,第二个计算相似性）</p>
-<p><strong>Learning</strong>：</p>
-<p>参数的学习使用MLE（最大似然估计），采用阶段化优化策略：首先训练MLP1和LSTM（vsLSTM）；接下来通过最大化dpp模型指定关键帧的可能性来训练所有mlp和lstm层。</p>
-<p>具体细节见论文及增刊</p>
-
-        </div>
-        <footer class="article-footer">
-            
-
-
-
-    <a data-url="http://Zhiyuancs.github.io/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/" data-id="ck0tgvowd000oionoj9d9ax2w" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-        </footer>
-    </div>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "author": {
-            "@type": "Person",
-            "name": "Zhiyuan"
-        },
-        "headline": "Video Summarization with LSTM",
-        "image": "http://Zhiyuancs.github.io/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/1.png",
-        "keywords": "视频摘要",
-        "genre": "AI",
-        "datePublished": "2019-09-15",
-        "dateCreated": "2019-09-15",
-        "dateModified": "2019-09-19",
-        "url": "http://Zhiyuancs.github.io/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/",
-        "description": "Abstract&emsp;&emsp;这篇文章提出一个新奇的监督学习方法用来进行视频摘要，用来自动选择关键帧或者关键子热点。将这项任务看成一个结构预测问题（structured prediction problem），主要思路是用LSTM对帧的时间依赖性进行建模。
-Introduction&emsp;&emsp;视频摘要如今有两个重要的方法：关键帧选择（keyframe selection，选择"
-        "wordCount": 34
-    }
-</script>
-
 </article>
-<!-- LiveRe City install code -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC80NjcxOS8yMzIyOA==">
-	<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
+    
 
-       if (typeof LivereTower === 'function') { return; }
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2019/09/21/Mysql学习笔记（四）/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://Zhiyuancs.github.io/2019/09/21/Mysql学习笔记（四）/">0</span>
+    
+</span>
 
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
 
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-	</script>
-<noscript> Please activate JavaScript for write a comment in LiveRe</noscript>
-</div>
-<!-- completed City install code -->
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>
+            </div>
+            <div class="date"><time datetime="2019-09-21T12:15:00.000Z" itemprop="datePublished">2019-09-21</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2019/09/21/Mysql学习笔记（四）/">Mysql学习笔记（四）</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+    
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2019/09/21/Mysql学习笔记（二）/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://Zhiyuancs.github.io/2019/09/21/Mysql学习笔记（二）/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>
+            </div>
+            <div class="date"><time datetime="2019-09-21T12:08:00.000Z" itemprop="datePublished">2019-09-21</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2019/09/21/Mysql学习笔记（二）/">Mysql学习笔记（二）</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            1、自增长：如果一列是主键，并且数据类型是int，则支持自动增长，每次插入数据时，会自动加一表定义时加上
+id INT(11) PRIMARY KEY AUTO_INCREMENT；
+2、给查询到的列取别名，表也可以取别名SELECT 列名 AS ‘别  名’，列名 别名，…… FROM 表名3、去重复：将查询到的所有列的重复筛选掉SELECT DISTINCT 列名 FROM 表名
+4、查询时 
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2019/09/21/Mysql学习笔记（一）/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://Zhiyuancs.github.io/2019/09/21/Mysql学习笔记（一）/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>
+            </div>
+            <div class="date"><time datetime="2019-09-21T11:29:00.000Z" itemprop="datePublished">2019-09-21</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2019/09/21/Mysql学习笔记（一）/">Mysql学习笔记（一）</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            DDL语句1、建库  
+1CREAT DATABASE  名字
+
+不区分大小写，推荐关键字大写；单词间加‘_’mysql数据结构：char，varchar  
+12345CREATE TABLE tm_teammanager&#123;  		id INT(11),  		'name'  VARCHAR(30),#通过飘号选中的字符会保留字符串本意，不会当成关键字，~  		gender CHAR
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+
+    </div></section>
+
+
 
                         </div>
                     </section>
@@ -318,29 +365,6 @@ Introduction&emsp;&emsp;视频摘要如今有两个重要的方法：关键帧�
             
         </ul>
     </div>
-    
-        
-<nav id="article-nav">
-    
-        <a href="/2019/09/15/Deep-Reinforcement-Learning-for-Unsupervised-Video-Summarization/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            Deep Reinforcement Learning for Unsupervised V-S 
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-    
-    
-        <a href="/2019/09/09/Hexo-Hueman-Insight-Search配置/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">Hexo-Hueman Insight-Search配置</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
-    
-</nav>
-
     
     <div class="widgets-container">
         
@@ -558,13 +582,11 @@ Introduction&emsp;&emsp;视频摘要如今有两个重要的方法：关键帧�
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://Zhiyuancs.github.io/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/';
-    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>

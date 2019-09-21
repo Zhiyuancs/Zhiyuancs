@@ -6,26 +6,26 @@
     
 
     
-    <title>Video Summarization with LSTM | Zhiyuan的博客</title>
+    <title>Unsupervised Video Summarization with Adversarial LSTM | Zhiyuan的博客</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
         <meta name="keywords" content="视频摘要">
     
-    <meta name="description" content="Abstract&amp;emsp;&amp;emsp;这篇文章提出一个新奇的监督学习方法用来进行视频摘要，用来自动选择关键帧或者关键子热点。将这项任务看成一个结构预测问题（structured prediction problem），主要思路是用LSTM对帧的时间依赖性进行建模。 Introduction&amp;emsp;&amp;emsp;视频摘要如今有两个重要的方法：关键帧选择（keyframe selection，选择">
+    <meta name="description" content="&amp;emsp;&amp;emsp;本文提出一个由summarizer和discriminator组成的生成对抗框架。目的是选择视频的稀疏子集，使得视频和摘要的表示误差最小。  &amp;emsp;&amp;emsp;原始视频的特征是通过GAN和LSTM提取的，GAN以像素为基础提取特征，LSTM捕捉帧之间的长期依赖关系，得到深度特征向量。由于明确深度特征间的合适距离困难，所以由左边结构转换为右边的结构。 论文理论基础：Va">
 <meta name="keywords" content="视频摘要">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Video Summarization with LSTM">
-<meta property="og:url" content="http://Zhiyuancs.github.io/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/index.html">
+<meta property="og:title" content="Unsupervised Video Summarization with Adversarial LSTM">
+<meta property="og:url" content="http://Zhiyuancs.github.io/2019/09/21/3/index.html">
 <meta property="og:site_name" content="Zhiyuan的博客">
-<meta property="og:description" content="Abstract&amp;emsp;&amp;emsp;这篇文章提出一个新奇的监督学习方法用来进行视频摘要，用来自动选择关键帧或者关键子热点。将这项任务看成一个结构预测问题（structured prediction problem），主要思路是用LSTM对帧的时间依赖性进行建模。 Introduction&amp;emsp;&amp;emsp;视频摘要如今有两个重要的方法：关键帧选择（keyframe selection，选择">
+<meta property="og:description" content="&amp;emsp;&amp;emsp;本文提出一个由summarizer和discriminator组成的生成对抗框架。目的是选择视频的稀疏子集，使得视频和摘要的表示误差最小。  &amp;emsp;&amp;emsp;原始视频的特征是通过GAN和LSTM提取的，GAN以像素为基础提取特征，LSTM捕捉帧之间的长期依赖关系，得到深度特征向量。由于明确深度特征间的合适距离困难，所以由左边结构转换为右边的结构。 论文理论基础：Va">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://zhiyuancs.github.io/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/1.png">
-<meta property="og:updated_time" content="2019-09-19T08:38:39.833Z">
+<meta property="og:image" content="http://zhiyuancs.github.io/2019/09/21/3/1.png">
+<meta property="og:updated_time" content="2019-09-21T11:29:17.782Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Video Summarization with LSTM">
-<meta name="twitter:description" content="Abstract&amp;emsp;&amp;emsp;这篇文章提出一个新奇的监督学习方法用来进行视频摘要，用来自动选择关键帧或者关键子热点。将这项任务看成一个结构预测问题（structured prediction problem），主要思路是用LSTM对帧的时间依赖性进行建模。 Introduction&amp;emsp;&amp;emsp;视频摘要如今有两个重要的方法：关键帧选择（keyframe selection，选择">
-<meta name="twitter:image" content="http://zhiyuancs.github.io/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/1.png">
+<meta name="twitter:title" content="Unsupervised Video Summarization with Adversarial LSTM">
+<meta name="twitter:description" content="&amp;emsp;&amp;emsp;本文提出一个由summarizer和discriminator组成的生成对抗框架。目的是选择视频的稀疏子集，使得视频和摘要的表示误差最小。  &amp;emsp;&amp;emsp;原始视频的特征是通过GAN和LSTM提取的，GAN以像素为基础提取特征，LSTM捕捉帧之间的长期依赖关系，得到深度特征向量。由于明确深度特征间的合适距离困难，所以由左边结构转换为右边的结构。 论文理论基础：Va">
+<meta name="twitter:image" content="http://zhiyuancs.github.io/2019/09/21/3/1.png">
     
 
     
@@ -137,14 +137,14 @@
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-Video-Summarization-with-Long-Short-term-Memory" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-3" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        Video Summarization with LSTM
+        Unsupervised Video Summarization with Adversarial LSTM
         </h1>
     
 
@@ -154,8 +154,8 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/" class="article-date">
-            <time datetime="2019-09-15T03:04:00.000Z" itemprop="datePublished">2019-09-15</time>
+        <a href="/2019/09/21/3/" class="article-date">
+            <time datetime="2019-09-21T11:23:00.000Z" itemprop="datePublished">2019-09-21</time>
         </a>
     </div>
 
@@ -171,24 +171,27 @@
         
         
         <div class="article-entry" itemprop="articleBody">
-            <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>&emsp;&emsp;这篇文章提出一个新奇的监督学习方法用来进行视频摘要，用来自动选择关键帧或者关键子热点。将这项任务看成一个结构预测问题（structured prediction problem），主要思路是用LSTM对帧的时间依赖性进行建模。</p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>&emsp;&emsp;视频摘要如今有两个重要的方法：关键帧选择（keyframe selection，选择一些具有代表性的帧来组成摘要）；关键子热点选择（Key subshot selection，选择一系列在短时间类连续的帧组成摘要，即选择视频中具有代表性的每个时间点，将这些时间点的帧选择）。<br>&emsp;&emsp;非监督学习方法：通过直观标准选择帧<br>&emsp;&emsp;监督学习方法：通过视频帧的标注训练模型，使模型自动学习选择帧的标准。<br>&emsp;&emsp;模型输入是视频的帧序列，输出是一个二元数组（表示这些帧是否选择）。由此得到启发使用LSTM。视频帧内部的依赖性是复杂且不均匀的。<br>&emsp;&emsp;使用LSTM从时间上建立帧的联系，比从视觉上建立联系好（比如不同帧的相似性）。时间上相近的帧，包含的信息会冗余且相似。但是相似的帧包含的信息并不一定相同，且时间不一定相近。使用LSTM来学习时间线。<br>&emsp;&emsp;这篇文章研究如何将LSTM及其变体应用到Video Summarization中。将LSTM与DPP（determinantalpoint process）结合，等一些改进方法。</p>
-<h2 id="Model-Overview"><a href="#Model-Overview" class="headerlink" title="Model Overview"></a>Model Overview</h2><p><strong>vsLSTM</strong>网络结构：</p>
-<p><img src="/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/1.png" alt></p>
-<p><strong>MLP</strong>（多层感知机）：输出为标量</p>
-<p><img src="/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/2.png" alt="2"></p>
-<p>使用SGD更新参数，这里是监督学习的方法，使用帧级别重要性得分（连续变量）或者选择的关键帧编码（二元向量）</p>
-<p>由于LSTM（查全率高，查准率低），DPP（查准率高，查全率低），现在将这两个结合，</p>
-<p><strong>DPP</strong>（行列式点过程）：DPP编码了从全集中选取任意一个子集的概率</p>
-<p><img src="/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/3.png" alt="3"></p>
-<p>z是子集,Z为全集，L为N*N的核矩阵（记录任意连个帧之间的相似性，实对称<strong>半正定</strong>方阵），det()为行列式的值，I是N*N的单位矩阵，子集z的概率与矩阵Lz的主子式行列式的值成正比。如果子集中有两个相同的元素时，det(Lz)将等于0。Lz是z在Z中标号对应元素组成的子方阵。</p>
-<p>关于DDP的数学证明：<a href="https://blog.csdn.net/qq_23947237/article/details/90698325" target="_blank" rel="noopener">https://blog.csdn.net/qq_23947237/article/details/90698325</a></p>
-<p><strong>dppLSTM</strong>：</p>
-<p><img src="/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/4.png" alt="4"></p>
-<p>MLP是由256个sigmoid隐单元、sigmoid和线性输出单元组成的单层神经网络，两个MLP（第一个计算frame-level importance,第二个计算相似性）</p>
-<p><strong>Learning</strong>：</p>
-<p>参数的学习使用MLE（最大似然估计），采用阶段化优化策略：首先训练MLP1和LSTM（vsLSTM）；接下来通过最大化dpp模型指定关键帧的可能性来训练所有mlp和lstm层。</p>
-<p>具体细节见论文及增刊</p>
+            <p>&emsp;&emsp;本文提出一个由summarizer和discriminator组成的生成对抗框架。目的是选择视频的稀疏子集，使得视频和摘要的表示误差最小。</p>
+<p><img src="/2019/09/21/3/1.png" alt></p>
+<p>&emsp;&emsp;原始视频的特征是通过GAN和LSTM提取的，GAN以像素为基础提取特征，LSTM捕捉帧之间的长期依赖关系，得到深度特征向量。由于明确深度特征间的合适距离困难，所以由左边结构转换为右边的结构。</p>
+<p>论文理论基础：Variational Autoencoder(VAE)，GAN</p>
+<h2 id="Model-Overview"><a href="#Model-Overview" class="headerlink" title="Model Overview"></a>Model Overview</h2><p><img src="/2019/09/21/3/2.png" alt="模型结构示意图"><br>&emsp;&emsp;CNN输出的是视频帧的深度特征（deep features x），sLSTM（selector LSTM）在这些帧中选择一个子集，eLSTM(encoder LSTM)将选择的帧序列编码成向量 e 。sLSTM生成每一个帧的标准化重要性得分s，结合x，输入到eLSTM中。dLSTM(decoder LSTM)以e为输入，重构了输入视频的特征序列。鉴别器（discriminator）用来区分原始和摘要视频帧间的特征，用于估计两者之间的representation error。</p>
+<p>&emsp;&emsp;本实验中使用二元序列分类器（a binary sequence classifier），所以鉴别器为cLSTM(classifier LSTM)，输出是二分类。</p>
+<p><img src="/2019/09/21/3/3.png" alt="模型训练示意图"></p>
+<p><img src="/2019/09/21/3/4.png" alt></p>
+<p>&emsp;&emsp;生成对抗训练的关键是引入一个额外的帧选择器Sp（基于先验分布的，例如均匀分布）。利用概率Sp选择一个子集作为eLSTM的输入，以相同的pipeline生成一系列值，用于计算误差。</p>
+<h3 id="Reconstruction-loss-Lreconst"><a href="#Reconstruction-loss-Lreconst" class="headerlink" title="Reconstruction loss Lreconst"></a>Reconstruction loss Lreconst</h3><p>&emsp;&emsp;没有采用传统的欧式距离，而是基于cLSTM的隐藏层表示。cLSTM最后一个隐藏层的输出**表示一个紧凑的特征向量，它捕捉了x（特征序列）的长距离依赖关系。Lre是对数似然的期望。</p>
+<p><img src="/2019/09/21/3/5.png" alt></p>
+<h3 id="Loss-of-GAN"><a href="#Loss-of-GAN" class="headerlink" title="Loss of GAN"></a>Loss of GAN</h3><p>这里的先验分布使用均匀分布。<img src="/2019/09/21/3/6.png" alt></p>
+<p>&emsp;&emsp;cLSTM(·)是一个二元的softmax输出。更新参数使用随机梯度变分bayes估计（Stochastic Gradient Variational Bayes estimation）</p>
+<p><img src="/2019/09/21/3/7.png" alt="模型训练伪代码"></p>
+<h3 id="正则化训练"><a href="#正则化训练" class="headerlink" title="正则化训练"></a>正则化训练</h3><h4 id="Summary-Length-Regularization"><a href="#Summary-Length-Regularization" class="headerlink" title="Summary-Length Regularization"></a>Summary-Length Regularization</h4><p><img src="/2019/09/21/3/8.png" alt></p>
+<p>M帧数量，*希望选择帧数量的百分比</p>
+<h4 id="Diversity-Regularization"><a href="#Diversity-Regularization" class="headerlink" title="Diversity Regularization"></a>Diversity Regularization</h4><p><img src="/2019/09/21/3/9.png" alt></p>
+<p>基于DPP</p>
+<p><img src="/2019/09/21/3/10.png" alt></p>
+<p>排斥正则化器（Repelling regularizer）</p>
+<h4 id="Keyframe-Regularization"><a href="#Keyframe-Regularization" class="headerlink" title="Keyframe Regularization"></a>Keyframe Regularization</h4><p><img src="/2019/09/21/3/11.png" alt></p>
 
         </div>
         <footer class="article-footer">
@@ -196,7 +199,7 @@
 
 
 
-    <a data-url="http://Zhiyuancs.github.io/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/" data-id="ck0tgvowd000oionoj9d9ax2w" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://Zhiyuancs.github.io/2019/09/21/3/" data-id="ck0tgvova0003iono4fj75zsc" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -266,17 +269,19 @@
             "@type": "Person",
             "name": "Zhiyuan"
         },
-        "headline": "Video Summarization with LSTM",
-        "image": "http://Zhiyuancs.github.io/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/1.png",
+        "headline": "Unsupervised Video Summarization with Adversarial LSTM",
+        "image": "http://Zhiyuancs.github.io/2019/09/21/3/1.png",
         "keywords": "视频摘要",
         "genre": "AI",
-        "datePublished": "2019-09-15",
-        "dateCreated": "2019-09-15",
-        "dateModified": "2019-09-19",
-        "url": "http://Zhiyuancs.github.io/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/",
-        "description": "Abstract&emsp;&emsp;这篇文章提出一个新奇的监督学习方法用来进行视频摘要，用来自动选择关键帧或者关键子热点。将这项任务看成一个结构预测问题（structured prediction problem），主要思路是用LSTM对帧的时间依赖性进行建模。
-Introduction&emsp;&emsp;视频摘要如今有两个重要的方法：关键帧选择（keyframe selection，选择"
-        "wordCount": 34
+        "datePublished": "2019-09-21",
+        "dateCreated": "2019-09-21",
+        "dateModified": "2019-09-21",
+        "url": "http://Zhiyuancs.github.io/2019/09/21/3/",
+        "description": "&emsp;&emsp;本文提出一个由summarizer和discriminator组成的生成对抗框架。目的是选择视频的稀疏子集，使得视频和摘要的表示误差最小。
+
+&emsp;&emsp;原始视频的特征是通过GAN和LSTM提取的，GAN以像素为基础提取特征，LSTM捕捉帧之间的长期依赖关系，得到深度特征向量。由于明确深度特征间的合适距离困难，所以由左边结构转换为右边的结构。
+论文理论基础：Va"
+        "wordCount": 85
     }
 </script>
 
@@ -322,20 +327,20 @@ Introduction&emsp;&emsp;视频摘要如今有两个重要的方法：关键帧�
         
 <nav id="article-nav">
     
-        <a href="/2019/09/15/Deep-Reinforcement-Learning-for-Unsupervised-Video-Summarization/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2019/09/21/Mysql学习笔记（一）/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">下一篇</strong>
         <p class="article-nav-title">
         
-            Deep Reinforcement Learning for Unsupervised V-S 
+            Mysql学习笔记（一）
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/2019/09/09/Hexo-Hueman-Insight-Search配置/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/09/15/Deep-Reinforcement-Learning-for-Unsupervised-Video-Summarization/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">Hexo-Hueman Insight-Search配置</p>
+        <p class="article-nav-title">Deep Reinforcement Learning for Unsupervised V-S </p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -558,7 +563,7 @@ Introduction&emsp;&emsp;视频摘要如今有两个重要的方法：关键帧�
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://Zhiyuancs.github.io/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/';
+    var disqus_url = 'http://Zhiyuancs.github.io/2019/09/21/3/';
     
     (function() {
     var dsq = document.createElement('script');

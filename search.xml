@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Mysql学习笔记（三）]]></title>
+    <url>%2F2019%2F09%2F21%2FMysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[select 字段列表form 表名where 查询筛选条件group by 指定分组的列列表having 指定分组后的筛选条件order by 排序列的列表limit 起始索引值，要查询的记录条数 1、分组查询：group by分组函数（聚合函数）：将多行的值进行统计返回一行结果sum() ; avg(); min(); max(); count().注：分组函数不能和与分组无关的列一起使用；分组查询时，查询的列可以是分组的条件 123456789SELECT SUM(salary)，COUNT(eid)，did FROM t_employGROUP BY did;SELECT did,COUNT(eid)FROM t_employWHERE salary&gt;10000AND did IS NOT NULLGROUP BY did; 2、条件中需要使用分组后的结果:having作用和where一样，但是执行顺序在分组之后 1234SELECT AVG(salary)FROM t_employGROUP BY didHAVING AVG(salary)&gt;9000; 3、order by：降序排列desc，升序排列ascSELECT * FROM t_employ ORDER BY salary DESC, eid ASC; 4、分页查询：limit index，size 5、子查询：当前查询依赖另一个查询的结果 123SELECT * FROM t_employ WHERE did=( SELECT did FROM t_employ WHERE ename='罗宾')； 三种类型：1、将子查询结果当做where查询的条件；2、当做临时表再次查询；3、作为主查询的判断条件，决定数据是否查询。exists型子查询 6、复制表 复制表结构：CREATE TABLE t_emp AS(SELECT * FROM t_employ WHERE 1=2);复制表结构+指定数据：where 条件 7、单行函数：处理一行返回一行结果SELECT UPPER(email) FROM t_employ;password():mysql数据库在将数据库管理员的信息进行保存时，会将密码加密保存。SELECT PASSWORD(&#39;123456&#39;) FROM DUAL; (dual练习表)]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Mysql学习笔记（四）]]></title>
+    <url>%2F2019%2F09%2F21%2FMysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E5%9B%9B%EF%BC%89%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Mysql学习笔记（二）]]></title>
+    <url>%2F2019%2F09%2F21%2FMysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[1、自增长：如果一列是主键，并且数据类型是int，则支持自动增长，每次插入数据时，会自动加一表定义时加上 id INT(11) PRIMARY KEY AUTO_INCREMENT； 2、给查询到的列取别名，表也可以取别名SELECT 列名 AS ‘别 名’，列名 别名，…… FROM 表名3、去重复：将查询到的所有列的重复筛选掉SELECT DISTINCT 列名 FROM 表名 4、查询时 进行计算支持数学运算符，逻辑运算符：xor异或比较运算符：=，&gt;,&lt;,&gt;=,&lt;=集合：in(值列表)范围：between min and max 5、模糊查询:like ‘模糊字符串’%:代表0~n个任意字符_：代表一个任意字符 6、使用 ifnull(字段，默认值) 方法解决null值计算问题 7、字符串拼接时的null值（sql中的+不能拼接字符串）concat（字段和字符串列表）：自动将方法内的所有字符串进行拼接处理 8、联合查询多表查询时，需要指定连接条件才能避免笛卡尔积：表名.列名（指定是哪个表的列）多表查询时，最少指定n-1个连接条件才能避免笛卡尔积 9、内连接（INNER JOIN）sql99推荐多表连接使用：表1 join 表2 on 连接条件 join 表3 on 连接条件INNER JOIN（只有满足条件的数据才能被查询） 10、外连接(左外连接：左表不满足条件的数据也查询出来，右外连接）LEFT OUTER JOIN全连接 11、自连接：当前表连接当前表，使用别名区分]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Mysql学习笔记（一）]]></title>
+    <url>%2F2019%2F09%2F21%2FMysql%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[DDL语句1、建库 1CREAT DATABASE 名字 不区分大小写，推荐关键字大写；单词间加‘_’mysql数据结构：char，varchar 12345CREATE TABLE tm_teammanager&#123; id INT(11), 'name' VARCHAR(30),#通过飘号选中的字符会保留字符串本意，不会当成关键字，~ gender CHAR(2)&#125; 2、查表结构 1DESC tm_teammanager 3、从删库到跑路备份为.sql文件 12DROP TABLE 表名 DROP DATABASE 4、修改表名 1ALTER TABLE oldname RENAME newname; 5、给表添加一列 1ALTER TABLE 表名 ADD COLUMN 名字 INT(3) (加上类型) 6、删除表一列 1ALTER TABLE 表名 DROP COLUMN 列名 7、给一列重命名change 1ALTER TABLE 表名 CHANGE 列名 新列名 数据类型 8、修改表列的数据类型modify 1ALTER TABLE 表名 MODIFY 列名 新数据类型 DML语句1、插入数据 12INSERT INTO 表名 VALUES(); #必须给所有列指定值 INSERT INTO 表名(id,列名……) VALUES(对应值); 2、查询 select 3、修改数据 update 1UPDATE 表名 SET 列名=值 WHERE id=2； 4、删除 delete 12DELETE FROM 表名 delete、drop、truncate区别 约束 constrains1、主键约束 primary key（字段值唯一非空）主键只能有一个1.1添加主键：创建表时添加约束CONSTRAINT PRIMARY KEY(列名)1.2 通过alter语句给表添加主键约束（表创建后添加） 123ALTER TABLE 表名 DROP PRIMARY KEY; #先删除原有主键约束 ALTER TABLE 表名 ADD PRIMARY KEY(列名) 或 ALTER TABLE 表名 MODIFY …… PRIMARY KEY 2、唯一键约束2.1 创建时添加2.2 修改表的指定列添加唯一键约束 1ALTER TABLE ^ MODIFY ^ ^ UNIQUE; 删除唯一键约束 1ALTER TABLE 表名 DROP INDEX 列名； 查看索引 SHOW INDEX FROM 表名 3、非空约束 not null3.1创建表时添加 123CREATE TABLE t_stu( &amp;emsp;&amp;emsp;id INT(11) NOT NULL; ); 删除非空约束 1alter table 表名 modify 列名 类型； 3.2修改列添加非空约束 1alter table 表名 modify 列名 类型 not null default “etc”； 4、默认值约束 default5、外键约束外键关联时，两张表建立外键的列数据类型必须相同，长度尽量一致 5.1修改表的指定列，添加外键约束 123ALTER TABLE 表名 ADD CONSTRAINT 外键名 FOREIGN KEY （当前表的指定列） references 关联的表名（指定要关联的列名）;ALTER TABLE t_stu ADD CONSTRAINT fk_cid FOREIGN KEY(cid) REFERENCES t_course(id); 删除外键约束：删除外键，然后才能删除外键对应的索引 12ALTER TEBLE 表名 DROP FOREIGN KEY(外键名) ALTER TABLE 表名 DROP INDEX 外键名； 索引需要删除，否则影响效率 5.2创建表时添加 1CONSTRAINT 外键名 FOREIGN KEY(列名) REFERENCES关联的表名（列名） 5.3删除被其他表关联的数据：当没有其他表引用该行数据可以删除5.4添加外键时指定级联删除或者级联置空]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Unsupervised Video Summarization with Adversarial LSTM]]></title>
+    <url>%2F2019%2F09%2F21%2F3%2F</url>
+    <content type="text"><![CDATA[&emsp;&emsp;本文提出一个由summarizer和discriminator组成的生成对抗框架。目的是选择视频的稀疏子集，使得视频和摘要的表示误差最小。 &emsp;&emsp;原始视频的特征是通过GAN和LSTM提取的，GAN以像素为基础提取特征，LSTM捕捉帧之间的长期依赖关系，得到深度特征向量。由于明确深度特征间的合适距离困难，所以由左边结构转换为右边的结构。 论文理论基础：Variational Autoencoder(VAE)，GAN Model Overview&emsp;&emsp;CNN输出的是视频帧的深度特征（deep features x），sLSTM（selector LSTM）在这些帧中选择一个子集，eLSTM(encoder LSTM)将选择的帧序列编码成向量 e 。sLSTM生成每一个帧的标准化重要性得分s，结合x，输入到eLSTM中。dLSTM(decoder LSTM)以e为输入，重构了输入视频的特征序列。鉴别器（discriminator）用来区分原始和摘要视频帧间的特征，用于估计两者之间的representation error。 &emsp;&emsp;本实验中使用二元序列分类器（a binary sequence classifier），所以鉴别器为cLSTM(classifier LSTM)，输出是二分类。 &emsp;&emsp;生成对抗训练的关键是引入一个额外的帧选择器Sp（基于先验分布的，例如均匀分布）。利用概率Sp选择一个子集作为eLSTM的输入，以相同的pipeline生成一系列值，用于计算误差。 Reconstruction loss Lreconst&emsp;&emsp;没有采用传统的欧式距离，而是基于cLSTM的隐藏层表示。cLSTM最后一个隐藏层的输出**表示一个紧凑的特征向量，它捕捉了x（特征序列）的长距离依赖关系。Lre是对数似然的期望。 Loss of GAN这里的先验分布使用均匀分布。 &emsp;&emsp;cLSTM(·)是一个二元的softmax输出。更新参数使用随机梯度变分bayes估计（Stochastic Gradient Variational Bayes estimation） 正则化训练Summary-Length Regularization M帧数量，*希望选择帧数量的百分比 Diversity Regularization 基于DPP 排斥正则化器（Repelling regularizer） Keyframe Regularization]]></content>
+      <categories>
+        <category>AI</category>
+      </categories>
+      <tags>
+        <tag>视频摘要</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Deep Reinforcement Learning for Unsupervised V-S]]></title>
     <url>%2F2019%2F09%2F15%2FDeep-Reinforcement-Learning-for-Unsupervised-Video-Summarization%2F</url>
     <content type="text"><![CDATA[Abstract&emsp;&emsp;本文创新点：1、构建DSN网络；2、设计一个新的奖励函数（基于帧的多样性和代表性）；3、设计一个端到端的、基于强化学习的框架来训练网络。 Introduction&emsp;&emsp;DPP-LSTM效果较好，但是视频摘要的评价时，人类具有更多的主观性，所以非监督方法很有必要。&emsp;&emsp;本文的DSN网络：encoder：CNN（在视频帧上进行特征提取）；decoder：BiLSTM（产生概率分布来选择帧）。RL（增强学习）：通过迭代方式训练agent。&emsp;&emsp;主要贡献：将无监督方法扩展到监督版本，以利用标签；首次将RL应用到无监督视频摘要上。 Model OverviewDeep Summarization Network&emsp;&emsp;采用encoder-decoder结构，CNN选用在ImageNet上预训练好的GoogLeNet，从它倒数第二层提取出视觉特征向量x_{t}。LSTM用来捕获视频帧之间的长时间依赖性。训练中只更新decoder。 &emsp;&emsp;将BiLSTM网络的正向和反向的隐藏层输出拼接作为相应的隐状态，网络输入为视觉特征向量。全连接层结束于sigmoid函数，得出每个帧选择的概率分布，帧是否选择服从二项分布。视频摘要由这些选择的帧组成。 Diversity-Representativeness Reward Function&emsp;&emsp;训练时DSN的目的是最大化奖励函数。&emsp;&emsp;Diversity reward:通过计算选择帧之间的差异性（取平均值）来度量多样性， &emsp;&emsp;公式3忽视了序列数据时间上的关联性，事实上，时间相距较大的两个相似帧对故事线的构筑都很重要。所以设置如下， 入控制时间距离。 &emsp;&emsp;Representativeness reward:视频摘要代表性的度量是一个k-medoids问题， &emsp;&emsp;reward function使用这两个相加，训练时，保持这两个数量级一致。 Training with Policy Gradient&emsp;&emsp;这里介绍使用的强化学习的训练方法，和一些tricks。&emsp;&emsp;因为选择更多的帧也能提高reward，所以加入正则项。和防止过拟合的改进。&emsp;&emsp;这里给出更新参数的公式和最优化算法（Adam），详情见论文。 Summary Generation&emsp;&emsp;通过最大化得分选择子热点，同时控制帧数量不超过总长度15%。热点得分是通过平均化同一个热点中帧的得分来计算的。时间分割算法使用KTS。]]></content>
