@@ -6,24 +6,24 @@
     
 
     
-    <title>LeetCode-下一个更大元素1 | Zhiyuan的博客</title>
+    <title>java 正则表达式 | Zhiyuan的博客</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="LeetCode">
+        <meta name="keywords" content="java">
     
-    <meta name="description" content="题目地址 数据结构：栈、哈希表 思路：遍历nums2，哈希表存储每个元素后第一个大于它的元素。栈为递减栈，当遇到比栈顶元素大的元素，依次弹出元素，存入哈希表。最后遍历nums1，hash[nums[i]]组成的列表即为所求。 如 nums1 = [4,1,2], nums2 = [1,3,4,2].  stack=[1]  hash[1]=3  hash[3]=-1(第一次出现该元素，hash值为">
-<meta name="keywords" content="LeetCode">
+    <meta name="description" content="题目地址：https://leetcode-cn.com/problems/string-to-integer-atoi/ 1234567891011121314151617181920212223242526272829import java.util.regex.*;class Solution &amp;#123;       public static int myAtoi(String str)">
+<meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode-下一个更大元素1">
-<meta property="og:url" content="http://Zhiyuancs.github.io/2019/09/04/LeetCode-下一个更大元素1/index.html">
+<meta property="og:title" content="java 正则表达式">
+<meta property="og:url" content="http://Zhiyuancs.github.io/2019/09/22/java-正则表达式/index.html">
 <meta property="og:site_name" content="Zhiyuan的博客">
-<meta property="og:description" content="题目地址 数据结构：栈、哈希表 思路：遍历nums2，哈希表存储每个元素后第一个大于它的元素。栈为递减栈，当遇到比栈顶元素大的元素，依次弹出元素，存入哈希表。最后遍历nums1，hash[nums[i]]组成的列表即为所求。 如 nums1 = [4,1,2], nums2 = [1,3,4,2].  stack=[1]  hash[1]=3  hash[3]=-1(第一次出现该元素，hash值为">
+<meta property="og:description" content="题目地址：https://leetcode-cn.com/problems/string-to-integer-atoi/ 1234567891011121314151617181920212223242526272829import java.util.regex.*;class Solution &amp;#123;       public static int myAtoi(String str)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-04T07:28:02.806Z">
+<meta property="og:updated_time" content="2019-09-22T09:19:35.248Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode-下一个更大元素1">
-<meta name="twitter:description" content="题目地址 数据结构：栈、哈希表 思路：遍历nums2，哈希表存储每个元素后第一个大于它的元素。栈为递减栈，当遇到比栈顶元素大的元素，依次弹出元素，存入哈希表。最后遍历nums1，hash[nums[i]]组成的列表即为所求。 如 nums1 = [4,1,2], nums2 = [1,3,4,2].  stack=[1]  hash[1]=3  hash[3]=-1(第一次出现该元素，hash值为">
+<meta name="twitter:title" content="java 正则表达式">
+<meta name="twitter:description" content="题目地址：https://leetcode-cn.com/problems/string-to-integer-atoi/ 1234567891011121314151617181920212223242526272829import java.util.regex.*;class Solution &amp;#123;       public static int myAtoi(String str)">
     
 
     
@@ -130,19 +130,19 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/LeetCode/">LeetCode</a>
+    <a class="page-title-link" href="/categories/学习笔记/">学习笔记</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-LeetCode-下一个更大元素1" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-java-正则表达式" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        LeetCode-下一个更大元素1
+        java 正则表达式
         </h1>
     
 
@@ -152,8 +152,8 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2019/09/04/LeetCode-下一个更大元素1/" class="article-date">
-            <time datetime="2019-09-04T07:17:00.000Z" itemprop="datePublished">2019-09-04</time>
+        <a href="/2019/09/22/java-正则表达式/" class="article-date">
+            <time datetime="2019-09-22T09:00:00.000Z" itemprop="datePublished">2019-09-22</time>
         </a>
     </div>
 
@@ -162,21 +162,26 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/LeetCode/">LeetCode</a>
+        <a class="tag-link" href="/tags/java/">java</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p><a href="https://leetcode-cn.com/problems/next-greater-element-i/" target="_blank" rel="noopener">题目地址</a></p>
-<p>数据结构：栈、哈希表</p>
-<p>思路：遍历nums2，哈希表存储每个元素后第一个大于它的元素。栈为递减栈，当遇到比栈顶元素大的元素，依次弹出元素，存入哈希表。最后遍历nums1，hash[nums[i]]组成的列表即为所求。</p>
-<p>如 nums1 = [4,1,2], nums2 = [1,3,4,2]. </p>
-<p>stack=[1]  hash[1]=3  hash[3]=-1(第一次出现该元素，hash值为-1)</p>
-<p>stack=[3]  hash[3]=4 hash[4]=-1 stack=[4]  stack=[4,2] hash[2]=-1</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">nextGreaterElement</span><span class="params">(self, nums1, nums2)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums1: List[int]</span></span><br><span class="line"><span class="string">        :type nums2: List[int]</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        stack=[]</span><br><span class="line">        hashmap=&#123;&#125;</span><br><span class="line">        <span class="keyword">for</span> num <span class="keyword">in</span> nums2:</span><br><span class="line">            <span class="keyword">while</span>  len(stack)&gt;<span class="number">0</span> <span class="keyword">and</span> stack[<span class="number">-1</span>]&lt;num :</span><br><span class="line">                hashmap[stack.pop()]=num</span><br><span class="line">            hashmap[num]=<span class="number">-1</span></span><br><span class="line">            stack.append(num)</span><br><span class="line">        <span class="keyword">return</span> [hashmap[i] <span class="keyword">for</span> i <span class="keyword">in</span> nums1]</span><br></pre></td></tr></table></figure>
+            <p>题目地址：<a href="https://leetcode-cn.com/problems/string-to-integer-atoi/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/string-to-integer-atoi/</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.regex.*;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">myAtoi</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">       str=str.trim();</span><br><span class="line">        </span><br><span class="line">        String pattern=<span class="string">"^[\\+\\-\\d]\\d*"</span>;<span class="comment">//正则表达式，表示以正号或负号或数字开头，且后面是0个或多个数字</span></span><br><span class="line">        Pattern p=Pattern.compile(pattern);</span><br><span class="line">        Matcher m=p.matcher(str);</span><br><span class="line">        </span><br><span class="line">        String res=<span class="string">""</span>;</span><br><span class="line">        <span class="keyword">if</span>(m.find())&#123;<span class="comment">//能匹配到</span></span><br><span class="line">            res=str.substring(m.start(),m.end());</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;<span class="comment">//不能匹配到</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//能匹配到但只有一个+-号，也返回0</span></span><br><span class="line">        <span class="keyword">if</span>(res.length()==<span class="number">1</span>&amp;&amp;(res.charAt(<span class="number">0</span>)==<span class="string">'+'</span>||res.charAt(<span class="number">0</span>)==<span class="string">'-'</span>))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> r=Integer.parseInt(res);</span><br><span class="line">            <span class="keyword">return</span> r;</span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            <span class="keyword">return</span> res.charAt(<span class="number">0</span>)==<span class="string">'-'</span>?Integer.MIN_VALUE:Integer.MAX_VALUE;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>在使用java正则表达式时要注意：java中”\\“表示”\“,”\\+”表示”+”,因为”+”需要转义，</p>
+<h3 id="lookingAt"><a href="#lookingAt" class="headerlink" title="lookingAt()"></a>lookingAt()</h3><p>lookingAt()对前面的字符串进行匹配,只有匹配到的字符串在最前面才返回true </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Pattern p=Pattern.compile(<span class="string">"\\d+"</span>); </span><br><span class="line">Matcher m=p.matcher(<span class="string">"22bb23"</span>); </span><br><span class="line">m.lookingAt();<span class="comment">//返回true,因为\d+匹配到了前面的22 </span></span><br><span class="line">Matcher m2=p.matcher(<span class="string">"aa2223"</span>); </span><br><span class="line">m2.lookingAt();<span class="comment">//返回false,因为\d+不能匹配前面的aa</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Mathcer-start-Matcher-end-Matcher-group"><a href="#Mathcer-start-Matcher-end-Matcher-group" class="headerlink" title="Mathcer.start()/ Matcher.end()/ Matcher.group()"></a><strong>Mathcer.start()/ Matcher.end()/ Matcher.group()</strong></h3><p>start()返回匹配到的子字符串在字符串中的索引位置.<br>end()返回匹配到的子字符串的最后一个字符在字符串中的索引位置.<br>group()返回匹配到的子字符串 </p>
+<p>start(),end(),group()均有一个重载方法它们是start(int i),end(int i),group(int i)专用于分组操作,Mathcer类还有一个groupCount()用于返回有多少组. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Pattern p=Pattern.compile(<span class="string">"\\d+"</span>); </span><br><span class="line">Matcher m=p.matcher(<span class="string">"我的QQ是:456456 我的电话是:0532214 我的邮箱是:aaa123@aaa.com"</span>); </span><br><span class="line"><span class="keyword">while</span>(m.find()) &#123; </span><br><span class="line">     System.out.println(m.group()); </span><br><span class="line">&#125; </span><br><span class="line">输出：</span><br><span class="line"><span class="number">456456</span> </span><br><span class="line"><span class="number">0532214</span> </span><br><span class="line"><span class="number">123</span> </span><br><span class="line"> <span class="comment">//或者   </span></span><br><span class="line"><span class="keyword">while</span>(m.find()) &#123; </span><br><span class="line">     System.out.println(m.group()); </span><br><span class="line">     System.out.print(<span class="string">"start:"</span>+m.start()); </span><br><span class="line">     System.out.println(<span class="string">" end:"</span>+m.end()); </span><br><span class="line">&#125; </span><br><span class="line">输出：</span><br><span class="line"><span class="number">456456</span> </span><br><span class="line">start:<span class="number">6</span> end:<span class="number">12</span> </span><br><span class="line"><span class="number">0532214</span> </span><br><span class="line">start:<span class="number">19</span> end:<span class="number">26</span> </span><br><span class="line"><span class="number">123</span> </span><br><span class="line">start:<span class="number">36</span> end:<span class="number">39</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看出，每执行一次find()，matcher对应的分组都会自动加一。start(),end(),group()三个方法的值都会改变,匹配到的子字符串的信息,以及它们的重载方法,也会改变成相应的信息. </p>
+<p>后面遇到有关正则表达式问题再进行补充。</p>
 
         </div>
         <footer class="article-footer">
@@ -184,7 +189,7 @@
 
 
 
-    <a data-url="http://Zhiyuancs.github.io/2019/09/04/LeetCode-下一个更大元素1/" data-id="ck10e847h0006h4nostc9avuu" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://Zhiyuancs.github.io/2019/09/22/java-正则表达式/" data-id="ck10e848i000yh4no7pfvcfh7" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -254,20 +259,17 @@
             "@type": "Person",
             "name": "Zhiyuan"
         },
-        "headline": "LeetCode-下一个更大元素1",
+        "headline": "java 正则表达式",
         "image": "http://Zhiyuancs.github.io",
-        "keywords": "LeetCode",
-        "genre": "LeetCode",
-        "datePublished": "2019-09-04",
-        "dateCreated": "2019-09-04",
-        "dateModified": "2019-09-04",
-        "url": "http://Zhiyuancs.github.io/2019/09/04/LeetCode-下一个更大元素1/",
-        "description": "题目地址
-数据结构：栈、哈希表
-思路：遍历nums2，哈希表存储每个元素后第一个大于它的元素。栈为递减栈，当遇到比栈顶元素大的元素，依次弹出元素，存入哈希表。最后遍历nums1，hash[nums[i]]组成的列表即为所求。
-如 nums1 = [4,1,2], nums2 = [1,3,4,2]. 
-stack=[1]  hash[1]=3  hash[3]=-1(第一次出现该元素，hash值为"
-        "wordCount": 229
+        "keywords": "java",
+        "genre": "学习笔记",
+        "datePublished": "2019-09-22",
+        "dateCreated": "2019-09-22",
+        "dateModified": "2019-09-22",
+        "url": "http://Zhiyuancs.github.io/2019/09/22/java-正则表达式/",
+        "description": "题目地址：https://leetcode-cn.com/problems/string-to-integer-atoi/
+1234567891011121314151617181920212223242526272829import java.util.regex.*;class Solution &#123;       public static int myAtoi(String str)"
+        "wordCount": 505
     }
 </script>
 
@@ -313,20 +315,20 @@ stack=[1]  hash[1]=3  hash[3]=-1(第一次出现该元素，hash值为"
         
 <nav id="article-nav">
     
-        <a href="/2019/09/05/yield-from简单理解/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2019/09/26/Go-一/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">下一篇</strong>
         <p class="article-nav-title">
         
-            yield from简单理解
+            Go(一)
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/2019/09/02/LeetCode-质数排列/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/09/21/Mysql学习笔记（三）/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">LeetCode-质数排列</p>
+        <p class="article-nav-title">Mysql学习笔记（三）</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -549,7 +551,7 @@ stack=[1]  hash[1]=3  hash[3]=-1(第一次出现该元素，hash值为"
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://Zhiyuancs.github.io/2019/09/04/LeetCode-下一个更大元素1/';
+    var disqus_url = 'http://Zhiyuancs.github.io/2019/09/22/java-正则表达式/';
     
     (function() {
     var dsq = document.createElement('script');
