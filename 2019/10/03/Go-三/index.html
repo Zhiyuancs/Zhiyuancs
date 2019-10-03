@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+
+    
+
+    
+    <title>Go(三) | Zhiyuan的博客</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Go">
+    
+    <meta name="description" content="复合数据类型3.1 数组1234var a [3]intvar q [3]int = [3]int&amp;#123;1, 2, 3&amp;#125;q := [...]int&amp;#123;1, 2, 3&amp;#125;  //长度由初始化值的个数来计算months := [...]string&amp;#123;1: &quot;January&quot;, /* ... */, 12: &quot;December&quot;&amp;#125;  //索引0自动初始">
+<meta name="keywords" content="Go">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go(三)">
+<meta property="og:url" content="http://Zhiyuancs.github.io/2019/10/03/Go-三/index.html">
+<meta property="og:site_name" content="Zhiyuan的博客">
+<meta property="og:description" content="复合数据类型3.1 数组1234var a [3]intvar q [3]int = [3]int&amp;#123;1, 2, 3&amp;#125;q := [...]int&amp;#123;1, 2, 3&amp;#125;  //长度由初始化值的个数来计算months := [...]string&amp;#123;1: &quot;January&quot;, /* ... */, 12: &quot;December&quot;&amp;#125;  //索引0自动初始">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-03T02:21:42.390Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Go(三)">
+<meta name="twitter:description" content="复合数据类型3.1 数组1234var a [3]intvar q [3]int = [3]int&amp;#123;1, 2, 3&amp;#125;q := [...]int&amp;#123;1, 2, 3&amp;#125;  //长度由初始化值的个数来计算months := [...]string&amp;#123;1: &quot;January&quot;, /* ... */, 12: &quot;December&quot;&amp;#125;  //索引0自动初始">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+</html>
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">主页</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/LeetCode/">LeetCode</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/学习笔记/">学习笔记</a></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/学习笔记/">学习笔记</a>
+    </h1>
+</div>
+
+                        <div class="main-body-content">
+                            <article id="post-Go-三" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Go(三)
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2019/10/03/Go-三/" class="article-date">
+            <time datetime="2019-10-03T02:16:00.000Z" itemprop="datePublished">2019-10-03</time>
+        </a>
+    </div>
+
+		
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Go/">Go</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="复合数据类型"><a href="#复合数据类型" class="headerlink" title="复合数据类型"></a>复合数据类型</h3><h4 id="3-1-数组"><a href="#3-1-数组" class="headerlink" title="3.1 数组"></a>3.1 数组</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a [<span class="number">3</span>]<span class="keyword">int</span></span><br><span class="line"><span class="keyword">var</span> q [<span class="number">3</span>]<span class="keyword">int</span> = [<span class="number">3</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">q := [...]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;  <span class="comment">//长度由初始化值的个数来计算</span></span><br><span class="line">months := [...]<span class="keyword">string</span>&#123;<span class="number">1</span>: <span class="string">"January"</span>, <span class="comment">/* ... */</span>, <span class="number">12</span>: <span class="string">"December"</span>&#125;  <span class="comment">//索引0自动初始化为空字符串</span></span><br></pre></td></tr></table></figure>
+
+<p>数组类型可以直接比较（==），只有当两个数组所有元素都是相等的时候数组才是相等的。</p>
+<h4 id="3-2-Slice"><a href="#3-2-Slice" class="headerlink" title="3.2 Slice"></a>3.2 Slice</h4><p>一个slice由三个部分构成：指针、长度和容量。指针指向第一个slice元素对应的底层数组元素的地址，要注意的是slice的第一个元素并不一定就是数组的第一个元素。长度对应slice中元素的数目；长度不能超过容量，容量一般是从slice的开始位置到底层数据的结尾位置。内置的len和cap函数分别返回slice的长度和容量。</p>
+<p>slice的切片操作s[i:j]，其中0 ≤ i≤ j≤ cap(s)，用于创建一个新的slice，引用s的从第i个元素开始到第j-1个元素的子序列。</p>
+<p>slice之间不能比较，因此我们不能使用==操作符来判断两个slice是否含有全部相等元素。不过标准库提供了高度优化的bytes.Equal函数来判断两个字节型slice是否相等（[]byte），但是对于其他类型的slice，我们必须自己展开每个元素进行比较：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">equal</span><span class="params">(x, y []<span class="keyword">string</span>)</span> <span class="title">bool</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(x) != <span class="built_in">len</span>(y) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> i := <span class="keyword">range</span> x &#123;</span><br><span class="line">        <span class="keyword">if</span> x[i] != y[i] &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>slice唯一合法的比较操作是和nil比较，内置的make函数创建一个指定元素类型、长度和容量的slice。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> s []<span class="keyword">int</span>    <span class="comment">// len(s) == 0, s == nil</span></span><br><span class="line">s = <span class="literal">nil</span>        <span class="comment">// len(s) == 0, s == nil</span></span><br><span class="line">s = []<span class="keyword">int</span>(<span class="literal">nil</span>) <span class="comment">// len(s) == 0, s == nil</span></span><br><span class="line">s = []<span class="keyword">int</span>&#123;&#125;    <span class="comment">// len(s) == 0, s != nil</span></span><br><span class="line"><span class="built_in">make</span>([]T, <span class="built_in">len</span>)   <span class="comment">//返回整个数组</span></span><br><span class="line"><span class="built_in">make</span>([]T, <span class="built_in">len</span>, <span class="built_in">cap</span>) <span class="comment">// same as make([]T, cap)[:len]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-append函数"><a href="#3-3-append函数" class="headerlink" title="3.3 append函数"></a>3.3 append函数</h4><p>内置的append函数用于向slice追加元素</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> runes []<span class="keyword">rune</span></span><br><span class="line"><span class="keyword">for</span> _, r := <span class="keyword">range</span> <span class="string">"Hello, 世界"</span> &#123;</span><br><span class="line">    runes = <span class="built_in">append</span>(runes, r)</span><br><span class="line">&#125;</span><br><span class="line">fmt.Printf(<span class="string">"%q\n"</span>, runes) <span class="comment">// "['H' 'e' 'l' 'l' 'o' ',' ' ' '世' '界']"</span></span><br></pre></td></tr></table></figure>
+
+<p>copy函数可以方便地将一个slice复制另一个相同类型的slice。copy函数的第一个参数是要复制的目标slice，第二个参数是源slice。<code>copy(z, x)</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x []<span class="keyword">int</span></span><br><span class="line">x = <span class="built_in">append</span>(x, <span class="number">1</span>)</span><br><span class="line">x = <span class="built_in">append</span>(x, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">x = <span class="built_in">append</span>(x, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>)</span><br><span class="line">x = <span class="built_in">append</span>(x, x...) <span class="comment">// append the slice x</span></span><br></pre></td></tr></table></figure>
+
+<p>一个slice可以用来模拟一个stack。最初给定的空slice对应一个空的stack，然后可以使用append函数将新的值压入stack：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stack = <span class="built_in">append</span>(stack, v) <span class="comment">// push v</span></span><br><span class="line">top := stack[<span class="built_in">len</span>(stack)<span class="number">-1</span>] <span class="comment">// top of stack</span></span><br><span class="line">stack = stack[:<span class="built_in">len</span>(stack)<span class="number">-1</span>] <span class="comment">// pop</span></span><br></pre></td></tr></table></figure>
+
+<p>要删除slice中间的某个元素并保存原有的元素顺序，可以通过内置的copy函数将后面的子slice向前依次移动一位完成：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">remove</span><span class="params">(slice []<span class="keyword">int</span>, i <span class="keyword">int</span>)</span> []<span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="built_in">copy</span>(slice[i:], slice[i+<span class="number">1</span>:])</span><br><span class="line">    <span class="keyword">return</span> slice[:<span class="built_in">len</span>(slice)<span class="number">-1</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    s := []<span class="keyword">int</span>&#123;<span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;</span><br><span class="line">    fmt.Println(remove(s, <span class="number">2</span>)) <span class="comment">// "[5 6 8 9]"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-4-Map"><a href="#3-4-Map" class="headerlink" title="3.4 Map"></a>3.4 Map</h4><p>在Go语言中，一个map就是一个哈希表的引用，map类型可以写为map[K]V，其中K和V分别对应key和value。map中所有的key都有相同的类型，所有的value也有着相同的类型，但是key和value之间可以是不同的数据类型。其中K对应的key必须是支持==比较运算符的数据类型，所以map可以通过测试key是否相等来判断是否已经存在。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ages := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>) <span class="comment">// mapping from strings to ints</span></span><br><span class="line">ages := <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>&#123;</span><br><span class="line">    <span class="string">"alice"</span>:   <span class="number">31</span>,</span><br><span class="line">    <span class="string">"charlie"</span>: <span class="number">34</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建空的map</span></span><br><span class="line"><span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>&#123;&#125;</span><br><span class="line"><span class="comment">//使用内置的delete函数可以删除元素</span></span><br><span class="line"><span class="built_in">delete</span>(ages, <span class="string">"alice"</span>) <span class="comment">// remove element ages["alice"]</span></span><br></pre></td></tr></table></figure>
+
+<p>map中的元素并不是一个变量，因此我们不能对map的元素进行取址操作，原因是map可能随着元素数量的增长而重新分配更大的内存空间，从而可能导致之前的地址无效。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_ = &amp;ages[<span class="string">"bob"</span>] <span class="comment">// compile error: cannot take address of map element</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>遍历map</strong></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> name, age := <span class="keyword">range</span> ages &#123;</span><br><span class="line">    fmt.Printf(<span class="string">"%s\t%d\n"</span>, name, age)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Map的迭代顺序是不确定的，并且不同的哈希函数实现可能导致不同的遍历顺序。在实践中，遍历的顺序是随机的，每一次遍历的顺序都不相同。如果要按顺序遍历key/value对，我们必须显式地对key进行排序，可以使用sort包的Strings函数对字符串slice进行排序。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"sort"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> names []<span class="keyword">string</span></span><br><span class="line"><span class="keyword">for</span> name := <span class="keyword">range</span> ages &#123;</span><br><span class="line">    names = <span class="built_in">append</span>(names, name)</span><br><span class="line">&#125;</span><br><span class="line">sort.Strings(names)</span><br><span class="line"><span class="keyword">for</span> _, name := <span class="keyword">range</span> names &#123;</span><br><span class="line">    fmt.Printf(<span class="string">"%s\t%d\n"</span>, name, ages[name])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">age, ok := ages[<span class="string">"bob"</span>]</span><br><span class="line"><span class="comment">//在这种场景下，map的下标语法将产生两个值；第二个是一个布尔值，</span></span><br><span class="line"><span class="comment">//用于报告元素是否真的存在。布尔变量一般命名为ok，特别适合马上用于if条件判断部分。</span></span><br></pre></td></tr></table></figure>
+
+<p>Go语言没有提供set类型，可以用map实现set类型，</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    seen := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">bool</span>) <span class="comment">// a set of strings</span></span><br><span class="line">    input := bufio.NewScanner(os.Stdin)</span><br><span class="line">    <span class="keyword">for</span> input.Scan() &#123;</span><br><span class="line">        line := input.Text()</span><br><span class="line">        <span class="keyword">if</span> !seen[line] &#123;</span><br><span class="line">            seen[line] = <span class="literal">true</span></span><br><span class="line">            fmt.Println(line)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> err := input.Err(); err != <span class="literal">nil</span> &#123;</span><br><span class="line">        fmt.Fprintf(os.Stderr, <span class="string">"dedup: %v\n"</span>, err)</span><br><span class="line">        os.Exit(<span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-5-结构体"><a href="#3-5-结构体" class="headerlink" title="3.5 结构体"></a>3.5 结构体</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Employee <span class="keyword">struct</span> &#123;</span><br><span class="line">    ID        <span class="keyword">int</span></span><br><span class="line">    Name      <span class="keyword">string</span></span><br><span class="line">    Address   <span class="keyword">string</span></span><br><span class="line">    DoB       time.Time</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> dilbert Employee</span><br></pre></td></tr></table></figure>
+
+<p>结构体变量的成员可以通过点操作符访问，比如dilbert.Name和dilbert.DoB。赋值可以直接进行或者通过指针：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name := &amp;dilbert.Name</span><br><span class="line">*name = <span class="string">"Robin"</span></span><br></pre></td></tr></table></figure>
+
+<p>点操作符也可以和指向结构体的指针一起工作：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> employeeOfTheMonth *Employee = &amp;dilbert</span><br><span class="line">employeeOfTheMonth.Position += <span class="string">" (proactive team player)"</span></span><br><span class="line"><span class="comment">//上面语句等价于</span></span><br><span class="line">(*employeeOfTheMonth).Position += <span class="string">" (proactive team player)"</span></span><br></pre></td></tr></table></figure>
+
+<p>结构体成员的输入顺序也有重要的意义。交换Name和Address出现的先后顺序，那样的话就是定义了不同的结构体类型。如果结构体成员名字是以大写字母开头的，那么该成员就是导出的；这是Go语言导出规则决定的。一个命名为S的结构体类型将不能再包含S类型的成员，但是S类型的结构体可以包含<code>*S</code>指针类型的成员，这可以让我们创建递归的数据结构，比如链表和树结构等。</p>
+<h5 id="3-5-1-结构体字面值"><a href="#3-5-1-结构体字面值" class="headerlink" title="3.5.1 结构体字面值"></a>3.5.1 结构体字面值</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Point <span class="keyword">struct</span>&#123; X, Y <span class="keyword">int</span> &#125;</span><br><span class="line"></span><br><span class="line">p := Point&#123;<span class="number">1</span>, <span class="number">2</span>&#125;</span><br><span class="line">q := Point&#123;X:<span class="number">1</span>,Y:<span class="number">2</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面第一种写法，要求以结构体成员定义的顺序为每个结构体成员指定一个字面值。这个方法一般只在定义结构体的包内部使用，或者是在较小的结构体中使用。第二种方法是以成员名字和相应的值来初始化。结构体通常通过指针处理，可以用下面的写法来创建并初始化一个结构体变量，并返回结构体的地址：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pp := &amp;Point&#123;<span class="number">1</span>, <span class="number">2</span>&#125;</span><br><span class="line"><span class="comment">//等价于</span></span><br><span class="line">pp := <span class="built_in">new</span>(Point)</span><br><span class="line">*pp = Point&#123;<span class="number">1</span>, <span class="number">2</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-5-2-结构体比较"><a href="#3-5-2-结构体比较" class="headerlink" title="3.5.2 结构体比较"></a>3.5.2 结构体比较</h5><p>如果结构体的全部成员都是可以比较的，那么这个结构体也是可以比较的，可以通过==或!=运算符进行比较。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Point <span class="keyword">struct</span>&#123; X, Y <span class="keyword">int</span> &#125;</span><br><span class="line"></span><br><span class="line">p := Point&#123;<span class="number">1</span>, <span class="number">2</span>&#125;</span><br><span class="line">q := Point&#123;<span class="number">2</span>, <span class="number">1</span>&#125;</span><br><span class="line">fmt.Println(p.X == q.X &amp;&amp; p.Y == q.Y) <span class="comment">// "false"</span></span><br><span class="line">fmt.Println(p == q)                   <span class="comment">// "false"</span></span><br></pre></td></tr></table></figure>
+
+<p>可比较的结构体类型和其他可比较的类型一样，可以用于map的key类型。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> address <span class="keyword">struct</span> &#123;</span><br><span class="line">    hostname <span class="keyword">string</span></span><br><span class="line">    port     <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">hits := <span class="built_in">make</span>(<span class="keyword">map</span>[address]<span class="keyword">int</span>)</span><br><span class="line">hits[address&#123;<span class="string">"golang.org"</span>, <span class="number">443</span>&#125;]++</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-5-3-结构体嵌入和匿名变量"><a href="#3-5-3-结构体嵌入和匿名变量" class="headerlink" title="3.5.3 结构体嵌入和匿名变量"></a>3.5.3 结构体嵌入和匿名变量</h5><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Point <span class="keyword">struct</span> &#123;</span><br><span class="line">    X, Y <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Circle <span class="keyword">struct</span> &#123;</span><br><span class="line">    Center Point</span><br><span class="line">    Radius <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Wheel <span class="keyword">struct</span> &#123;</span><br><span class="line">    Circle Circle</span><br><span class="line">    Spokes <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> w Wheel</span><br><span class="line">w.Circle.Center.X = <span class="number">8</span></span><br><span class="line">w.Circle.Center.Y = <span class="number">8</span></span><br><span class="line">w.Circle.Radius = <span class="number">5</span></span><br><span class="line">w.Spokes = <span class="number">20</span></span><br></pre></td></tr></table></figure>
+
+<p>Go语言有一个特性让我们只声明一个成员对应的数据类型而不指名成员的名字；这类成员就叫匿名成员。匿名成员的数据类型必须是命名的类型或指向一个命名的类型的指针。得意于匿名嵌入的特性，我们可以直接访问叶子属性而不需要给出完整的路径：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Circle <span class="keyword">struct</span> &#123;</span><br><span class="line">    Point</span><br><span class="line">    Radius <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Wheel <span class="keyword">struct</span> &#123;</span><br><span class="line">    Circle</span><br><span class="line">    Spokes <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> w Wheel</span><br><span class="line">w.X = <span class="number">8</span>         <span class="comment">// equivalent to w.Circle.Point.X = 8</span></span><br><span class="line">w.Y = <span class="number">8</span>         <span class="comment">// equivalent to w.Circle.Point.Y = 8</span></span><br><span class="line">w.Radius = <span class="number">5</span>    <span class="comment">// equivalent to w.Circle.Radius = 5</span></span><br><span class="line">w.Spokes = <span class="number">20</span></span><br><span class="line"><span class="comment">//匿名成员Circle和Point都有自己的名字——就是命名的类型名字——但是这些名字在点操作符中是可选的。</span></span><br></pre></td></tr></table></figure>
+
+<p>结构体字面值没有简短表示匿名成员的语法，所以必须遵循形状类型声明时的结构，按照以下方式赋值：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">w = Wheel&#123;Circle&#123;Point&#123;<span class="number">8</span>, <span class="number">8</span>&#125;, <span class="number">5</span>&#125;, <span class="number">20</span>&#125;</span><br><span class="line"></span><br><span class="line">w = Wheel&#123;</span><br><span class="line">    Circle: Circle&#123;</span><br><span class="line">        Point:  Point&#123;X: <span class="number">8</span>, Y: <span class="number">8</span>&#125;,</span><br><span class="line">        Radius: <span class="number">5</span>,</span><br><span class="line">    &#125;,</span><br><span class="line">    Spokes: <span class="number">20</span>, <span class="comment">// <span class="doctag">NOTE:</span> trailing comma necessary here (and at Radius)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因为匿名成员也有一个隐式的名字，因此不能同时包含两个类型相同的匿名成员，这会导致名字冲突。同时，因为成员的名字是由其类型隐式地决定的，所有匿名成员也有可见性的规则约束。在上面的例子中，Point和Circle匿名成员都是导出的。即使它们不导出（比如改成小写字母开头的point和circle），我们依然可以用简短形式访问匿名成员嵌套的成员，但是在包外部，这是不允许的。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">w.X = <span class="number">8</span> <span class="comment">// equivalent to w.circle.point.X = 8</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-6-JSON-encoding-json包"><a href="#3-6-JSON-encoding-json包" class="headerlink" title="3.6 JSON(encoding/json包)"></a>3.6 JSON(encoding/json包)</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Movie <span class="keyword">struct</span> &#123;</span><br><span class="line">    Title  <span class="keyword">string</span></span><br><span class="line">    Year   <span class="keyword">int</span>  <span class="string">`json:"released"`</span></span><br><span class="line">    Color  <span class="keyword">bool</span> <span class="string">`json:"color,omitempty"`</span></span><br><span class="line">    Actors []<span class="keyword">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> movies = []Movie&#123;</span><br><span class="line">    &#123;Title: <span class="string">"Casablanca"</span>, Year: <span class="number">1942</span>, Color: <span class="literal">false</span>,</span><br><span class="line">        Actors: []<span class="keyword">string</span>&#123;<span class="string">"Humphrey Bogart"</span>, <span class="string">"Ingrid Bergman"</span>&#125;&#125;,</span><br><span class="line">    &#123;Title: <span class="string">"Cool Hand Luke"</span>, Year: <span class="number">1967</span>, Color: <span class="literal">true</span>,</span><br><span class="line">        Actors: []<span class="keyword">string</span>&#123;<span class="string">"Paul Newman"</span>&#125;&#125;,</span><br><span class="line">    &#123;Title: <span class="string">"Bullitt"</span>, Year: <span class="number">1968</span>, Color: <span class="literal">true</span>,</span><br><span class="line">        Actors: []<span class="keyword">string</span>&#123;<span class="string">"Steve McQueen"</span>, <span class="string">"Jacqueline Bisset"</span>&#125;&#125;,</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>结构体声明中，Year和Color成员后面的字符串面值是结构体成员的Tag。将一个Go语言中类似movies的结构体slice转为JSON的过程叫编组（marshaling）。编组通过调用json.Marshal函数完成：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data, err := json.Marshal(movies)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    log.Fatalf(<span class="string">"JSON marshaling failed: %s"</span>, err)</span><br><span class="line">&#125;</span><br><span class="line">fmt.Printf(<span class="string">"%s\n"</span>, data)</span><br></pre></td></tr></table></figure>
+
+<p>Marshal函数返还一个编码后的字节slice，包含很长的字符串，并且没有空白缩进。这种紧凑的表示形式虽然包含了全部的信息，但是很难阅读。为了生成便于阅读的格式，另一个json.MarshalIndent函数将产生整齐缩进的输出。该函数有两个额外的字符串参数用于表示每一行输出的前缀和每一个层级的缩进。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">data, err := json.MarshalIndent(movies, <span class="string">""</span>, <span class="string">"    "</span>)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    log.Fatalf(<span class="string">"JSON marshaling failed: %s"</span>, err)</span><br><span class="line">&#125;</span><br><span class="line">fmt.Printf(<span class="string">"%s\n"</span>, data)</span><br><span class="line"><span class="comment">//输出格式</span></span><br><span class="line">[</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"Title"</span>: <span class="string">"Casablanca"</span>,</span><br><span class="line">        <span class="string">"released"</span>: <span class="number">1942</span>,</span><br><span class="line">        <span class="string">"Actors"</span>: [</span><br><span class="line">            <span class="string">"Humphrey Bogart"</span>,</span><br><span class="line">            <span class="string">"Ingrid Bergman"</span></span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    ………………</span><br></pre></td></tr></table></figure>
+
+<p>其中Year名字的成员在编码后变成了released，还有Color成员编码后变成了小写字母开头的color。这是因为构体成员Tag所导致的。结构体的成员Tag可以是任意的字符串面值，但是通常是一系列用空格分隔的key:”value”键值对序列；因为值中含义双引号字符，因此成员Tag一般用原生字符串面值的形式书写。<strong>json开头键名</strong>对应的值用于控制encoding/json包的编码和解码的行为，并且encoding/…下面其它的包也遵循这个约定。成员Tag中json对应值的第一部分用于指定JSON对象的名字，Color成员的Tag还带了一个额外的omitempty选项，表示当Go语言结构体成员为空或零值时不生成JSON对象，如Casablanca的color成员变量值为false（零值），所以没有输出color成员。</p>
+<p>解码操作是将JSON数据解码成Go语言的数据结构，通过<strong>json.Unmarshal</strong>函数完成。下面的代码将JSON格式的电影数据解码为一个结构体slice，结构体中只有Title成员。通过定义合适的Go语言数据结构，我们可以<strong>选择性地解码</strong>JSON中感兴趣的成员。当Unmarshal函数调用返回，slice将被只含有Title信息值填充，其它JSON成员将被忽略。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> titles []<span class="keyword">struct</span>&#123; Title <span class="keyword">string</span> &#125;</span><br><span class="line"><span class="keyword">if</span> err := json.Unmarshal(data, &amp;titles); err != <span class="literal">nil</span> &#123;</span><br><span class="line">    log.Fatalf(<span class="string">"JSON unmarshaling failed: %s"</span>, err)</span><br><span class="line">&#125;</span><br><span class="line">fmt.Println(titles) <span class="comment">// "[&#123;Casablanca&#125; &#123;Cool Hand Luke&#125; &#123;Bullitt&#125;]"</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-7-文本和HTML模板"><a href="#3-7-文本和HTML模板" class="headerlink" title="3.7 文本和HTML模板"></a>3.7 文本和HTML模板</h4><p>text\template和html\template提供了一个将变量值填充到文本或HTML格式的模板的机制。</p>
+<p>一个模板是一个字符串或一个文件，里面包含了一个或多个由双花括号包含的<code></code>对象。大部分的字符串只是按字面值打印，但是对于actions部分将触发其它的行为。下面是一个简短的模板字符串。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> templ = <span class="string">`&#123;&#123;.TotalCount&#125;&#125; issues:</span></span><br><span class="line"><span class="string">&#123;&#123;range .Items&#125;&#125;----------------------------------------</span></span><br><span class="line"><span class="string">Number: &#123;&#123;.Number&#125;&#125;</span></span><br><span class="line"><span class="string">User:   &#123;&#123;.User.Login&#125;&#125;</span></span><br><span class="line"><span class="string">Title:  &#123;&#123;.Title | printf "%.64s"&#125;&#125;</span></span><br><span class="line"><span class="string">Age:    &#123;&#123;.CreatedAt | daysAgo&#125;&#125; days</span></span><br><span class="line"><span class="string">&#123;&#123;end&#125;&#125;`</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对于每一个<span class="keyword">action</span>，都有一个当前值的概念，对应点操作符，写作“.”。模板中&#123;&#123;.TotalCount&#125;&#125;对应<span class="keyword">action</span>将展开为结构体中TotalCount成员以默认的方式打印的值。模板中&#123;&#123;<span class="built_in">range</span> .Items&#125;&#125;和&#123;&#123;<span class="keyword">end</span>&#125;&#125;对应一个循环<span class="keyword">action</span>，因此它们直接的内容可能会被展开多次，循环每次迭代的当前值对应当前的Items元素的值。</span><br></pre></td></tr></table></figure>
+
+<p>在一个action中，<code>|</code>操作符表示将前一个表达式的结果作为后一个函数的输入，在Title这一行的action中，第二个操作是一个printf函数，是一个基于fmt.Sprintf实现的内置函数，所有模板都可以直接使用。</p>
+<p>生成模板：template.New先创建并返回一个模板；Funcs方法将daysAgo等自定义函数注册到模板中，并返回模板；最后调用Parse函数分析模板。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">report, err := template.New(<span class="string">"report"</span>).</span><br><span class="line">    Funcs(template.FuncMap&#123;<span class="string">"daysAgo"</span>: daysAgo&#125;).</span><br><span class="line">    Parse(templ)</span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">    log.Fatal(err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://books.studygolang.com/gopl-zh/ch4/ch4-06.html" target="_blank" rel="noopener">https://books.studygolang.com/gopl-zh/ch4/ch4-06.html</a></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://Zhiyuancs.github.io/2019/10/03/Go-三/" data-id="ck1a2jc3j0003r8noasu775av" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "author": {
+            "@type": "Person",
+            "name": "Zhiyuan"
+        },
+        "headline": "Go(三)",
+        "image": "http://Zhiyuancs.github.io",
+        "keywords": "Go",
+        "genre": "学习笔记",
+        "datePublished": "2019-10-03",
+        "dateCreated": "2019-10-03",
+        "dateModified": "2019-10-03",
+        "url": "http://Zhiyuancs.github.io/2019/10/03/Go-三/",
+        "description": "复合数据类型3.1 数组1234var a [3]intvar q [3]int = [3]int&#123;1, 2, 3&#125;q := [...]int&#123;1, 2, 3&#125;  //长度由初始化值的个数来计算months := [...]string&#123;1: "January", /* ... */, 12: "December"&#125;  //索引0自动初始"
+        "wordCount": 2015
+    }
+</script>
+
+</article>
+<!-- LiveRe City install code -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NjcxOS8yMzIyOA==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> Please activate JavaScript for write a comment in LiveRe</noscript>
+</div>
+<!-- completed City install code -->
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>关注我 :</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/Zhiyuancs" target="_blank" rel="noopener">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+    
+        <a href="/2019/10/01/Go-四/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">上一篇</strong>
+        <p class="article-nav-title">Go(四)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/10/03/Go-三/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/学习笔记/">学习笔记</a></p>
+                            <p class="item-title"><a href="/2019/10/03/Go-三/" class="title">Go(三)</a></p>
+                            <p class="item-date"><time datetime="2019-10-03T02:16:00.000Z" itemprop="datePublished">2019-10-03</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/10/01/Go-四/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/学习笔记/">学习笔记</a></p>
+                            <p class="item-title"><a href="/2019/10/01/Go-四/" class="title">Go(四)</a></p>
+                            <p class="item-date"><time datetime="2019-10-01T09:13:30.000Z" itemprop="datePublished">2019-10-01</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/09/26/Go-二/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/学习笔记/">学习笔记</a></p>
+                            <p class="item-title"><a href="/2019/09/26/Go-二/" class="title">Go(二)</a></p>
+                            <p class="item-date"><time datetime="2019-09-26T07:44:51.000Z" itemprop="datePublished">2019-09-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/09/26/Go-一/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/学习笔记/">学习笔记</a></p>
+                            <p class="item-title"><a href="/2019/09/26/Go-一/" class="title">Go(一)</a></p>
+                            <p class="item-date"><time datetime="2019-09-26T07:41:27.000Z" itemprop="datePublished">2019-09-26</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/09/22/java-正则表达式/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/学习笔记/">学习笔记</a></p>
+                            <p class="item-title"><a href="/2019/09/22/java-正则表达式/" class="title">java 正则表达式</a></p>
+                            <p class="item-date"><time datetime="2019-09-22T09:00:00.000Z" itemprop="datePublished">2019-09-22</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/">学习笔记</a><span class="category-list-count">13</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Go/">Go</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/">LeetCode</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/">Mysql</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/视频摘要/">视频摘要</a><span class="tag-list-count">3</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Go/" style="font-size: 20px;">Go</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/LeetCode/" style="font-size: 15px;">LeetCode</a> <a href="/tags/Mysql/" style="font-size: 20px;">Mysql</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/视频摘要/" style="font-size: 15px;">视频摘要</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+                    <li>
+                        <a href="https://blog.csdn.net/Capricorn_devil">csdn</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2019 Zhiyuan</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            
+			
+			<!--这一段是不蒜子的访问量统计脚本-->
+                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次 &nbsp;   </span>
+                <span id="busuanzi_container_site_uv">
+                    访客数<span id="busuanzi_value_site_uv"></span>人次
+                  </span>
+			</div>
+            <div class="footer-plugins">
+              
+    
+
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://Zhiyuancs.github.io/2019/10/03/Go-三/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
