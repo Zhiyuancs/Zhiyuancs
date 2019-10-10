@@ -6,23 +6,20 @@
     
 
     
-    <title>Mysql学习笔记（四） | Zhiyuan的博客</title>
+    <title>标签: JDBC | Zhiyuan的博客</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="Mysql">
-    
     <meta name="description" content="东北大学，中国矿业大学">
-<meta name="keywords" content="Mysql">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Mysql学习笔记（四）">
-<meta property="og:url" content="http://Zhiyuancs.github.io/2019/09/21/Mysql学习笔记（四）/index.html">
+<meta name="keywords" content="初学者">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Zhiyuan的博客">
+<meta property="og:url" content="http://Zhiyuancs.github.io/tags/JDBC/index.html">
 <meta property="og:site_name" content="Zhiyuan的博客">
 <meta property="og:description" content="东北大学，中国矿业大学">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-21T12:15:54.871Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mysql学习笔记（四）">
+<meta name="twitter:title" content="Zhiyuan的博客">
 <meta name="twitter:description" content="东北大学，中国矿业大学">
     
 
@@ -130,154 +127,121 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/学习笔记/">学习笔记</a>
+    <i class="icon fa fa-tag"></i>标签: <em>JDBC</em>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-Mysql学习笔记（四）" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+                            
+
+    
+    
         
-            <header class="article-header">
-                
+        
+        <section class="archives-wrap">
+            <div class="archive-year-wrap">
+                <a href="/archives/2019" class="archive-year"><i class="icon fa fa-calendar-o"></i>2019</a>
+            </div>
+            <div class="archives">
+    
+    
+    
+        <div class="article-row">
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2019/10/10/JDBC连接池/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://Zhiyuancs.github.io/2019/10/10/JDBC连接池/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>
+            </div>
+            <div class="date"><time datetime="2019-10-10T11:11:19.000Z" itemprop="datePublished">2019-10-10</time></div>
+        </div>
+        
     
         <h1 class="article-title" itemprop="name">
-        Mysql学习笔记（四）
+        <a href="/2019/10/10/JDBC连接池/">JDBC连接池&amp; JDBCTemplate</a>
         </h1>
     
 
-            </header>
-        
-        
-            <div class="article-meta">
-                
-    <div class="article-date">
-        <a href="/2019/09/21/Mysql学习笔记（四）/" class="article-date">
-            <time datetime="2019-09-21T12:15:00.000Z" itemprop="datePublished">2019-09-21</time>
-        </a>
+        <p class="article-excerpt">
+            数据库连接池123456789101112131415161. 概念：其实就是一个容器(集合)，存放数据库连接的容器。	    当系统初始化好后，容器被创建，容器中会申请一些连接对象，当用户来访问数据库时，从容器中获取连接对象，用户访问完之后，会将连接对象归还给容器。2. 好处：	1. 节约资源	2. 用户访问高效3. 实现：	1. 标准接口：DataSource   javax.sql包下的		
+        </p>
     </div>
-
-		
-
-                
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Mysql/">Mysql</a>
-    </div>
-
-            </div>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-            
-        </div>
-        <footer class="article-footer">
-            
-
-
-
-    <a data-url="http://Zhiyuancs.github.io/2019/09/21/Mysql学习笔记（四）/" data-id="ck1a2e9by000hlonok2gk9dv8" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-        </footer>
-    </div>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "author": {
-            "@type": "Person",
-            "name": "Zhiyuan"
-        },
-        "headline": "Mysql学习笔记（四）",
-        "image": "http://Zhiyuancs.github.io",
-        "keywords": "Mysql",
-        "genre": "学习笔记",
-        "datePublished": "2019-09-21",
-        "dateCreated": "2019-09-21",
-        "dateModified": "2019-09-21",
-        "url": "http://Zhiyuancs.github.io/2019/09/21/Mysql学习笔记（四）/",
-        "description": ""
-        "wordCount": 1
-    }
-</script>
-
 </article>
-<!-- LiveRe City install code -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC80NjcxOS8yMzIyOA==">
-	<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
+    
 
-       if (typeof LivereTower === 'function') { return; }
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2019/10/10/JDBC基础/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://Zhiyuancs.github.io/2019/10/10/JDBC基础/">0</span>
+    
+</span>
 
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
 
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-	</script>
-<noscript> Please activate JavaScript for write a comment in LiveRe</noscript>
-</div>
-<!-- completed City install code -->
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>
+            </div>
+            <div class="date"><time datetime="2019-10-10T11:06:36.000Z" itemprop="datePublished">2019-10-10</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2019/10/10/JDBC基础/">JDBC基础</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            JDBC：123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899100101
+        </p>
+    </div>
+</article>
+    
+        </div>
+    
+
+
+    </div></section>
+
+
 
                         </div>
                     </section>
@@ -298,29 +262,6 @@
         </ul>
     </div>
     
-        
-<nav id="article-nav">
-    
-        <a href="/2019/09/21/Mysql学习笔记（三）/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            Mysql学习笔记（三）
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
-    
-    
-        <a href="/2019/09/21/Mysql学习笔记（二）/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">Mysql学习笔记（二）</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
-    
-</nav>
-
-    
     <div class="widgets-container">
         
             
@@ -329,6 +270,46 @@
         <h3 class="widget-title">最新文章</h3>
         <div class="widget">
             <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/10/10/JDBC连接池/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/学习笔记/">学习笔记</a></p>
+                            <p class="item-title"><a href="/2019/10/10/JDBC连接池/" class="title">JDBC连接池&amp; JDBCTemplate</a></p>
+                            <p class="item-date"><time datetime="2019-10-10T11:11:19.000Z" itemprop="datePublished">2019-10-10</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2019/10/10/JDBC基础/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/学习笔记/">学习笔记</a></p>
+                            <p class="item-title"><a href="/2019/10/10/JDBC基础/" class="title">JDBC基础</a></p>
+                            <p class="item-date"><time datetime="2019-10-10T11:06:36.000Z" itemprop="datePublished">2019-10-10</time></p>
+                        </div>
+                    </li>
                 
                     <li>
                         
@@ -390,46 +371,6 @@
                         </div>
                     </li>
                 
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/09/26/Go-一/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/学习笔记/">学习笔记</a></p>
-                            <p class="item-title"><a href="/2019/09/26/Go-一/" class="title">Go(一)</a></p>
-                            <p class="item-date"><time datetime="2019-09-26T07:41:27.000Z" itemprop="datePublished">2019-09-26</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/09/22/java-正则表达式/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/学习笔记/">学习笔记</a></p>
-                            <p class="item-title"><a href="/2019/09/22/java-正则表达式/" class="title">java 正则表达式</a></p>
-                            <p class="item-date"><time datetime="2019-09-22T09:00:00.000Z" itemprop="datePublished">2019-09-22</time></p>
-                        </div>
-                    </li>
-                
             </ul>
         </div>
     </div>
@@ -439,7 +380,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">分类</h3>
         <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/">学习笔记</a><span class="category-list-count">13</span></li></ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/">学习笔记</a><span class="category-list-count">14</span></li></ul>
         </div>
     </div>
 
@@ -449,7 +390,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">归档</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li></ul>
         </div>
     </div>
 
@@ -459,7 +400,7 @@
     <div class="widget-wrap widget-list">
         <h3 class="widget-title">标签</h3>
         <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Go/">Go</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/">LeetCode</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/">Mysql</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/视频摘要/">视频摘要</a><span class="tag-list-count">3</span></li></ul>
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Go/">Go</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDBC/">JDBC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LeetCode/">LeetCode</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/">Mysql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/视频摘要/">视频摘要</a><span class="tag-list-count">3</span></li></ul>
         </div>
     </div>
 
@@ -469,7 +410,7 @@
     <div class="widget-wrap widget-float">
         <h3 class="widget-title">标签云</h3>
         <div class="widget tagcloud">
-            <a href="/tags/Go/" style="font-size: 20px;">Go</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/LeetCode/" style="font-size: 15px;">LeetCode</a> <a href="/tags/Mysql/" style="font-size: 20px;">Mysql</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/视频摘要/" style="font-size: 15px;">视频摘要</a>
+            <a href="/tags/Go/" style="font-size: 20px;">Go</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JDBC/" style="font-size: 13.33px;">JDBC</a> <a href="/tags/LeetCode/" style="font-size: 16.67px;">LeetCode</a> <a href="/tags/Mysql/" style="font-size: 16.67px;">Mysql</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/视频摘要/" style="font-size: 16.67px;">视频摘要</a>
         </div>
     </div>
 
@@ -537,13 +478,11 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://Zhiyuancs.github.io/2019/09/21/Mysql学习笔记（四）/';
-    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
