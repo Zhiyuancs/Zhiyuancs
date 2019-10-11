@@ -6,24 +6,24 @@
     
 
     
-    <title>java 正则表达式 | Zhiyuan的博客</title>
+    <title>最长回文字符串 | Zhiyuan的博客</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="java">
+        <meta name="keywords" content="动态规划">
     
-    <meta name="description" content="题目地址：https://leetcode-cn.com/problems/string-to-integer-atoi/ 1234567891011121314151617181920212223242526272829import java.util.regex.*;class Solution &amp;#123;       public static int myAtoi(String str)">
-<meta name="keywords" content="java">
+    <meta name="description" content="https://leetcode-cn.com/problems/longest-palindromic-substring/solution/ 方法一：中心扩展法 遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。 12345678910111213141516171819202122232425262728class Solu">
+<meta name="keywords" content="动态规划">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java 正则表达式">
-<meta property="og:url" content="http://Zhiyuancs.github.io/2019/09/22/java-正则表达式/index.html">
+<meta property="og:title" content="最长回文字符串">
+<meta property="og:url" content="http://Zhiyuancs.github.io/2019/10/11/最长回文字符串/index.html">
 <meta property="og:site_name" content="Zhiyuan的博客">
-<meta property="og:description" content="题目地址：https://leetcode-cn.com/problems/string-to-integer-atoi/ 1234567891011121314151617181920212223242526272829import java.util.regex.*;class Solution &amp;#123;       public static int myAtoi(String str)">
+<meta property="og:description" content="https://leetcode-cn.com/problems/longest-palindromic-substring/solution/ 方法一：中心扩展法 遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。 12345678910111213141516171819202122232425262728class Solu">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-22T09:19:35.248Z">
+<meta property="og:updated_time" content="2019-10-11T11:51:54.222Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java 正则表达式">
-<meta name="twitter:description" content="题目地址：https://leetcode-cn.com/problems/string-to-integer-atoi/ 1234567891011121314151617181920212223242526272829import java.util.regex.*;class Solution &amp;#123;       public static int myAtoi(String str)">
+<meta name="twitter:title" content="最长回文字符串">
+<meta name="twitter:description" content="https://leetcode-cn.com/problems/longest-palindromic-substring/solution/ 方法一：中心扩展法 遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。 12345678910111213141516171819202122232425262728class Solu">
     
 
     
@@ -130,19 +130,19 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/学习笔记/">学习笔记</a>
+    <a class="page-title-link" href="/categories/LeetCode/">LeetCode</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-java-正则表达式" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-最长回文字符串" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        java 正则表达式
+        最长回文字符串
         </h1>
     
 
@@ -152,8 +152,8 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2019/09/22/java-正则表达式/" class="article-date">
-            <time datetime="2019-09-22T09:00:00.000Z" itemprop="datePublished">2019-09-22</time>
+        <a href="/2019/10/11/最长回文字符串/" class="article-date">
+            <time datetime="2019-10-11T11:49:41.000Z" itemprop="datePublished">2019-10-11</time>
         </a>
     </div>
 
@@ -162,26 +162,23 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/java/">java</a>
+        <a class="tag-link" href="/tags/动态规划/">动态规划</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p>题目地址：<a href="https://leetcode-cn.com/problems/string-to-integer-atoi/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/string-to-integer-atoi/</a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.regex.*;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">       <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">myAtoi</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">       str=str.trim();</span><br><span class="line">        </span><br><span class="line">        String pattern=<span class="string">"^[\\+\\-\\d]\\d*"</span>;<span class="comment">//正则表达式，表示以正号或负号或数字开头，且后面是0个或多个数字</span></span><br><span class="line">        Pattern p=Pattern.compile(pattern);</span><br><span class="line">        Matcher m=p.matcher(str);</span><br><span class="line">        </span><br><span class="line">        String res=<span class="string">""</span>;</span><br><span class="line">        <span class="keyword">if</span>(m.find())&#123;<span class="comment">//能匹配到</span></span><br><span class="line">            res=str.substring(m.start(),m.end());</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;<span class="comment">//不能匹配到</span></span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//能匹配到但只有一个+-号，也返回0</span></span><br><span class="line">        <span class="keyword">if</span>(res.length()==<span class="number">1</span>&amp;&amp;(res.charAt(<span class="number">0</span>)==<span class="string">'+'</span>||res.charAt(<span class="number">0</span>)==<span class="string">'-'</span>))&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="keyword">int</span> r=Integer.parseInt(res);</span><br><span class="line">            <span class="keyword">return</span> r;</span><br><span class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">            <span class="keyword">return</span> res.charAt(<span class="number">0</span>)==<span class="string">'-'</span>?Integer.MIN_VALUE:Integer.MAX_VALUE;</span><br><span class="line">        &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <p><a href="https://leetcode-cn.com/problems/longest-palindromic-substring/solution/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/longest-palindromic-substring/solution/</a></p>
+<p>方法一：中心扩展法</p>
+<p>遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s==<span class="keyword">null</span>||s.length()&lt;<span class="number">1</span>) <span class="keyword">return</span> s;</span><br><span class="line">        <span class="comment">//回文串左右位置</span></span><br><span class="line">        <span class="keyword">int</span> left=<span class="number">0</span>;<span class="keyword">int</span> right=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">            <span class="comment">//回文串长度为奇数</span></span><br><span class="line">            <span class="keyword">int</span> len1=lengthOfHuiwen(s,i,i);</span><br><span class="line">            <span class="comment">//长度为偶数</span></span><br><span class="line">            <span class="keyword">int</span> len2=lengthOfHuiwen(s,i,i+<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">int</span> len=Math.max(len1,len2);</span><br><span class="line">            <span class="keyword">if</span>(len&gt;right-left)&#123;</span><br><span class="line">                left=i-(len+<span class="number">1</span>)/<span class="number">2</span>+<span class="number">1</span>;</span><br><span class="line">                right=i+len/<span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.substring(left,right+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//left,right为中心字符串左右位置</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfHuiwen</span><span class="params">(String s,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> L=left,R=right;</span><br><span class="line">        <span class="keyword">while</span>(L&gt;=<span class="number">0</span>&amp;&amp;R&lt;s.length()&amp;&amp;s.charAt(L)==s.charAt(R))&#123;</span><br><span class="line">            L--;</span><br><span class="line">            R++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> R-L-<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>在使用java正则表达式时要注意：java中”\\“表示”\“,”\\+”表示”+”,因为”+”需要转义，</p>
-<h3 id="lookingAt"><a href="#lookingAt" class="headerlink" title="lookingAt()"></a>lookingAt()</h3><p>lookingAt()对前面的字符串进行匹配,只有匹配到的字符串在最前面才返回true </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Pattern p=Pattern.compile(<span class="string">"\\d+"</span>); </span><br><span class="line">Matcher m=p.matcher(<span class="string">"22bb23"</span>); </span><br><span class="line">m.lookingAt();<span class="comment">//返回true,因为\d+匹配到了前面的22 </span></span><br><span class="line">Matcher m2=p.matcher(<span class="string">"aa2223"</span>); </span><br><span class="line">m2.lookingAt();<span class="comment">//返回false,因为\d+不能匹配前面的aa</span></span><br></pre></td></tr></table></figure>
+<p>方法二：动态规划</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">（一）状态</span><br><span class="line">	f[<span class="built_in">i</span>][<span class="built_in">j</span>]表示s的第 <span class="built_in">i</span> 个字符到第 <span class="built_in">j</span> 个字符组成的子串，是否为回文串</span><br><span class="line">（二）转移方程</span><br><span class="line">	如果s的第 <span class="built_in">i</span> 个字符和第 <span class="built_in">j</span> 个字符相同的话，且 <span class="built_in">i</span> + <span class="number">1</span>, 到 <span class="built_in">j</span> - <span class="number">1</span> 的子串也是回文串的话，f[<span class="built_in">i</span>][<span class="built_in">j</span>] 也为回文串</span><br><span class="line">		f[<span class="built_in">i</span>][<span class="built_in">j</span>] = f[<span class="built_in">i</span> + <span class="number">1</span>][<span class="built_in">j</span> - <span class="number">1</span>] and s[<span class="built_in">i</span>] == s[<span class="built_in">j</span>]</span><br><span class="line">	稍微要注意的是，如果 <span class="built_in">i</span> == <span class="built_in">j</span> 或者 <span class="built_in">i</span> + <span class="number">1</span> == <span class="built_in">j</span> 的时候，也就是单个字符的子串和两个相邻字符的子串，就不需要f[<span class="built_in">i</span> + <span class="number">1</span>][<span class="built_in">j</span> - <span class="number">1</span>]了</span><br><span class="line">	注意遍历顺序，<span class="built_in">i</span> 从最后一个字符开始往前遍历，<span class="built_in">j</span> 从 <span class="built_in">i</span> 开始往后遍历，这样可以保证每个子问题都已经算好了。</span><br></pre></td></tr></table></figure>
 
-<h3 id="Mathcer-start-Matcher-end-Matcher-group"><a href="#Mathcer-start-Matcher-end-Matcher-group" class="headerlink" title="Mathcer.start()/ Matcher.end()/ Matcher.group()"></a><strong>Mathcer.start()/ Matcher.end()/ Matcher.group()</strong></h3><p>start()返回匹配到的子字符串在字符串中的索引位置.<br>end()返回匹配到的子字符串的最后一个字符在字符串中的索引位置.<br>group()返回匹配到的子字符串 </p>
-<p>start(),end(),group()均有一个重载方法它们是start(int i),end(int i),group(int i)专用于分组操作,Mathcer类还有一个groupCount()用于返回有多少组. </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Pattern p=Pattern.compile(<span class="string">"\\d+"</span>); </span><br><span class="line">Matcher m=p.matcher(<span class="string">"我的QQ是:456456 我的电话是:0532214 我的邮箱是:aaa123@aaa.com"</span>); </span><br><span class="line"><span class="keyword">while</span>(m.find()) &#123; </span><br><span class="line">     System.out.println(m.group()); </span><br><span class="line">&#125; </span><br><span class="line">输出：</span><br><span class="line"><span class="number">456456</span> </span><br><span class="line"><span class="number">0532214</span> </span><br><span class="line"><span class="number">123</span> </span><br><span class="line"> <span class="comment">//或者   </span></span><br><span class="line"><span class="keyword">while</span>(m.find()) &#123; </span><br><span class="line">     System.out.println(m.group()); </span><br><span class="line">     System.out.print(<span class="string">"start:"</span>+m.start()); </span><br><span class="line">     System.out.println(<span class="string">" end:"</span>+m.end()); </span><br><span class="line">&#125; </span><br><span class="line">输出：</span><br><span class="line"><span class="number">456456</span> </span><br><span class="line">start:<span class="number">6</span> end:<span class="number">12</span> </span><br><span class="line"><span class="number">0532214</span> </span><br><span class="line">start:<span class="number">19</span> end:<span class="number">26</span> </span><br><span class="line"><span class="number">123</span> </span><br><span class="line">start:<span class="number">36</span> end:<span class="number">39</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=s.length();</span><br><span class="line">        <span class="keyword">if</span>(n&lt;<span class="number">1</span>||s==<span class="keyword">null</span>) <span class="keyword">return</span> s;</span><br><span class="line">        String res=<span class="string">""</span>;</span><br><span class="line">        <span class="keyword">boolean</span>[][] flag=<span class="keyword">new</span> <span class="keyword">boolean</span>[n][n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=n-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.charAt(i)==s.charAt(j)&amp;&amp;(j-i&lt;=<span class="number">1</span>||flag[i+<span class="number">1</span>][j-<span class="number">1</span>]))&#123;</span><br><span class="line">                    flag[i][j]=<span class="keyword">true</span>;</span><br><span class="line">                    <span class="keyword">if</span>(res.length()&lt;j-i+<span class="number">1</span>)</span><br><span class="line">                        res=s.substring(i,j+<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>可以看出，每执行一次find()，matcher对应的分组都会自动加一。start(),end(),group()三个方法的值都会改变,匹配到的子字符串的信息,以及它们的重载方法,也会改变成相应的信息. </p>
-<p>后面遇到有关正则表达式问题再进行补充。</p>
 
         </div>
         <footer class="article-footer">
@@ -189,7 +186,7 @@
 
 
 
-    <a data-url="http://Zhiyuancs.github.io/2019/09/22/java-正则表达式/" data-id="ck1m2qyev000uocno1wikq7kt" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://Zhiyuancs.github.io/2019/10/11/最长回文字符串/" data-id="ck1m2qyf80015ocnowy4w9lah" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -259,17 +256,19 @@
             "@type": "Person",
             "name": "Zhiyuan"
         },
-        "headline": "java 正则表达式",
+        "headline": "最长回文字符串",
         "image": "http://Zhiyuancs.github.io",
-        "keywords": "java",
-        "genre": "学习笔记",
-        "datePublished": "2019-09-22",
-        "dateCreated": "2019-09-22",
-        "dateModified": "2019-09-22",
-        "url": "http://Zhiyuancs.github.io/2019/09/22/java-正则表达式/",
-        "description": "题目地址：https://leetcode-cn.com/problems/string-to-integer-atoi/
-1234567891011121314151617181920212223242526272829import java.util.regex.*;class Solution &#123;       public static int myAtoi(String str)"
-        "wordCount": 505
+        "keywords": "动态规划",
+        "genre": "LeetCode",
+        "datePublished": "2019-10-11",
+        "dateCreated": "2019-10-11",
+        "dateModified": "2019-10-11",
+        "url": "http://Zhiyuancs.github.io/2019/10/11/最长回文字符串/",
+        "description": "https://leetcode-cn.com/problems/longest-palindromic-substring/solution/
+方法一：中心扩展法
+遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。
+12345678910111213141516171819202122232425262728class Solu"
+        "wordCount": 734
     }
 </script>
 
@@ -315,20 +314,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2019/09/26/Go-一/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            Go(一)
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2019/09/21/Mysql学习笔记（三）/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/10/10/JDBC连接池/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">Mysql学习笔记（三）</p>
+        <p class="article-nav-title">JDBC连接池&amp; JDBCTemplate</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -551,7 +540,7 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://Zhiyuancs.github.io/2019/09/22/java-正则表达式/';
+    var disqus_url = 'http://Zhiyuancs.github.io/2019/10/11/最长回文字符串/';
     
     (function() {
     var dsq = document.createElement('script');
