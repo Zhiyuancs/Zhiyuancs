@@ -6,24 +6,24 @@
     
 
     
-    <title>最长回文字符串 | Zhiyuan的博客</title>
+    <title>二分查找细节详解 | Zhiyuan的博客</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="动态规划">
+        <meta name="keywords" content="二分查找">
     
-    <meta name="description" content="https://leetcode-cn.com/problems/longest-palindromic-substring/solution/ 方法一：中心扩展法 遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。 12345678910111213141516171819202122232425262728class Solu">
-<meta name="keywords" content="动态规划">
+    <meta name="description" content="1、基本二分查找12345678910111213141516//常见场景：查找一个数int binarySearch(int[] nums, int target) &amp;#123;    int left = 0;     int right = nums.length - 1; // 注意    while(left &amp;lt;= right) &amp;#123;        int mid = (r">
+<meta name="keywords" content="二分查找">
 <meta property="og:type" content="article">
-<meta property="og:title" content="最长回文字符串">
-<meta property="og:url" content="http://Zhiyuancs.github.io/2019/10/11/最长回文字符串/index.html">
+<meta property="og:title" content="二分查找细节详解">
+<meta property="og:url" content="http://Zhiyuancs.github.io/2019/10/17/二分查找细节详解/index.html">
 <meta property="og:site_name" content="Zhiyuan的博客">
-<meta property="og:description" content="https://leetcode-cn.com/problems/longest-palindromic-substring/solution/ 方法一：中心扩展法 遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。 12345678910111213141516171819202122232425262728class Solu">
+<meta property="og:description" content="1、基本二分查找12345678910111213141516//常见场景：查找一个数int binarySearch(int[] nums, int target) &amp;#123;    int left = 0;     int right = nums.length - 1; // 注意    while(left &amp;lt;= right) &amp;#123;        int mid = (r">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-11T11:51:54.222Z">
+<meta property="og:updated_time" content="2019-10-17T08:43:01.779Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="最长回文字符串">
-<meta name="twitter:description" content="https://leetcode-cn.com/problems/longest-palindromic-substring/solution/ 方法一：中心扩展法 遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。 12345678910111213141516171819202122232425262728class Solu">
+<meta name="twitter:title" content="二分查找细节详解">
+<meta name="twitter:description" content="1、基本二分查找12345678910111213141516//常见场景：查找一个数int binarySearch(int[] nums, int target) &amp;#123;    int left = 0;     int right = nums.length - 1; // 注意    while(left &amp;lt;= right) &amp;#123;        int mid = (r">
     
 
     
@@ -130,19 +130,19 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/LeetCode/">LeetCode</a>
+    <a class="page-title-link" href="/categories/学习笔记/">学习笔记</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-最长回文字符串" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-二分查找细节详解" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        最长回文字符串
+        二分查找细节详解
         </h1>
     
 
@@ -152,8 +152,8 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2019/10/11/最长回文字符串/" class="article-date">
-            <time datetime="2019-10-11T11:49:41.000Z" itemprop="datePublished">2019-10-11</time>
+        <a href="/2019/10/17/二分查找细节详解/" class="article-date">
+            <time datetime="2019-10-17T07:39:42.000Z" itemprop="datePublished">2019-10-17</time>
         </a>
     </div>
 
@@ -162,22 +162,30 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/动态规划/">动态规划</a>
+        <a class="tag-link" href="/tags/二分查找/">二分查找</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p><a href="https://leetcode-cn.com/problems/longest-palindromic-substring/solution/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/longest-palindromic-substring/solution/</a></p>
-<p>方法一：中心扩展法</p>
-<p>遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s==<span class="keyword">null</span>||s.length()&lt;<span class="number">1</span>) <span class="keyword">return</span> s;</span><br><span class="line">        <span class="comment">//回文串左右位置</span></span><br><span class="line">        <span class="keyword">int</span> left=<span class="number">0</span>;<span class="keyword">int</span> right=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">            <span class="comment">//回文串长度为奇数</span></span><br><span class="line">            <span class="keyword">int</span> len1=lengthOfHuiwen(s,i,i);</span><br><span class="line">            <span class="comment">//长度为偶数</span></span><br><span class="line">            <span class="keyword">int</span> len2=lengthOfHuiwen(s,i,i+<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">int</span> len=Math.max(len1,len2);</span><br><span class="line">            <span class="keyword">if</span>(len&gt;right-left)&#123;</span><br><span class="line">                left=i-(len+<span class="number">1</span>)/<span class="number">2</span>+<span class="number">1</span>;</span><br><span class="line">                right=i+len/<span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.substring(left,right+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//left,right为中心字符串左右位置</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfHuiwen</span><span class="params">(String s,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> L=left,R=right;</span><br><span class="line">        <span class="keyword">while</span>(L&gt;=<span class="number">0</span>&amp;&amp;R&lt;s.length()&amp;&amp;s.charAt(L)==s.charAt(R))&#123;</span><br><span class="line">            L--;</span><br><span class="line">            R++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> R-L-<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h3 id="1、基本二分查找"><a href="#1、基本二分查找" class="headerlink" title="1、基本二分查找"></a>1、基本二分查找</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//常见场景：查找一个数</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">binarySearch</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>; </span><br><span class="line">    <span class="keyword">int</span> right = nums.length - <span class="number">1</span>; <span class="comment">// 注意</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(left &lt;= right) &#123;</span><br><span class="line">        <span class="keyword">int</span> mid = (right + left) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(nums[mid] == target)</span><br><span class="line">            <span class="keyword">return</span> mid; </span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &lt; target)</span><br><span class="line">            left = mid + <span class="number">1</span>; <span class="comment">// 注意</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &gt; target)</span><br><span class="line">            right = mid - <span class="number">1</span>; <span class="comment">// 注意</span></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>方法二：动态规划</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">（一）状态</span><br><span class="line">	f[<span class="built_in">i</span>][<span class="built_in">j</span>]表示s的第 <span class="built_in">i</span> 个字符到第 <span class="built_in">j</span> 个字符组成的子串，是否为回文串</span><br><span class="line">（二）转移方程</span><br><span class="line">	如果s的第 <span class="built_in">i</span> 个字符和第 <span class="built_in">j</span> 个字符相同的话，且 <span class="built_in">i</span> + <span class="number">1</span>, 到 <span class="built_in">j</span> - <span class="number">1</span> 的子串也是回文串的话，f[<span class="built_in">i</span>][<span class="built_in">j</span>] 也为回文串</span><br><span class="line">		f[<span class="built_in">i</span>][<span class="built_in">j</span>] = f[<span class="built_in">i</span> + <span class="number">1</span>][<span class="built_in">j</span> - <span class="number">1</span>] and s[<span class="built_in">i</span>] == s[<span class="built_in">j</span>]</span><br><span class="line">	稍微要注意的是，如果 <span class="built_in">i</span> == <span class="built_in">j</span> 或者 <span class="built_in">i</span> + <span class="number">1</span> == <span class="built_in">j</span> 的时候，也就是单个字符的子串和两个相邻字符的子串，就不需要f[<span class="built_in">i</span> + <span class="number">1</span>][<span class="built_in">j</span> - <span class="number">1</span>]了</span><br><span class="line">	注意遍历顺序，<span class="built_in">i</span> 从最后一个字符开始往前遍历，<span class="built_in">j</span> 从 <span class="built_in">i</span> 开始往后遍历，这样可以保证每个子问题都已经算好了。</span><br></pre></td></tr></table></figure>
+<p>1、为什么 while 循环的条件中是 &lt;=，而不是 &lt; ？</p>
+<p>答：因为初始化 right 的赋值是 nums.length-1，即最后一个元素的索引，而不是 nums.length。这二者可能出现在不同功能的二分查找中，区别是：前者相当于两端都闭区间 [left, right]，后者相当于左闭右开区间 [left, right)，因为索引大小为 nums.length 是越界的。</p>
+<p>我们这个算法中使用的是前者 <code>[left, right]</code> 两端都闭的区间。<strong>这个区间其实就是每次进行搜索的区间，我们不妨称为「搜索区间」</strong>。</p>
+<h3 id="2、寻找左侧边界的二分查找"><a href="#2、寻找左侧边界的二分查找" class="headerlink" title="2、寻找左侧边界的二分查找"></a>2、寻找左侧边界的二分查找</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对于注意点，主要从搜索区间和终止条件方面考虑</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">left_bound</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (nums.length == <span class="number">0</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> right = nums.length; <span class="comment">// 注意</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (left &lt; right) &#123; <span class="comment">// 注意</span></span><br><span class="line">        <span class="keyword">int</span> mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (nums[mid] == target) &#123;</span><br><span class="line">            right = mid;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">            left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &gt; target) &#123;</span><br><span class="line">            right = mid; <span class="comment">// 注意</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=s.length();</span><br><span class="line">        <span class="keyword">if</span>(n&lt;<span class="number">1</span>||s==<span class="keyword">null</span>) <span class="keyword">return</span> s;</span><br><span class="line">        String res=<span class="string">""</span>;</span><br><span class="line">        <span class="keyword">boolean</span>[][] flag=<span class="keyword">new</span> <span class="keyword">boolean</span>[n][n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=n-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.charAt(i)==s.charAt(j)&amp;&amp;(j-i&lt;=<span class="number">1</span>||flag[i+<span class="number">1</span>][j-<span class="number">1</span>]))&#123;</span><br><span class="line">                    flag[i][j]=<span class="keyword">true</span>;</span><br><span class="line">                    <span class="keyword">if</span>(res.length()&lt;j-i+<span class="number">1</span>)</span><br><span class="line">                        res=s.substring(i,j+<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>1、为什么 left = mid + 1，right = mid ？和之前的算法不一样？</p>
+<p>答：因为我们的「搜索区间」是 <code>[left, right)</code> 左闭右开，所以当 nums[mid] 被检测之后，下一步的搜索区间应该去掉 mid 分割成两个区间，即 <code>[left, mid)</code> 或 <code>[mid + 1, right)</code>。（搜索区间格式不变）</p>
+<p>2、为什么该算法能够搜索左侧边界？</p>
+<p>答：关键在于对于 <code>nums[mid]</code> == <code>target</code> 这种情况的处理：找到target值时不直接返回，而是缩小搜索上边界。</p>
+<p>3、为什么返回 <code>left</code> 而不是 <code>right</code>？</p>
+<p>答：都是一样的，因为 <code>while</code> 终止的条件是 <code>left == right</code>。</p>
+<h3 id="3、寻找右侧边界的二分查找"><a href="#3、寻找右侧边界的二分查找" class="headerlink" title="3、寻找右侧边界的二分查找"></a>3、寻找右侧边界的二分查找</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">right_bound</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (nums.length == <span class="number">0</span>) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> left = <span class="number">0</span>, right = nums.length;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">        <span class="keyword">int</span> mid = (left + right) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (nums[mid] == target) &#123;</span><br><span class="line">            left = mid + <span class="number">1</span>; <span class="comment">// 注意</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &lt; target) &#123;</span><br><span class="line">            left = mid + <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[mid] &gt; target) &#123;</span><br><span class="line">            right = mid;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> left - <span class="number">1</span>; <span class="comment">// 注意</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/submissions/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/submissions/</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] searchRange(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span>[] index=&#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">if</span>(nums.length&lt;<span class="number">1</span>) <span class="keyword">return</span> index;</span><br><span class="line">        <span class="keyword">int</span> right,left;  <span class="comment">//左右边界</span></span><br><span class="line">        <span class="comment">//寻找左侧边界</span></span><br><span class="line">        <span class="keyword">int</span> low=<span class="number">0</span>,high=nums.length;</span><br><span class="line">        <span class="keyword">int</span> mid;</span><br><span class="line">        <span class="keyword">while</span>(low&lt;high)&#123;</span><br><span class="line">            mid=(low+high)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid]==target)&#123;</span><br><span class="line">                high=mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums[mid]&gt;target)&#123;</span><br><span class="line">                high=mid;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                low=mid+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//没有找到直接返回</span></span><br><span class="line">        <span class="keyword">if</span>((low==nums.length&amp;&amp;nums[low-<span class="number">1</span>]!=target)||(low==<span class="number">0</span>&amp;&amp;nums[low]!=target)||nums[low]!=target)</span><br><span class="line">            <span class="keyword">return</span> index;</span><br><span class="line">        left=low;</span><br><span class="line">        <span class="comment">//寻找右侧边界</span></span><br><span class="line">        low=<span class="number">0</span>;high=nums.length;</span><br><span class="line">        <span class="keyword">while</span>(low&lt;high)&#123;</span><br><span class="line">            mid=(low+high)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid]==target)&#123;</span><br><span class="line">                low=mid+<span class="number">1</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums[mid]&gt;target)&#123;</span><br><span class="line">                high=mid;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                low=mid+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        right=low-<span class="number">1</span>;</span><br><span class="line">            </span><br><span class="line">        index[<span class="number">0</span>]=left;index[<span class="number">1</span>]=right;          </span><br><span class="line">        <span class="keyword">return</span> index;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
         </div>
@@ -186,7 +194,7 @@
 
 
 
-    <a data-url="http://Zhiyuancs.github.io/2019/10/11/最长回文字符串/" data-id="ck1ugin6z001f20noq5uks4l2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://Zhiyuancs.github.io/2019/10/17/二分查找细节详解/" data-id="ck1ugin6g000x20noju3spzwd" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -256,19 +264,16 @@
             "@type": "Person",
             "name": "Zhiyuan"
         },
-        "headline": "最长回文字符串",
+        "headline": "二分查找细节详解",
         "image": "http://Zhiyuancs.github.io",
-        "keywords": "动态规划",
-        "genre": "LeetCode",
-        "datePublished": "2019-10-11",
-        "dateCreated": "2019-10-11",
-        "dateModified": "2019-10-11",
-        "url": "http://Zhiyuancs.github.io/2019/10/11/最长回文字符串/",
-        "description": "https://leetcode-cn.com/problems/longest-palindromic-substring/solution/
-方法一：中心扩展法
-遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。
-12345678910111213141516171819202122232425262728class Solu"
-        "wordCount": 734
+        "keywords": "二分查找",
+        "genre": "学习笔记",
+        "datePublished": "2019-10-17",
+        "dateCreated": "2019-10-17",
+        "dateModified": "2019-10-17",
+        "url": "http://Zhiyuancs.github.io/2019/10/17/二分查找细节详解/",
+        "description": "1、基本二分查找12345678910111213141516//常见场景：查找一个数int binarySearch(int[] nums, int target) &#123;    int left = 0;     int right = nums.length - 1; // 注意    while(left &lt;= right) &#123;        int mid = (r"
+        "wordCount": 1276
     }
 </script>
 
@@ -314,20 +319,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2019/10/12/电话号码的字母组合/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            电话号码的字母组合
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2019/10/10/JDBC连接池/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/10/17/Java随笔-对象的克隆/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">JDBC连接池&amp; JDBCTemplate</p>
+        <p class="article-nav-title">Java随笔--对象的克隆</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -550,7 +545,7 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://Zhiyuancs.github.io/2019/10/11/最长回文字符串/';
+    var disqus_url = 'http://Zhiyuancs.github.io/2019/10/17/二分查找细节详解/';
     
     (function() {
     var dsq = document.createElement('script');

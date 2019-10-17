@@ -6,24 +6,24 @@
     
 
     
-    <title>最长回文字符串 | Zhiyuan的博客</title>
+    <title>组合总数 | Zhiyuan的博客</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="动态规划">
+        <meta name="keywords" content="回溯">
     
-    <meta name="description" content="https://leetcode-cn.com/problems/longest-palindromic-substring/solution/ 方法一：中心扩展法 遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。 12345678910111213141516171819202122232425262728class Solu">
-<meta name="keywords" content="动态规划">
+    <meta name="description" content="https://leetcode-cn.com/problems/combination-sum/solution/hui-shuo-suan-fa-di-gui-java-by-longchenghuang/ 总结：回溯主要是通过递归对所有情况进行遍历，通过剪枝降低复杂度。难点在于如何通过剪枝降低系统栈深度，降低时间复杂度？ 后面选取的数不能比前面选的数还要小，即 “更深层的边上的数值不能比它上">
+<meta name="keywords" content="回溯">
 <meta property="og:type" content="article">
-<meta property="og:title" content="最长回文字符串">
-<meta property="og:url" content="http://Zhiyuancs.github.io/2019/10/11/最长回文字符串/index.html">
+<meta property="og:title" content="组合总数">
+<meta property="og:url" content="http://Zhiyuancs.github.io/2019/10/17/组合总数/index.html">
 <meta property="og:site_name" content="Zhiyuan的博客">
-<meta property="og:description" content="https://leetcode-cn.com/problems/longest-palindromic-substring/solution/ 方法一：中心扩展法 遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。 12345678910111213141516171819202122232425262728class Solu">
+<meta property="og:description" content="https://leetcode-cn.com/problems/combination-sum/solution/hui-shuo-suan-fa-di-gui-java-by-longchenghuang/ 总结：回溯主要是通过递归对所有情况进行遍历，通过剪枝降低复杂度。难点在于如何通过剪枝降低系统栈深度，降低时间复杂度？ 后面选取的数不能比前面选的数还要小，即 “更深层的边上的数值不能比它上">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-11T11:51:54.222Z">
+<meta property="og:updated_time" content="2019-10-17T07:29:19.724Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="最长回文字符串">
-<meta name="twitter:description" content="https://leetcode-cn.com/problems/longest-palindromic-substring/solution/ 方法一：中心扩展法 遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。 12345678910111213141516171819202122232425262728class Solu">
+<meta name="twitter:title" content="组合总数">
+<meta name="twitter:description" content="https://leetcode-cn.com/problems/combination-sum/solution/hui-shuo-suan-fa-di-gui-java-by-longchenghuang/ 总结：回溯主要是通过递归对所有情况进行遍历，通过剪枝降低复杂度。难点在于如何通过剪枝降低系统栈深度，降低时间复杂度？ 后面选取的数不能比前面选的数还要小，即 “更深层的边上的数值不能比它上">
     
 
     
@@ -135,14 +135,14 @@
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-最长回文字符串" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-组合总数" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        最长回文字符串
+        组合总数
         </h1>
     
 
@@ -152,8 +152,8 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2019/10/11/最长回文字符串/" class="article-date">
-            <time datetime="2019-10-11T11:49:41.000Z" itemprop="datePublished">2019-10-11</time>
+        <a href="/2019/10/17/组合总数/" class="article-date">
+            <time datetime="2019-10-17T07:24:01.000Z" itemprop="datePublished">2019-10-17</time>
         </a>
     </div>
 
@@ -162,22 +162,17 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/动态规划/">动态规划</a>
+        <a class="tag-link" href="/tags/回溯/">回溯</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p><a href="https://leetcode-cn.com/problems/longest-palindromic-substring/solution/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/longest-palindromic-substring/solution/</a></p>
-<p>方法一：中心扩展法</p>
-<p>遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s==<span class="keyword">null</span>||s.length()&lt;<span class="number">1</span>) <span class="keyword">return</span> s;</span><br><span class="line">        <span class="comment">//回文串左右位置</span></span><br><span class="line">        <span class="keyword">int</span> left=<span class="number">0</span>;<span class="keyword">int</span> right=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">            <span class="comment">//回文串长度为奇数</span></span><br><span class="line">            <span class="keyword">int</span> len1=lengthOfHuiwen(s,i,i);</span><br><span class="line">            <span class="comment">//长度为偶数</span></span><br><span class="line">            <span class="keyword">int</span> len2=lengthOfHuiwen(s,i,i+<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">int</span> len=Math.max(len1,len2);</span><br><span class="line">            <span class="keyword">if</span>(len&gt;right-left)&#123;</span><br><span class="line">                left=i-(len+<span class="number">1</span>)/<span class="number">2</span>+<span class="number">1</span>;</span><br><span class="line">                right=i+len/<span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.substring(left,right+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//left,right为中心字符串左右位置</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfHuiwen</span><span class="params">(String s,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> L=left,R=right;</span><br><span class="line">        <span class="keyword">while</span>(L&gt;=<span class="number">0</span>&amp;&amp;R&lt;s.length()&amp;&amp;s.charAt(L)==s.charAt(R))&#123;</span><br><span class="line">            L--;</span><br><span class="line">            R++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> R-L-<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>方法二：动态规划</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">（一）状态</span><br><span class="line">	f[<span class="built_in">i</span>][<span class="built_in">j</span>]表示s的第 <span class="built_in">i</span> 个字符到第 <span class="built_in">j</span> 个字符组成的子串，是否为回文串</span><br><span class="line">（二）转移方程</span><br><span class="line">	如果s的第 <span class="built_in">i</span> 个字符和第 <span class="built_in">j</span> 个字符相同的话，且 <span class="built_in">i</span> + <span class="number">1</span>, 到 <span class="built_in">j</span> - <span class="number">1</span> 的子串也是回文串的话，f[<span class="built_in">i</span>][<span class="built_in">j</span>] 也为回文串</span><br><span class="line">		f[<span class="built_in">i</span>][<span class="built_in">j</span>] = f[<span class="built_in">i</span> + <span class="number">1</span>][<span class="built_in">j</span> - <span class="number">1</span>] and s[<span class="built_in">i</span>] == s[<span class="built_in">j</span>]</span><br><span class="line">	稍微要注意的是，如果 <span class="built_in">i</span> == <span class="built_in">j</span> 或者 <span class="built_in">i</span> + <span class="number">1</span> == <span class="built_in">j</span> 的时候，也就是单个字符的子串和两个相邻字符的子串，就不需要f[<span class="built_in">i</span> + <span class="number">1</span>][<span class="built_in">j</span> - <span class="number">1</span>]了</span><br><span class="line">	注意遍历顺序，<span class="built_in">i</span> 从最后一个字符开始往前遍历，<span class="built_in">j</span> 从 <span class="built_in">i</span> 开始往后遍历，这样可以保证每个子问题都已经算好了。</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=s.length();</span><br><span class="line">        <span class="keyword">if</span>(n&lt;<span class="number">1</span>||s==<span class="keyword">null</span>) <span class="keyword">return</span> s;</span><br><span class="line">        String res=<span class="string">""</span>;</span><br><span class="line">        <span class="keyword">boolean</span>[][] flag=<span class="keyword">new</span> <span class="keyword">boolean</span>[n][n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=n-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.charAt(i)==s.charAt(j)&amp;&amp;(j-i&lt;=<span class="number">1</span>||flag[i+<span class="number">1</span>][j-<span class="number">1</span>]))&#123;</span><br><span class="line">                    flag[i][j]=<span class="keyword">true</span>;</span><br><span class="line">                    <span class="keyword">if</span>(res.length()&lt;j-i+<span class="number">1</span>)</span><br><span class="line">                        res=s.substring(i,j+<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <p><a href="https://leetcode-cn.com/problems/combination-sum/solution/hui-shuo-suan-fa-di-gui-java-by-longchenghuang/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/combination-sum/solution/hui-shuo-suan-fa-di-gui-java-by-longchenghuang/</a></p>
+<p>总结：回溯主要是通过递归对所有情况进行遍历，通过剪枝降低复杂度。难点在于如何通过剪枝降低系统栈深度，降低时间复杂度？</p>
+<p>后面选取的数不能比前面选的数还要小，即 “更深层的边上的数值不能比它上层的边上的数值小”，本题通过这种方式降低复杂度。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">List&lt;List&lt;Integer&gt;&gt; set=<span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</span><br><span class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; combinationSum(<span class="keyword">int</span>[] candidates, <span class="keyword">int</span> target) &#123;</span><br><span class="line">    <span class="comment">//排序</span></span><br><span class="line">    Arrays.sort(candidates); </span><br><span class="line">    List&lt;Integer&gt; list=<span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">    trace(<span class="number">0</span>,list,candidates,target);</span><br><span class="line">    <span class="keyword">return</span> set;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">trace</span><span class="params">(<span class="keyword">int</span> index,List&lt;Integer&gt; list,<span class="keyword">int</span>[] candidates,<span class="keyword">int</span> tempTarget)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(tempTarget==<span class="number">0</span>) &#123;</span><br><span class="line">        <span class="comment">//引用类型，需要创建新的对象</span></span><br><span class="line">        List&lt;Integer&gt; num=<span class="keyword">new</span> ArrayList&lt;Integer&gt;(list);</span><br><span class="line">        set.add(num);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(index&gt;=candidates.length||tempTarget&lt;candidates[index]) <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">//以index为起点，就是考虑了去重的问题，且考虑到了数字可以多次使用的条件</span></span><br><span class="line">    <span class="comment">//通过这种方式，迭代会一直从同一个下标开始，直到不符合条件，下标加一，</span></span><br><span class="line">    <span class="comment">//对比i从零开始的情况</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=index;i&lt;candidates.length;i++)&#123;</span><br><span class="line">        list.add(candidates[i]);</span><br><span class="line">        trace(i,list,candidates,tempTarget-candidates[i]);</span><br><span class="line">        <span class="comment">//回溯的关键，进行同一层的下一步时，需要先删除这一层上一步的元素</span></span><br><span class="line">        list.remove(list.size()-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
         </div>
@@ -186,7 +181,7 @@
 
 
 
-    <a data-url="http://Zhiyuancs.github.io/2019/10/11/最长回文字符串/" data-id="ck1ugin6z001f20noq5uks4l2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://Zhiyuancs.github.io/2019/10/17/组合总数/" data-id="ck1ugin6s001820nokl3x6dt3" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -256,19 +251,18 @@
             "@type": "Person",
             "name": "Zhiyuan"
         },
-        "headline": "最长回文字符串",
+        "headline": "组合总数",
         "image": "http://Zhiyuancs.github.io",
-        "keywords": "动态规划",
+        "keywords": "回溯",
         "genre": "LeetCode",
-        "datePublished": "2019-10-11",
-        "dateCreated": "2019-10-11",
-        "dateModified": "2019-10-11",
-        "url": "http://Zhiyuancs.github.io/2019/10/11/最长回文字符串/",
-        "description": "https://leetcode-cn.com/problems/longest-palindromic-substring/solution/
-方法一：中心扩展法
-遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。
-12345678910111213141516171819202122232425262728class Solu"
-        "wordCount": 734
+        "datePublished": "2019-10-17",
+        "dateCreated": "2019-10-17",
+        "dateModified": "2019-10-17",
+        "url": "http://Zhiyuancs.github.io/2019/10/17/组合总数/",
+        "description": "https://leetcode-cn.com/problems/combination-sum/solution/hui-shuo-suan-fa-di-gui-java-by-longchenghuang/
+总结：回溯主要是通过递归对所有情况进行遍历，通过剪枝降低复杂度。难点在于如何通过剪枝降低系统栈深度，降低时间复杂度？
+后面选取的数不能比前面选的数还要小，即 “更深层的边上的数值不能比它上"
+        "wordCount": 230
     }
 </script>
 
@@ -314,20 +308,20 @@
         
 <nav id="article-nav">
     
-        <a href="/2019/10/12/电话号码的字母组合/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2019/10/17/Java随笔-对象的克隆/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">下一篇</strong>
         <p class="article-nav-title">
         
-            电话号码的字母组合
+            Java随笔--对象的克隆
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/2019/10/10/JDBC连接池/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/10/12/电话号码的字母组合/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">JDBC连接池&amp; JDBCTemplate</p>
+        <p class="article-nav-title">电话号码的字母组合</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -550,7 +544,7 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://Zhiyuancs.github.io/2019/10/11/最长回文字符串/';
+    var disqus_url = 'http://Zhiyuancs.github.io/2019/10/17/组合总数/';
     
     (function() {
     var dsq = document.createElement('script');

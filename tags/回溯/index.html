@@ -6,7 +6,7 @@
     
 
     
-    <title>标签: Hexo | Zhiyuan的博客</title>
+    <title>标签: 回溯 | Zhiyuan的博客</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -14,7 +14,7 @@
 <meta name="keywords" content="初学者">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Zhiyuan的博客">
-<meta property="og:url" content="http://Zhiyuancs.github.io/tags/Hexo/index.html">
+<meta property="og:url" content="http://Zhiyuancs.github.io/tags/回溯/index.html">
 <meta property="og:site_name" content="Zhiyuan的博客">
 <meta property="og:description" content="NEU">
 <meta property="og:locale" content="zh-CN">
@@ -127,7 +127,7 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-tag"></i>标签: <em>Hexo</em>
+    <i class="icon fa fa-tag"></i>标签: <em>回溯</em>
     </h1>
 </div>
 
@@ -151,7 +151,7 @@
         <article class="article article-summary">
     <div class="article-summary-inner">
         
-        <a href="/2019/09/09/Hexo-Hueman-Insight-Search配置/" class="thumbnail">
+        <a href="/2019/10/17/组合总数/" class="thumbnail">
     
     
         <span class="thumbnail-image thumbnail-none"></span>
@@ -161,7 +161,7 @@
 <span class="comment-counter">
     <i class="fa fa-comments-o"></i>
     
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://Zhiyuancs.github.io/2019/09/09/Hexo-Hueman-Insight-Search配置/">0</span>
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://Zhiyuancs.github.io/2019/10/17/组合总数/">0</span>
     
 </span>
 
@@ -172,21 +172,70 @@
         
         <div class="article-meta">
             <div class="category">
-            
+            <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
             </div>
-            <div class="date"><time datetime="2019-09-09T07:23:00.000Z" itemprop="datePublished">2019-09-09</time></div>
+            <div class="date"><time datetime="2019-10-17T07:24:01.000Z" itemprop="datePublished">2019-10-17</time></div>
         </div>
         
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2019/09/09/Hexo-Hueman-Insight-Search配置/">Hexo-Hueman Insight-Search配置</a>
+        <a href="/2019/10/17/组合总数/">组合总数</a>
         </h1>
     
 
         <p class="article-excerpt">
-            博客中的搜索功能一直无法使用，使用npm install -S hexo-generator-json-content安装插件后，仍然无法使用。
-通过阅读hexo-generator-json-content的源码配置文件后得知，还需要对hexo的config文件做相应配置：
-1234567891011121314151617181920212223242526272829303132333435
+            https://leetcode-cn.com/problems/combination-sum/solution/hui-shuo-suan-fa-di-gui-java-by-longchenghuang/
+总结：回溯主要是通过递归对所有情况进行遍历，通过剪枝降低复杂度。难点在于如何通过剪枝降低系统栈深度，降低时间复杂度？
+后面选取的数不能比前面选的数还要小，即 “更深层的边上的数值不能比它上
+        </p>
+    </div>
+</article>
+    
+
+    
+    
+    
+    
+        <article class="article article-summary">
+    <div class="article-summary-inner">
+        
+        <a href="/2019/10/12/电话号码的字母组合/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+    
+        
+<span class="comment-counter">
+    <i class="fa fa-comments-o"></i>
+    
+        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://Zhiyuancs.github.io/2019/10/12/电话号码的字母组合/">0</span>
+    
+</span>
+
+
+    
+</a>
+
+        
+        <div class="article-meta">
+            <div class="category">
+            <a class="article-category-link" href="/categories/LeetCode/">LeetCode</a>
+            </div>
+            <div class="date"><time datetime="2019-10-12T12:08:52.000Z" itemprop="datePublished">2019-10-12</time></div>
+        </div>
+        
+    
+        <h1 class="article-title" itemprop="name">
+        <a href="/2019/10/12/电话号码的字母组合/">电话号码的字母组合</a>
+        </h1>
+    
+
+        <p class="article-excerpt">
+            https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/
+思路：DFS、回溯（没有剪枝，解空间即为答案）
+改进：字符串相加可以使用StringBuffer。
+1234567891011121314151617181920212223242526272829303132333435class Solution &#
         </p>
     </div>
 </article>

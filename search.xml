@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[二分查找细节详解]]></title>
+    <url>%2F2019%2F10%2F17%2F%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E7%BB%86%E8%8A%82%E8%AF%A6%E8%A7%A3%2F</url>
+    <content type="text"><![CDATA[1、基本二分查找12345678910111213141516//常见场景：查找一个数int binarySearch(int[] nums, int target) &#123; int left = 0; int right = nums.length - 1; // 注意 while(left &lt;= right) &#123; int mid = (right + left) / 2; if(nums[mid] == target) return mid; else if (nums[mid] &lt; target) left = mid + 1; // 注意 else if (nums[mid] &gt; target) right = mid - 1; // 注意 &#125; return -1;&#125; 1、为什么 while 循环的条件中是 &lt;=，而不是 &lt; ？ 答：因为初始化 right 的赋值是 nums.length-1，即最后一个元素的索引，而不是 nums.length。这二者可能出现在不同功能的二分查找中，区别是：前者相当于两端都闭区间 [left, right]，后者相当于左闭右开区间 [left, right)，因为索引大小为 nums.length 是越界的。 我们这个算法中使用的是前者 [left, right] 两端都闭的区间。这个区间其实就是每次进行搜索的区间，我们不妨称为「搜索区间」。 2、寻找左侧边界的二分查找123456789101112131415161718//对于注意点，主要从搜索区间和终止条件方面考虑int left_bound(int[] nums, int target) &#123; if (nums.length == 0) return -1; int left = 0; int right = nums.length; // 注意 while (left &lt; right) &#123; // 注意 int mid = (left + right) / 2; if (nums[mid] == target) &#123; right = mid; &#125; else if (nums[mid] &lt; target) &#123; left = mid + 1; &#125; else if (nums[mid] &gt; target) &#123; right = mid; // 注意 &#125; &#125; return left;&#125; 1、为什么 left = mid + 1，right = mid ？和之前的算法不一样？ 答：因为我们的「搜索区间」是 [left, right) 左闭右开，所以当 nums[mid] 被检测之后，下一步的搜索区间应该去掉 mid 分割成两个区间，即 [left, mid) 或 [mid + 1, right)。（搜索区间格式不变） 2、为什么该算法能够搜索左侧边界？ 答：关键在于对于 nums[mid] == target 这种情况的处理：找到target值时不直接返回，而是缩小搜索上边界。 3、为什么返回 left 而不是 right？ 答：都是一样的，因为 while 终止的条件是 left == right。 3、寻找右侧边界的二分查找12345678910111213141516int right_bound(int[] nums, int target) &#123; if (nums.length == 0) return -1; int left = 0, right = nums.length; while (left &lt; right) &#123; int mid = (left + right) / 2; if (nums[mid] == target) &#123; left = mid + 1; // 注意 &#125; else if (nums[mid] &lt; target) &#123; left = mid + 1; &#125; else if (nums[mid] &gt; target) &#123; right = mid; &#125; &#125; return left - 1; // 注意&#125; https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/submissions/ 12345678910111213141516171819202122232425262728293031323334353637383940class Solution &#123; public int[] searchRange(int[] nums, int target) &#123; int[] index=&#123;-1,-1&#125;; if(nums.length&lt;1) return index; int right,left; //左右边界 //寻找左侧边界 int low=0,high=nums.length; int mid; while(low&lt;high)&#123; mid=(low+high)/2; if(nums[mid]==target)&#123; high=mid; &#125;else if(nums[mid]&gt;target)&#123; high=mid; &#125;else&#123; low=mid+1; &#125; &#125; //没有找到直接返回 if((low==nums.length&amp;&amp;nums[low-1]!=target)||(low==0&amp;&amp;nums[low]!=target)||nums[low]!=target) return index; left=low; //寻找右侧边界 low=0;high=nums.length; while(low&lt;high)&#123; mid=(low+high)/2; if(nums[mid]==target)&#123; low=mid+1; &#125;else if(nums[mid]&gt;target)&#123; high=mid; &#125;else&#123; low=mid+1; &#125; &#125; right=low-1; index[0]=left;index[1]=right; return index; &#125;&#125;]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>二分查找</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Java随笔--对象的克隆]]></title>
+    <url>%2F2019%2F10%2F17%2FJava%E9%9A%8F%E7%AC%94-%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%8B%E9%9A%86%2F</url>
+    <content type="text"><![CDATA[java的引用类型（包括类、接口、数组等复杂类型）是无法通过等号直接赋值的。 12345678910111213141516public class GoodsTest &#123; public static void main(String[] args)&#123; Goods goodsA = new Goods("GoodsA",20); Goods goodsB = goodsA; System.out.println("Before Change:"); goodsA.print(); goodsB.print(); goodsB.setTitle("GoodsB"); goodsB.setPrice(50); System.out.println("After Change:"); goodsA.print(); goodsB.print(); &#125;&#125;//修改goodsB,goodsA也会发生变化，两个变量指向同一个地址 如果要实现对象的复制，需要重写clone方法，所有类都继承自Object类，该类有一个protected的clone方法。 12345678910111213141516171819202122//要使用克隆方法需要实现Cloneable接口public class Goods implements Cloneable&#123; private String title; private double price; public Goods(String aTitle, double aPrice)&#123; title = aTitle; price = aPrice; &#125; //这里重载了接口的clone方法 @Override protected Object clone()&#123; Goods g = null; try&#123; //使用super来引用父类的成分，用this来引用当前对象 g = (Goods)super.clone(); &#125;catch (CloneNotSupportedException e)&#123; System.out.println(e.toString()); &#125; return g; &#125; 如果一个类的成员变量包含另一个类的对象，使用上述方法只能克隆该类的非引用类型，引用类型仍然指向同一个地址。解决这个问题需要使用深克隆（序列化、反序列化）。下面例子中Cart和Goods类都需要实现Serializable接口。 12345678910111213141516171819202122232425import java.io.*;public class Cart implements Serializable&#123; //实例域 Goods goodsList = new Goods("",0);//简单起见，这里只放了一个商品 double budget = 0.0;//预算 //构造函数 public Cart(double aBudget)&#123; budget = aBudget; &#125; public Object deepClone() throws IOException, OptionalDataException,ClassNotFoundException &#123; // 将对象写到流里 ByteArrayOutputStream bo = new ByteArrayOutputStream(); ObjectOutputStream oo = new ObjectOutputStream(bo); oo.writeObject(this); // 从流里读出来 ByteArrayInputStream bi = new ByteArrayInputStream(bo.toByteArray()); ObjectInputStream oi = new ObjectInputStream(bi); return (oi.readObject()); &#125;&#125;public class Goods implements Serializable&#123;……&#125;]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[组合总数]]></title>
+    <url>%2F2019%2F10%2F17%2F%E7%BB%84%E5%90%88%E6%80%BB%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[https://leetcode-cn.com/problems/combination-sum/solution/hui-shuo-suan-fa-di-gui-java-by-longchenghuang/ 总结：回溯主要是通过递归对所有情况进行遍历，通过剪枝降低复杂度。难点在于如何通过剪枝降低系统栈深度，降低时间复杂度？ 后面选取的数不能比前面选的数还要小，即 “更深层的边上的数值不能比它上层的边上的数值小”，本题通过这种方式降低复杂度。 1234567891011121314151617181920212223242526List&lt;List&lt;Integer&gt;&gt; set=new ArrayList&lt;List&lt;Integer&gt;&gt;();public List&lt;List&lt;Integer&gt;&gt; combinationSum(int[] candidates, int target) &#123; //排序 Arrays.sort(candidates); List&lt;Integer&gt; list=new ArrayList&lt;Integer&gt;(); trace(0,list,candidates,target); return set;&#125;public void trace(int index,List&lt;Integer&gt; list,int[] candidates,int tempTarget)&#123; if(tempTarget==0) &#123; //引用类型，需要创建新的对象 List&lt;Integer&gt; num=new ArrayList&lt;Integer&gt;(list); set.add(num); return; &#125; if(index&gt;=candidates.length||tempTarget&lt;candidates[index]) return; //以index为起点，就是考虑了去重的问题，且考虑到了数字可以多次使用的条件 //通过这种方式，迭代会一直从同一个下标开始，直到不符合条件，下标加一， //对比i从零开始的情况 for(int i=index;i&lt;candidates.length;i++)&#123; list.add(candidates[i]); trace(i,list,candidates,tempTarget-candidates[i]); //回溯的关键，进行同一层的下一步时，需要先删除这一层上一步的元素 list.remove(list.size()-1); &#125;&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>回溯</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[电话号码的字母组合]]></title>
+    <url>%2F2019%2F10%2F12%2F%E7%94%B5%E8%AF%9D%E5%8F%B7%E7%A0%81%E7%9A%84%E5%AD%97%E6%AF%8D%E7%BB%84%E5%90%88%2F</url>
+    <content type="text"><![CDATA[https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/ 思路：DFS、回溯（没有剪枝，解空间即为答案） 改进：字符串相加可以使用StringBuffer。 1234567891011121314151617181920212223242526272829303132333435class Solution &#123; //两个大括号的方式初始化(本质上是匿名内部类 + 实例化代码块儿) Map&lt;String,String&gt; hashMap=new HashMap&lt;String,String&gt;()&#123;&#123; put("2","abc"); put("3","def"); put("4","ghi"); put("5","jkl"); put("6","mno"); put("7","pqrs"); put("8","tuv"); put("9","wxyz"); &#125;&#125;; public List&lt;String&gt; letterCombinations(String digits) &#123; List&lt;String&gt; list=new ArrayList&lt;String&gt;(); if(digits.length()&lt;1||digits==null) return list; String str=String.valueOf(digits.charAt(0)); for(int i=0;i&lt;hashMap.get(str).length();i++)&#123; String s=String.valueOf(hashMap.get(str).charAt(i)); backTrace(list,s,digits,1); &#125; return list; &#125; //dep为深度，这里指字符的索引;s为前面映射的字符串 public void backTrace(List&lt;String&gt; list,String s,String digits,int dep)&#123; if(digits.length()==dep)&#123; list.add(s); return; &#125; String str=String.valueOf(digits.charAt(dep)); for(int i=0;i&lt;hashMap.get(str).length();i++)&#123; String s1=s+String.valueOf(hashMap.get(str).charAt(i)); backTrace(list,s1,digits,dep+1); &#125; &#125;&#125;]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>回溯</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[最长回文字符串]]></title>
     <url>%2F2019%2F10%2F11%2F%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%97%E7%AC%A6%E4%B8%B2%2F</url>
     <content type="text"><![CDATA[https://leetcode-cn.com/problems/longest-palindromic-substring/solution/ 方法一：中心扩展法 遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。 12345678910111213141516171819202122232425262728class Solution &#123; public String longestPalindrome(String s) &#123; if(s==null||s.length()&lt;1) return s; //回文串左右位置 int left=0;int right=0; for(int i=0;i&lt;s.length();i++)&#123; //回文串长度为奇数 int len1=lengthOfHuiwen(s,i,i); //长度为偶数 int len2=lengthOfHuiwen(s,i,i+1); int len=Math.max(len1,len2); if(len&gt;right-left)&#123; left=i-(len+1)/2+1; right=i+len/2; &#125; &#125; return s.substring(left,right+1); &#125; //left,right为中心字符串左右位置 public int lengthOfHuiwen(String s,int left,int right)&#123; int L=left,R=right; while(L&gt;=0&amp;&amp;R&lt;s.length()&amp;&amp;s.charAt(L)==s.charAt(R))&#123; L--; R++; &#125; return R-L-1; &#125;&#125; 方法二：动态规划 1234567（一）状态 f[i][j]表示s的第 i 个字符到第 j 个字符组成的子串，是否为回文串（二）转移方程 如果s的第 i 个字符和第 j 个字符相同的话，且 i + 1, 到 j - 1 的子串也是回文串的话，f[i][j] 也为回文串 f[i][j] = f[i + 1][j - 1] and s[i] == s[j] 稍微要注意的是，如果 i == j 或者 i + 1 == j 的时候，也就是单个字符的子串和两个相邻字符的子串，就不需要f[i + 1][j - 1]了 注意遍历顺序，i 从最后一个字符开始往前遍历，j 从 i 开始往后遍历，这样可以保证每个子问题都已经算好了。 12345678910111213141516171819class Solution &#123; public String longestPalindrome(String s) &#123; int n=s.length(); if(n&lt;1||s==null) return s; String res=""; boolean[][] flag=new boolean[n][n]; for(int i=n-1;i&gt;=0;i--)&#123; for(int j=i;j&lt;n;j++)&#123; if(s.charAt(i)==s.charAt(j)&amp;&amp;(j-i&lt;=1||flag[i+1][j-1]))&#123; flag[i][j]=true; if(res.length()&lt;j-i+1) res=s.substring(i,j+1); &#125; &#125; &#125; return res; &#125;&#125;]]></content>
@@ -78,14 +122,14 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[java 正则表达式]]></title>
+    <title><![CDATA[java随笔--正则表达式]]></title>
     <url>%2F2019%2F09%2F22%2Fjava-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[题目地址：https://leetcode-cn.com/problems/string-to-integer-atoi/ 1234567891011121314151617181920212223242526272829import java.util.regex.*;class Solution &#123; public static int myAtoi(String str) &#123; str=str.trim(); String pattern="^[\\+\\-\\d]\\d*";//正则表达式，表示以正号或负号或数字开头，且后面是0个或多个数字 Pattern p=Pattern.compile(pattern); Matcher m=p.matcher(str); String res=""; if(m.find())&#123;//能匹配到 res=str.substring(m.start(),m.end()); &#125;else&#123;//不能匹配到 return 0; &#125; //能匹配到但只有一个+-号，也返回0 if(res.length()==1&amp;&amp;(res.charAt(0)=='+'||res.charAt(0)=='-'))&#123; return 0; &#125; try&#123; int r=Integer.parseInt(res); return r; &#125;catch(Exception e)&#123; return res.charAt(0)=='-'?Integer.MIN_VALUE:Integer.MAX_VALUE; &#125; &#125;&#125; 在使用java正则表达式时要注意：java中”\\“表示”\“,”\\+”表示”+”,因为”+”需要转义， lookingAt()lookingAt()对前面的字符串进行匹配,只有匹配到的字符串在最前面才返回true 12345Pattern p=Pattern.compile("\\d+"); Matcher m=p.matcher("22bb23"); m.lookingAt();//返回true,因为\d+匹配到了前面的22 Matcher m2=p.matcher("aa2223"); m2.lookingAt();//返回false,因为\d+不能匹配前面的aa Mathcer.start()/ Matcher.end()/ Matcher.group()start()返回匹配到的子字符串在字符串中的索引位置.end()返回匹配到的子字符串的最后一个字符在字符串中的索引位置.group()返回匹配到的子字符串 start(),end(),group()均有一个重载方法它们是start(int i),end(int i),group(int i)专用于分组操作,Mathcer类还有一个groupCount()用于返回有多少组. 12345678910111213141516171819202122Pattern p=Pattern.compile("\\d+"); Matcher m=p.matcher("我的QQ是:456456 我的电话是:0532214 我的邮箱是:aaa123@aaa.com"); while(m.find()) &#123; System.out.println(m.group()); &#125; 输出：456456 0532214 123 //或者 while(m.find()) &#123; System.out.println(m.group()); System.out.print("start:"+m.start()); System.out.println(" end:"+m.end()); &#125; 输出：456456 start:6 end:12 0532214 start:19 end:26 123 start:36 end:39 可以看出，每执行一次find()，matcher对应的分组都会自动加一。start(),end(),group()三个方法的值都会改变,匹配到的子字符串的信息,以及它们的重载方法,也会改变成相应的信息. 后面遇到有关正则表达式问题再进行补充。]]></content>
       <categories>
         <category>学习笔记</category>
       </categories>
       <tags>
-        <tag>java</tag>
+        <tag>Java</tag>
       </tags>
   </entry>
   <entry>

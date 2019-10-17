@@ -6,24 +6,24 @@
     
 
     
-    <title>最长回文字符串 | Zhiyuan的博客</title>
+    <title>Java随笔--对象的克隆 | Zhiyuan的博客</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="动态规划">
+        <meta name="keywords" content="Java">
     
-    <meta name="description" content="https://leetcode-cn.com/problems/longest-palindromic-substring/solution/ 方法一：中心扩展法 遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。 12345678910111213141516171819202122232425262728class Solu">
-<meta name="keywords" content="动态规划">
+    <meta name="description" content="java的引用类型（包括类、接口、数组等复杂类型）是无法通过等号直接赋值的。 12345678910111213141516public class GoodsTest &amp;#123;    public static void main(String[] args)&amp;#123;        Goods goodsA = new Goods(&quot;GoodsA&quot;,20);        Goods g">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="最长回文字符串">
-<meta property="og:url" content="http://Zhiyuancs.github.io/2019/10/11/最长回文字符串/index.html">
+<meta property="og:title" content="Java随笔--对象的克隆">
+<meta property="og:url" content="http://Zhiyuancs.github.io/2019/10/17/Java随笔-对象的克隆/index.html">
 <meta property="og:site_name" content="Zhiyuan的博客">
-<meta property="og:description" content="https://leetcode-cn.com/problems/longest-palindromic-substring/solution/ 方法一：中心扩展法 遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。 12345678910111213141516171819202122232425262728class Solu">
+<meta property="og:description" content="java的引用类型（包括类、接口、数组等复杂类型）是无法通过等号直接赋值的。 12345678910111213141516public class GoodsTest &amp;#123;    public static void main(String[] args)&amp;#123;        Goods goodsA = new Goods(&quot;GoodsA&quot;,20);        Goods g">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-11T11:51:54.222Z">
+<meta property="og:updated_time" content="2019-10-17T07:33:40.156Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="最长回文字符串">
-<meta name="twitter:description" content="https://leetcode-cn.com/problems/longest-palindromic-substring/solution/ 方法一：中心扩展法 遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。 12345678910111213141516171819202122232425262728class Solu">
+<meta name="twitter:title" content="Java随笔--对象的克隆">
+<meta name="twitter:description" content="java的引用类型（包括类、接口、数组等复杂类型）是无法通过等号直接赋值的。 12345678910111213141516public class GoodsTest &amp;#123;    public static void main(String[] args)&amp;#123;        Goods goodsA = new Goods(&quot;GoodsA&quot;,20);        Goods g">
     
 
     
@@ -130,19 +130,19 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <a class="page-title-link" href="/categories/LeetCode/">LeetCode</a>
+    <a class="page-title-link" href="/categories/学习笔记/">学习笔记</a>
     </h1>
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-最长回文字符串" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-Java随笔-对象的克隆" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        最长回文字符串
+        Java随笔--对象的克隆
         </h1>
     
 
@@ -152,8 +152,8 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2019/10/11/最长回文字符串/" class="article-date">
-            <time datetime="2019-10-11T11:49:41.000Z" itemprop="datePublished">2019-10-11</time>
+        <a href="/2019/10/17/Java随笔-对象的克隆/" class="article-date">
+            <time datetime="2019-10-17T07:32:19.000Z" itemprop="datePublished">2019-10-17</time>
         </a>
     </div>
 
@@ -162,22 +162,21 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/动态规划/">动态规划</a>
+        <a class="tag-link" href="/tags/Java/">Java</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p><a href="https://leetcode-cn.com/problems/longest-palindromic-substring/solution/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/longest-palindromic-substring/solution/</a></p>
-<p>方法一：中心扩展法</p>
-<p>遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s==<span class="keyword">null</span>||s.length()&lt;<span class="number">1</span>) <span class="keyword">return</span> s;</span><br><span class="line">        <span class="comment">//回文串左右位置</span></span><br><span class="line">        <span class="keyword">int</span> left=<span class="number">0</span>;<span class="keyword">int</span> right=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">            <span class="comment">//回文串长度为奇数</span></span><br><span class="line">            <span class="keyword">int</span> len1=lengthOfHuiwen(s,i,i);</span><br><span class="line">            <span class="comment">//长度为偶数</span></span><br><span class="line">            <span class="keyword">int</span> len2=lengthOfHuiwen(s,i,i+<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">int</span> len=Math.max(len1,len2);</span><br><span class="line">            <span class="keyword">if</span>(len&gt;right-left)&#123;</span><br><span class="line">                left=i-(len+<span class="number">1</span>)/<span class="number">2</span>+<span class="number">1</span>;</span><br><span class="line">                right=i+len/<span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.substring(left,right+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//left,right为中心字符串左右位置</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">lengthOfHuiwen</span><span class="params">(String s,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> L=left,R=right;</span><br><span class="line">        <span class="keyword">while</span>(L&gt;=<span class="number">0</span>&amp;&amp;R&lt;s.length()&amp;&amp;s.charAt(L)==s.charAt(R))&#123;</span><br><span class="line">            L--;</span><br><span class="line">            R++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> R-L-<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <p>java的引用类型（包括类、接口、数组等复杂类型）是无法通过等号直接赋值的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GoodsTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Goods goodsA = <span class="keyword">new</span> Goods(<span class="string">"GoodsA"</span>,<span class="number">20</span>);</span><br><span class="line">        Goods goodsB = goodsA;</span><br><span class="line">        System.out.println(<span class="string">"Before Change:"</span>);</span><br><span class="line">        goodsA.print();</span><br><span class="line">        goodsB.print();</span><br><span class="line"></span><br><span class="line">        goodsB.setTitle(<span class="string">"GoodsB"</span>);</span><br><span class="line">        goodsB.setPrice(<span class="number">50</span>);</span><br><span class="line">        System.out.println(<span class="string">"After Change:"</span>);</span><br><span class="line">        goodsA.print();</span><br><span class="line">        goodsB.print();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//修改goodsB,goodsA也会发生变化，两个变量指向同一个地址</span></span><br></pre></td></tr></table></figure>
 
-<p>方法二：动态规划</p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">（一）状态</span><br><span class="line">	f[<span class="built_in">i</span>][<span class="built_in">j</span>]表示s的第 <span class="built_in">i</span> 个字符到第 <span class="built_in">j</span> 个字符组成的子串，是否为回文串</span><br><span class="line">（二）转移方程</span><br><span class="line">	如果s的第 <span class="built_in">i</span> 个字符和第 <span class="built_in">j</span> 个字符相同的话，且 <span class="built_in">i</span> + <span class="number">1</span>, 到 <span class="built_in">j</span> - <span class="number">1</span> 的子串也是回文串的话，f[<span class="built_in">i</span>][<span class="built_in">j</span>] 也为回文串</span><br><span class="line">		f[<span class="built_in">i</span>][<span class="built_in">j</span>] = f[<span class="built_in">i</span> + <span class="number">1</span>][<span class="built_in">j</span> - <span class="number">1</span>] and s[<span class="built_in">i</span>] == s[<span class="built_in">j</span>]</span><br><span class="line">	稍微要注意的是，如果 <span class="built_in">i</span> == <span class="built_in">j</span> 或者 <span class="built_in">i</span> + <span class="number">1</span> == <span class="built_in">j</span> 的时候，也就是单个字符的子串和两个相邻字符的子串，就不需要f[<span class="built_in">i</span> + <span class="number">1</span>][<span class="built_in">j</span> - <span class="number">1</span>]了</span><br><span class="line">	注意遍历顺序，<span class="built_in">i</span> 从最后一个字符开始往前遍历，<span class="built_in">j</span> 从 <span class="built_in">i</span> 开始往后遍历，这样可以保证每个子问题都已经算好了。</span><br></pre></td></tr></table></figure>
+<p>如果要实现对象的复制，需要重写clone方法，所有类都继承自Object类，该类有一个protected的clone方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//要使用克隆方法需要实现Cloneable接口</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Goods</span> <span class="keyword">implements</span> <span class="title">Cloneable</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String title;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">double</span> price;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Goods</span><span class="params">(String aTitle, <span class="keyword">double</span> aPrice)</span></span>&#123;</span><br><span class="line">        title = aTitle;</span><br><span class="line">        price = aPrice;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//这里重载了接口的clone方法</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> Object <span class="title">clone</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Goods g = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            <span class="comment">//使用super来引用父类的成分，用this来引用当前对象</span></span><br><span class="line">            g = (Goods)<span class="keyword">super</span>.clone();</span><br><span class="line">        &#125;<span class="keyword">catch</span> (CloneNotSupportedException e)&#123;</span><br><span class="line">            System.out.println(e.toString());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> g;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n=s.length();</span><br><span class="line">        <span class="keyword">if</span>(n&lt;<span class="number">1</span>||s==<span class="keyword">null</span>) <span class="keyword">return</span> s;</span><br><span class="line">        String res=<span class="string">""</span>;</span><br><span class="line">        <span class="keyword">boolean</span>[][] flag=<span class="keyword">new</span> <span class="keyword">boolean</span>[n][n];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=n-<span class="number">1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.charAt(i)==s.charAt(j)&amp;&amp;(j-i&lt;=<span class="number">1</span>||flag[i+<span class="number">1</span>][j-<span class="number">1</span>]))&#123;</span><br><span class="line">                    flag[i][j]=<span class="keyword">true</span>;</span><br><span class="line">                    <span class="keyword">if</span>(res.length()&lt;j-i+<span class="number">1</span>)</span><br><span class="line">                        res=s.substring(i,j+<span class="number">1</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果一个类的成员变量包含另一个类的对象，使用上述方法只能克隆该类的非引用类型，引用类型仍然指向同一个地址。解决这个问题需要使用深克隆（序列化、反序列化）。下面例子中Cart和Goods类都需要实现Serializable接口。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cart</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;</span><br><span class="line">    <span class="comment">//实例域</span></span><br><span class="line">    Goods goodsList = <span class="keyword">new</span> Goods(<span class="string">""</span>,<span class="number">0</span>);<span class="comment">//简单起见，这里只放了一个商品</span></span><br><span class="line">    <span class="keyword">double</span> budget = <span class="number">0.0</span>;<span class="comment">//预算</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//构造函数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cart</span><span class="params">(<span class="keyword">double</span> aBudget)</span></span>&#123;</span><br><span class="line">        budget = aBudget;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">deepClone</span><span class="params">()</span> <span class="keyword">throws</span> IOException, OptionalDataException,ClassNotFoundException </span>&#123;</span><br><span class="line">        <span class="comment">// 将对象写到流里</span></span><br><span class="line">        ByteArrayOutputStream bo = <span class="keyword">new</span> ByteArrayOutputStream();</span><br><span class="line">        ObjectOutputStream oo = <span class="keyword">new</span> ObjectOutputStream(bo);</span><br><span class="line">        oo.writeObject(<span class="keyword">this</span>);</span><br><span class="line">        <span class="comment">// 从流里读出来</span></span><br><span class="line">        ByteArrayInputStream bi = <span class="keyword">new</span> ByteArrayInputStream(bo.toByteArray());</span><br><span class="line">        ObjectInputStream oi = <span class="keyword">new</span> ObjectInputStream(bi);</span><br><span class="line">        <span class="keyword">return</span> (oi.readObject());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Goods</span> <span class="keyword">implements</span> <span class="title">Serializable</span></span>&#123;……&#125;</span><br></pre></td></tr></table></figure>
 
 
         </div>
@@ -186,7 +185,7 @@
 
 
 
-    <a data-url="http://Zhiyuancs.github.io/2019/10/11/最长回文字符串/" data-id="ck1ugin6z001f20noq5uks4l2" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://Zhiyuancs.github.io/2019/10/17/Java随笔-对象的克隆/" data-id="ck1ugin4m000520no0jjxlj4p" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -256,19 +255,17 @@
             "@type": "Person",
             "name": "Zhiyuan"
         },
-        "headline": "最长回文字符串",
+        "headline": "Java随笔--对象的克隆",
         "image": "http://Zhiyuancs.github.io",
-        "keywords": "动态规划",
-        "genre": "LeetCode",
-        "datePublished": "2019-10-11",
-        "dateCreated": "2019-10-11",
-        "dateModified": "2019-10-11",
-        "url": "http://Zhiyuancs.github.io/2019/10/11/最长回文字符串/",
-        "description": "https://leetcode-cn.com/problems/longest-palindromic-substring/solution/
-方法一：中心扩展法
-遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。
-12345678910111213141516171819202122232425262728class Solu"
-        "wordCount": 734
+        "keywords": "Java",
+        "genre": "学习笔记",
+        "datePublished": "2019-10-17",
+        "dateCreated": "2019-10-17",
+        "dateModified": "2019-10-17",
+        "url": "http://Zhiyuancs.github.io/2019/10/17/Java随笔-对象的克隆/",
+        "description": "java的引用类型（包括类、接口、数组等复杂类型）是无法通过等号直接赋值的。
+12345678910111213141516public class GoodsTest &#123;    public static void main(String[] args)&#123;        Goods goodsA = new Goods("GoodsA",20);        Goods g"
+        "wordCount": 631
     }
 </script>
 
@@ -314,20 +311,20 @@
         
 <nav id="article-nav">
     
-        <a href="/2019/10/12/电话号码的字母组合/" id="article-nav-newer" class="article-nav-link-wrap">
+        <a href="/2019/10/17/二分查找细节详解/" id="article-nav-newer" class="article-nav-link-wrap">
         <strong class="article-nav-caption">下一篇</strong>
         <p class="article-nav-title">
         
-            电话号码的字母组合
+            二分查找细节详解
         
         </p>
         <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
     </a>
     
     
-        <a href="/2019/10/10/JDBC连接池/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/10/17/组合总数/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">JDBC连接池&amp; JDBCTemplate</p>
+        <p class="article-nav-title">组合总数</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -550,7 +547,7 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://Zhiyuancs.github.io/2019/10/11/最长回文字符串/';
+    var disqus_url = 'http://Zhiyuancs.github.io/2019/10/17/Java随笔-对象的克隆/';
     
     (function() {
     var dsq = document.createElement('script');
