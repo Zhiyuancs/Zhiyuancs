@@ -6,24 +6,24 @@
     
 
     
-    <title>LeetCode-质数排列 | Zhiyuan的博客</title>
+    <title>二叉搜索树 | Zhiyuan的博客</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="数论">
+        <meta name="keywords" content="树">
     
-    <meta name="description" content="质数：质数是大于1的，且不能用小于它的两个正整数乘积表示。 首先求1-n中质数的个数 1234567891011def getnum(self,n:int) -&amp;gt;int:        num=0        for i in range(2,n+1):            flag=True            for j in range(2,int(i**0.5)+1):">
-<meta name="keywords" content="数论">
+    <meta name="description" content="https://leetcode-cn.com/problems/unique-binary-search-trees-ii/ 给定一个整数 n，生成所有由 1 … n 为节点所组成的二叉搜索树。 递归：我们从序列 1 ..n 中取出数字 i，作为当前树的树根。于是，剩余 i - 1 个元素可用于左子树，n - i 个元素用于右子树。通过递归构建所有的子树。 1234567891011121314">
+<meta name="keywords" content="树">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode-质数排列">
-<meta property="og:url" content="http://Zhiyuancs.github.io/2019/09/02/LeetCode-质数排列/index.html">
+<meta property="og:title" content="二叉搜索树">
+<meta property="og:url" content="http://Zhiyuancs.github.io/2019/10/19/二叉搜索树/index.html">
 <meta property="og:site_name" content="Zhiyuan的博客">
-<meta property="og:description" content="质数：质数是大于1的，且不能用小于它的两个正整数乘积表示。 首先求1-n中质数的个数 1234567891011def getnum(self,n:int) -&amp;gt;int:        num=0        for i in range(2,n+1):            flag=True            for j in range(2,int(i**0.5)+1):">
+<meta property="og:description" content="https://leetcode-cn.com/problems/unique-binary-search-trees-ii/ 给定一个整数 n，生成所有由 1 … n 为节点所组成的二叉搜索树。 递归：我们从序列 1 ..n 中取出数字 i，作为当前树的树根。于是，剩余 i - 1 个元素可用于左子树，n - i 个元素用于右子树。通过递归构建所有的子树。 1234567891011121314">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-19T02:07:54.663Z">
+<meta property="og:updated_time" content="2019-10-19T02:04:17.272Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode-质数排列">
-<meta name="twitter:description" content="质数：质数是大于1的，且不能用小于它的两个正整数乘积表示。 首先求1-n中质数的个数 1234567891011def getnum(self,n:int) -&amp;gt;int:        num=0        for i in range(2,n+1):            flag=True            for j in range(2,int(i**0.5)+1):">
+<meta name="twitter:title" content="二叉搜索树">
+<meta name="twitter:description" content="https://leetcode-cn.com/problems/unique-binary-search-trees-ii/ 给定一个整数 n，生成所有由 1 … n 为节点所组成的二叉搜索树。 递归：我们从序列 1 ..n 中取出数字 i，作为当前树的树根。于是，剩余 i - 1 个元素可用于左子树，n - i 个元素用于右子树。通过递归构建所有的子树。 1234567891011121314">
     
 
     
@@ -135,14 +135,14 @@
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-LeetCode-质数排列" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-二叉搜索树" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        LeetCode-质数排列
+        二叉搜索树
         </h1>
     
 
@@ -152,8 +152,8 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2019/09/02/LeetCode-质数排列/" class="article-date">
-            <time datetime="2019-09-02T06:34:00.000Z" itemprop="datePublished">2019-09-02</time>
+        <a href="/2019/10/19/二叉搜索树/" class="article-date">
+            <time datetime="2019-10-19T02:03:33.000Z" itemprop="datePublished">2019-10-19</time>
         </a>
     </div>
 
@@ -162,19 +162,17 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/数论/">数论</a>
+        <a class="tag-link" href="/tags/树/">树</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p><strong>质数</strong>：质数是大于1的，且不能用小于它的两个正整数乘积表示。</p>
-<p>首先求1-n中质数的个数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getnum</span><span class="params">(self,n:int)</span> -&gt;int:</span></span><br><span class="line">        num=<span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,n+<span class="number">1</span>):</span><br><span class="line">            flag=<span class="literal">True</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">2</span>,int(i**<span class="number">0.5</span>)+<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> i%j==<span class="number">0</span>:</span><br><span class="line">                    flag=<span class="literal">False</span></span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">if</span> flag==<span class="literal">True</span>:</span><br><span class="line">                num+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> num</span><br></pre></td></tr></table></figure>
-
-<p>总的方案数就是质数排列数和非质数排列数的乘积</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">jiecheng</span><span class="params">(self,n:int)</span> -&gt;int:</span></span><br><span class="line">    sums=<span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,n+<span class="number">1</span>):</span><br><span class="line">        sums*=i</span><br><span class="line">    <span class="keyword">return</span> sums%<span class="number">1000000007</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">numPrimeArrangements</span><span class="params">(self, n: int)</span> -&gt; int:</span></span><br><span class="line">    <span class="keyword">if</span> n==<span class="number">1</span> <span class="keyword">or</span> n==<span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    count=self.getnum(n)</span><br><span class="line">    <span class="comment">#调用类中的函数要使用self.</span></span><br><span class="line">    num=self.jiecheng(count)*self.jiecheng(n-count)</span><br><span class="line">    <span class="keyword">return</span> num%<span class="number">1000000007</span></span><br></pre></td></tr></table></figure>
+            <p><a href="https://leetcode-cn.com/problems/unique-binary-search-trees-ii/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/unique-binary-search-trees-ii/</a></p>
+<p>给定一个整数 <em>n</em>，生成所有由 1 … <em>n</em> 为节点所组成的<strong>二叉搜索树</strong>。</p>
+<p>递归：我们从序列 <code>1 ..n</code> 中取出数字 <code>i</code>，作为当前树的树根。于是，剩余 <code>i - 1</code> 个元素可用于左子树，<code>n - i</code> 个元素用于右子树。通过递归构建所有的子树。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;TreeNode&gt; <span class="title">generateTrees</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;TreeNode&gt;();</span><br><span class="line">    <span class="keyword">return</span> createTree(<span class="number">1</span>,n);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//每次递归应该返回可能的子树列表</span></span><br><span class="line"><span class="function">List&lt;TreeNode&gt; <span class="title">createTree</span><span class="params">(<span class="keyword">int</span> start,<span class="keyword">int</span> end)</span></span>&#123;</span><br><span class="line">    List&lt;TreeNode&gt; list=<span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">if</span>(start&gt;end)&#123;</span><br><span class="line">        list.add(<span class="keyword">null</span>);</span><br><span class="line">        <span class="keyword">return</span> list;</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=start;i&lt;=end;i++)&#123;</span><br><span class="line">        List&lt;TreeNode&gt; leftList=createTree(start,i-<span class="number">1</span>);</span><br><span class="line">        List&lt;TreeNode&gt; rightList=createTree(i+<span class="number">1</span>,end);</span><br><span class="line">        <span class="comment">//将左右子树连接</span></span><br><span class="line">        <span class="keyword">for</span>(TreeNode left:leftList)&#123;</span><br><span class="line">            <span class="keyword">for</span>(TreeNode right:rightList)&#123;</span><br><span class="line">                TreeNode root=<span class="keyword">new</span> TreeNode(i);</span><br><span class="line">                root.left=left;</span><br><span class="line">                root.right=right;</span><br><span class="line">                list.add(root);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
         </div>
@@ -183,7 +181,7 @@
 
 
 
-    <a data-url="http://Zhiyuancs.github.io/2019/09/02/LeetCode-质数排列/" data-id="ck1wx5jsp000ct8nozyvt9oeq" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://Zhiyuancs.github.io/2019/10/19/二叉搜索树/" data-id="ck1wx5ju5001dt8nopd191g5n" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -253,18 +251,19 @@
             "@type": "Person",
             "name": "Zhiyuan"
         },
-        "headline": "LeetCode-质数排列",
+        "headline": "二叉搜索树",
         "image": "http://Zhiyuancs.github.io",
-        "keywords": "数论",
+        "keywords": "树",
         "genre": "LeetCode",
-        "datePublished": "2019-09-02",
-        "dateCreated": "2019-09-02",
+        "datePublished": "2019-10-19",
+        "dateCreated": "2019-10-19",
         "dateModified": "2019-10-19",
-        "url": "http://Zhiyuancs.github.io/2019/09/02/LeetCode-质数排列/",
-        "description": "质数：质数是大于1的，且不能用小于它的两个正整数乘积表示。
-首先求1-n中质数的个数
-1234567891011def getnum(self,n:int) -&gt;int:        num=0        for i in range(2,n+1):            flag=True            for j in range(2,int(i**0.5)+1):    "
-        "wordCount": 309
+        "url": "http://Zhiyuancs.github.io/2019/10/19/二叉搜索树/",
+        "description": "https://leetcode-cn.com/problems/unique-binary-search-trees-ii/
+给定一个整数 n，生成所有由 1 … n 为节点所组成的二叉搜索树。
+递归：我们从序列 1 ..n 中取出数字 i，作为当前树的树根。于是，剩余 i - 1 个元素可用于左子树，n - i 个元素用于右子树。通过递归构建所有的子树。
+1234567891011121314"
+        "wordCount": 306
     }
 </script>
 
@@ -310,20 +309,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2019/09/04/LeetCode-下一个更大元素1/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            LeetCode-下一个更大元素1
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2019/08/30/Python-回文字符串/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/10/19/java随笔-内部类/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">LeetCode-验证回文串</p>
+        <p class="article-nav-title">java随笔--内部类</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -546,7 +535,7 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://Zhiyuancs.github.io/2019/09/02/LeetCode-质数排列/';
+    var disqus_url = 'http://Zhiyuancs.github.io/2019/10/19/二叉搜索树/';
     
     (function() {
     var dsq = document.createElement('script');
