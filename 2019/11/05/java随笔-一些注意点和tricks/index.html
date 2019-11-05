@@ -6,24 +6,24 @@
     
 
     
-    <title>Mysql学习笔记（三） | Zhiyuan的博客</title>
+    <title>java随笔--一些注意点和tricks | Zhiyuan的博客</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-        <meta name="keywords" content="Mysql">
+        <meta name="keywords" content="Java">
     
-    <meta name="description" content="select 字段列表form 表名where 查询筛选条件group by 指定分组的列列表having 指定分组后的筛选条件order by 排序列的列表limit 起始索引值，要查询的记录条数 1、分组查询：group by分组函数（聚合函数）：将多行的值进行统计返回一行结果sum() ; avg();  min();  max(); count().注：分组函数不能和与分组无关的列一起使用">
-<meta name="keywords" content="Mysql">
+    <meta name="description" content="split()String类下的split()方法在根据正则表达式对字符串进行分割时会产生空字符串，在处理时需要进行判断。 1234567891011121314151617181920212223242526272829//1、空字符串不会被解析public class test &amp;#123;	public static void main(String[] args) &amp;#123;		Stri">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mysql学习笔记（三）">
-<meta property="og:url" content="http://Zhiyuancs.github.io/2019/09/21/Mysql学习笔记（三）/index.html">
+<meta property="og:title" content="java随笔--一些注意点和tricks">
+<meta property="og:url" content="http://Zhiyuancs.github.io/2019/11/05/java随笔-一些注意点和tricks/index.html">
 <meta property="og:site_name" content="Zhiyuan的博客">
-<meta property="og:description" content="select 字段列表form 表名where 查询筛选条件group by 指定分组的列列表having 指定分组后的筛选条件order by 排序列的列表limit 起始索引值，要查询的记录条数 1、分组查询：group by分组函数（聚合函数）：将多行的值进行统计返回一行结果sum() ; avg();  min();  max(); count().注：分组函数不能和与分组无关的列一起使用">
+<meta property="og:description" content="split()String类下的split()方法在根据正则表达式对字符串进行分割时会产生空字符串，在处理时需要进行判断。 1234567891011121314151617181920212223242526272829//1、空字符串不会被解析public class test &amp;#123;	public static void main(String[] args) &amp;#123;		Stri">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-21T12:20:38.921Z">
+<meta property="og:updated_time" content="2019-11-05T10:33:22.659Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mysql学习笔记（三）">
-<meta name="twitter:description" content="select 字段列表form 表名where 查询筛选条件group by 指定分组的列列表having 指定分组后的筛选条件order by 排序列的列表limit 起始索引值，要查询的记录条数 1、分组查询：group by分组函数（聚合函数）：将多行的值进行统计返回一行结果sum() ; avg();  min();  max(); count().注：分组函数不能和与分组无关的列一起使用">
+<meta name="twitter:title" content="java随笔--一些注意点和tricks">
+<meta name="twitter:description" content="split()String类下的split()方法在根据正则表达式对字符串进行分割时会产生空字符串，在处理时需要进行判断。 1234567891011121314151617181920212223242526272829//1、空字符串不会被解析public class test &amp;#123;	public static void main(String[] args) &amp;#123;		Stri">
     
 
     
@@ -135,14 +135,14 @@
 </div>
 
                         <div class="main-body-content">
-                            <article id="post-Mysql学习笔记（三）" class="article article-single article-type-post" itemscope itemprop="blogPost">
+                            <article id="post-java随笔-一些注意点和tricks" class="article article-single article-type-post" itemscope itemprop="blogPost">
     <div class="article-inner">
         
             <header class="article-header">
                 
     
         <h1 class="article-title" itemprop="name">
-        Mysql学习笔记（三）
+        java随笔--一些注意点和tricks
         </h1>
     
 
@@ -152,8 +152,8 @@
             <div class="article-meta">
                 
     <div class="article-date">
-        <a href="/2019/09/21/Mysql学习笔记（三）/" class="article-date">
-            <time datetime="2019-09-21T12:17:00.000Z" itemprop="datePublished">2019-09-21</time>
+        <a href="/2019/11/05/java随笔-一些注意点和tricks/" class="article-date">
+            <time datetime="2019-11-05T10:31:49.000Z" itemprop="datePublished">2019-11-05</time>
         </a>
     </div>
 
@@ -162,28 +162,28 @@
                 
     <div class="article-tag">
         <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Mysql/">Mysql</a>
+        <a class="tag-link" href="/tags/Java/">Java</a>
     </div>
 
             </div>
         
         
         <div class="article-entry" itemprop="articleBody">
-            <p>select 字段列表<br>form 表名<br>where 查询筛选条件<br>group by 指定分组的列列表<br>having 指定分组后的筛选条件<br>order by 排序列的列表<br>limit 起始索引值，要查询的记录条数</p>
-<p>1、分组查询：group by<br>分组函数（聚合函数）：将多行的值进行统计返回一行结果<br>sum() ; avg();  min();  max(); count().<br>注：分组函数不能和与分组无关的列一起使用；<br>分组查询时，查询的列可以是分组的条件</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">SELECT SUM(salary)，COUNT(eid)，did </span><br><span class="line"><span class="keyword">FROM</span> t_employ</span><br><span class="line">GROUP BY did;</span><br><span class="line"></span><br><span class="line">SELECT did,COUNT(eid)</span><br><span class="line"><span class="keyword">FROM</span> t_employ</span><br><span class="line">WHERE salary&gt;10000</span><br><span class="line"><span class="keyword">AND</span> did IS <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line">GROUP BY did;</span><br></pre></td></tr></table></figure>
+            <h3 id="split"><a href="#split" class="headerlink" title="split()"></a>split()</h3><p>String类下的split()方法在根据正则表达式对字符串进行分割时会产生空字符串，在处理时需要进行判断。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1、空字符串不会被解析</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		String str = <span class="string">"1,2,3,4,,,"</span>;</span><br><span class="line">		String[] arr = str.split(<span class="string">","</span>);</span><br><span class="line">		<span class="keyword">for</span> (String string : arr) &#123;</span><br><span class="line">			System.out.println(<span class="string">"str"</span>+string);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(arr.length);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出：str1,str2,str3,str4    4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//2、最后一个分隔符被分的字符串不为空时，其余空字符串可被解析。</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		String str = <span class="string">"1,2,3,4,,,5"</span>;</span><br><span class="line">		String[] arr = str.split(<span class="string">","</span>);</span><br><span class="line">		<span class="keyword">for</span> (String string : arr) &#123;</span><br><span class="line">			System.out.println(<span class="string">"str"</span>+string);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(arr.length);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出：str1,str2……str4,str,str,str5     7</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//3、limit参数为整数时，只会截取前几个；为0时，正常截取；</span></span><br><span class="line"><span class="comment">//	 为负数时，即使是第一种情况，也会输出空字符串</span></span><br><span class="line">String[] s = str.split(<span class="string">","</span>,-<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
 
-<p>2、条件中需要使用分组后的结果:having作用和where一样，但是执行顺序在分组之后</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SELECT AVG(salary)</span><br><span class="line"><span class="keyword">FROM</span> t_employ</span><br><span class="line">GROUP BY did</span><br><span class="line">HAVING AVG(salary)&gt;9000;</span><br></pre></td></tr></table></figure>
+<h3 id="s-equals-s1"><a href="#s-equals-s1" class="headerlink" title="s.equals(s1)"></a>s.equals(s1)</h3><p>判断字符串s是否等于s1，应该使用equals方法，不可以通过“==”进行判断。</p>
+<h3 id="HashSet如何检查重复"><a href="#HashSet如何检查重复" class="headerlink" title="HashSet如何检查重复"></a>HashSet如何检查重复</h3><p>当你把对象加入<code>HashSet</code>时，HashSet会先计算对象的<code>hashcode</code>值来判断对象加入的位置，同时也会与其他加入的对象的hashcode值作比较，如果没有相符的hashcode，HashSet会假设对象没有重复出现。但是如果发现有相同hashcode值的对象，这时会调用<code>equals()</code>方法来检查hashcode相等的对象是否真的相同。如果两者相同，HashSet就不会让加入操作成功。</p>
+<p>所以Set中存储自己定义的对象时，需要重写hashCode()和equals()方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Person类(name,age两个属性)</span></span><br><span class="line"><span class="comment">//重写hashCode</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">int</span> prime = <span class="number">31</span>;</span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">1</span>;</span><br><span class="line">        result = prime * result + ((age == <span class="keyword">null</span>) ? <span class="number">0</span> : age.hashCode());</span><br><span class="line">        result = prime * result + ((name == <span class="keyword">null</span>) ? <span class="number">0</span> : name.hashCode());</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//重写equals</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Person obj)</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>3、order by：降序排列desc，升序排列asc<br><code>SELECT * FROM t_employ ORDER BY salary DESC, eid ASC;</code></p>
-<p>4、分页查询：limit index，size</p>
-<p>5、子查询：当前查询依赖另一个查询的结果</p>
-<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> t_employ <span class="keyword">WHERE</span> did=(</span><br><span class="line">        <span class="keyword">SELECT</span> did <span class="keyword">FROM</span> t_employ <span class="keyword">WHERE</span> ename=<span class="string">'罗宾'</span></span><br><span class="line">)；</span><br></pre></td></tr></table></figure>
+<h3 id="hashCode方法"><a href="#hashCode方法" class="headerlink" title="hashCode方法"></a>hashCode方法</h3><p>如果重写equals()方法，就必须重新定义hashCode方法，以便用户可以将对象插入到散列表(自定义对象的HashMap)。hashCode 方法应该返回一个整型数值（也可以是负数)，并合理地组合实例域的散列码,以便能够让各个不同的对象产生的散列码更加均匀。下面是一个重写hashCode的例子。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">7</span>*name.hashCode()</span><br><span class="line">			+ <span class="number">11</span>*<span class="keyword">new</span> Double(salary).hashCode()</span><br><span class="line">			+ <span class="number">13</span>*hireDay.hashCode();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//如果参数为null,安全起见使用下面的方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">7</span>*Objects.hashCode(name)</span><br><span class="line">        + <span class="number">11</span>*Double.hashCode(salary)</span><br><span class="line">        + <span class="number">13</span>*Objects.hashCode(hireDay);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//组合多个散列值时可以采用更好的方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Objects.hash(name,salary,hireDay);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>三种类型：1、将子查询结果当做where查询的条件；2、当做临时表再次查询；3、作为主查询的判断条件，决定数据是否查询。<br>exists型子查询</p>
-<p>6、复制表<br> 复制表结构：<code>CREATE TABLE t_emp AS(SELECT * FROM t_employ WHERE 1=2);</code><br>复制表结构+指定数据：where 条件 </p>
-<p>7、单行函数：处理一行返回一行结果<br><code>SELECT UPPER(email) FROM t_employ;</code><br>password():mysql数据库在将数据库管理员的信息进行保存时，会将密码加密保存。<br><code>SELECT PASSWORD(&#39;123456&#39;) FROM DUAL;   (dual练习表)</code></p>
+<p>Equals与hashCode的定义必须一致：如果x.equals(y) 返回true, 那么x.hashCode( ) 就必<br>须与y.hashCode( ) 具有相同的值。例如， 如果用定义的Employee.equals 比较雇员的ID， 那<br>么hashCode 方法就需要散列ID，而不是雇员的姓名或存储地址。</p>
+<h3 id="静态导入"><a href="#静态导入" class="headerlink" title="静态导入"></a>静态导入</h3><p>import语句不仅可以导入类，还可以导入静态方法和静态域，如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.lang.System.*</span><br><span class="line"><span class="comment">//可以使用System类的静态方法和静态域，而不必加类名前缀</span></span><br><span class="line">out.println(<span class="string">"hello"</span>);  <span class="comment">//省略了System.out</span></span><br><span class="line">exit(<span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
 
         </div>
         <footer class="article-footer">
@@ -191,7 +191,7 @@
 
 
 
-    <a data-url="http://Zhiyuancs.github.io/2019/09/21/Mysql学习笔记（三）/" data-id="ck2lpuldn001108novws8gpxe" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
+    <a data-url="http://Zhiyuancs.github.io/2019/11/05/java随笔-一些注意点和tricks/" data-id="ck2lpuldk000y08no5ddxu5z6" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
 <script>
     (function ($) {
         $('body').on('click', function() {
@@ -261,17 +261,17 @@
             "@type": "Person",
             "name": "Zhiyuan"
         },
-        "headline": "Mysql学习笔记（三）",
+        "headline": "java随笔--一些注意点和tricks",
         "image": "http://Zhiyuancs.github.io",
-        "keywords": "Mysql",
+        "keywords": "Java",
         "genre": "学习笔记",
-        "datePublished": "2019-09-21",
-        "dateCreated": "2019-09-21",
-        "dateModified": "2019-09-21",
-        "url": "http://Zhiyuancs.github.io/2019/09/21/Mysql学习笔记（三）/",
-        "description": "select 字段列表form 表名where 查询筛选条件group by 指定分组的列列表having 指定分组后的筛选条件order by 排序列的列表limit 起始索引值，要查询的记录条数
-1、分组查询：group by分组函数（聚合函数）：将多行的值进行统计返回一行结果sum() ; avg();  min();  max(); count().注：分组函数不能和与分组无关的列一起使用"
-        "wordCount": 143
+        "datePublished": "2019-11-05",
+        "dateCreated": "2019-11-05",
+        "dateModified": "2019-11-05",
+        "url": "http://Zhiyuancs.github.io/2019/11/05/java随笔-一些注意点和tricks/",
+        "description": "split()String类下的split()方法在根据正则表达式对字符串进行分割时会产生空字符串，在处理时需要进行判断。
+1234567891011121314151617181920212223242526272829//1、空字符串不会被解析public class test &#123;	public static void main(String[] args) &#123;		Stri"
+        "wordCount": 448
     }
 </script>
 
@@ -317,20 +317,10 @@
         
 <nav id="article-nav">
     
-        <a href="/2019/09/22/java-正则表达式/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            java随笔--正则表达式
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
-    </a>
     
-    
-        <a href="/2019/09/21/Mysql学习笔记（二）/" id="article-nav-older" class="article-nav-link-wrap">
+        <a href="/2019/10/30/java随笔-PriorityQueue/" id="article-nav-older" class="article-nav-link-wrap">
         <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">Mysql学习笔记（二）</p>
+        <p class="article-nav-title">java随笔--PriorityQueue</p>
         <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
         </a>
     
@@ -553,7 +543,7 @@
     var disqus_shortname = 'hexo-theme-hueman';
     
     
-    var disqus_url = 'http://Zhiyuancs.github.io/2019/09/21/Mysql学习笔记（三）/';
+    var disqus_url = 'http://Zhiyuancs.github.io/2019/11/05/java随笔-一些注意点和tricks/';
     
     (function() {
     var dsq = document.createElement('script');
