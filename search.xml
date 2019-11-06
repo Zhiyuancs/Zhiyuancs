@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[java随笔--断言、日志]]></title>
+    <url>%2F2019%2F11%2F06%2Fjava%E9%9A%8F%E7%AC%94-%E6%96%AD%E8%A8%80%E3%80%81%E6%97%A5%E5%BF%97%2F</url>
+    <content type="text"><![CDATA[断言断言机制允许在测试期间向代码中插入一些检查语句，当代码发布时，这些插入的检测语句会被自动地移走。Java语言引入了关键字assert，有两种形式： 12assert 条件;assert 条件:表达式; 这两种形式都会对条件进行检测， 如果结果为false, 则抛出一个AssertionError 异常。在第二种形式中，表达式将被传人AssertionError 的构造器， 并转换成一个消息字符串。 在默认情况下， 断言被禁用。可以在运行程序时启用断言，断言的启用和禁用不必重新编译程序。启用或禁用断言是类加载器( class loader ) 的功能。当断言被禁用时， 类加载器将跳过断言代码， 因此，不会降低程序运行的速度。 1java -enableassertions MyApp 不应该使用断言向程序的其他部分通告发生了可恢复性的错误， 或者，不应该作为程序向用户通告问题的手段。断言只应该用于在测试阶段确定程序内部的错误位置。 日志日志可以替换测试代码中使用的System.out.println()，不像输出语句测试完还需要删除。 123456//基本日志Logger.getGlobal().info("File-&gt;OPen menu item selected");//如果在适当的地方（如main开始）调用，会取消所有日志Logger.getGlobal().setLevel(Level.OFF);//高级日志（目前学习阶段用不到，以后需要再进行补充）]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[java随笔--lambda表达式]]></title>
+    <url>%2F2019%2F11%2F06%2Fjava%E9%9A%8F%E7%AC%94-lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[lambda表达式lambda表达式形式：参数，箭头(-&gt;)以及一个表达式，也可以将操作放在代码块{}中。 12345678(String first,String second)-&gt;&#123; if(first.length()&gt;second.length()) return 1; else if(first.length()&lt;second.length()) return -1; else return 0;&#125;() -&gt; System.out.pringln("i"); 对于只有一个抽象方法的接口，需要这种接口的对象时，就可以提供一个lambda表达式。这种接口称为函数式接口。Comparator 就是只有一个方法的接口， 所以可以提供一个lambda 表达式： 函数式接口中可以包含静态方法（已经实现了的方法），默认方法（default），java.lang.Object里的public方法。 12Arrays.sort (words , (first , second) -&gt; first.length() - second.length()) ; 方法引用123Timer t = new Timer(1000, event -&gt; System.out.println(event))；//等价于Timer t = new Timer(1000, System.out::println); 表达式System.out::println是一个方法引用，等价于前面的lambda表达式。主要有3中形式： 123456//System.out.println == x-&gt;System.out.println(x)object::instanceMethod//Math.pow(x,y) == (x,y)-&gt;Math.pow(x,y)Class::staticMethod//String::compareToIgnoreCase == (x,y)-&gt;x.compareToIgnoreCase(y)Class::instanceMethod]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[java随笔--一些注意点和tricks]]></title>
     <url>%2F2019%2F11%2F05%2Fjava%E9%9A%8F%E7%AC%94-%E4%B8%80%E4%BA%9B%E6%B3%A8%E6%84%8F%E7%82%B9%E5%92%8Ctricks%2F</url>
     <content type="text"><![CDATA[split()String类下的split()方法在根据正则表达式对字符串进行分割时会产生空字符串，在处理时需要进行判断。 1234567891011121314151617181920212223242526272829//1、空字符串不会被解析public class test &#123; public static void main(String[] args) &#123; String str = "1,2,3,4,,,"; String[] arr = str.split(","); for (String string : arr) &#123; System.out.println("str"+string); &#125; System.out.println(arr.length); &#125;&#125;//输出：str1,str2,str3,str4 4//2、最后一个分隔符被分的字符串不为空时，其余空字符串可被解析。public class test &#123; public static void main(String[] args) &#123; String str = "1,2,3,4,,,5"; String[] arr = str.split(","); for (String string : arr) &#123; System.out.println("str"+string); &#125; System.out.println(arr.length); &#125;&#125;//输出：str1,str2……str4,str,str,str5 7//3、limit参数为整数时，只会截取前几个；为0时，正常截取；// 为负数时，即使是第一种情况，也会输出空字符串String[] s = str.split(",",-1); s.equals(s1)判断字符串s是否等于s1，应该使用equals方法，不可以通过“==”进行判断。 HashSet如何检查重复当你把对象加入HashSet时，HashSet会先计算对象的hashcode值来判断对象加入的位置，同时也会与其他加入的对象的hashcode值作比较，如果没有相符的hashcode，HashSet会假设对象没有重复出现。但是如果发现有相同hashcode值的对象，这时会调用equals()方法来检查hashcode相等的对象是否真的相同。如果两者相同，HashSet就不会让加入操作成功。 所以Set中存储自己定义的对象时，需要重写hashCode()和equals()方法。 1234567891011121314//Person类(name,age两个属性)//重写hashCodepublic int hashCode()&#123; final int prime = 31; int result = 1; result = prime * result + ((age == null) ? 0 : age.hashCode()); result = prime * result + ((name == null) ? 0 : name.hashCode()); return result; &#125;//重写equalspublic boolean equals(Person obj)&#123; &#125; hashCode方法如果重写equals()方法，就必须重新定义hashCode方法，以便用户可以将对象插入到散列表(自定义对象的HashMap)。hashCode 方法应该返回一个整型数值（也可以是负数)，并合理地组合实例域的散列码,以便能够让各个不同的对象产生的散列码更加均匀。下面是一个重写hashCode的例子。 1234567891011121314151617public class Employee&#123; public int hashCode()&#123; return 7*name.hashCode() + 11*new Double(salary).hashCode() + 13*hireDay.hashCode(); &#125;&#125;//如果参数为null,安全起见使用下面的方法public int hashCode()&#123; return 7*Objects.hashCode(name) + 11*Double.hashCode(salary) + 13*Objects.hashCode(hireDay);&#125;//组合多个散列值时可以采用更好的方法public int hashCode()&#123; return Objects.hash(name,salary,hireDay);&#125; Equals与hashCode的定义必须一致：如果x.equals(y) 返回true, 那么x.hashCode( ) 就必须与y.hashCode( ) 具有相同的值。例如， 如果用定义的Employee.equals 比较雇员的ID， 那么hashCode 方法就需要散列ID，而不是雇员的姓名或存储地址。 静态导入import语句不仅可以导入类，还可以导入静态方法和静态域，如： 1234import static java.lang.System.*//可以使用System类的静态方法和静态域，而不必加类名前缀out.println("hello"); //省略了System.outexit(0);]]></content>
