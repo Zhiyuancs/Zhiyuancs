@@ -14,7 +14,7 @@
   <meta name="description" content="NEU">
   <meta name="author" content="Zhiyuan">
   <meta name="keywords" content="初学者">
-  <title>归档 ~ Solon&#39;s blog</title>
+  <title>Solon&#39;s blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
@@ -35,7 +35,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -109,6 +109,10 @@
           </div>
 
           
+            <div class="scroll-down-bar">
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
+            </div>
+          
         </div>
       </div>
     </div>
@@ -124,26 +128,57 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-<div class="list-group">
-  <p class="h4">共计 33 篇文章</p>
-  <hr>
-  
+
+  <div class="row mb-4 mx-auto">
     
-      
-      <p class="h5">2019</p>
     
-    <a href="/2019/12/05/并查集/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">并查集</span>
-      <span style="float: right;">12-05</span>
-    </a>
-  
-    
-    <a href="/2019/12/05/生成随机字符串/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">生成随机字符串</span>
-      <span style="float: right;">12-05</span>
-    </a>
-  
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/08/30/Python-回文字符串/">
+        <p class="h4 index-header">Python-回文字符串</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">filter(str.isalnum,s)**1、filter() 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成的新列表。该接收两个参数，第一个为函数，第二个为序列，序列的每个元素作为参数传递给函数进行判，然后返回 True 或 False，最后将返回 True 的元素放到新列表中。2、Python isalnum()方法isalnum() 方法检测字符串是否由字母和数字组成。
 </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-08-30&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Python">Python</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <nav aria-label="index posts navigation">
+    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/4/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
+      ele.href += '#board';
+    }
+  </script>
+
 
 
               </div>
@@ -265,7 +300,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "我还没秃，我还能熬！&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

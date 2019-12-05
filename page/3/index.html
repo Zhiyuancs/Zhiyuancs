@@ -133,6 +133,53 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/01/Go-四/">
+        <p class="h4 index-header">Go(四)</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">函数4.1 函数声明函数声明包括函数名、形式参数列表、返回值列表（可省略）以及函数体。
+func name(parameter-list) (result-list) {
+    body
+}
+如果一组形参或返回值有相同的类型，我们不必为每个形参都写出参数类型。
+func f(i, j, k int, s, t string)                 { /* ... */ }
+func f(i int, j int, k int,  s string, t string) { /* ... */ }
+func add(x int, y int) int   {return x + y}
+func sub(x, y int) (z int)   { z = x - y; return}
+func first(x int, _ int) int { return x }
+func zero(int, int) int      { return 0 }
+
+fmt.Printf(&quot;%T\n&quot;, add)   // &quot;func(int, int) int</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-01&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Go">Go</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/09/26/Go-二/">
         <p class="h4 index-header">Go(二)</p>
         
@@ -265,7 +312,7 @@ class Solution {
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Java">Java</a>&nbsp;
+            <a href="/tags/JAVA">JAVA</a>&nbsp;
           
         
       </div>
@@ -452,50 +499,11 @@ Model Overview&emsp;&emsp;CNN输出的是视频帧的深度特征（deep feature
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/15/Deep-Reinforcement-Learning-for-Unsupervised-Video-Summarization/">
-        <p class="h4 index-header">Deep Reinforcement Learning for Unsupervised V-S </p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Abstract&emsp;&emsp;本文创新点：1、构建DSN网络；2、设计一个新的奖励函数（基于帧的多样性和代表性）；3、设计一个端到端的、基于强化学习的框架来训练网络。
-Introduction&emsp;&emsp;DPP-LSTM效果较好，但是视频摘要的评价时，人类具有更多的主观性，所以非监督方法很有必要。&emsp;&emsp;本文的DSN网络：encoder：CNN（在视频帧上进行特征提取）；decoder：BiLSTM（产生概率分布来选择帧）。RL（增强学习）：通过迭代方式训练agent。&emsp;&emsp;主要贡献：将无监督方法扩展到监督版本，以利用标签；首次将RL应用到无监督视频摘要上。
-
-Model OverviewDeep Summarization Network&emsp;&emsp;采用encoder-decoder结构，CNN选用在ImageNet上预训练好的GoogLeNet，从它倒数第二层提取出视觉特征向量x_{t}。LSTM用来捕获视频帧之间的长时间依赖性。训练中只更新decoder。  
-&emsp;&emsp;将BiLSTM网络的正向和反</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-15&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/AI">AI</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E8%A7%86%E9%A2%91%E6%91%98%E8%A6%81">视频摘要</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/2/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/2/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

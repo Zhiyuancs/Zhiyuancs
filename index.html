@@ -133,6 +133,57 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/05/并查集/">
+        <p class="h4 index-header">并查集</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">并查集并查集是一种树型的数据结构，用于处理一些不交集（Disjoint Sets）的合并及查询问题。可以求解一些图相关的问题（连通分量）。
+并查集森林是一种将每一个集合以树的形式表示的数据结构，其中每个结点都保存着到他父节点的引用。在并查集森林中，每个集合的代表即是集合的根节点。“查找”根据其父节点的引用向根行进直到到底树根。“联合”将两棵树合并到一起，这通过将一棵树的根连接到另一棵树的根。
+class UnionSet{
+    int[] parent;
+    //初始化并查集,每个结点自成一个集合
+    void UnionSet(int n){
+        parent=new int[n];
+        for(int i=0;i&lt;n;i++){
+            parent[i]=i;
+        }
+    }
+    //递归查找根节点
+    int find(int x){
+        if(parent[x]==x) return x;
+        else return find(parent[x]);
+    }
+    </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-05&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/algorithm">algorithm</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86">并查集</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/12/05/生成随机字符串/">
         <p class="h4 index-header">生成随机字符串</p>
         
@@ -163,7 +214,7 @@ System.out.println(&quot;-----------产生1到10之间的随机数</div>
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Java">Java</a>&nbsp;
+            <a href="/tags/JAVA">JAVA</a>&nbsp;
           
         
       </div>
@@ -206,7 +257,7 @@ Logger.getGlobal().i</div>
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Java">Java</a>&nbsp;
+            <a href="/tags/JAVA">JAVA</a>&nbsp;
           
         
       </div>
@@ -253,7 +304,7 @@ Arrays.sort (words ,
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Java">Java</a>&nbsp;
+            <a href="/tags/JAVA">JAVA</a>&nbsp;
           
         
       </div>
@@ -304,7 +355,7 @@ public class test {
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Java">Java</a>&nbsp;
+            <a href="/tags/JAVA">JAVA</a>&nbsp;
           
         
       </div>
@@ -350,7 +401,7 @@ public List&lt;Integer&gt; topKFrequent(int[] nums, int k) {
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Java">Java</a>&nbsp;
+            <a href="/tags/JAVA">JAVA</a>&nbsp;
           
         
       </div>
@@ -447,59 +498,7 @@ public class Outer {
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Java">Java</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/17/二分查找细节详解/">
-        <p class="h4 index-header">二分查找细节详解</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">1、基本二分查找//常见场景：查找一个数
-int binarySearch(int[] nums, int target) {
-    int left = 0; 
-    int right = nums.length - 1; // 注意
-
-    while(left &lt;= right) {
-        int mid = (right + left) / 2;
-        if(nums[mid] == target)
-            return mid; 
-        else if (nums[mid] &lt; target)
-            left = mid + 1; // 注意
-        else if (nums[mid] &gt; target)
-            right = mid - 1; // 注意
-        }
-    return -1;
-}
-1、为什么 while 循环的条件中是 &lt;=，而不是 &lt; ？
-答：因为初始化 right 的赋值是 nums.length-1，即最后一个元</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-17&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE">二分查找</a>&nbsp;
+            <a href="/tags/JAVA">JAVA</a>&nbsp;
           
         
       </div>
@@ -510,7 +509,7 @@ int binarySearch(int[] nums, int target) {
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   
