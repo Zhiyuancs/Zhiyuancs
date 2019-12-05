@@ -14,7 +14,7 @@
   <meta name="description" content="NEU">
   <meta name="author" content="Zhiyuan">
   <meta name="keywords" content="初学者">
-  <title>LeetCode-质数排列 ~ Solon&#39;s blog</title>
+  <title>分类 - StackOverflow ~ Solon&#39;s blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
@@ -35,7 +35,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 80vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -106,41 +106,6 @@
             </span>
 
             
-              <br>
-              
-                <p class="mt-3">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                  星期一, 九月 2日 2019, 2:34 下午
-                </p>
-              
-
-              <p>
-                
-                  
-                  &nbsp;<i class="far fa-chart-bar"></i>
-                  <span class="post-count">
-                    163 字
-                  </span>&nbsp;
-                
-
-                
-                  
-                  &nbsp;<i class="far fa-clock"></i>
-                  <span class="post-count">
-                      1 分钟
-                  </span>&nbsp;
-                
-
-                
-                  <!-- 不蒜子统计文章PV -->
-                  
-                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
-                  <span id="busuanzi_container_page_pv">
-                    <span id="busuanzi_value_page_pv"></span> 次
-                  </span>&nbsp;
-                
-              </p>
-            
           </div>
 
           
@@ -151,120 +116,36 @@
 
   <main>
     
+      <div class="container nopadding-md">
+        <div class="py-5 z-depth-3" id="board">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<div class="list-group">
+<!--  <p class="h4">共计 1 篇文章</p>-->
+  <hr>
+  
+    
       
+      <p class="h5">2019</p>
+    
+    <a href="/2019/12/05/生成随机字符串/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">生成随机字符串</span>
+      <span style="float: right;">12-05</span>
+    </a>
+  
+</div>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-md">
-      <div class="py-5 z-depth-3" id="board">
-        <div class="post-content mx-auto" id="post">
-          <div class="markdown-body">
-            <p><strong>质数</strong>：质数是大于1的，且不能用小于它的两个正整数乘积表示。</p>
-<p>首先求1-n中质数的个数</p>
-<pre><code class="python">def getnum(self,n:int) -&gt;int:
-        num=0
-        for i in range(2,n+1):
-            flag=True
-            for j in range(2,int(i**0.5)+1):
-                if i%j==0:
-                    flag=False
-                    break
-            if flag==True:
-                num+=1
-        return num</code></pre>
-<p>总的方案数就是质数排列数和非质数排列数的乘积</p>
-<pre><code class="python">    def jiecheng(self,n:int) -&gt;int:
-        sums=1
-        for i in range(1,n+1):
-            sums*=i
-        return sums%1000000007
-    def numPrimeArrangements(self, n: int) -&gt; int:
-        if n==1 or n==2:
-            return 1
-        count=self.getnum(n)
-        #调用类中的函数要使用self.
-        num=self.jiecheng(count)*self.jiecheng(n-count)
-        return num%1000000007</code></pre>
 
-            <hr>
-          </div>
-          <br>
-          <div>
-            <p>
-            
-              <span>
-                <i class="iconfont icon-inbox"></i>
-                
-                  <a class="hover-with-bg" href="/categories/LeetCode">LeetCode</a>
-                  &nbsp;
-                
-              </span>&nbsp;&nbsp;
-            
-            
-              <span>
-                <i class="iconfont icon-tag"></i>
-                
-                  <a class="hover-with-bg" href="/tags/%E6%95%B0%E8%AE%BA">数论</a>
-                
-              </span>
-            
-            </p>
-            
-              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
-            
+
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="d-none d-lg-block col-lg-2 toc-container">
-      
-  <div id="toc">
-    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
-    <div id="tocbot"></div>
-  </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- custom -->
-
-
-<!-- Comments -->
-<div class="col-lg-7 mx-auto nopadding-md">
-  <div class="container comments mx-auto" id="comments">
-    
-      <br><br>
-      
-      
-  <div id="gitalk-container"></div>
-  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.11.1/js/md5.min.js"></script>
-  <script type="text/javascript">
-    var gitalk = new Gitalk({
-      clientID: '7357b9a2a4c824e445c1',
-      clientSecret: '6162d5a4982a8c8dbc9d1a61a2d90c5a88d36a43',
-      repo: 'https://github.com/Zhiyuancs/comments',
-      owner: 'Zhiyuancs',
-      admin: 'Zhiyuancs',
-      id: md5(location.pathname),
-      language: 'zh-CN',
-      perPage: 15,
-      pagerDirection: 'last',
-      createIssueManually: 'true',
-      distractionFreeMode: 'false'
-    });
-
-    gitalk.render('gitalk-container')
-  </script>
-
-
-    
-  </div>
-</div>
-
     
   </main>
 
@@ -339,11 +220,6 @@
 
 
 
-  
-    <script src="/lib/tocbot/tocbot.min.js" ></script>
-  
-  <script src="/js/post.js" ></script>
-
 
 
   <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
@@ -384,7 +260,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "LeetCode-质数排列&nbsp;",
+        "分类 - StackOverflow&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
