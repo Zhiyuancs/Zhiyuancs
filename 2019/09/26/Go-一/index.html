@@ -1,633 +1,592 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+
+
+
+
+
 <head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="NEU">
+  <meta name="author" content="Zhiyuan">
+  <meta name="keywords" content="初学者">
+  <title>Go(一) ~ Solon&#39;s blog</title>
 
-    
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
-    
-    <title>Go(一) | Zhiyuan的博客</title>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-        <meta name="keywords" content="Go">
-    
-    <meta name="description" content="1.1命名Go中函数名字的开头字母大小决定了该函数在包外的可见性：大写字母开头，这个函数在包外可以使用；小写字母开头不可以在包外部访问。Go语言程序员推荐使用 驼峰式 命名。 1.2声明var、const、type、func：变量、常量、类型、函数实体对象声明     包声明语句之后是import语句导入依赖的其它包，然后是包一级的类型、变量、常量、函数的声明语句。在包一级声明的名字可以在整个包和">
-<meta name="keywords" content="Go">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Go(一)">
-<meta property="og:url" content="http://Zhiyuancs.github.io/2019/09/26/Go-一/index.html">
-<meta property="og:site_name" content="Zhiyuan的博客">
-<meta property="og:description" content="1.1命名Go中函数名字的开头字母大小决定了该函数在包外的可见性：大写字母开头，这个函数在包外可以使用；小写字母开头不可以在包外部访问。Go语言程序员推荐使用 驼峰式 命名。 1.2声明var、const、type、func：变量、常量、类型、函数实体对象声明     包声明语句之后是import语句导入依赖的其它包，然后是包一级的类型、变量、常量、函数的声明语句。在包一级声明的名字可以在整个包和">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-26T07:49:21.094Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Go(一)">
-<meta name="twitter:description" content="1.1命名Go中函数名字的开头字母大小决定了该函数在包外的可见性：大写字母开头，这个函数在包外可以使用；小写字母开头不可以在包外部访问。Go语言程序员推荐使用 驼峰式 命名。 1.2声明var、const、type、func：变量、常量、类型、函数实体对象声明     包声明语句之后是import语句导入依赖的其它包，然后是包一级的类型、变量、常量、函数的声明语句。在包一级声明的名字可以在整个包和">
-    
 
-    
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
 
-    
+<link rel="stylesheet" href="/css/main.css">
 
-    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
-    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
 
-    <link rel="stylesheet" href="/css/style.css">
-
-    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
-    
-    
-        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
-    
-    
-        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
-    
-    
-    
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css">
 
 
 </head>
-</html>
+
+
 <body>
-    <div id="wrap">
-        <header id="header">
-    <div id="header-outer" class="outer">
-        <div class="container">
-            <div class="container-inner">
-                <div id="header-title">
-                    <h1 class="logo-wrap">
-                        <a href="/" class="logo"></a>
-                    </h1>
-                    
-                </div>
-                <div id="header-inner" class="nav-container">
-                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
-                    <div class="nav-container-inner">
-                        <ul id="main-nav">
-                            
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/">主页</a>
-                                </li>
-                            
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/LeetCode/">LeetCode</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/学习笔记/">学习笔记</a></li></ul>
-                                    
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
-                                </li>
-                            
-                        </ul>
-                        <nav id="sub-nav">
-                            <div id="search-form-wrap">
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Solon&#39;s blog</strong>&nbsp;</a>
 
-    <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
-        <button type="submit" class="search-form-submit"></button>
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
-            UNTITLED: '(未命名)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-<script src="/js/insight.js"></script>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-</div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-        <div class="container">
-            <div class="main-body container-inner">
-                <div class="main-body-inner">
-                    <section id="main">
-                        <div class="main-body-header">
-    <h1 class="header">
-    
-    <a class="page-title-link" href="/categories/学习笔记/">学习笔记</a>
-    </h1>
-</div>
-
-                        <div class="main-body-content">
-                            <article id="post-Go-一" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-            <header class="article-header">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期四, 九月 26日 2019, 3:41 下午
+                </p>
+              
+
+              <p>
                 
-    
-        <h1 class="article-title" itemprop="name">
-        Go(一)
-        </h1>
-    
-
-            </header>
-        
-        
-            <div class="article-meta">
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    1.9k 字
+                  </span>&nbsp;
                 
-    <div class="article-date">
-        <a href="/2019/09/26/Go-一/" class="article-date">
-            <time datetime="2019-09-26T07:41:27.000Z" itemprop="datePublished">2019-09-26</time>
-        </a>
-    </div>
-
-		
 
                 
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Go/">Go</a>
-    </div>
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      7 分钟
+                  </span>&nbsp;
+                
 
-            </div>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
             <h4 id="1-1命名"><a href="#1-1命名" class="headerlink" title="1.1命名"></a>1.1命名</h4><p>Go中函数名字的开头字母大小决定了该函数在包外的可见性：大写字母开头，这个函数在包外可以使用；小写字母开头不可以在包外部访问。Go语言程序员推荐使用 <strong>驼峰式</strong> 命名。</p>
 <h4 id="1-2声明"><a href="#1-2声明" class="headerlink" title="1.2声明"></a>1.2声明</h4><p>var、const、type、func：变量、常量、类型、函数实体对象声明    </p>
 <p>包声明语句之后是import语句导入依赖的其它包，然后是包一级的类型、变量、常量、函数的声明语句。在包一级声明的名字可以在整个包和引用了该包的源文件中访问。</p>
-<h4 id="1-3变量"><a href="#1-3变量" class="headerlink" title="1.3变量"></a>1.3变量</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> 变量名字 类型 = 表达式</span><br></pre></td></tr></table></figure>
-
+<h4 id="1-3变量"><a href="#1-3变量" class="headerlink" title="1.3变量"></a>1.3变量</h4><pre><code class="go">var 变量名字 类型 = 表达式</code></pre>
 <p>go语言中所有变量定义时如果未赋值，都会初始化为一个默认值。 </p>
 <p>在函数内部，有一种称为简短变量声明语句的形式可用于声明和初始化局部变量。它以“<strong>名字 := 表达式</strong>”形式声明变量，变量的类型根据表达式来自动推导。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">freq := rand.Float64() * <span class="number">3.0</span></span><br><span class="line">t := <span class="number">0.0</span></span><br><span class="line">i, j := <span class="number">0</span>, <span class="number">1</span>  <span class="comment">//变量声明语句</span></span><br><span class="line">i, j = j, i <span class="comment">// 交换 i 和 j 的值，赋值语句（元组赋值）</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="go">freq := rand.Float64() * 3.0
+t := 0.0
+i, j := 0, 1  //变量声明语句
+i, j = j, i // 交换 i 和 j 的值，赋值语句（元组赋值）</code></pre>
 <p>简短变量声明语句中必须至少要声明一个新的变量，否则不能编译通过。</p>
 <h4 id="1-4指针"><a href="#1-4指针" class="headerlink" title="1.4指针"></a>1.4指针</h4><p>如果指针名字为p，那么可以说“p指针指向变量x”，或者说“p指针保存了x变量的内存地址”。同时<code>*p</code>表达式对应p指针指向的变量的值。一般<code>*p</code>表达式读取指针指向的变量的值，这里为int类型的值，同时因为<code>*p</code>对应一个变量，所以该表达式也可以出现在赋值语句的左边，表示更新指针所指向的变量的值。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x := <span class="number">1</span></span><br><span class="line">p := &amp;x         <span class="comment">// p, of type *int, points to x</span></span><br><span class="line">fmt.Println(*p) <span class="comment">// "1"</span></span><br><span class="line">*p = <span class="number">2</span>          <span class="comment">// equivalent to x = 2</span></span><br><span class="line">fmt.Println(x)  <span class="comment">// "2"</span></span><br><span class="line">*p++            <span class="comment">// x=3,p仍然指向x</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="go">x := 1
+p := &amp;x         // p, of type *int, points to x
+fmt.Println(*p) // &quot;1&quot;
+*p = 2          // equivalent to x = 2
+fmt.Println(x)  // &quot;2&quot;
+*p++            // x=3,p仍然指向x</code></pre>
 <p>指针的零值为<strong>nil</strong>，在Go语言中，返回函数中局部变量的地址也是安全的。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p = f()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">f</span><span class="params">()</span> *<span class="title">int</span></span> &#123;</span><br><span class="line">    v := <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> &amp;v</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="go">var p = f()
 
+func f() *int {
+    v := 1
+    return &amp;v
+}</code></pre>
 <h4 id="1-5-new-函数"><a href="#1-5-new-函数" class="headerlink" title="1.5 new 函数"></a>1.5 new 函数</h4><p>表达式new(T)将创建一个T类型的匿名变量，初始化为T类型的零值，然后返回变量地址，返回的指针类型为<code>*T</code>。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">p := <span class="built_in">new</span>(<span class="keyword">int</span>)  <span class="comment">// p, *int 类型, 指向匿名的 int 变量</span></span><br><span class="line">fmt.Println(*p) <span class="comment">// "0"</span></span><br><span class="line"><span class="comment">//下面两个函数功能相同</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">newInt</span><span class="params">()</span> *<span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">new</span>(<span class="keyword">int</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">newInt</span><span class="params">()</span> *<span class="title">int</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> dummy <span class="keyword">int</span></span><br><span class="line">    <span class="keyword">return</span> &amp;dummy</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="go">p := new(int)  // p, *int 类型, 指向匿名的 int 变量
+fmt.Println(*p) // &quot;0&quot;
+//下面两个函数功能相同
+func newInt() *int {
+    return new(int)
+}
 
+func newInt() *int {
+    var dummy int
+    return &amp;dummy
+}</code></pre>
 <p>由于new只是一个预定义的函数，它并不是一个关键字，因此我们可以将new名字重新定义为别的类型。下面由于new被定义为int类型的变量名，因此在delta函数内部是无法使用内置的new函数的。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">delta</span><span class="params">(old, <span class="built_in">new</span> <span class="keyword">int</span>)</span> <span class="title">int</span></span> &#123; <span class="keyword">return</span> <span class="built_in">new</span> - old &#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="go">func delta(old, new int) int { return new - old }</code></pre>
 <p>了解go语言自动垃圾回收器。</p>
-<h4 id="1-6-类型"><a href="#1-6-类型" class="headerlink" title="1.6 类型"></a>1.6 类型</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> 类型名字 底层类型</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Celsius <span class="keyword">float64</span>    <span class="comment">// 摄氏温度</span></span><br></pre></td></tr></table></figure>
+<h4 id="1-6-类型"><a href="#1-6-类型" class="headerlink" title="1.6 类型"></a>1.6 类型</h4><pre><code class="go">type 类型名字 底层类型
 
+type Celsius float64    // 摄氏温度</code></pre>
 <p>1.7下划线 ‘_’</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用在import</span></span><br><span class="line"><span class="comment">//引入包，会先调用包中的初始化函数，这种使用方式仅让导入的包做初始化，而不使用包中其他功能</span></span><br><span class="line"><span class="keyword">import</span>  _  <span class="string">"net/http/pprof"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//用在返回值</span></span><br><span class="line"><span class="comment">//表示忽略某个值。单函数有多个返回值，用来获取某个特定的值</span></span><br><span class="line"><span class="keyword">for</span> _,v := <span class="keyword">range</span> Slice&#123;&#125;</span><br><span class="line">_,err := <span class="function"><span class="keyword">func</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">//用在变量</span></span><br><span class="line"><span class="function">//上面用来判断 <span class="title">type</span> <span class="title">T</span>是否实现了<span class="title">I</span>,用作类型断言，如果<span class="title">T</span>没有实现借口<span class="title">I</span>，则编译错误.</span></span><br><span class="line"><span class="function"><span class="title">type</span> <span class="title">T</span> <span class="title">struct</span></span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> _ I = T&#123;&#125;</span><br><span class="line"></span><br><span class="line">其中 I为<span class="keyword">interface</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//用在函数定义中省略带名的参数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">demo</span><span class="params">()</span> <span class="params">( <span class="keyword">int</span>, <span class="keyword">int</span>, <span class="keyword">string</span>, <span class="keyword">int</span> ,error)</span></span></span><br><span class="line"><span class="function">//返回多个参数时,尤其是类型相同的，不利于阅读，</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">func</span> <span class="title">demo</span><span class="params">()</span> <span class="params">( sumA <span class="keyword">int</span>, sumB <span class="keyword">int</span>, _ <span class="keyword">string</span>, total <span class="keyword">int</span> ,_ error)</span></span></span><br><span class="line"><span class="function">//返回参数 <span class="title">int</span> 加了名字，对比上面,便于理解,但是 "<span class="title">string</span>" 和 "<span class="title">error</span>"没有名字，编译会报错，用下划线可以忽略命名</span></span><br></pre></td></tr></table></figure>
+<pre><code class="go">//用在import
+//引入包，会先调用包中的初始化函数，这种使用方式仅让导入的包做初始化，而不使用包中其他功能
+import  _  &quot;net/http/pprof&quot;
 
+//用在返回值
+//表示忽略某个值。单函数有多个返回值，用来获取某个特定的值
+for _,v := range Slice{}
+_,err := func()
+
+//用在变量
+//上面用来判断 type T是否实现了I,用作类型断言，如果T没有实现借口I，则编译错误.
+type T struct{}
+var _ I = T{}
+
+其中 I为interface
+
+//用在函数定义中省略带名的参数
+func demo() ( int, int, string, int ,error)
+//返回多个参数时,尤其是类型相同的，不利于阅读，
+
+func demo() ( sumA int, sumB int, _ string, total int ,_ error)
+//返回参数 int 加了名字，对比上面,便于理解,但是 &quot;string&quot; 和 &quot;error&quot;没有名字，编译会报错，用下划线可以忽略命名</code></pre>
 <h4 id="1-8-os-Args"><a href="#1-8-os-Args" class="headerlink" title="1.8 os.Args"></a>1.8 <strong>os.Args</strong></h4><p>由os包实现，用于给出程序运行时的参数。os.Args的类型是 <strong>[]string</strong> ，也就是字符串切片。所以可以在for循环的range中遍历，还可以用 <strong>len(os.Args)</strong> 来获取其数量。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"os"</span></span><br><span class="line">    <span class="string">"strconv"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span> <span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">for</span> idx, args := <span class="keyword">range</span> os.Args &#123;</span><br><span class="line">        fmt.Println(<span class="string">"参数"</span> + strconv.Itoa(idx) + <span class="string">":"</span>, args)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//运行结果</span></span><br><span class="line">$<span class="keyword">go</span> run main.<span class="keyword">go</span> <span class="number">1</span> <span class="number">3</span> -X ?</span><br><span class="line">参数<span class="number">0</span>: /tmp/<span class="keyword">go</span>-build116558042/command-line-arguments/_obj/exe/main</span><br><span class="line">参数<span class="number">1</span>: <span class="number">1</span></span><br><span class="line">参数<span class="number">2</span>: <span class="number">3</span></span><br><span class="line">参数<span class="number">3</span>: -X</span><br><span class="line">参数<span class="number">4</span>: ?</span><br><span class="line"><span class="comment">//参数0为程序路径本身</span></span><br></pre></td></tr></table></figure>
+<pre><code class="go">package main
 
+import (
+    &quot;fmt&quot;
+    &quot;os&quot;
+    &quot;strconv&quot;
+)
+
+func main () {
+    for idx, args := range os.Args {
+        fmt.Println(&quot;参数&quot; + strconv.Itoa(idx) + &quot;:&quot;, args)
+    }
+}
+//运行结果
+$go run main.go 1 3 -X ?
+参数0: /tmp/go-build116558042/command-line-arguments/_obj/exe/main
+参数1: 1
+参数2: 3
+参数3: -X
+参数4: ?
+//参数0为程序路径本身
+</code></pre>
 <h4 id="1-9-flag包"><a href="#1-9-flag包" class="headerlink" title="1.9 flag包"></a>1.9 <strong>flag</strong>包</h4><p>使用flag包，首先定义待解析命令行参数，也就是以”-“开头的参数，比如这里的 -b -s -help等。-help不需要特别指定，可以自动处理。      </p>
 <p>flag使用前，必须首先解析：<code>flag.Parse()</code> 。  参数中没有能够按照预定义的参数解析的部分，通过flag.Args()即可获取，是一个字符串切片。        </p>
 <p>通过flag.Bool和flag.String，建立了2个指针b和s，分别指向bool类型和string类型的变量。所以后续要通过 <strong>*b</strong> 和 <strong>*s</strong> 使用变量值。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"flag"</span></span><br><span class="line">)</span><br><span class="line"><span class="comment">//参数：命令行参数名称，默认值，提示字符串</span></span><br><span class="line"><span class="keyword">var</span> b = flag.Bool(<span class="string">"b"</span>, <span class="literal">false</span>, <span class="string">"bool类型参数"</span>)</span><br><span class="line"><span class="keyword">var</span> s = flag.String(<span class="string">"s"</span>, <span class="string">""</span>, <span class="string">"string类型参数"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    flag.Parse()</span><br><span class="line">    fmt.Println(<span class="string">"-b:"</span>, *b)</span><br><span class="line">    fmt.Println(<span class="string">"-s:"</span>, *s)</span><br><span class="line">    fmt.Println(<span class="string">"其他参数："</span>, flag.Args())</span><br><span class="line">&#125;</span><br><span class="line">------------------------------------</span><br><span class="line">$ <span class="keyword">go</span> run main.<span class="keyword">go</span></span><br><span class="line">-b: <span class="literal">false</span></span><br><span class="line">-s: </span><br><span class="line">其他参数： []</span><br><span class="line">------------------------------------</span><br><span class="line">$ <span class="keyword">go</span> run main.<span class="keyword">go</span> -b</span><br><span class="line">-b: <span class="literal">true</span></span><br><span class="line">-s: </span><br><span class="line">其他参数： []</span><br><span class="line">------------------------------------</span><br><span class="line">$ <span class="keyword">go</span> run main.<span class="keyword">go</span> -b -s test others</span><br><span class="line">-b: <span class="literal">true</span></span><br><span class="line">-s: test</span><br><span class="line">其他参数： [others]</span><br><span class="line">------------------------------------</span><br><span class="line">$ <span class="keyword">go</span> run main.<span class="keyword">go</span>  -help</span><br><span class="line">Usage of /tmp/<span class="keyword">go</span>-build080353851/command-line-arguments/_obj/exe/main:</span><br><span class="line">  -b    <span class="keyword">bool</span>类型参数</span><br><span class="line">  -s <span class="keyword">string</span></span><br><span class="line">        <span class="keyword">string</span>类型参数</span><br><span class="line">exit status <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<pre><code class="go">package main
+import (
+    &quot;fmt&quot;
+    &quot;flag&quot;
+)
+//参数：命令行参数名称，默认值，提示字符串
+var b = flag.Bool(&quot;b&quot;, false, &quot;bool类型参数&quot;)
+var s = flag.String(&quot;s&quot;, &quot;&quot;, &quot;string类型参数&quot;)
 
+func main() {
+    flag.Parse()
+    fmt.Println(&quot;-b:&quot;, *b)
+    fmt.Println(&quot;-s:&quot;, *s)
+    fmt.Println(&quot;其他参数：&quot;, flag.Args())
+}
+------------------------------------
+$ go run main.go
+-b: false
+-s: 
+其他参数： []
+------------------------------------
+$ go run main.go -b
+-b: true
+-s: 
+其他参数： []
+------------------------------------
+$ go run main.go -b -s test others
+-b: true
+-s: test
+其他参数： [others]
+------------------------------------
+$ go run main.go  -help
+Usage of /tmp/go-build080353851/command-line-arguments/_obj/exe/main:
+  -b    bool类型参数
+  -s string
+        string类型参数
+exit status 2
+</code></pre>
 <h4 id="1-10-err"><a href="#1-10-err" class="headerlink" title="1.10 err"></a>1.10 <strong>err</strong></h4><p>error类型是一个接口类型，定义如下：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> error <span class="keyword">interface</span> &#123;</span><br><span class="line">    Error() <span class="keyword">string</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre><code class="go">type error interface {
+    Error() string
+}
+</code></pre>
 <p>可以通过实现error接口来生成错误信息，如果产生错误，就会生成一个non-nil的error对象，将此对象与nil比较，结果为true。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Sqrt</span><span class="params">(f <span class="keyword">float64</span>)</span> <span class="params">(<span class="keyword">float64</span>, error)</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> f &lt; <span class="number">0</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>, errors.New(<span class="string">"math: square root of negative number"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 实现</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">result, err:= Sqrt(<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">   fmt.Println(err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre><code class="go">func Sqrt(f float64) (float64, error) {
+    if f &lt; 0 {
+        return 0, errors.New(&quot;math: square root of negative number&quot;)
+    }
+    // 实现
+}
 
+result, err:= Sqrt(-1)
+
+if err != nil {
+   fmt.Println(err)
+}
+</code></pre>
 <h4 id="1-11-包的初始化和标准输入输出"><a href="#1-11-包的初始化和标准输入输出" class="headerlink" title="1.11 包的初始化和标准输入输出"></a>1.11 包的初始化和标准输入输出</h4><p><code>func init() { /* ... */ }</code></p>
 <p>初始化函数在包调用时自动执行。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    input := bufio.NewScanner(os.Stdin)<span class="comment">//初始化一个扫表对象</span></span><br><span class="line">    <span class="keyword">for</span> input.Scan() &#123;<span class="comment">//扫描输入内容</span></span><br><span class="line">        line := input.Text()<span class="comment">//把输入内容转换为字符串</span></span><br><span class="line">        fmt.Println(line)<span class="comment">//输出到标准输出</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="1-12-作用域"><a href="#1-12-作用域" class="headerlink" title="1.12 作用域"></a>1.12 作用域</h4><p>if和switch语句也会在条件部分创建隐式词法域，还有它们对应的执行体词法域。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> x := f(); x == <span class="number">0</span> &#123;</span><br><span class="line">    fmt.Println(x)</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> y := g(x); x == y &#123;</span><br><span class="line">    fmt.Println(x, y)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    fmt.Println(x, y)</span><br><span class="line">&#125;</span><br><span class="line">fmt.Println(x, y) <span class="comment">// compile error: x and y are not visible here</span></span><br></pre></td></tr></table></figure>
-
-<p>在包级别，声明的顺序并不会影响作用域范围，因此一个先声明的可以引用它自身或者是引用后面的一个声明，这可以让我们定义一些相互嵌套或递归的类型或函数。但是如果一个变量或常量递归引用了自身，则会产生编译错误。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cwd <span class="keyword">string</span></span><br><span class="line"><span class="comment">//使用声明语句，初始化的cwd为局部变量，导致全局变量cwd并未被初始化</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line">    cwd, err := os.Getwd() <span class="comment">// <span class="doctag">NOTE:</span> wrong!</span></span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        log.Fatalf(<span class="string">"os.Getwd failed: %v"</span>, err)</span><br><span class="line">    &#125;</span><br><span class="line">    log.Printf(<span class="string">"Working directory = %s"</span>, cwd)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cwd <span class="keyword">string</span></span><br><span class="line"><span class="comment">//将err先定义，再使用赋值方法</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> err error</span><br><span class="line">    cwd, err = os.Getwd()</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        log.Fatalf(<span class="string">"os.Getwd failed: %v"</span>, err)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-        </div>
-        <footer class="article-footer">
-            
-
-
-
-    <a data-url="http://Zhiyuancs.github.io/2019/09/26/Go-一/" data-id="ck2nabvsr00047ono0gggpmlg" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-        </footer>
-    </div>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "author": {
-            "@type": "Person",
-            "name": "Zhiyuan"
-        },
-        "headline": "Go(一)",
-        "image": "http://Zhiyuancs.github.io",
-        "keywords": "Go",
-        "genre": "学习笔记",
-        "datePublished": "2019-09-26",
-        "dateCreated": "2019-09-26",
-        "dateModified": "2019-09-26",
-        "url": "http://Zhiyuancs.github.io/2019/09/26/Go-一/",
-        "description": "1.1命名Go中函数名字的开头字母大小决定了该函数在包外的可见性：大写字母开头，这个函数在包外可以使用；小写字母开头不可以在包外部访问。Go语言程序员推荐使用 驼峰式 命名。
-1.2声明var、const、type、func：变量、常量、类型、函数实体对象声明    
-包声明语句之后是import语句导入依赖的其它包，然后是包一级的类型、变量、常量、函数的声明语句。在包一级声明的名字可以在整个包和"
-        "wordCount": 1273
+<pre><code class="go">func main() {
+    input := bufio.NewScanner(os.Stdin)//初始化一个扫表对象
+    for input.Scan() {//扫描输入内容
+        line := input.Text()//把输入内容转换为字符串
+        fmt.Println(line)//输出到标准输出
     }
-</script>
+}
+</code></pre>
+<h4 id="1-12-作用域"><a href="#1-12-作用域" class="headerlink" title="1.12 作用域"></a>1.12 作用域</h4><p>if和switch语句也会在条件部分创建隐式词法域，还有它们对应的执行体词法域。</p>
+<pre><code class="go">if x := f(); x == 0 {
+    fmt.Println(x)
+} else if y := g(x); x == y {
+    fmt.Println(x, y)
+} else {
+    fmt.Println(x, y)
+}
+fmt.Println(x, y) // compile error: x and y are not visible here
+</code></pre>
+<p>在包级别，声明的顺序并不会影响作用域范围，因此一个先声明的可以引用它自身或者是引用后面的一个声明，这可以让我们定义一些相互嵌套或递归的类型或函数。但是如果一个变量或常量递归引用了自身，则会产生编译错误。</p>
+<pre><code class="go">var cwd string
+//使用声明语句，初始化的cwd为局部变量，导致全局变量cwd并未被初始化
+func init() {
+    cwd, err := os.Getwd() // NOTE: wrong!
+    if err != nil {
+        log.Fatalf(&quot;os.Getwd failed: %v&quot;, err)
+    }
+    log.Printf(&quot;Working directory = %s&quot;, cwd)
+}
+</code></pre>
+<pre><code class="go">var cwd string
+//将err先定义，再使用赋值方法
+func init() {
+    var err error
+    cwd, err = os.Getwd()
+    if err != nil {
+        log.Fatalf(&quot;os.Getwd failed: %v&quot;, err)
+    }
+}
+</code></pre>
 
-</article>
-<!-- LiveRe City install code -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC80NjcxOS8yMzIyOA==">
-	<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/Go">Go</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
 
-       if (typeof LivereTower === 'function') { return; }
-
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
-
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-	</script>
-<noscript> Please activate JavaScript for write a comment in LiveRe</noscript>
+    </div>
+  </div>
 </div>
-<!-- completed City install code -->
 
-                        </div>
-                    </section>
-                    <aside id="sidebar">
-    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
-    <div class="sidebar-top">
-        <p>关注我 :</p>
-        <ul class="social-links">
-            
-                
-                <li>
-                    <a class="social-tooltip" title="github" href="https://github.com/Zhiyuancs" target="_blank" rel="noopener">
-                        <i class="icon fa fa-github"></i>
-                    </a>
-                </li>
-                
-            
-        </ul>
-    </div>
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
     
-        
-<nav id="article-nav">
+      <br><br>
+      
+      
+
     
-        <a href="/2019/09/26/Go-二/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            Go(二)
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
     </a>
-    
-    
-        <a href="/2019/09/22/java-正则表达式/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">java随笔--正则表达式</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
-    
-</nav>
+  
 
-    
-    <div class="widgets-container">
-        
-            
-                
-    <div class="widget-wrap">
-        <h3 class="widget-title">最新文章</h3>
-        <div class="widget">
-            <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/11/06/java随笔-断言、日志/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/学习笔记/">学习笔记</a></p>
-                            <p class="item-title"><a href="/2019/11/06/java随笔-断言、日志/" class="title">java随笔--断言、日志</a></p>
-                            <p class="item-date"><time datetime="2019-11-06T12:54:39.000Z" itemprop="datePublished">2019-11-06</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/11/06/java随笔-lambda表达式/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/学习笔记/">学习笔记</a></p>
-                            <p class="item-title"><a href="/2019/11/06/java随笔-lambda表达式/" class="title">java随笔--lambda表达式</a></p>
-                            <p class="item-date"><time datetime="2019-11-06T12:53:07.000Z" itemprop="datePublished">2019-11-06</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/11/05/java随笔-一些注意点和tricks/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/学习笔记/">学习笔记</a></p>
-                            <p class="item-title"><a href="/2019/11/05/java随笔-一些注意点和tricks/" class="title">java随笔--一些注意点和tricks</a></p>
-                            <p class="item-date"><time datetime="2019-11-05T10:31:49.000Z" itemprop="datePublished">2019-11-05</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/10/30/java随笔-PriorityQueue/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/学习笔记/">学习笔记</a></p>
-                            <p class="item-title"><a href="/2019/10/30/java随笔-PriorityQueue/" class="title">java随笔--PriorityQueue</a></p>
-                            <p class="item-date"><time datetime="2019-10-30T14:00:00.000Z" itemprop="datePublished">2019-10-30</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/10/19/二叉搜索树/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/LeetCode/">LeetCode</a></p>
-                            <p class="item-title"><a href="/2019/10/19/二叉搜索树/" class="title">二叉搜索树</a></p>
-                            <p class="item-date"><time datetime="2019-10-19T02:03:33.000Z" itemprop="datePublished">2019-10-19</time></p>
-                        </div>
-                    </li>
-                
-            </ul>
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
         </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
     </div>
+  </div>
+</div>
+  
 
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">分类</h3>
-        <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/">学习笔记</a><span class="category-list-count">21</span></li></ul>
-        </div>
-    </div>
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
 
-
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">归档</h3>
-        <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li></ul>
-        </div>
-    </div>
-
-
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">标签</h3>
-        <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Go/">Go</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDBC/">JDBC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/">Mysql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分查找/">二分查找</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动态规划/">动态规划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/回溯/">回溯</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树/">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/视频摘要/">视频摘要</a><span class="tag-list-count">3</span></li></ul>
-        </div>
-    </div>
+    
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
 
 
-            
-                
-    <div class="widget-wrap widget-float">
-        <h3 class="widget-title">标签云</h3>
-        <div class="widget tagcloud">
-            <a href="/tags/Go/" style="font-size: 17.5px;">Go</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JDBC/" style="font-size: 12.5px;">JDBC</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Mysql/" style="font-size: 15px;">Mysql</a> <a href="/tags/Python/" style="font-size: 17.5px;">Python</a> <a href="/tags/二分查找/" style="font-size: 10px;">二分查找</a> <a href="/tags/动态规划/" style="font-size: 10px;">动态规划</a> <a href="/tags/回溯/" style="font-size: 12.5px;">回溯</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/视频摘要/" style="font-size: 15px;">视频摘要</a>
-        </div>
-    </div>
 
-
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">链接</h3>
-        <div class="widget">
-            <ul>
-                
-                    <li>
-                        <a href="http://hexo.io">Hexo</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://blog.csdn.net/Capricorn_devil">csdn</a>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
-
-            
-        
-    </div>
-</aside>
-
-                </div>
-            </div>
-        </div>
-        <footer id="footer">
-    <div class="container">
-        <div class="container-inner">
-            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
-            <div class="credit">
-                <h1 class="logo-wrap">
-                    <a href="/" class="logo"></a>
-                </h1>
-                <p>&copy; 2019 Zhiyuan</p>
-                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
-            
-			
-			<!--这一段是不蒜子的访问量统计脚本-->
-                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次 &nbsp;   </span>
-                <span id="busuanzi_container_site_uv">
-                    访客数<span id="busuanzi_value_site_uv"></span>人次
-                  </span>
-			</div>
-            <div class="footer-plugins">
-              
     
 
-
-            </div>
-        </div>
-    </div>
+  </div>
 </footer>
 
-        
-    
-    <script>
-    var disqus_shortname = 'hexo-theme-hueman';
-    
-    
-    var disqus_url = 'http://Zhiyuancs.github.io/2019/09/26/Go-一/';
-    
-    (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+
+  
+
+  
+
+  
 
 
 
 
-    
-        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
-    
-    
-        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
-    
-    
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
 
 
 
-<!-- Custom Scripts -->
-<script src="/js/main.js"></script>
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Go(一)&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
 
-    </div>
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
 </body>
 </html>

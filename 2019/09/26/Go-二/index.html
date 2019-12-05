@@ -1,654 +1,567 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+
+
+
+
+
 <head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="NEU">
+  <meta name="author" content="Zhiyuan">
+  <meta name="keywords" content="初学者">
+  <title>Go(二) ~ Solon&#39;s blog</title>
 
-    
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
-    
-    <title>Go(二) | Zhiyuan的博客</title>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-        <meta name="keywords" content="Go">
-    
-    <meta name="description" content="基础数据类型2.1 整形12345*      /      %      &amp;lt;&amp;lt;       &amp;gt;&amp;gt;     &amp;amp;       &amp;amp;^+      -      |      ^==     !=     &amp;lt;      &amp;lt;=       &amp;gt;      &amp;gt;=&amp;amp;&amp;amp;||  二元运算符有五种优先级。在同一个优先级，使用左优先结合规则">
-<meta name="keywords" content="Go">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Go(二)">
-<meta property="og:url" content="http://Zhiyuancs.github.io/2019/09/26/Go-二/index.html">
-<meta property="og:site_name" content="Zhiyuan的博客">
-<meta property="og:description" content="基础数据类型2.1 整形12345*      /      %      &amp;lt;&amp;lt;       &amp;gt;&amp;gt;     &amp;amp;       &amp;amp;^+      -      |      ^==     !=     &amp;lt;      &amp;lt;=       &amp;gt;      &amp;gt;=&amp;amp;&amp;amp;||  二元运算符有五种优先级。在同一个优先级，使用左优先结合规则">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-26T07:45:44.140Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Go(二)">
-<meta name="twitter:description" content="基础数据类型2.1 整形12345*      /      %      &amp;lt;&amp;lt;       &amp;gt;&amp;gt;     &amp;amp;       &amp;amp;^+      -      |      ^==     !=     &amp;lt;      &amp;lt;=       &amp;gt;      &amp;gt;=&amp;amp;&amp;amp;||  二元运算符有五种优先级。在同一个优先级，使用左优先结合规则">
-    
 
-    
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
 
-    
+<link rel="stylesheet" href="/css/main.css">
 
-    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
-    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
 
-    <link rel="stylesheet" href="/css/style.css">
-
-    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
-    
-    
-        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
-    
-    
-        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
-    
-    
-    
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css">
 
 
 </head>
-</html>
+
+
 <body>
-    <div id="wrap">
-        <header id="header">
-    <div id="header-outer" class="outer">
-        <div class="container">
-            <div class="container-inner">
-                <div id="header-title">
-                    <h1 class="logo-wrap">
-                        <a href="/" class="logo"></a>
-                    </h1>
-                    
-                </div>
-                <div id="header-inner" class="nav-container">
-                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
-                    <div class="nav-container-inner">
-                        <ul id="main-nav">
-                            
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/">主页</a>
-                                </li>
-                            
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/LeetCode/">LeetCode</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/学习笔记/">学习笔记</a></li></ul>
-                                    
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
-                                </li>
-                            
-                        </ul>
-                        <nav id="sub-nav">
-                            <div id="search-form-wrap">
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Solon&#39;s blog</strong>&nbsp;</a>
 
-    <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
-        <button type="submit" class="search-form-submit"></button>
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
-    </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
-            UNTITLED: '(未命名)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-<script src="/js/insight.js"></script>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-</div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
-        <div class="container">
-            <div class="main-body container-inner">
-                <div class="main-body-inner">
-                    <section id="main">
-                        <div class="main-body-header">
-    <h1 class="header">
-    
-    <a class="page-title-link" href="/categories/学习笔记/">学习笔记</a>
-    </h1>
-</div>
-
-                        <div class="main-body-content">
-                            <article id="post-Go-二" class="article article-single article-type-post" itemscope itemprop="blogPost">
-    <div class="article-inner">
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
-            <header class="article-header">
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期四, 九月 26日 2019, 3:44 下午
+                </p>
+              
+
+              <p>
                 
-    
-        <h1 class="article-title" itemprop="name">
-        Go(二)
-        </h1>
-    
-
-            </header>
-        
-        
-            <div class="article-meta">
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    2.4k 字
+                  </span>&nbsp;
                 
-    <div class="article-date">
-        <a href="/2019/09/26/Go-二/" class="article-date">
-            <time datetime="2019-09-26T07:44:51.000Z" itemprop="datePublished">2019-09-26</time>
-        </a>
-    </div>
-
-		
 
                 
-    <div class="article-tag">
-        <i class="fa fa-tag"></i>
-        <a class="tag-link" href="/tags/Go/">Go</a>
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      10 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
     </div>
+  </header>
 
-            </div>
-        
-        
-        <div class="article-entry" itemprop="articleBody">
-            <h2 id="基础数据类型"><a href="#基础数据类型" class="headerlink" title="基础数据类型"></a>基础数据类型</h2><h4 id="2-1-整形"><a href="#2-1-整形" class="headerlink" title="2.1 整形"></a>2.1 整形</h4><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">*      /      %      &lt;&lt;       &gt;&gt;     &amp;       &amp;^</span><br><span class="line">+      -      |      ^</span><br><span class="line">==     !=     &lt;      &lt;=       &gt;      &gt;=</span><br><span class="line">&amp;&amp;</span><br><span class="line">||</span><br></pre></td></tr></table></figure>
+  <main>
+    
+      
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h2 id="基础数据类型"><a href="#基础数据类型" class="headerlink" title="基础数据类型"></a>基础数据类型</h2><h4 id="2-1-整形"><a href="#2-1-整形" class="headerlink" title="2.1 整形"></a>2.1 整形</h4><pre><code class="go">*      /      %      &lt;&lt;       &gt;&gt;     &amp;       &amp;^
++      -      |      ^
+==     !=     &lt;      &lt;=       &gt;      &gt;=
+&amp;&amp;
+||</code></pre>
 <p>二元运算符有五种优先级。在同一个优先级，使用左优先结合规则，但是使用括号可以明确优先顺序，使用括号也可以用于提升优先级。在Go语言中，%取模运算符的符号和被取模数的符号总是一致的，因此<code>-5%3</code>和<code>-5%-3</code>结果都是-2。除法运算符<code>/</code>的行为则依赖于操作数是否为全为整数，比如<code>5.0/4.0</code>的结果是1.25，但是5/4的结果是1，因为整数除法会向着0方向截断余数。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&amp;      位运算 AND</span><br><span class="line">|      位运算 OR</span><br><span class="line">^      位运算 XOR</span><br><span class="line">&amp;^     位清空 (AND NOT)</span><br><span class="line">&lt;&lt;     左移</span><br><span class="line">&gt;&gt;     右移</span><br></pre></td></tr></table></figure>
-
+<pre><code class="go">&amp;      位运算 AND
+|      位运算 OR
+^      位运算 XOR
+&amp;^     位清空 (AND NOT)
+&lt;&lt;     左移
+&gt;&gt;     右移</code></pre>
 <p>位操作运算符<code>^</code>作为二元运算符时是按位异或（XOR），当用作一元运算符时表示按位取反；位操作运算符<code>&amp;^</code>用于按位置零（AND NOT）：如果对应y中bit位为1的话, 表达式<code>z = x &amp;^ y</code>结果z的对应的bit位为0，否则z对应的bit位等于x相应的bit位的值。</p>
 <p>任何大小的整数字面值都可以用以0开始的八进制格式书写，例如0666；或用以0x或0X开头的十六进制格式书写，例如0xdeadbeef。十六进制数字可以用大写或小写字母。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">o := <span class="number">0666</span></span><br><span class="line">fmt.Printf(<span class="string">"%d %[1]o %#[1]o\n"</span>, o) <span class="comment">// "438 666 0666"</span></span><br><span class="line">x := <span class="keyword">int64</span>(<span class="number">0xdeadbeef</span>)</span><br><span class="line">fmt.Printf(<span class="string">"%d %[1]x %#[1]x %#[1]X\n"</span>, x)</span><br><span class="line"><span class="comment">// Output:</span></span><br><span class="line"><span class="comment">// 3735928559 deadbeef 0xdeadbeef 0XDEADBEEF</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="go">o := 0666
+fmt.Printf(&quot;%d %[1]o %#[1]o\n&quot;, o) // &quot;438 666 0666&quot;
+x := int64(0xdeadbeef)
+fmt.Printf(&quot;%d %[1]x %#[1]x %#[1]X\n&quot;, x)
+// Output:
+// 3735928559 deadbeef 0xdeadbeef 0XDEADBEEF</code></pre>
 <p>通常Printf格式化字符串包含多个%参数时将会包含对应相同数量的额外操作数，但是%之后的<code>[1]</code>副词告诉Printf函数再次使用第一个操作数。第二，%后的<code>#</code>副词告诉Printf在用%o、%x或%X输出时生成0、0x或0X前缀。字符使用<code>%c</code>参数打印，或者是用<code>%q</code>参数打印带单引号的字符。</p>
 <h4 id="2-2-浮点数"><a href="#2-2-浮点数" class="headerlink" title="2.2 浮点数"></a>2.2 浮点数</h4><p>float32、float64</p>
 <p>很小或很大的数最好用科学计数法书写，通过e或E来指定指数部分。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Avogadro = <span class="number">6.02214129e23</span>  <span class="comment">// 阿伏伽德罗常数</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="go">const Avogadro = 6.02214129e23  // 阿伏伽德罗常数</code></pre>
 <p>用Printf函数的%g参数打印浮点数，将采用更紧凑的表示形式打印，并提供足够的精度，但是对应表格的数据，使用%e（带指数）或%f的形式打印可能更合适。所有的这三个打印形式都可以指定打印的宽度和控制打印精度。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x := <span class="number">0</span>; x &lt; <span class="number">8</span>; x++ &#123;</span><br><span class="line">    fmt.Printf(<span class="string">"x = %d e^x = %8.3f\n"</span>, x, math.Exp(<span class="keyword">float64</span>(x)))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">x = <span class="number">5</span>       e^x =  <span class="number">148.413</span></span><br><span class="line">x = <span class="number">6</span>       e^x =  <span class="number">403.429</span></span><br><span class="line">x = <span class="number">7</span>       e^x = <span class="number">1096.633</span></span><br></pre></td></tr></table></figure>
+<pre><code class="go">for x := 0; x &lt; 8; x++ {
+    fmt.Printf(&quot;x = %d e^x = %8.3f\n&quot;, x, math.Exp(float64(x)))
+}
 
+x = 5       e^x =  148.413
+x = 6       e^x =  403.429
+x = 7       e^x = 1096.633</code></pre>
 <p>math包中有定义的特殊值：+Inf、-Inf、NAN（正负无穷，非数）。函数math.IsNaN用于测试一个数是否是非数NaN，math.NaN则返回非数对应的值。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nan := math.NaN()</span><br><span class="line">fmt.Println(nan == nan, nan &lt; nan, nan &gt; nan) <span class="comment">// "false false false"</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="go">nan := math.NaN()
+fmt.Println(nan == nan, nan &lt; nan, nan &gt; nan) // &quot;false false false&quot;</code></pre>
 <h4 id="2-3-复数"><a href="#2-3-复数" class="headerlink" title="2.3 复数"></a>2.3 复数</h4><p>Go语言提供了两种精度的复数类型：complex64和complex128，分别对应float32和float64两种浮点数精度。内置的complex函数用于构建复数，内建的<strong>real</strong>和<strong>imag</strong>函数分别返回复数的实部和虚部：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x <span class="keyword">complex128</span> = <span class="built_in">complex</span>(<span class="number">1</span>, <span class="number">2</span>) <span class="comment">// 1+2i</span></span><br><span class="line"><span class="keyword">var</span> y <span class="keyword">complex128</span> = <span class="built_in">complex</span>(<span class="number">3</span>, <span class="number">4</span>) <span class="comment">// 3+4i</span></span><br><span class="line">fmt.Println(x*y)                 <span class="comment">// "(-5+10i)"</span></span><br><span class="line">fmt.Println(<span class="built_in">real</span>(x*y))           <span class="comment">// "-5"</span></span><br><span class="line">fmt.Println(<span class="built_in">imag</span>(x*y))           <span class="comment">// "10"</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="go">var x complex128 = complex(1, 2) // 1+2i
+var y complex128 = complex(3, 4) // 3+4i
+fmt.Println(x*y)                 // &quot;(-5+10i)&quot;
+fmt.Println(real(x*y))           // &quot;-5&quot;
+fmt.Println(imag(x*y))           // &quot;10&quot;</code></pre>
 <p>math/cmplx包提供了复数处理的许多函数，例如求复数的平方根函数和求幂函数。</p>
 <h4 id="2-4-布尔值"><a href="#2-4-布尔值" class="headerlink" title="2.4 布尔值"></a>2.4 布尔值</h4><p>布尔值可以和&amp;&amp;（AND）和||（OR）操作符结合，并且有短路行为：如果运算符左边值已经可以确定整个布尔表达式的值，那么运算符右边的值将不再被求值。</p>
 <p><code>&amp;&amp;</code>的优先级比<code>||</code>高</p>
 <p>布尔值并不会隐式转换为数字值0或1，反之亦然。</p>
 <h4 id="2-5-字符串"><a href="#2-5-字符串" class="headerlink" title="2.5 字符串"></a>2.5 字符串</h4><p>支持切片，‘+’链接字符串，字符串是不可修改的，尝试修改字符串内部的字符是禁止的。</p>
 <p>原生字符串使用反引号代替双引号，原生的字符串字面量多用于书写多行消息、HTML以及正则表达式。在原生的字符串面值中，没有转义操作；<strong>全部的内容都是字面的意思</strong>，包含退格和换行，因此一个程序中的原生字符串面值可能跨越多行。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> GoUsage = <span class="string">`Go is a tool for managing Go source code.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Usage:</span></span><br><span class="line"><span class="string">    go command [arguments]</span></span><br><span class="line"><span class="string">...`</span></span><br></pre></td></tr></table></figure>
+<pre><code class="go">const GoUsage = `Go is a tool for managing Go source code.
 
+Usage:
+    go command [arguments]
+...`</code></pre>
 <p>strings包提供了许多如字符串的查询、替换、比较、截断、拆分和合并等功能。bytes包也提供了很多类似功能的函数，但是针对和字符串有着相同结构的[]byte类型。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//strings包</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Contains</span><span class="params">(s, substr <span class="keyword">string</span>)</span> <span class="title">bool</span></span></span><br><span class="line"><span class="function"><span class="title">func</span> <span class="title">Count</span><span class="params">(s, sep <span class="keyword">string</span>)</span> <span class="title">int</span></span></span><br><span class="line"><span class="function"><span class="title">func</span> <span class="title">Fields</span><span class="params">(s <span class="keyword">string</span>)</span> []<span class="title">string</span></span></span><br><span class="line"><span class="function"><span class="title">func</span> <span class="title">HasPrefix</span><span class="params">(s, prefix <span class="keyword">string</span>)</span> <span class="title">bool</span></span></span><br><span class="line"><span class="function"><span class="title">func</span> <span class="title">Index</span><span class="params">(s, sep <span class="keyword">string</span>)</span> <span class="title">int</span></span></span><br><span class="line"><span class="function"><span class="title">func</span> <span class="title">Join</span><span class="params">(a []<span class="keyword">string</span>, sep <span class="keyword">string</span>)</span> <span class="title">string</span></span></span><br><span class="line"><span class="function">//<span class="title">bytes</span>包</span></span><br><span class="line"><span class="function"><span class="title">func</span> <span class="title">Contains</span><span class="params">(b, subslice []<span class="keyword">byte</span>)</span> <span class="title">bool</span></span></span><br><span class="line"><span class="function"><span class="title">func</span> <span class="title">Count</span><span class="params">(s, sep []<span class="keyword">byte</span>)</span> <span class="title">int</span></span></span><br><span class="line"><span class="function"><span class="title">func</span> <span class="title">Fields</span><span class="params">(s []<span class="keyword">byte</span>)</span> [][]<span class="title">byte</span></span></span><br><span class="line"><span class="function"><span class="title">func</span> <span class="title">HasPrefix</span><span class="params">(s, prefix []<span class="keyword">byte</span>)</span> <span class="title">bool</span></span></span><br><span class="line"><span class="function"><span class="title">func</span> <span class="title">Index</span><span class="params">(s, sep []<span class="keyword">byte</span>)</span> <span class="title">int</span></span></span><br><span class="line"><span class="function"><span class="title">func</span> <span class="title">Join</span><span class="params">(s [][]<span class="keyword">byte</span>, sep []<span class="keyword">byte</span>)</span> []<span class="title">byte</span></span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="go">//strings包
+func Contains(s, substr string) bool
+func Count(s, sep string) int
+func Fields(s string) []string
+func HasPrefix(s, prefix string) bool
+func Index(s, sep string) int
+func Join(a []string, sep string) string
+//bytes包
+func Contains(b, subslice []byte) bool
+func Count(s, sep []byte) int
+func Fields(s []byte) [][]byte
+func HasPrefix(s, prefix []byte) bool
+func Index(s, sep []byte) int
+func Join(s [][]byte, sep []byte) []byte
+</code></pre>
 <p>bytes包还提供了<strong>Buffer类型</strong>用于字节slice的缓存。一个Buffer开始是空的，但是随着string、byte或[]byte等类型数据的写入可以动态增长，一个bytes.Buffer变量并不需要初始化，因为零值也是有效的：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> buf bytes.Buffer</span><br><span class="line">buf.WriteByte(<span class="string">'['</span>)</span><br><span class="line">buf.WriteRune(<span class="string">'中'</span>)</span><br><span class="line">buf.WriteString(<span class="string">", d "</span>)</span><br></pre></td></tr></table></figure>
-
+<pre><code class="go">var buf bytes.Buffer
+buf.WriteByte(&#39;[&#39;)
+buf.WriteRune(&#39;中&#39;)
+buf.WriteString(&quot;, d &quot;)
+</code></pre>
 <p>strconv包提供了布尔型、整型数、浮点数和对应字符串的相互转换，还提供了双引号转义相关的转换。unicode包提供了IsDigit、IsLetter、IsUpper和IsLower等类似功能，它们用于给字符分类。每个函数有一个单一的rune类型的参数，然后返回一个布尔值。</p>
 <h4 id="2-6-UTF-8"><a href="#2-6-UTF-8" class="headerlink" title="2.6 UTF-8"></a>2.6 UTF-8</h4><p>UTF8编码使用1到4个字节来表示每个Unicode码点，ASCII部分字符只使用1个字节，常用字符部分使用2或3个字节表示。如果第一个字节的高端bit为0，则表示对应7bit的ASCII字符，ASCII字符每个字符依然是一个字节，和传统的ASCII编码兼容。如果第一个字节的高端bit是110，则说明需要2个字节；后续的每个高端bit都以10开头。</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>xxxxxxx                             runes <span class="number">0</span><span class="number">-127</span>    (ASCII)</span><br><span class="line"><span class="number">110</span>xxxxx <span class="number">10</span>xxxxxx                    <span class="number">128</span><span class="number">-2047</span>       (values &lt;<span class="number">128</span> unused)</span><br><span class="line"><span class="number">1110</span>xxxx <span class="number">10</span>xxxxxx <span class="number">10</span>xxxxxx           <span class="number">2048</span><span class="number">-65535</span>     (values &lt;<span class="number">2048</span> unused)</span><br><span class="line"><span class="number">11110</span>xxx <span class="number">10</span>xxxxxx <span class="number">10</span>xxxxxx <span class="number">10</span>xxxxxx  <span class="number">65536</span><span class="number">-0x10ffff</span> (other values unused)</span><br></pre></td></tr></table></figure>
+<pre><code>0xxxxxxx                             runes 0-127    (ASCII)
+110xxxxx 10xxxxxx                    128-2047       (values &lt;128 unused)
+1110xxxx 10xxxxxx 10xxxxxx           2048-65535     (values &lt;2048 unused)
+11110xxx 10xxxxxx 10xxxxxx 10xxxxxx  65536-0x10ffff (other values unused)
+</code></pre><pre><code>//Unicode转义字符让我们可以通过Unicode码点输入特殊的字符。下面是相同的字符串
+&quot;世界&quot;
+&quot;\xe4\xb8\x96\xe7\x95\x8c&quot;
+&quot;\u4e16\u754c&quot;
+&quot;\U00004e16\U0000754c&quot;
+</code></pre><pre><code class="go">import &quot;unicode/utf8&quot;
 
-<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//Unicode转义字符让我们可以通过Unicode码点输入特殊的字符。下面是相同的字符串</span><br><span class="line">"世界"</span><br><span class="line">"<span class="symbol">\x</span>e4<span class="symbol">\x</span>b8<span class="symbol">\x</span>96<span class="symbol">\x</span>e7<span class="symbol">\x</span>95<span class="symbol">\x</span>8c"</span><br><span class="line">"<span class="symbol">\u</span>4e16<span class="symbol">\u</span>754c"</span><br><span class="line">"<span class="symbol">\U</span>00004e16<span class="symbol">\U</span>0000754c"</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">"unicode/utf8"</span></span><br><span class="line"></span><br><span class="line">s := <span class="string">"Hello, 世界"</span></span><br><span class="line">fmt.Println(<span class="built_in">len</span>(s))                    <span class="comment">// "13"</span></span><br><span class="line">fmt.Println(utf8.RuneCountInString(s)) <span class="comment">// "9"</span></span><br></pre></td></tr></table></figure>
-
+s := &quot;Hello, 世界&quot;
+fmt.Println(len(s))                    // &quot;13&quot;
+fmt.Println(utf8.RuneCountInString(s)) // &quot;9&quot;
+</code></pre>
 <p>Go语言的range循环在处理字符串的时候，会自动隐式解码UTF8字符串。</p>
 <p>如果是将一个[]rune类型的Unicode字符slice或数组转为string，则对它们进行UTF8编码：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">s := <span class="string">"プログラム"</span></span><br><span class="line">fmt.Printf(<span class="string">"% x\n"</span>, s) <span class="comment">// "e3 83 97 e3 83 ad e3 82 b0 e3 83 a9 e3 83 a0"</span></span><br><span class="line">r := []<span class="keyword">rune</span>(s)</span><br><span class="line">fmt.Printf(<span class="string">"%x\n"</span>, r)  <span class="comment">// "[30d7 30ed 30b0 30e9 30e0]"</span></span><br><span class="line">fmt.Println(<span class="keyword">string</span>(r)) <span class="comment">// "プログラム"</span></span><br><span class="line">fmt.Println(<span class="keyword">string</span>(<span class="number">65</span>))     <span class="comment">// "A", not "65"</span></span><br><span class="line">fmt.Println(<span class="keyword">string</span>(<span class="number">0x4eac</span>)) <span class="comment">// "京"</span></span><br><span class="line">fmt.Println(<span class="keyword">string</span>(<span class="number">1234567</span>)) <span class="comment">// "�"（无效字符）</span></span><br><span class="line">fmt.Println(<span class="keyword">rune</span>(<span class="string">'你'</span>))<span class="comment">//输出20320</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="go">s := &quot;プログラム&quot;
+fmt.Printf(&quot;% x\n&quot;, s) // &quot;e3 83 97 e3 83 ad e3 82 b0 e3 83 a9 e3 83 a0&quot;
+r := []rune(s)
+fmt.Printf(&quot;%x\n&quot;, r)  // &quot;[30d7 30ed 30b0 30e9 30e0]&quot;
+fmt.Println(string(r)) // &quot;プログラム&quot;
+fmt.Println(string(65))     // &quot;A&quot;, not &quot;65&quot;
+fmt.Println(string(0x4eac)) // &quot;京&quot;
+fmt.Println(string(1234567)) // &quot;�&quot;（无效字符）
+fmt.Println(rune(&#39;你&#39;))//输出20320
+</code></pre>
 <p>rune在golang中是int32的别名，在各个方面都与int32相同。可以将rune理解为一个可以表示Unicode编码的int值，称为码点。参考java中的char类型（可以和int运算）。</p>
 <p>在Go中，双引号是用来表示字符串string，本质是[]byte类型，单引号表示rune类型。</p>
 <h4 id="2-7-字符串和数字的转换"><a href="#2-7-字符串和数字的转换" class="headerlink" title="2.7 字符串和数字的转换"></a>2.7 字符串和数字的转换</h4><p>将一个整数转为字符串，一种方法是用fmt.Sprintf返回一个格式化的字符串；另一个方法是用strconv.Itoa(“整数到ASCII”)：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x := <span class="number">123</span></span><br><span class="line">y := fmt.Sprintf(<span class="string">"%d"</span>, x)</span><br><span class="line">fmt.Println(y, strconv.Itoa(x)) <span class="comment">// "123 123"</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="go">x := 123
+y := fmt.Sprintf(&quot;%d&quot;, x)
+fmt.Println(y, strconv.Itoa(x)) // &quot;123 123&quot;
+</code></pre>
 <p>FormatInt和FormatUint函数可以用不同的进制来格式化数字：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fmt.Println(strconv.FormatInt(<span class="keyword">int64</span>(x), <span class="number">2</span>)) <span class="comment">// "1111011"</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="go">fmt.Println(strconv.FormatInt(int64(x), 2)) // &quot;1111011&quot;
+</code></pre>
 <p>fmt.Sprintf函数的%b、%d、%o和%x等参数提供功能往往比strconv包的Format函数方便很多，特别是在需要包含附加额外信息的时候：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s := fmt.Sprintf(<span class="string">"x=%b"</span>, x) <span class="comment">// "x=1111011"</span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="go">s := fmt.Sprintf(&quot;x=%b&quot;, x) // &quot;x=1111011&quot;
+</code></pre>
 <p>如果要将一个字符串解析为整数，可以使用strconv包的Atoi或ParseInt函数，还有用于解析无符号整数的ParseUint函数：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x, err := strconv.Atoi(<span class="string">"123"</span>)             <span class="comment">// x is an int</span></span><br><span class="line">y, err := strconv.ParseInt(<span class="string">"123"</span>, <span class="number">10</span>, <span class="number">64</span>) <span class="comment">// base 10, up to 64 bits</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ParseInt</span><span class="params">(s <span class="keyword">string</span>, base <span class="keyword">int</span>, bitSize <span class="keyword">int</span>)</span> <span class="params">(i <span class="keyword">int64</span>, err error)</span></span></span><br></pre></td></tr></table></figure>
-
+<pre><code class="go">x, err := strconv.Atoi(&quot;123&quot;)             // x is an int
+y, err := strconv.ParseInt(&quot;123&quot;, 10, 64) // base 10, up to 64 bits
+func ParseInt(s string, base int, bitSize int) (i int64, err error)
+</code></pre>
 <p>ParseInt函数的第三个参数是用于指定返回整型数的大小；例如16表示int16，0则表示int。第二个参数为数字字符串的进制。</p>
 <p>int随系统而定，32位系统为int32</p>
 <h4 id="2-8-常量"><a href="#2-8-常量" class="headerlink" title="2.8 常量"></a>2.8 常量</h4><p>批量声明</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    e  = <span class="number">2.7182818284590452</span></span><br><span class="line">    e1</span><br><span class="line">    pi = <span class="number">3.1415926535897932</span></span><br><span class="line">    p3</span><br><span class="line">)</span><br><span class="line"><span class="comment">//p3=pi,e1=e</span></span><br></pre></td></tr></table></figure>
+<pre><code class="go">const (
+    e  = 2.7182818284590452
+    e1
+    pi = 3.1415926535897932
+    p3
+)
+//p3=pi,e1=e
 
+</code></pre>
 <p><strong>iota 常量生成器</strong>:在一个const声明语句中，在第一个声明的常量所在的行，iota将会被置为0，然后在每一个有常量声明的行加一。</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Weekday <span class="keyword">int</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    Sunday Weekday = <span class="literal">iota</span></span><br><span class="line">    Monday</span><br><span class="line">    Tuesday</span><br><span class="line">    Wednesday</span><br><span class="line">    Thursday</span><br><span class="line">    Friday</span><br><span class="line">    Saturday</span><br><span class="line">)</span><br><span class="line"><span class="comment">//周日将对应0，周一为1，如此等等</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">    _ = <span class="number">1</span> &lt;&lt; (<span class="number">10</span> * <span class="literal">iota</span>)</span><br><span class="line">    KiB <span class="comment">// 1024</span></span><br><span class="line">    MiB <span class="comment">// 1048576</span></span><br><span class="line">    GiB <span class="comment">// 1073741824</span></span><br><span class="line">    TiB <span class="comment">// 1099511627776             (exceeds 1 &lt;&lt; 32)</span></span><br><span class="line">    PiB <span class="comment">// 1125899906842624</span></span><br><span class="line">    EiB <span class="comment">// 1152921504606846976</span></span><br><span class="line">    ZiB <span class="comment">// 1180591620717411303424    (exceeds 1 &lt;&lt; 64)</span></span><br><span class="line">    YiB <span class="comment">// 1208925819614629174706176</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<pre><code class="go">type Weekday int
 
+const (
+    Sunday Weekday = iota
+    Monday
+    Tuesday
+    Wednesday
+    Thursday
+    Friday
+    Saturday
+)
+//周日将对应0，周一为1，如此等等
+
+const (
+    _ = 1 &lt;&lt; (10 * iota)
+    KiB // 1024
+    MiB // 1048576
+    GiB // 1073741824
+    TiB // 1099511627776             (exceeds 1 &lt;&lt; 32)
+    PiB // 1125899906842624
+    EiB // 1152921504606846976
+    ZiB // 1180591620717411303424    (exceeds 1 &lt;&lt; 64)
+    YiB // 1208925819614629174706176
+)
+</code></pre>
 <h4 id="2-9-无类型常量"><a href="#2-9-无类型常量" class="headerlink" title="2.9 无类型常量"></a>2.9 无类型常量</h4><p>有六种未明确类型的常量类型，分别是无类型的布尔型、无类型的整数、无类型的字符、无类型的浮点数、无类型的复数、无类型的字符串。</p>
 <p>math.Pi无类型的浮点数常量，可以直接用于任意需要浮点数或复数的地方：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x <span class="keyword">float32</span> = math.Pi</span><br><span class="line"><span class="keyword">var</span> y <span class="keyword">float64</span> = math.Pi</span><br><span class="line"><span class="keyword">var</span> z <span class="keyword">complex128</span> = math.Pi</span><br></pre></td></tr></table></figure>
+<pre><code class="go">var x float32 = math.Pi
+var y float64 = math.Pi
+var z complex128 = math.Pi
+</code></pre>
 
-
-        </div>
-        <footer class="article-footer">
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
             
-
-
-
-    <a data-url="http://Zhiyuancs.github.io/2019/09/26/Go-二/" data-id="ck2nabvxp002k7onopnyxvehb" class="article-share-link"><i class="fa fa-share"></i>分享到</a>
-<script>
-    (function ($) {
-        $('body').on('click', function() {
-            $('.article-share-box.on').removeClass('on');
-        }).on('click', '.article-share-link', function(e) {
-            e.stopPropagation();
-
-            var $this = $(this),
-                url = $this.attr('data-url'),
-                encodedUrl = encodeURIComponent(url),
-                id = 'article-share-box-' + $this.attr('data-id'),
-                offset = $this.offset(),
-                box;
-
-            if ($('#' + id).length) {
-                box = $('#' + id);
-
-                if (box.hasClass('on')){
-                    box.removeClass('on');
-                    return;
-                }
-            } else {
-                var html = [
-                    '<div id="' + id + '" class="article-share-box">',
-                        '<input class="article-share-input" value="' + url + '">',
-                        '<div class="article-share-links">',
-                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
-                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
-                        '</div>',
-                    '</div>'
-                ].join('');
-
-              box = $(html);
-
-              $('body').append(box);
-            }
-
-            $('.article-share-box.on').hide();
-
-            box.css({
-                top: offset.top + 25,
-                left: offset.left
-            }).addClass('on');
-
-        }).on('click', '.article-share-box', function (e) {
-            e.stopPropagation();
-        }).on('click', '.article-share-box-input', function () {
-            $(this).select();
-        }).on('click', '.article-share-box-link', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
-        });
-    })(jQuery);
-</script>
-
-        </footer>
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/Go">Go</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
     </div>
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "author": {
-            "@type": "Person",
-            "name": "Zhiyuan"
-        },
-        "headline": "Go(二)",
-        "image": "http://Zhiyuancs.github.io",
-        "keywords": "Go",
-        "genre": "学习笔记",
-        "datePublished": "2019-09-26",
-        "dateCreated": "2019-09-26",
-        "dateModified": "2019-09-26",
-        "url": "http://Zhiyuancs.github.io/2019/09/26/Go-二/",
-        "description": "基础数据类型2.1 整形12345*      /      %      &lt;&lt;       &gt;&gt;     &amp;       &amp;^+      -      |      ^==     !=     &lt;      &lt;=       &gt;      &gt;=&amp;&amp;||
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
 
-二元运算符有五种优先级。在同一个优先级，使用左优先结合规则"
-        "wordCount": 1336
-    }
-</script>
-
-</article>
-<!-- LiveRe City install code -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC80NjcxOS8yMzIyOA==">
-	<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
-
-       if (typeof LivereTower === 'function') { return; }
-
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
-
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-	</script>
-<noscript> Please activate JavaScript for write a comment in LiveRe</noscript>
+    </div>
+  </div>
 </div>
-<!-- completed City install code -->
 
-                        </div>
-                    </section>
-                    <aside id="sidebar">
-    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
-    <div class="sidebar-top">
-        <p>关注我 :</p>
-        <ul class="social-links">
-            
-                
-                <li>
-                    <a class="social-tooltip" title="github" href="https://github.com/Zhiyuancs" target="_blank" rel="noopener">
-                        <i class="icon fa fa-github"></i>
-                    </a>
-                </li>
-                
-            
-        </ul>
-    </div>
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
     
-        
-<nav id="article-nav">
+      <br><br>
+      
+      
+
     
-        <a href="/2019/10/01/Go-四/" id="article-nav-newer" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">下一篇</strong>
-        <p class="article-nav-title">
-        
-            Go(四)
-        
-        </p>
-        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
     </a>
-    
-    
-        <a href="/2019/09/26/Go-一/" id="article-nav-older" class="article-nav-link-wrap">
-        <strong class="article-nav-caption">上一篇</strong>
-        <p class="article-nav-title">Go(一)</p>
-        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
-        </a>
-    
-</nav>
+  
 
-    
-    <div class="widgets-container">
-        
-            
-                
-    <div class="widget-wrap">
-        <h3 class="widget-title">最新文章</h3>
-        <div class="widget">
-            <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/11/06/java随笔-断言、日志/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/学习笔记/">学习笔记</a></p>
-                            <p class="item-title"><a href="/2019/11/06/java随笔-断言、日志/" class="title">java随笔--断言、日志</a></p>
-                            <p class="item-date"><time datetime="2019-11-06T12:54:39.000Z" itemprop="datePublished">2019-11-06</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/11/06/java随笔-lambda表达式/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/学习笔记/">学习笔记</a></p>
-                            <p class="item-title"><a href="/2019/11/06/java随笔-lambda表达式/" class="title">java随笔--lambda表达式</a></p>
-                            <p class="item-date"><time datetime="2019-11-06T12:53:07.000Z" itemprop="datePublished">2019-11-06</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/11/05/java随笔-一些注意点和tricks/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/学习笔记/">学习笔记</a></p>
-                            <p class="item-title"><a href="/2019/11/05/java随笔-一些注意点和tricks/" class="title">java随笔--一些注意点和tricks</a></p>
-                            <p class="item-date"><time datetime="2019-11-05T10:31:49.000Z" itemprop="datePublished">2019-11-05</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/10/30/java随笔-PriorityQueue/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/学习笔记/">学习笔记</a></p>
-                            <p class="item-title"><a href="/2019/10/30/java随笔-PriorityQueue/" class="title">java随笔--PriorityQueue</a></p>
-                            <p class="item-date"><time datetime="2019-10-30T14:00:00.000Z" itemprop="datePublished">2019-10-30</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/10/19/二叉搜索树/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/LeetCode/">LeetCode</a></p>
-                            <p class="item-title"><a href="/2019/10/19/二叉搜索树/" class="title">二叉搜索树</a></p>
-                            <p class="item-date"><time datetime="2019-10-19T02:03:33.000Z" itemprop="datePublished">2019-10-19</time></p>
-                        </div>
-                    </li>
-                
-            </ul>
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
         </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
     </div>
+  </div>
+</div>
+  
 
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">分类</h3>
-        <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/">学习笔记</a><span class="category-list-count">21</span></li></ul>
-        </div>
-    </div>
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
 
-
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">归档</h3>
-        <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li></ul>
-        </div>
-    </div>
-
-
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">标签</h3>
-        <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Go/">Go</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDBC/">JDBC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/">Mysql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分查找/">二分查找</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动态规划/">动态规划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/回溯/">回溯</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树/">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/视频摘要/">视频摘要</a><span class="tag-list-count">3</span></li></ul>
-        </div>
-    </div>
+    
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
 
 
-            
-                
-    <div class="widget-wrap widget-float">
-        <h3 class="widget-title">标签云</h3>
-        <div class="widget tagcloud">
-            <a href="/tags/Go/" style="font-size: 17.5px;">Go</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JDBC/" style="font-size: 12.5px;">JDBC</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Mysql/" style="font-size: 15px;">Mysql</a> <a href="/tags/Python/" style="font-size: 17.5px;">Python</a> <a href="/tags/二分查找/" style="font-size: 10px;">二分查找</a> <a href="/tags/动态规划/" style="font-size: 10px;">动态规划</a> <a href="/tags/回溯/" style="font-size: 12.5px;">回溯</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/视频摘要/" style="font-size: 15px;">视频摘要</a>
-        </div>
-    </div>
 
-
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">链接</h3>
-        <div class="widget">
-            <ul>
-                
-                    <li>
-                        <a href="http://hexo.io">Hexo</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://blog.csdn.net/Capricorn_devil">csdn</a>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
-
-            
-        
-    </div>
-</aside>
-
-                </div>
-            </div>
-        </div>
-        <footer id="footer">
-    <div class="container">
-        <div class="container-inner">
-            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
-            <div class="credit">
-                <h1 class="logo-wrap">
-                    <a href="/" class="logo"></a>
-                </h1>
-                <p>&copy; 2019 Zhiyuan</p>
-                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
-            
-			
-			<!--这一段是不蒜子的访问量统计脚本-->
-                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次 &nbsp;   </span>
-                <span id="busuanzi_container_site_uv">
-                    访客数<span id="busuanzi_value_site_uv"></span>人次
-                  </span>
-			</div>
-            <div class="footer-plugins">
-              
     
 
-
-            </div>
-        </div>
-    </div>
+  </div>
 </footer>
 
-        
-    
-    <script>
-    var disqus_shortname = 'hexo-theme-hueman';
-    
-    
-    var disqus_url = 'http://Zhiyuancs.github.io/2019/09/26/Go-二/';
-    
-    (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+
+  
+
+  
+
+  
 
 
 
 
-    
-        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
-    
-    
-        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
-    
-    
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
 
 
 
-<!-- Custom Scripts -->
-<script src="/js/main.js"></script>
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Go(二)&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
 
-    </div>
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
 </body>
 </html>

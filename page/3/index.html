@@ -1,827 +1,692 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+
+
+
+
+
 <head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="NEU">
+  <meta name="author" content="Zhiyuan">
+  <meta name="keywords" content="初学者">
+  <title>Solon&#39;s blog</title>
 
-    
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
-    
-    <title>Zhiyuan的博客</title>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="description" content="NEU">
-<meta name="keywords" content="初学者">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Zhiyuan的博客">
-<meta property="og:url" content="http://Zhiyuancs.github.io/page/3/index.html">
-<meta property="og:site_name" content="Zhiyuan的博客">
-<meta property="og:description" content="NEU">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zhiyuan的博客">
-<meta name="twitter:description" content="NEU">
-    
 
-    
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
 
-    
+<link rel="stylesheet" href="/css/main.css">
 
-    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
-    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
 
-    <link rel="stylesheet" href="/css/style.css">
-
-    <script src="/libs/jquery/3.3.1/jquery.min.js"></script>
-    
-    
-        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
-    
-    
-        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
-    
-    
-    
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css">
 
 
 </head>
-</html>
+
+
 <body>
-    <div id="wrap">
-        <header id="header">
-    <div id="header-outer" class="outer">
-        <div class="container">
-            <div class="container-inner">
-                <div id="header-title">
-                    <h1 class="logo-wrap">
-                        <a href="/" class="logo"></a>
-                    </h1>
-                    
-                </div>
-                <div id="header-inner" class="nav-container">
-                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
-                    <div class="nav-container-inner">
-                        <ul id="main-nav">
-                            
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/">主页</a>
-                                </li>
-                            
-                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/AI/">AI</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/LeetCode/">LeetCode</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/学习笔记/">学习笔记</a></li></ul>
-                                    
-                                <li class="main-nav-list-item" >
-                                    <a class="main-nav-list-link" href="/about/index.html">关于</a>
-                                </li>
-                            
-                        </ul>
-                        <nav id="sub-nav">
-                            <div id="search-form-wrap">
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Solon&#39;s blog</strong>&nbsp;</a>
 
-    <form class="search-form">
-        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
-        <button type="submit" class="search-form-submit"></button>
-    </form>
-    <div class="ins-search">
-    <div class="ins-search-mask"></div>
-    <div class="ins-search-container">
-        <div class="ins-input-wrapper">
-            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
-            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
-        </div>
-        <div class="ins-section-wrapper">
-            <div class="ins-section-container"></div>
-        </div>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
     </div>
-</div>
-<script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
-            UNTITLED: '(未命名)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-<script src="/js/insight.js"></script>
+  </div>
 
-</div>
-                        </nav>
-                    </div>
-                </div>
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
             </div>
+          
         </div>
+      </div>
     </div>
-</header>
-        <div class="container">
-            <div class="main-body container-inner">
-                <div class="main-body-inner">
-                    <section id="main">
-                        <div class="main-body-header">
-    <h1 class="header">
-    
-    <em class="page-title-link" data-url="home">主页</em>
-    </h1>
-</div>
+  </header>
 
-                        <div class="main-body-content">
-                            
-
+  <main>
     
-    
-        
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2019" class="archive-year"><i class="icon fa fa-calendar-o"></i>2019</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/09/26/Go-一/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://Zhiyuancs.github.io/2019/09/26/Go-一/">0</span>
-    
-</span>
+      <div class="container nopadding-md">
+        <div class="py-5 z-depth-3" id="board">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
 
 
+  <div class="row mb-4 mx-auto">
     
-</a>
-
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/09/26/Go-二/">
+        <p class="h4 index-header">Go(二)</p>
         
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>
-            </div>
-            <div class="date"><time datetime="2019-09-26T07:41:27.000Z" itemprop="datePublished">2019-09-26</time></div>
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">基础数据类型2.1 整形*      /      %      &lt;&lt;       &gt;&gt;     &amp;       &amp;^
++      -      |      ^
+==     !=     &lt;      &lt;=       &gt;      &gt;=
+&amp;&amp;
+||
+二元运算符有五种优先级。在同一个优先级，使用左优先结合规则，但是使用括号可以明确优先顺序，使用括号也可以用于提升优先级。在Go语言中，%取模运算符的符号和被取模数的符号总是一致的，因此-5%3和-5%-3结果都是-2。除法运算符/的行为则依赖于操作数是否为全为整数，比如5.0/4.0的结果是1.25，但是5/4的结果是1，因为整数除法会向着0方向截断余数。
+&amp;      位运算 AND
+|      位运算 OR
+^      位运算 XOR
+&amp;^     位清空 (AND NOT)
+&lt;&lt;     左移
+&gt;&gt;     右移
+位操作运算符^作为二元运算符时是按位异或（XOR），当用作一元运算符时表示按位取反；位操作运</div>
         </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/09/26/Go-一/">Go(一)</a>
-        </h1>
-    
+      </a>
 
-        <p class="article-excerpt">
-            1.1命名Go中函数名字的开头字母大小决定了该函数在包外的可见性：大写字母开头，这个函数在包外可以使用；小写字母开头不可以在包外部访问。Go语言程序员推荐使用 驼峰式 命名。
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-26&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Go">Go</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/09/26/Go-一/">
+        <p class="h4 index-header">Go(一)</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">1.1命名Go中函数名字的开头字母大小决定了该函数在包外的可见性：大写字母开头，这个函数在包外可以使用；小写字母开头不可以在包外部访问。Go语言程序员推荐使用 驼峰式 命名。
 1.2声明var、const、type、func：变量、常量、类型、函数实体对象声明    
-包声明语句之后是import语句导入依赖的其它包，然后是包一级的类型、变量、常量、函数的声明语句。在包一级声明的名字可以在整个包和
-        </p>
+包声明语句之后是import语句导入依赖的其它包，然后是包一级的类型、变量、常量、函数的声明语句。在包一级声明的名字可以在整个包和引用了该包的源文件中访问。
+1.3变量var 变量名字 类型 = 表达式
+go语言中所有变量定义时如果未赋值，都会初始化为一个默认值。 
+在函数内部，有一种称为简短变量声明语句的形式可用于声明和初始化局部变量。它以“名字 := 表达式”形式声明变量，变量的类型根据表达式来自动推导。
+freq := rand.Float64() * 3.0
+t := 0.0
+i, j := 0, 1  //变量声明语句
+i, j = j, i // 交换 i 和 j 的值，赋值语句（元组赋值）
+简短变量声明语句中必须至少要声明一个新的变量，否则不能编译通过。
+1.4指针如果指针名字为p，那么可以说“p指针指向变</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-26&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Go">Go</a>&nbsp;
+          
+        
+      </div>
     </div>
-</article>
-    
+  </div>
 
+  <div class="row mb-4 mx-auto">
     
     
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/09/22/java-正则表达式/">
+        <p class="h4 index-header">java随笔--正则表达式</p>
         
-        <a href="/2019/09/22/java-正则表达式/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
         
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://Zhiyuancs.github.io/2019/09/22/java-正则表达式/">0</span>
-    
-</span>
-
-
-    
-</a>
-
+          
         
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>
-            </div>
-            <div class="date"><time datetime="2019-09-22T09:00:00.000Z" itemprop="datePublished">2019-09-22</time></div>
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">题目地址：https://leetcode-cn.com/problems/string-to-integer-atoi/
+import java.util.regex.*;
+class Solution {
+       public static int myAtoi(String str) {
+       str=str.trim();
+
+        String pattern=&quot;^[\\+\\-\\d]\\d*&quot;;//正则表达式，表示以正号或负号或数字开头，且后面是0个或多个数字
+        Pattern p=Pattern.compile(pattern);
+        Matcher m=p.matcher(str);
+
+        String res=&quot;&quot;;
+        if(m.find()){//能匹配到
+            res=str.substring(m.start(),m.end());
+        }else{//不能匹配到
+            return 0;
+     </div>
         </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/09/22/java-正则表达式/">java随笔--正则表达式</a>
-        </h1>
-    
+      </a>
 
-        <p class="article-excerpt">
-            题目地址：https://leetcode-cn.com/problems/string-to-integer-atoi/
-1234567891011121314151617181920212223242526272829import java.util.regex.*;class Solution &#123;       public static int myAtoi(String str)
-        </p>
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-22&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+        
+      </div>
     </div>
-</article>
+  </div>
+
+  <div class="row mb-4 mx-auto">
     
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/09/21/Mysql学习笔记（三）/">
+        <p class="h4 index-header">Mysql学习笔记（三）</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">select 字段列表form 表名where 查询筛选条件group by 指定分组的列列表having 指定分组后的筛选条件order by 排序列的列表limit 起始索引值，要查询的记录条数
+1、分组查询：group by分组函数（聚合函数）：将多行的值进行统计返回一行结果sum() ; avg();  min();  max(); count().注：分组函数不能和与分组无关的列一起使用；分组查询时，查询的列可以是分组的条件
+SELECT SUM(salary)，COUNT(eid)，did 
+FROM t_employ
+GROUP BY did;
+
+SELECT did,COUNT(eid)
+FROM t_employ
+WHERE salary&gt;10000
+AND did IS NOT NULL
+GROUP BY did;   2、条件中需要使用分组后的结果:having作用和where一样，但是执行顺序在分组之后
+SELECT AVG(salary)
+FROM t_employ
+GROUP BY did
+HAVING AVG(salary)&gt;9000;3、or</div>
         </div>
-    
+      </a>
 
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
+      <div>
         
-        <a href="/2019/09/21/Mysql学习笔记（三）/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-21&nbsp;&nbsp;
         
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://Zhiyuancs.github.io/2019/09/21/Mysql学习笔记（三）/">0</span>
-    
-</span>
-
-
-    
-</a>
-
         
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>
-            </div>
-            <div class="date"><time datetime="2019-09-21T12:17:00.000Z" itemprop="datePublished">2019-09-21</time></div>
-        </div>
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
         
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/09/21/Mysql学习笔记（三）/">Mysql学习笔记（三）</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            select 字段列表form 表名where 查询筛选条件group by 指定分组的列列表having 指定分组后的筛选条件order by 排序列的列表limit 起始索引值，要查询的记录条数
-1、分组查询：group by分组函数（聚合函数）：将多行的值进行统计返回一行结果sum() ; avg();  min();  max(); count().注：分组函数不能和与分组无关的列一起使用
-        </p>
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Mysql">Mysql</a>&nbsp;
+          
+        
+      </div>
     </div>
-</article>
-    
+  </div>
 
+  <div class="row mb-4 mx-auto">
     
     
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/09/21/Mysql学习笔记（二）/">
+        <p class="h4 index-header">Mysql学习笔记（二）</p>
         
-        <a href="/2019/09/21/Mysql学习笔记（二）/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
         
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://Zhiyuancs.github.io/2019/09/21/Mysql学习笔记（二）/">0</span>
-    
-</span>
-
-
-    
-</a>
-
+          
         
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>
-            </div>
-            <div class="date"><time datetime="2019-09-21T12:08:00.000Z" itemprop="datePublished">2019-09-21</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/09/21/Mysql学习笔记（二）/">Mysql学习笔记（二）</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            1、自增长：如果一列是主键，并且数据类型是int，则支持自动增长，每次插入数据时，会自动加一表定义时加上
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">1、自增长：如果一列是主键，并且数据类型是int，则支持自动增长，每次插入数据时，会自动加一表定义时加上
 id INT(11) PRIMARY KEY AUTO_INCREMENT；
 2、给查询到的列取别名，表也可以取别名SELECT 列名 AS ‘别  名’，列名 别名，…… FROM 表名3、去重复：将查询到的所有列的重复筛选掉SELECT DISTINCT 列名 FROM 表名
-4、查询时 
-        </p>
+4、查询时 进行计算支持数学运算符，逻辑运算符：xor异或比较运算符：=，&gt;,&lt;,&gt;=,&lt;=集合：in(值列表)范围：between min and max
+5、模糊查询:like ‘模糊字符串’%:代表0~n个任意字符_：代表一个任意字符
+6、使用 ifnull(字段，默认值) 方法解决null值计算问题
+7、字符串拼接时的null值（sql中的+不能拼接字符串）concat（字段和字符串列表）：自动将方法内的所有字符串进行拼接处理
+8、联合查询多表查询时，需要指定连接条件才能避免笛卡尔积：表名.列名（指定是哪个表的列）多表查询时，最少指定n-1个连接条件才能避免笛卡尔积
+9、内</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-21&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Mysql">Mysql</a>&nbsp;
+          
+        
+      </div>
     </div>
-</article>
+  </div>
+
+  <div class="row mb-4 mx-auto">
     
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/09/21/Mysql学习笔记（一）/">
+        <p class="h4 index-header">Mysql学习笔记（一）</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">DDL语句1、建库  
+CREAT DATABASE  名字不区分大小写，推荐关键字大写；单词间加‘_’mysql数据结构：char，varchar  
+CREATE TABLE tm_teammanager( 
+        id INT(11),  
+        &#39;name&#39;  VARCHAR(30),#通过飘号选中的字符会保留字符串本意，不会当成关键字，~  
+        gender CHAR(2)
+)2、查表结构  
+DESC tm_teammanager3、从删库到跑路备份为.sql文件  
+DROP TABLE 表名  
+DROP DATABASE 4、修改表名  
+ALTER TABLE oldname RENAME newname;5、给表添加一列  
+ALTER TABLE 表名  ADD COLUMN 名字 INT(3) (加上类型)6、删除表一列  
+ALTER TABLE 表名 DROP COLUMN 列名7、给一列重命名change  
+ALTER TABLE 表名 CHANGE 列名 新列名 数据类型8、修改表列的数据类型modi</div>
         </div>
-    
+      </a>
 
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
+      <div>
         
-        <a href="/2019/09/21/Mysql学习笔记（一）/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-21&nbsp;&nbsp;
         
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://Zhiyuancs.github.io/2019/09/21/Mysql学习笔记（一）/">0</span>
-    
-</span>
-
-
-    
-</a>
-
         
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/学习笔记/">学习笔记</a>
-            </div>
-            <div class="date"><time datetime="2019-09-21T11:29:00.000Z" itemprop="datePublished">2019-09-21</time></div>
-        </div>
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
         
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/09/21/Mysql学习笔记（一）/">Mysql学习笔记（一）</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            DDL语句1、建库  
-1CREAT DATABASE  名字
-
-不区分大小写，推荐关键字大写；单词间加‘_’mysql数据结构：char，varchar  
-12345CREATE TABLE tm_teammanager( 		id INT(11),  		'name'  VARCHAR(30),#通过飘号选中的字符会保留字符串本意，不会当成关键字，~  		gender CHAR(2))
-
-
-        </p>
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Mysql">Mysql</a>&nbsp;
+          
+        
+      </div>
     </div>
-</article>
-    
+  </div>
 
+  <div class="row mb-4 mx-auto">
     
     
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/09/21/3/">
+        <p class="h4 index-header">Unsupervised Video Summarization with Adversarial LSTM</p>
         
-        <a href="/2019/09/21/3/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2019/09/21/3/1.png)" alt="Unsupervised Video Summarization with Adversarial LSTM" class="thumbnail-image"></span>
-    
-    
         
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://Zhiyuancs.github.io/2019/09/21/3/">0</span>
-    
-</span>
-
-
-    
-</a>
-
+          
         
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/AI/">AI</a>
-            </div>
-            <div class="date"><time datetime="2019-09-21T11:23:00.000Z" itemprop="datePublished">2019-09-21</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/09/21/3/">Unsupervised Video Summarization with Adversarial LSTM</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            &emsp;&emsp;本文提出一个由summarizer和discriminator组成的生成对抗框架。目的是选择视频的稀疏子集，使得视频和摘要的表示误差最小。
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">&emsp;&emsp;本文提出一个由summarizer和discriminator组成的生成对抗框架。目的是选择视频的稀疏子集，使得视频和摘要的表示误差最小。
 
 &emsp;&emsp;原始视频的特征是通过GAN和LSTM提取的，GAN以像素为基础提取特征，LSTM捕捉帧之间的长期依赖关系，得到深度特征向量。由于明确深度特征间的合适距离困难，所以由左边结构转换为右边的结构。
-论文理论基础：Va
-        </p>
-    </div>
-</article>
-    
+论文理论基础：Variational Autoencoder(VAE)，GAN
+Model Overview&emsp;&emsp;CNN输出的是视频帧的深度特征（deep features x），sLSTM（selector LSTM）在这些帧中选择一个子集，eLSTM(encoder LSTM)将选择的帧序列编码成向量 e 。sLSTM生成每一个帧的标准化重要性得分s，结合x，输入到eLSTM中。dLSTM(decoder LSTM)以e为输入，重构了输入视频的特征序列。鉴别器（discriminator）用来区分原始和摘要视频帧间的特征，用于估计两者之间的representation error。
+&em</div>
         </div>
-    
+      </a>
 
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
+      <div>
         
-        <a href="/2019/09/15/Deep-Reinforcement-Learning-for-Unsupervised-Video-Summarization/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2019/09/15/Deep-Reinforcement-Learning-for-Unsupervised-Video-Summarization/pasted-0.png)" alt="Deep Reinforcement Learning for Unsupervised V-S " class="thumbnail-image"></span>
-    
-    
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-21&nbsp;&nbsp;
         
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://Zhiyuancs.github.io/2019/09/15/Deep-Reinforcement-Learning-for-Unsupervised-Video-Summarization/">0</span>
-    
-</span>
-
-
-    
-</a>
-
         
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/AI/">AI</a>
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/AI">AI</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E8%A7%86%E9%A2%91%E6%91%98%E8%A6%81">视频摘要</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/09/15/Deep-Reinforcement-Learning-for-Unsupervised-Video-Summarization/">
+        <p class="h4 index-header">Deep Reinforcement Learning for Unsupervised V-S </p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Abstract&emsp;&emsp;本文创新点：1、构建DSN网络；2、设计一个新的奖励函数（基于帧的多样性和代表性）；3、设计一个端到端的、基于强化学习的框架来训练网络。
+Introduction&emsp;&emsp;DPP-LSTM效果较好，但是视频摘要的评价时，人类具有更多的主观性，所以非监督方法很有必要。&emsp;&emsp;本文的DSN网络：encoder：CNN（在视频帧上进行特征提取）；decoder：BiLSTM（产生概率分布来选择帧）。RL（增强学习）：通过迭代方式训练agent。&emsp;&emsp;主要贡献：将无监督方法扩展到监督版本，以利用标签；首次将RL应用到无监督视频摘要上。
+
+Model OverviewDeep Summarization Network&emsp;&emsp;采用encoder-decoder结构，CNN选用在ImageNet上预训练好的GoogLeNet，从它倒数第二层提取出视觉特征向量x_{t}。LSTM用来捕获视频帧之间的长时间依赖性。训练中只更新decoder。  
+&emsp;&emsp;将BiLSTM网络的正向和反</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-15&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/AI">AI</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E8%A7%86%E9%A2%91%E6%91%98%E8%A6%81">视频摘要</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <nav aria-label="index posts navigation">
+    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/2/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fas fa-angle-double-right"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
+      ele.href += '#board';
+    }
+  </script>
+
+
+
+              </div>
             </div>
-            <div class="date"><time datetime="2019-09-15T03:37:00.000Z" itemprop="datePublished">2019-09-15</time></div>
+          </div>
         </div>
-        
+      </div>
     
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/09/15/Deep-Reinforcement-Learning-for-Unsupervised-Video-Summarization/">Deep Reinforcement Learning for Unsupervised V-S </a>
-        </h1>
-    
+  </main>
 
-        <p class="article-excerpt">
-            Abstract&emsp;&emsp;本文创新点：1、构建DSN网络；2、设计一个新的奖励函数（基于帧的多样性和代表性）；3、设计一个端到端的、基于强化学习的框架来训练网络。
-Introduction&emsp;&emsp;DPP-LSTM效果较好，但是视频摘要的评价时，人类具有更多的主观性，所以非监督方法很有必要。&emsp;&emsp;本文的DSN网络：encoder：CNN（在视频帧上进行
-        </p>
-    </div>
-</article>
-    
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
 
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/1.png)" alt="Video Summarization with LSTM" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://Zhiyuancs.github.io/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/AI/">AI</a>
-            </div>
-            <div class="date"><time datetime="2019-09-15T03:04:00.000Z" itemprop="datePublished">2019-09-15</time></div>
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
         </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/">Video Summarization with LSTM</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            Abstract&emsp;&emsp;这篇文章提出一个新奇的监督学习方法用来进行视频摘要，用来自动选择关键帧或者关键子热点。将这项任务看成一个结构预测问题（structured prediction problem），主要思路是用LSTM对帧的时间依赖性进行建模。
-Introduction&emsp;&emsp;视频摘要如今有两个重要的方法：关键帧选择（keyframe selection，选择
-        </p>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
     </div>
-</article>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
     
-        </div>
+  
+    <!-- 不蒜子统计PV -->
     
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
 
 
-    </div></section>
 
-
-    <nav id="page-nav">
-        <span class="pages">第 3 页，共 4 页</span>
-        <a class="extend prev" rel="prev" href="/page/2/">&laquo;</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">&raquo;</a>
-    </nav>
-
-
-                        </div>
-                    </section>
-                    <aside id="sidebar">
-    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
-    <div class="sidebar-top">
-        <p>关注我 :</p>
-        <ul class="social-links">
-            
-                
-                <li>
-                    <a class="social-tooltip" title="github" href="https://github.com/Zhiyuancs" target="_blank" rel="noopener">
-                        <i class="icon fa fa-github"></i>
-                    </a>
-                </li>
-                
-            
-        </ul>
-    </div>
-    
-    <div class="widgets-container">
-        
-            
-                
-    <div class="widget-wrap">
-        <h3 class="widget-title">最新文章</h3>
-        <div class="widget">
-            <ul id="recent-post" class="">
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/11/06/java随笔-断言、日志/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/学习笔记/">学习笔记</a></p>
-                            <p class="item-title"><a href="/2019/11/06/java随笔-断言、日志/" class="title">java随笔--断言、日志</a></p>
-                            <p class="item-date"><time datetime="2019-11-06T12:54:39.000Z" itemprop="datePublished">2019-11-06</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/11/06/java随笔-lambda表达式/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/学习笔记/">学习笔记</a></p>
-                            <p class="item-title"><a href="/2019/11/06/java随笔-lambda表达式/" class="title">java随笔--lambda表达式</a></p>
-                            <p class="item-date"><time datetime="2019-11-06T12:53:07.000Z" itemprop="datePublished">2019-11-06</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/11/05/java随笔-一些注意点和tricks/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/学习笔记/">学习笔记</a></p>
-                            <p class="item-title"><a href="/2019/11/05/java随笔-一些注意点和tricks/" class="title">java随笔--一些注意点和tricks</a></p>
-                            <p class="item-date"><time datetime="2019-11-05T10:31:49.000Z" itemprop="datePublished">2019-11-05</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/10/30/java随笔-PriorityQueue/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/学习笔记/">学习笔记</a></p>
-                            <p class="item-title"><a href="/2019/10/30/java随笔-PriorityQueue/" class="title">java随笔--PriorityQueue</a></p>
-                            <p class="item-date"><time datetime="2019-10-30T14:00:00.000Z" itemprop="datePublished">2019-10-30</time></p>
-                        </div>
-                    </li>
-                
-                    <li>
-                        
-                        <div class="item-thumbnail">
-                            <a href="/2019/10/19/二叉搜索树/" class="thumbnail">
-    
-    
-        <span class="thumbnail-image thumbnail-none"></span>
-    
-    
-</a>
-
-                        </div>
-                        
-                        <div class="item-inner">
-                            <p class="item-category"><a class="article-category-link" href="/categories/LeetCode/">LeetCode</a></p>
-                            <p class="item-title"><a href="/2019/10/19/二叉搜索树/" class="title">二叉搜索树</a></p>
-                            <p class="item-date"><time datetime="2019-10-19T02:03:33.000Z" itemprop="datePublished">2019-10-19</time></p>
-                        </div>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">分类</h3>
-        <div class="widget">
-            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/LeetCode/">LeetCode</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习笔记/">学习笔记</a><span class="category-list-count">21</span></li></ul>
-        </div>
-    </div>
-
-
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">归档</h3>
-        <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/09/">九月 2019</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/08/">八月 2019</a><span class="archive-list-count">1</span></li></ul>
-        </div>
-    </div>
-
-
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">标签</h3>
-        <div class="widget">
-            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Go/">Go</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JDBC/">JDBC</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mysql/">Mysql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/">Python</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分查找/">二分查找</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/动态规划/">动态规划</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/回溯/">回溯</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数论/">数论</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/树/">树</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/视频摘要/">视频摘要</a><span class="tag-list-count">3</span></li></ul>
-        </div>
-    </div>
-
-
-            
-                
-    <div class="widget-wrap widget-float">
-        <h3 class="widget-title">标签云</h3>
-        <div class="widget tagcloud">
-            <a href="/tags/Go/" style="font-size: 17.5px;">Go</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/JDBC/" style="font-size: 12.5px;">JDBC</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Mysql/" style="font-size: 15px;">Mysql</a> <a href="/tags/Python/" style="font-size: 17.5px;">Python</a> <a href="/tags/二分查找/" style="font-size: 10px;">二分查找</a> <a href="/tags/动态规划/" style="font-size: 10px;">动态规划</a> <a href="/tags/回溯/" style="font-size: 12.5px;">回溯</a> <a href="/tags/数论/" style="font-size: 10px;">数论</a> <a href="/tags/树/" style="font-size: 10px;">树</a> <a href="/tags/视频摘要/" style="font-size: 15px;">视频摘要</a>
-        </div>
-    </div>
-
-
-            
-                
-    <div class="widget-wrap widget-list">
-        <h3 class="widget-title">链接</h3>
-        <div class="widget">
-            <ul>
-                
-                    <li>
-                        <a href="http://hexo.io">Hexo</a>
-                    </li>
-                
-                    <li>
-                        <a href="https://blog.csdn.net/Capricorn_devil">csdn</a>
-                    </li>
-                
-            </ul>
-        </div>
-    </div>
-
-
-            
-        
-    </div>
-</aside>
-
-                </div>
-            </div>
-        </div>
-        <footer id="footer">
-    <div class="container">
-        <div class="container-inner">
-            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
-            <div class="credit">
-                <h1 class="logo-wrap">
-                    <a href="/" class="logo"></a>
-                </h1>
-                <p>&copy; 2019 Zhiyuan</p>
-                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
-            
-			
-			<!--这一段是不蒜子的访问量统计脚本-->
-                <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-                <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次 &nbsp;   </span>
-                <span id="busuanzi_container_site_uv">
-                    访客数<span id="busuanzi_value_site_uv"></span>人次
-                  </span>
-			</div>
-            <div class="footer-plugins">
-              
     
 
-
-            </div>
-        </div>
-    </div>
+  </div>
 </footer>
 
-        
-    
-    <script>
-    var disqus_shortname = 'hexo-theme-hueman';
-    
-    
-    (function() {
-    var dsq = document.createElement('script');
-    dsq.type = 'text/javascript';
-    dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
 
 
 
 
-    
-        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
-        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
-    
-    
-        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
-    
-    
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
 
 
 
-<!-- Custom Scripts -->
-<script src="/js/main.js"></script>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
-    </div>
+
+<!-- Plugins -->
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "我还没秃，我还能熬！&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
 </body>
 </html>
