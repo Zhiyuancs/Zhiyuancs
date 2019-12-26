@@ -133,6 +133,64 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/12/26/线段树/">
+        <p class="h4 index-header">线段树</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">线段树节点数据结构：
+class SegmentTree{
+    int l,r;   //每个区间的左右端点
+    int sum;   //区间数据
+    //其他附加信息
+}
+建树以完全二叉树建树，可以使用父子二倍标记法，子节点下标为父节点下标值的两倍。
+//递归建树
+//p:当前父节点，sak为节点数组
+void build(int p,int l,int r){
+    sak[p].l=l;sak[p].r=r;
+    if(l==r){
+        sak[p].sum=a[l];
+        return;
+    }
+    int mid = (l+r)/2;
+    //依次建立左右子树
+    build(2*p,l,mid);
+    build(2*p+1,mid+1,r);
+    sak[p].sum = sak[2*p].sum+sak[2*p+1].sum;
+}
+单点修改每次操作都是从根节点开始遍历，递归找到需要修改的节点。
+//p:当前节点    x:目标节点      val:修改值    
+void change(int p,i</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-26&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/algorithm">algorithm</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91">线段树</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/12/05/并查集/">
         <p class="h4 index-header">并查集</p>
         
@@ -449,56 +507,6 @@ List&lt;TreeNode&gt; createTree(int start,int end){
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/%E6%A0%91">树</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/19/java随笔-内部类/">
-        <p class="h4 index-header">java随笔--内部类</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">一、成员内部类​        内部类可以用来实现多继承。成员内部类可以访问外部类的所有成员变量，包括private修饰的。
-​        内部类跟外部类有一个很重要区别：内部类可以用private修饰，而外部类是不能使用private修饰的。如果内部类仅仅在类内部使用时，使用private修饰后，就可以更好的隐藏内部信息。
-​        当需要使用到内部类的时候，还是推荐使用getInnerInstance的方式来获取，特别是当内部类只有无参构造器的时候
-public class Outer {
-    private int num;
-    private Inner inner;
-
-    Outer(){
-        num = 1;
-        inner = new Inner();
-    }
-
-    public void print(){
-        System.out.println(&quot;Outer.print()&quot;);
-        System.out.println(inner.num);
-        Syst</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-19&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/JAVA%E9%9A%8F%E7%AC%94">JAVA随笔</a>&nbsp;
           
         
       </div>
