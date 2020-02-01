@@ -133,6 +133,67 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/10/JDBC基础/">
+        <p class="h4 index-header">JDBC基础</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">JDBC：
+概念：Java DataBase Connectivity  Java 数据库连接， Java语言操作数据库
+
+JDBC本质：其实是官方（sun公司）定义的一套操作所有关系型数据库的规则，即接口。各个数据库厂商去实现这套接口，提供数据库驱动jar包。我们可以使用这套接口（JDBC）编程，真正执行的代码是驱动jar包中的实现类。
+
+
+快速入门：
+
+步骤：
+导入驱动jar包 mysql-connector-java-5.1.37-bin.jar 1.复制mysql-connector-java-5.1.37-bin.jar到项目的libs目录下 2.右键–&gt;Add As Library
+注册驱动
+获取数据库连接对象 Connection
+定义sql
+获取执行sql语句的对象 Statement
+执行sql，接受返回结果
+处理结果
+释放资源
+
+
+
+
+
+{r tidy=FALSE}    
+* 代码实现：
+          //1. 导入驱动jar包
+        //2.注册驱动
+        Class.forName(&quot;com.mysql.jdbc.Dr</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-10&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JDBC">JDBC</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/10/03/Go-三/">
         <p class="h4 index-header">Go(三)</p>
         
@@ -430,54 +491,6 @@ id INT(11) PRIMARY KEY AUTO_INCREMENT；
 7、字符串拼接时的null值（sql中的+不能拼接字符串）concat（字段和字符串列表）：自动将方法内的所有字符串进行拼接处理
 8、联合查询多表查询时，需要指定连接条件才能避免笛卡尔积：表名.列名（指定是哪个表的列）多表查询时，最少指定n-1个连接条件才能避免笛卡尔积
 9、内</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-21&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Mysql">Mysql</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/21/Mysql学习笔记（一）/">
-        <p class="h4 index-header">Mysql学习笔记（一）</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">DDL语句1、建库  
-CREAT DATABASE  名字不区分大小写，推荐关键字大写；单词间加‘_’mysql数据结构：char，varchar  
-CREATE TABLE tm_teammanager( 
-        id INT(11),  
-        &#39;name&#39;  VARCHAR(30),#通过飘号选中的字符会保留字符串本意，不会当成关键字，~  
-        gender CHAR(2)
-)2、查表结构  
-DESC tm_teammanager3、从删库到跑路备份为.sql文件  
-DROP TABLE 表名  
-DROP DATABASE 4、修改表名  
-ALTER TABLE oldname RENAME newname;5、给表添加一列  
-ALTER TABLE 表名  ADD COLUMN 名字 INT(3) (加上类型)6、删除表一列  
-ALTER TABLE 表名 DROP COLUMN 列名7、给一列重命名change  
-ALTER TABLE 表名 CHANGE 列名 新列名 数据类型8、修改表列的数据类型modi</div>
         </div>
       </a>
 

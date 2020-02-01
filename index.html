@@ -133,6 +133,48 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/02/01/Mybatis学习笔记/">
+        <p class="h4 index-header">Mybatis学习笔记</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">1.mybatis简单应用1.1步骤：1.编写实体类User，建立数据库表对应的对象（变量及其get、set方法）；
+2.编写持久层接口IUserDao，数据库操作的接口，如（List&lt;User&gt; findall()）;
+3.编写持久层接口的映射文件IUserDao.xml，要求：必须和持久层接口在相同的包中，必须以持久层接口名称命名文件名；
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
+&lt;!DOCTYPE mapper 
+    PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;                                    &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt; 
+&lt;mapper namespace=&quot;com.itheima.dao.IUserDao&quot;&gt;
+    &lt;!-- 配置查询所有</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-01&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Mybatis">Mybatis</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/12/26/线段树/">
         <p class="h4 index-header">线段树</p>
         
@@ -460,53 +502,6 @@ public List&lt;Integer&gt; topKFrequent(int[] nums, int k) {
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/JAVA%E9%9A%8F%E7%AC%94">JAVA随笔</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/19/二叉搜索树/">
-        <p class="h4 index-header">二叉搜索树</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">https://leetcode-cn.com/problems/unique-binary-search-trees-ii/
-给定一个整数 n，生成所有由 1 … n 为节点所组成的二叉搜索树。
-递归：我们从序列 1 ..n 中取出数字 i，作为当前树的树根。于是，剩余 i - 1 个元素可用于左子树，n - i 个元素用于右子树。通过递归构建所有的子树。
-public List&lt;TreeNode&gt; generateTrees(int n) {
-    if(n==0) return new ArrayList&lt;TreeNode&gt;();
-    return createTree(1,n);
-}
-//每次递归应该返回可能的子树列表
-List&lt;TreeNode&gt; createTree(int start,int end){
-    List&lt;TreeNode&gt; list=new ArrayList&lt;&gt;();
-    if(start&gt;end){
-        list.add(null);
-        return</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-19&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/LeetCode">LeetCode</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E6%A0%91">树</a>&nbsp;
           
         
       </div>

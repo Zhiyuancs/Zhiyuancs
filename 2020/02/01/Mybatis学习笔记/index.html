@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="NEU">
+  <meta name="author" content="Zhiyuan">
+  <meta name="keywords" content="初学者">
+  <title>Mybatis学习笔记 ~ Solon&#39;s blog</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css">
+
+
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Solon&#39;s blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期六, 二月 1日 2020, 7:28 晚上
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    3.4k 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      15 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h3 id="1-mybatis简单应用"><a href="#1-mybatis简单应用" class="headerlink" title="1.mybatis简单应用"></a>1.mybatis简单应用</h3><h4 id="1-1步骤："><a href="#1-1步骤：" class="headerlink" title="1.1步骤："></a>1.1步骤：</h4><p>1.编写实体类User，建立数据库表对应的对象（变量及其get、set方法）；</p>
+<p>2.编写持久层接口IUserDao，数据库操作的接口，如（<code>List&lt;User&gt; findall()</code>）;</p>
+<p>3.编写持久层接口的映射文件IUserDao.xml，要求：必须和持久层接口在相同的包中，必须以持久层接口名称命名文件名；</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; 
+&lt;!DOCTYPE mapper 
+    PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot;                                    &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;&gt; 
+&lt;mapper namespace=&quot;com.itheima.dao.IUserDao&quot;&gt;
+    &lt;!-- 配置查询所有操作 --&gt; 
+    &lt;select id=&quot;findAll&quot; resultType=&quot;com.itheima.domain.User&quot;&gt; 
+        select * from user 
+    &lt;/select&gt;
+&lt;/mapper&gt;</code></pre>
+<p>4.编写SqlMapConfig.xml;</p>
+<pre><code class="XML">&lt;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE configuration
+    PUBLIC &quot;-//mybatis.org//DTD Config 3.0//EN&quot;
+    &quot;http://mybatis.org/dtd/mybatis-3-config.dtd&quot;&gt;
+    &lt;!-- mybatis的主配置文件 --&gt;
+&lt;configuration&gt;
+    &lt;!-- 配置环境 --&gt;
+    &lt;environments default=&quot;mysql&quot;&gt;
+        &lt;!-- 配置mysql的环境--&gt;
+        &lt;environment id=&quot;mysql&quot;&gt;
+            &lt;!-- 配置事务的类型--&gt;
+            &lt;transactionManager type=&quot;JDBC&quot;&gt;&lt;/transactionManager&gt;
+            &lt;!-- 配置数据源（连接池） --&gt;
+            &lt;dataSource type=&quot;POOLED&quot;&gt;
+                &lt;!-- 配置连接数据库的4个基本信息 --&gt;
+                &lt;property name=&quot;driver&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;
+                &lt;property name=&quot;url&quot; value=&quot;jdbc:mysql://localhost:3306/eesy_mybatis&quot;/&gt;
+                &lt;property name=&quot;username&quot; value=&quot;root&quot;/&gt;
+                &lt;property name=&quot;password&quot; value=&quot;1234&quot;/&gt;
+            &lt;/dataSource&gt;
+        &lt;/environment&gt;
+    &lt;/environments&gt;
+
+    &lt;!-- 指定映射配置文件的位置，映射配置文件指的是每个dao独立的配置文件 --&gt;
+    &lt;mappers&gt;
+        &lt;mapper resource=&quot;com/itheima/dao/IUserDao.xml&quot;/&gt;
+    &lt;/mappers&gt;
+&lt;/configuration&gt;</code></pre>
+<h4 id="1-2-基于注解的mybatis使用"><a href="#1-2-基于注解的mybatis使用" class="headerlink" title="1.2 基于注解的mybatis使用"></a>1.2 基于注解的mybatis使用</h4><p>1.在持久层接口中添加注解；</p>
+<pre><code class="java">public interface IUserDao{
+    @Select(&quot;select * from user&quot;)
+    List&lt;User&gt; findAll();
+}</code></pre>
+<p>2.修改SqlMapConfig.xml，此时不需要IUserDao.xml。</p>
+<pre><code class="xml">&lt;mappers&gt;
+    &lt;mapper class=&quot;com.neu.dao.IUserDao&quot;/&gt;
+&lt;/mappers&gt;</code></pre>
+<h3 id="2-基于代理Dao实现CRUD操作"><a href="#2-基于代理Dao实现CRUD操作" class="headerlink" title="2.基于代理Dao实现CRUD操作"></a>2.基于代理Dao实现CRUD操作</h3><p>使用要求：</p>
+<p>1、持久层接口和持久层接口的映射配置必须在相同的包下；</p>
+<p>2、持久层映射配置中mapper标签的namespace属性取值必须是持久层接口的全限定类名；</p>
+<p>3、SQL语句的配置标签<code>&lt;select&gt;,&lt;insert&gt;,&lt;delete&gt;,&lt;update&gt;</code>的id属性必须和持久层接口的方法名相同。</p>
+<pre><code class="xml">&lt;!-- 根据id查询用户 --&gt;
+&lt;select id=&quot;findById&quot; parameterType=&quot;int&quot; resultMap=&quot;com.neu.domain.User&quot;&gt;
+    select * from user where id = #{uid}
+&lt;/select&gt;
+&lt;!-- 
+    sql语句中使用#{}，表示占位符，用于替换具体数据，相当于jdbc中的？ 
+--&gt;
+&lt;!-- 插入用户--&gt;
+&lt;insert id=&quot;saveUser&quot; parameterType=&quot;com.neu.domain.User&quot;&gt;
+    insert into user(username,birthday,sex)
+        values(#{username},#{birthday},#{sex})
+&lt;/insert&gt;</code></pre>
+<pre><code class="java">//测试类
+public class MybatisTest {
+
+    private InputStream in;
+    private SqlSession sqlSession;
+    private IUserDao userDao;
+
+    @Before//用于在测试方法执行之前执行
+    public void init()throws Exception{
+        //1.读取配置文件，生成字节输入流
+        in = Resources.getResourceAsStream(&quot;SqlMapConfig.xml&quot;);
+        //2.获取SqlSessionFactory
+        SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
+        //3.获取SqlSession对象
+        sqlSession = factory.openSession();
+        //4.获取dao的代理对象
+        userDao = sqlSession.getMapper(IUserDao.class);
+    }
+
+    @After//用于在测试方法执行之后执行
+    public void destroy()throws Exception{
+        //提交事务
+        sqlSession.commit();
+        //6.释放资源
+        sqlSession.close();
+        in.close();
+    }
+
+    @Test 
+    public void testFindOne() { 
+        //执行操作 
+        User user = userDao.findById(41); 
+        System.out.println(user); 
+    }</code></pre>
+<h3 id="3-Mybatis参数"><a href="#3-Mybatis参数" class="headerlink" title="3. Mybatis参数"></a>3. Mybatis参数</h3><p>parameterType 配置参数：</p>
+<p>1、基本类型和String我们可以直接写类型名称，也可以使用包名.类名的方式，例如：java.lang.String。</p>
+<p>2、实体类类型，目前我们只能使用全限定类名。原因是mybaits在加载时已经把常用的数据类型注册了别名，从而我们在使用时可以不写包名，而我们的是实体类并没有注册别名，所以必须写全限定类名。</p>
+<h3 id="4-Mybatis输出结果封装"><a href="#4-Mybatis输出结果封装" class="headerlink" title="4.Mybatis输出结果封装"></a>4.Mybatis输出结果封装</h3><p>当实体类属性和数据库表的列名不一致时，是无法将查询结果封装到实体类对象的，可以使用别名查询解决。</p>
+<pre><code class="xml">&lt;!-- 别名与实体类属性名一致--&gt;
+&lt;select id=&quot;findAll&quot; resultType=&quot;com.neu.domain.User&quot;&gt;
+    select id as userId,username as userName,sex as userSex from user
+&lt;/select&gt;</code></pre>
+<h4 id="resultMap结果类型"><a href="#resultMap结果类型" class="headerlink" title="resultMap结果类型"></a>resultMap结果类型</h4><p>resultMap标签可以建立查询的列名和实体类的属性名称不一致时建立对应关系。从而实现封装。</p>
+<p>1、定义resultMap</p>
+<pre><code class="xml">&lt;!-- 建立User实体和数据库表的对应关系
+    type属性：指定实体类的全限定类名
+    id属性：给定一个唯一标识，是给查询select标签引用用的。
+--&gt;
+&lt;resultMap type=&quot;com.neu.domain.User&quot; id=&quot;userMap&quot;&gt;
+    &lt;id column=&quot;id&quot; property=&quot;userId&quot;/&gt;
+    &lt;result column=&quot;usermane&quot; property=&quot;userName&quot;/&gt;
+    &lt;result column=&quot;sex&quot; property=&quot;userSex&quot;/&gt;
+&lt;/resultMap&gt;
+&lt;!-- 
+    id标签：用于指定主键字段
+    result标签：用于指定非主键字段
+    column标签：用于指定数据库列名
+    property标签：用于指定实体类属性名称
+--&gt;</code></pre>
+<p>2、映射配置</p>
+<pre><code class="xml">&lt;select id=&quot;findAll&quot; resultMap=&quot;userMap&quot;&gt;
+     select * from user;
+&lt;/select&gt;</code></pre>
+<h3 id="5-SqlMapConfig-xml配置文件"><a href="#5-SqlMapConfig-xml配置文件" class="headerlink" title="5. SqlMapConfig.xml配置文件"></a>5. SqlMapConfig.xml配置文件</h3><h4 id="5-1-SqlMapConfig-xml中配置的内容和顺序"><a href="#5-1-SqlMapConfig-xml中配置的内容和顺序" class="headerlink" title="5.1 SqlMapConfig.xml中配置的内容和顺序"></a>5.1 SqlMapConfig.xml中配置的内容和顺序</h4><pre><code>-properties(属性)
+    --property
+-settings(全局配置参数)
+    --setting
+-typeAliases(类型别名)
+    --typeAliase
+    --package
+-typerHandlers(类型处理器)
+-objectFactory(对象工厂)
+-plugins(插件)
+-environments(环境集合属性对象)
+    --environment(环境子属性对象)
+        ---transactionManager(事务管理)
+        ---dataSource(数据源)
+-mappers(映射器)
+    --mapper
+    --package</code></pre><h4 id="5-2-properties"><a href="#5-2-properties" class="headerlink" title="5.2 properties"></a>5.2 properties</h4><h5 id="5-2-1-第一种配置方式"><a href="#5-2-1-第一种配置方式" class="headerlink" title="5.2.1 第一种配置方式"></a>5.2.1 第一种配置方式</h5><pre><code class="xml">&lt;properties&gt;
+    &lt;property name=&quot;jdbc.driver&quot; value=&quot;com.mysql.jdbc.Driver&quot;/&gt;
+    &lt;property name=&quot;jdbc.url&quot; value=&quot;jdbc:mysql://localhost/3306/ssm&quot;/&gt;
+    ……
+&lt;/properties&gt;</code></pre>
+<h5 id="5-2-2-第二种方式"><a href="#5-2-2-第二种方式" class="headerlink" title="5.2.2 第二种方式"></a>5.2.2 第二种方式</h5><p>1.在classpath下定义db.properties文件</p>
+<pre><code>jdbc.driver=com.mysql.jdbc.Driver
+jdbc.url=jdbc:mysql://localhost:3306/eesy_mybatis
+jdbc.username=root
+jdbc.password=1234</code></pre><p>2.properties标签配置</p>
+<pre><code class="xml">&lt;!-- 配置properties--&gt;
+&lt;properties url=&quot;绝对路径&quot;&gt;&lt;/properties&gt;
+&lt;properties resource=&quot;jdbc.properties&quot;&gt;&lt;/properties&gt;
+
+&lt;!--配置连接池--&gt;
+&lt;dataSource type=&quot;POOLED&quot;&gt;
+    &lt;property name=&quot;driver&quot; value=&quot;${jdbc.driver}&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;url&quot; value=&quot;${jdbc.url}&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;username&quot; value=&quot;${jdbc.username}&quot;&gt;&lt;/property&gt;
+    &lt;property name=&quot;password&quot; value=&quot;${jdbc.password}&quot;&gt;&lt;/property&gt;
+&lt;/dataSource&gt;</code></pre>
+<h4 id="5-3-typeAliases类型别名"><a href="#5-3-typeAliases类型别名" class="headerlink" title="5.3 typeAliases类型别名"></a>5.3 typeAliases类型别名</h4><p>自定义别名</p>
+<pre><code class="xml">&lt;typeAliases&gt;
+    &lt;!-- 单个别名定义 --&gt;
+    &lt;typeAlias alias=&quot;user&quot; type=&quot;com.neu.dao.User&quot;/&gt;
+    &lt;!-- 批量别名定义，扫描整个包下的类，别名为类名（首字母大写或小写都可以） --&gt;
+    &lt;package name=&quot;com.neu.domain&quot;/&gt;
+    &lt;package name=&quot;其他包&quot;/&gt;
+&lt;/typeAliases&gt;</code></pre>
+<h4 id="5-4-mappers"><a href="#5-4-mappers" class="headerlink" title="5.4 mappers"></a>5.4 mappers</h4><p>1.<code>&lt;mapper resource=&quot;&quot; /&gt;</code></p>
+<pre><code>使用相对于类路径的资源
+&lt;mapper resource=&quot;com/neu/dao/IUserDao.xml&quot;/&gt;</code></pre><p>2.<code>&lt;mapper class=&quot;&quot; /&gt;</code></p>
+<pre><code>使用mapper接口类路径
+&lt;mapper class=&quot;com.neu.dao.UserDao&quot;/&gt;
+注意：此种方法要求mapper接口名称和mapper映射文件名称相同，且放在同一个目录中。</code></pre><p>3.<code>&lt;package name=&quot;&quot; /&gt;</code></p>
+<pre><code>注册指定包下的所有mapper接口
+&lt;package name=&quot;cn.itcast.mybatis.mapper&quot;/&gt;
+注意：此种方法要求mapper接口名称和mapper映射文件名称相同，且放在同一个目录中。</code></pre><h3 id="6-Mybatis的事务控制"><a href="#6-Mybatis的事务控制" class="headerlink" title="6. Mybatis的事务控制"></a>6. Mybatis的事务控制</h3><p>Mybatis中需要手动进行事务的提交，原因是在连接池中取出的连接都会调用<code>connection.setAutoCommit(false)</code>方法，所以要加上<code>sqlSession.commit()</code>提交事务。</p>
+<p>可以通过设置实现自动提交。</p>
+<pre><code class="java">@Before//用于在测试方法执行之前执行
+public void init()throws Exception{
+    //1.读取配置文件
+    in = Resources.getResourceAsStream(&quot;SqlMapConfig.xml&quot;);
+    //2.获取SqlSessionFactory
+    SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(in);
+    //3.获取SqlSession对象(实现自动提交，查看源码，参数含有autocommit)
+    sqlSession = factory.openSession(true);
+    //4.获取dao的代理对象
+    userDao = sqlSession.getMapper(IUserDao.class);
+}</code></pre>
+<h3 id="7-动态SQL"><a href="#7-动态SQL" class="headerlink" title="7. 动态SQL"></a>7. 动态SQL</h3><p>通过 if, choose, when, otherwise, trim, where, set, foreach等标签，可组合成非常灵活的SQL语句。</p>
+<h4 id="7-1-lt-if-gt-标签"><a href="#7-1-lt-if-gt-标签" class="headerlink" title="7.1 &lt;if&gt;标签"></a>7.1 <code>&lt;if&gt;</code>标签</h4><pre><code class="xml">&lt;select id=&quot;findByUser&quot; resultType=&quot;user&quot; parameterType=&quot;user&quot;&gt;
+    select * from user where 1=1
+    &lt;if test=&quot;username!=null and username!=&#39; &#39; &quot;&gt;
+        and username like #{username}
+    &lt;/if&gt;
+    &lt;if test=&quot;address!= null&quot;&gt;
+        and address like #{address}
+    &lt;/if&gt;
+&lt;/select&gt;
+&lt;!-- test属性中写的是为对象的属性名及其条件，
+    符合条件的，在sql语句中加上标签内的语句 
+--&gt;</code></pre>
+<h4 id="7-2-lt-where-gt-标签"><a href="#7-2-lt-where-gt-标签" class="headerlink" title="7.2 &lt;where&gt;标签"></a>7.2 <code>&lt;where&gt;</code>标签</h4><p>为了简化上面<code>where 1=1</code>的条件拼装，可以使用where标签简化。</p>
+<pre><code class="xml">&lt;!-- sql重用 --&gt;
+&lt;sql id=&quot;defaultSql&quot;&gt;
+    select * from user 
+&lt;/sql&gt;
+&lt;select id=&quot;findByUser&quot; resultType=&quot;user&quot; parameterType=&quot;user&quot;&gt;
+    &lt;include refid=&quot;defaultSql&quot;/&gt;
+    &lt;where&gt;
+        &lt;if test=&quot;username!=null and username!=&#39; &#39; &quot;&gt;
+            username like #{username}
+        &lt;/if&gt;
+        &lt;!-- where标签会自动插入where，如果开头为and，会剔除掉and --&gt;
+        &lt;if test=&quot;address!= null&quot;&gt;
+            and address like #{address}
+        &lt;/if&gt;
+    &lt;/where&gt;
+&lt;/select&gt;</code></pre>
+<h4 id="7-3-lt-foreach-gt-标签"><a href="#7-3-lt-foreach-gt-标签" class="headerlink" title="7.3 &lt;foreach&gt;标签"></a>7.3 <code>&lt;foreach&gt;</code>标签</h4><pre><code class="xml">&lt;!-- 查询所有用户在id的集合之中 --&gt;
+&lt;!-- select * from user where id in (1,2,3,4,5); --&gt;
+&lt;select id=&quot;findInIds&quot; resultType=&quot;user&quot; parameterType=&quot;queryvo&quot;&gt;
+    &lt;include refid=&quot;defaultSql&quot;&gt;&lt;/include&gt;
+    &lt;where&gt;
+        &lt;!-- ids为queryvo中的属性名，为list --&gt;
+        &lt;if test=&quot;ids != null and ids.size() &gt; 0&quot;&gt;
+            &lt;foreach collection=&quot;ids&quot; open=&quot;id in (&quot; 
+                     close=&quot;)&quot; item=&quot;id&quot; separator=&quot;,&quot;&gt;
+                #{uid}
+            &lt;/foreach&gt;
+        &lt;/if&gt;
+    &lt;/where&gt;
+&lt;/select&gt;
+
+collection:代表要遍历的集合
+open：语句的开始部分
+item：代表遍历集合的每个元素，生成的变量名
+sperator：分隔符</code></pre>
+<h3 id="8-多表查询"><a href="#8-多表查询" class="headerlink" title="8. 多表查询"></a>8. 多表查询</h3><p>一对一</p>
+<pre><code class="xml">&lt;resultMap type=&quot;com.neu.domain.User&quot; id=&quot;userMap&quot;&gt;
+    &lt;id column=&quot;id&quot; property=&quot;userId&quot;/&gt;
+    &lt;result column=&quot;usermane&quot; property=&quot;userName&quot;/&gt;
+    &lt;result column=&quot;sex&quot; property=&quot;userSex&quot;/&gt;
+    &lt;association property=&quot; &quot; javaType=&quot; &quot;&gt;
+        &lt;!-- 指定从表方的引用实体属性 --&gt;
+    &lt;/association&gt;
+&lt;/resultMap&gt;</code></pre>
+<p>一对多（左外连接）</p>
+<pre><code class="xml">&lt;!-- collection是用于建立一对多中集合属性的对应关系
+    ofType用于指定集合元素的数据类型
+--&gt;
+&lt;!-- 如一个用户可以有多个账户，分用户表、账户表，
+    在User对象中加入账户集合
+--&gt;
+&lt;resultMap type=&quot;com.neu.domain.User&quot; id=&quot;userMap&quot;&gt;
+    &lt;id column=&quot;id&quot; property=&quot;userId&quot;/&gt;
+    &lt;result column=&quot;usermane&quot; property=&quot;userName&quot;/&gt;
+    &lt;result column=&quot;sex&quot; property=&quot;userSex&quot;/&gt;
+    &lt;!-- property:关联查询结果存储在User对象的属性名称 --&gt;
+    &lt;collection property=&quot;accounts&quot; ofType=&quot;account&quot;&gt;
+        &lt;id column=&quot;aid&quot; property=&quot;id&quot;/&gt;
+        &lt;result column=&quot;uid&quot; property=&quot;uid&quot;/&gt;
+    &lt;/collection&gt;
+&lt;/resultMap&gt;</code></pre>
+<h3 id="9-延迟加载"><a href="#9-延迟加载" class="headerlink" title="9. 延迟加载"></a>9. 延迟加载</h3><p>延迟加载就是在需要用到数据时才进行加载，不需要用到数据时就不加载数据。延迟加载也称懒加载。在多表查询中，即将其分成多次单表查询，resultMap中会加入其他表的对象，<code>association和collection</code>有<code>select和column</code>属性。SqlMapConfig.xml需要配置setting信息。</p>
+<pre><code class="xml">&lt;settings&gt;
+    &lt;!-- 打开延迟加载的开关 --&gt;
+    &lt;setting name=&quot;lazyLoadingEnabled&quot; value=&quot;true&quot;/&gt;
+    &lt;!-- 将积极加载改为消极加载，即延迟加载 --&gt;
+    &lt;setting name=&quot;aggressiveLazyLoading&quot; value=&quot;false&quot;/&gt;
+&lt;/settings&gt;</code></pre>
+<h3 id="10-Mybatis缓存"><a href="#10-Mybatis缓存" class="headerlink" title="10. Mybatis缓存"></a>10. Mybatis缓存</h3><h4 id="10-1-一级缓存"><a href="#10-1-一级缓存" class="headerlink" title="10.1 一级缓存"></a>10.1 一级缓存</h4><p>一级缓存是SqlSession级别的缓存，只要SqlSession没有关闭，就一直存在。</p>
+<h4 id="10-2-二级缓存"><a href="#10-2-二级缓存" class="headerlink" title="10.2 二级缓存"></a>10.2 二级缓存</h4><p>二级缓存是mapper映射级别的缓存，多个SqlSession去操作同一个Mapper映射的sql语句，多个SqlSession可以共用二级缓存，二级缓存是跨SqlSession的。</p>
+<p>1、需要在SqlMapConfig.xml文件中开启二级缓存。</p>
+<p>2、配置相关的Mapper映射文件。<code>&lt;cache&gt;&lt;/cache&gt;</code></p>
+<p>3、配置statement上的useCache属性。</p>
+<p>当我们在使用二级缓存时，所缓存的类一定要实现java.io.Serializable接口，这种就可以使用序列化方式来保存对象。</p>
+<h3 id="11-注解方式"><a href="#11-注解方式" class="headerlink" title="11. 注解方式"></a>11. 注解方式</h3><h4 id="11-1-常用注解"><a href="#11-1-常用注解" class="headerlink" title="11.1 常用注解"></a>11.1 常用注解</h4><pre><code>@Insert:实现新增 
+@Update:实现更新 
+@Delete:实现删除 
+@Select:实现查询 
+@Result:实现结果集封装 
+@Results:可以与@Result一起使用，封装多个结果集 
+@ResultMap:实现引用@Results定义的封装 
+@One:实现一对一结果集封装 
+@Many:实现一对多结果集封装 
+@SelectProvider: 实现动态SQL映射 
+@CacheNamespace:实现注解二级缓存的使用</code></pre><h4 id="11-2-注解说明"><a href="#11-2-注解说明" class="headerlink" title="11.2 注解说明"></a>11.2 注解说明</h4><pre><code>@Results注解
+代替标签&lt;resultMap&gt;
+该注解中可以使用单个@Result注解，也可以使用@Result集合
+
+@Result注解
+代替了&lt;id&gt;标签和&lt;result&gt;标签
+属性：id 是否是主键字段
+column 数据库的列名
+property需要装配的属性名
+one 需要使用的@One注解（@Result（one=@One）（）））
+many 需要使用的@Many注解（@Result（many=@many）（）））
+
+@One注解（一对一）
+代替了&lt;assocation&gt;标签，是多表查询的关键，在注解中用来指定子查询返回单一对象。
+@One注解属性介绍：
+select 指定用来多表查询的sqlmapper
+fetchType会覆盖全局的配置参数lazyLoadingEnabled
+@Result(column=&quot; &quot;,property=&quot;&quot;,one=@One(select=&quot;&quot;))
+
+@Many注解（多对一）
+代替了&lt;Collection&gt;标签,是多表查询的关键，在注解中用来指定子查询返回对象集合。
+@Result(property=&quot;&quot;,column=&quot;&quot;,many=@Many(select=&quot;&quot;))</code></pre><h4 id="11-3-基于注解的二级缓存"><a href="#11-3-基于注解的二级缓存" class="headerlink" title="11.3 基于注解的二级缓存"></a>11.3 基于注解的二级缓存</h4><p>1、在SqlMapConfig中开启二级缓存支持；</p>
+<pre><code class="xml">&lt;!-- 配置二级缓存 --&gt; 
+&lt;settings&gt; 
+    &lt;!-- 开启二级缓存的支持 --&gt; 
+    &lt;setting name=&quot;cacheEnabled&quot; value=&quot;true&quot;/&gt; 
+&lt;/settings&gt;</code></pre>
+<p>2、在持久层接口中使用注解配置二级缓存；</p>
+<pre><code class="java">@CacheNamespace(blocking=true)//mybatis基于注解方式实现配置二级缓存
+public interface IUserDao {}</code></pre>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/Mybatis">Mybatis</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.11.1/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: '27cd233cc004e0960a88',
+      clientSecret: '7d450d6fa5c421ab91938c60610c580cb1976c31',
+      repo: 'comments',
+      owner: 'Zhiyuancs',
+      admin: 'Zhiyuancs',
+      id: md5(location.pathname),
+      language: 'zh-CN',
+      perPage: 15,
+      pagerDirection: 'last',
+      createIssueManually: 'true',
+      distractionFreeMode: 'false'
+    });
+
+    gitalk.render('gitalk-container')
+  </script>
+
+
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
+    
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
+
+
+
+    
+
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Mybatis学习笔记&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>

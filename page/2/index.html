@@ -133,6 +133,53 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/19/二叉搜索树/">
+        <p class="h4 index-header">二叉搜索树</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">https://leetcode-cn.com/problems/unique-binary-search-trees-ii/
+给定一个整数 n，生成所有由 1 … n 为节点所组成的二叉搜索树。
+递归：我们从序列 1 ..n 中取出数字 i，作为当前树的树根。于是，剩余 i - 1 个元素可用于左子树，n - i 个元素用于右子树。通过递归构建所有的子树。
+public List&lt;TreeNode&gt; generateTrees(int n) {
+    if(n==0) return new ArrayList&lt;TreeNode&gt;();
+    return createTree(1,n);
+}
+//每次递归应该返回可能的子树列表
+List&lt;TreeNode&gt; createTree(int start,int end){
+    List&lt;TreeNode&gt; list=new ArrayList&lt;&gt;();
+    if(start&gt;end){
+        list.add(null);
+        return</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-19&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/LeetCode">LeetCode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%A0%91">树</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/10/19/java随笔-内部类/">
         <p class="h4 index-header">java随笔--内部类</p>
         
@@ -475,67 +522,6 @@ C3P0：数据库连接池技术
 
 名称： c3p0.properties 或者 c3p0-config.xml
 路</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-10&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/JDBC">JDBC</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/10/JDBC基础/">
-        <p class="h4 index-header">JDBC基础</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">JDBC：
-概念：Java DataBase Connectivity  Java 数据库连接， Java语言操作数据库
-
-JDBC本质：其实是官方（sun公司）定义的一套操作所有关系型数据库的规则，即接口。各个数据库厂商去实现这套接口，提供数据库驱动jar包。我们可以使用这套接口（JDBC）编程，真正执行的代码是驱动jar包中的实现类。
-
-
-快速入门：
-
-步骤：
-导入驱动jar包 mysql-connector-java-5.1.37-bin.jar 1.复制mysql-connector-java-5.1.37-bin.jar到项目的libs目录下 2.右键–&gt;Add As Library
-注册驱动
-获取数据库连接对象 Connection
-定义sql
-获取执行sql语句的对象 Statement
-执行sql，接受返回结果
-处理结果
-释放资源
-
-
-
-
-
-{r tidy=FALSE}    
-* 代码实现：
-          //1. 导入驱动jar包
-        //2.注册驱动
-        Class.forName(&quot;com.mysql.jdbc.Dr</div>
         </div>
       </a>
 
