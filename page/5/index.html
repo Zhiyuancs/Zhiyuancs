@@ -133,6 +133,60 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/09/05/yield-from简单理解/">
+        <p class="h4 index-header">yield from简单理解</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">yieldyield简单理解可以看成return，但是函数执行yield后会返回值但是不会终止。
+# yield返回值, 生成器
+def gen():
+    for x in [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]:
+        yield x
+
+for i in gen():
+    print(i)
+
+# a b c
+在函数外部不能使用yield from（yield也不行）。
+yield fromyield from用来调用生成器，可以用于递归函数中，或者调用的函数中包含yield语句
+#中序遍历树
+class Solution:
+    def increasingBST(self, root):
+        def inorder(node):
+            if node:
+                yield from inorder(node.left)
+                yield node.val
+                yield from inorder(node</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-05&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Python">Python</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/09/04/LeetCode-下一个更大元素1/">
         <p class="h4 index-header">LeetCode-下一个更大元素1</p>
         

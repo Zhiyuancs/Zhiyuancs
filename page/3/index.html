@@ -133,6 +133,81 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/10/JDBC连接池/">
+        <p class="h4 index-header">JDBC连接池&amp; JDBCTemplate</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">数据库连接池
+概念：其实就是一个容器(集合)，存放数据库连接的容器。
+ 当系统初始化好后，容器被创建，容器中会申请一些连接对象，当用户来访问数据库时，从容器中获取连接对象，用户访问完之后，会将连接对象归还给容器。
+好处：
+
+节约资源
+用户访问高效
+
+
+实现：
+
+标准接口：DataSource   javax.sql包下的
+
+方法：
+获取连接：getConnection()
+归还连接：Connection.close()。如果连接对象Connection是从连接池中获取的，那么调用Connection.close()方法，则不会再关闭连接了。而是归还连接
+
+
+
+
+一般我们不去实现它，有数据库厂商来实现
+
+C3P0：数据库连接池技术
+Druid：数据库连接池实现技术，由阿里巴巴提供的
+
+
+
+
+C3P0：数据库连接池技术
+
+步骤：
+
+导入jar包 (两个) c3p0-0.9.5.2.jar mchange-commons-java-0.2.12.jar ，
+
+不要忘记导入数据库驱动jar包
+
+
+定义配置文件：
+
+名称： c3p0.properties 或者 c3p0-config.xml
+路</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-10&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JDBC">JDBC</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/10/10/JDBC基础/">
         <p class="h4 index-header">JDBC基础</p>
         
@@ -448,49 +523,6 @@ SELECT AVG(salary)
 FROM t_employ
 GROUP BY did
 HAVING AVG(salary)&gt;9000;3、or</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-21&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Mysql">Mysql</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/21/Mysql学习笔记（二）/">
-        <p class="h4 index-header">Mysql学习笔记（二）</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">1、自增长：如果一列是主键，并且数据类型是int，则支持自动增长，每次插入数据时，会自动加一表定义时加上
-id INT(11) PRIMARY KEY AUTO_INCREMENT；
-2、给查询到的列取别名，表也可以取别名SELECT 列名 AS ‘别  名’，列名 别名，…… FROM 表名3、去重复：将查询到的所有列的重复筛选掉SELECT DISTINCT 列名 FROM 表名
-4、查询时 进行计算支持数学运算符，逻辑运算符：xor异或比较运算符：=，&gt;,&lt;,&gt;=,&lt;=集合：in(值列表)范围：between min and max
-5、模糊查询:like ‘模糊字符串’%:代表0~n个任意字符_：代表一个任意字符
-6、使用 ifnull(字段，默认值) 方法解决null值计算问题
-7、字符串拼接时的null值（sql中的+不能拼接字符串）concat（字段和字符串列表）：自动将方法内的所有字符串进行拼接处理
-8、联合查询多表查询时，需要指定连接条件才能避免笛卡尔积：表名.列名（指定是哪个表的列）多表查询时，最少指定n-1个连接条件才能避免笛卡尔积
-9、内</div>
         </div>
       </a>
 

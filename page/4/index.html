@@ -133,6 +133,49 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/09/21/Mysql学习笔记（二）/">
+        <p class="h4 index-header">Mysql学习笔记（二）</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">1、自增长：如果一列是主键，并且数据类型是int，则支持自动增长，每次插入数据时，会自动加一表定义时加上
+id INT(11) PRIMARY KEY AUTO_INCREMENT；
+2、给查询到的列取别名，表也可以取别名SELECT 列名 AS ‘别  名’，列名 别名，…… FROM 表名3、去重复：将查询到的所有列的重复筛选掉SELECT DISTINCT 列名 FROM 表名
+4、查询时 进行计算支持数学运算符，逻辑运算符：xor异或比较运算符：=，&gt;,&lt;,&gt;=,&lt;=集合：in(值列表)范围：between min and max
+5、模糊查询:like ‘模糊字符串’%:代表0~n个任意字符_：代表一个任意字符
+6、使用 ifnull(字段，默认值) 方法解决null值计算问题
+7、字符串拼接时的null值（sql中的+不能拼接字符串）concat（字段和字符串列表）：自动将方法内的所有字符串进行拼接处理
+8、联合查询多表查询时，需要指定连接条件才能避免笛卡尔积：表名.列名（指定是哪个表的列）多表查询时，最少指定n-1个连接条件才能避免笛卡尔积
+9、内</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-21&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Mysql">Mysql</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/09/21/Mysql学习笔记（一）/">
         <p class="h4 index-header">Mysql学习笔记（一）</p>
         
@@ -425,60 +468,6 @@ class Solution:
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-06&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Python">Python</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/05/yield-from简单理解/">
-        <p class="h4 index-header">yield from简单理解</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">yieldyield简单理解可以看成return，但是函数执行yield后会返回值但是不会终止。
-# yield返回值, 生成器
-def gen():
-    for x in [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]:
-        yield x
-
-for i in gen():
-    print(i)
-
-# a b c
-在函数外部不能使用yield from（yield也不行）。
-yield fromyield from用来调用生成器，可以用于递归函数中，或者调用的函数中包含yield语句
-#中序遍历树
-class Solution:
-    def increasingBST(self, root):
-        def inorder(node):
-            if node:
-                yield from inorder(node.left)
-                yield node.val
-                yield from inorder(node</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-05&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>

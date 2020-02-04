@@ -133,6 +133,50 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/02/04/Spring学习笔记/">
+        <p class="h4 index-header">Spring学习笔记</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">1. 基于XML的IOC配置1、在类的根路径下创建一个任意名称的xml文件,如bean.xml,添加依赖。
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+&lt;/beans&gt;
+2、让spring管理资源，在配置文件中配置service和dao 
+&lt;!-- bean标签：用于配置让spring创建对象，
+ </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-02-04&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Spring">Spring</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/02/01/Mybatis学习笔记/">
         <p class="h4 index-header">Mybatis学习笔记</p>
         
@@ -445,52 +489,6 @@ public class test {
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-05&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/JAVA%E9%9A%8F%E7%AC%94">JAVA随笔</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/30/java随笔-PriorityQueue/">
-        <p class="h4 index-header">java随笔--PriorityQueue</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">java的PriorityQueue是基于堆的优先队列。下面是其构造方法：
-//如果Collection已排序，则根据它的顺序进行排序
-PriorityQueue(Collection&lt;? extends E&gt; c)
-
-//自定义一个比较器，根据比较器进行优先级判断
-PriorityQueue(Comparator&lt;? super E&gt; comparator)
-第二种构造方法使用的较多，比较器的创建可以使用匿名内部类的方法指定。通过重写Comparator的compare方法来实现。下面通过例子来解释：
-https://leetcode-cn.com/problems/top-k-frequent-elements/
-public List&lt;Integer&gt; topKFrequent(int[] nums, int k) {
-        List&lt;Integer&gt; list=new ArrayList&lt;&gt;();
-        if(nums.length==1){
-            list.add(nums[0]</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-30&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
