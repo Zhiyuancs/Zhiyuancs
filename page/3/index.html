@@ -133,6 +133,54 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/11/最长回文字符串/">
+        <p class="h4 index-header">最长回文字符串</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">https://leetcode-cn.com/problems/longest-palindromic-substring/solution/
+方法一：中心扩展法
+遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。
+class Solution {
+    public String longestPalindrome(String s) {
+        if(s==null||s.length()&lt;1) return s;
+        //回文串左右位置
+        int left=0;int right=0;
+        for(int i=0;i&lt;s.length();i++){
+            //回文串长度为奇数
+            int len1=lengthOfHuiwen(s,i,i);
+            //长度为偶数
+            int len2=lengthOfHuiwen(s,i,i+1);
+            int len=</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-11&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/LeetCode">LeetCode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">动态规划</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/10/10/JDBC连接池/">
         <p class="h4 index-header">JDBC连接池&amp; JDBCTemplate</p>
         
@@ -491,55 +539,6 @@ class Solution {
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/JAVA%E9%9A%8F%E7%AC%94">JAVA随笔</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/21/Mysql学习笔记（三）/">
-        <p class="h4 index-header">Mysql学习笔记（三）</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">select 字段列表form 表名where 查询筛选条件group by 指定分组的列列表having 指定分组后的筛选条件order by 排序列的列表limit 起始索引值，要查询的记录条数
-1、分组查询：group by分组函数（聚合函数）：将多行的值进行统计返回一行结果sum() ; avg();  min();  max(); count().注：分组函数不能和与分组无关的列一起使用；分组查询时，查询的列可以是分组的条件
-SELECT SUM(salary)，COUNT(eid)，did 
-FROM t_employ
-GROUP BY did;
-
-SELECT did,COUNT(eid)
-FROM t_employ
-WHERE salary&gt;10000
-AND did IS NOT NULL
-GROUP BY did;   2、条件中需要使用分组后的结果:having作用和where一样，但是执行顺序在分组之后
-SELECT AVG(salary)
-FROM t_employ
-GROUP BY did
-HAVING AVG(salary)&gt;9000;3、or</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-21&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Mysql">Mysql</a>&nbsp;
           
         
       </div>

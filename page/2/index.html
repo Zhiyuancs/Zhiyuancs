@@ -133,6 +133,57 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/05/java随笔-一些注意点和tricks/">
+        <p class="h4 index-header">java随笔--一些注意点和tricks</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">split()String类下的split()方法在根据正则表达式对字符串进行分割时会产生空字符串，在处理时需要进行判断。
+//1、空字符串不会被解析
+public class test {
+    public static void main(String[] args) {
+        String str = &quot;1,2,3,4,,,&quot;;
+        String[] arr = str.split(&quot;,&quot;);
+        for (String string : arr) {
+            System.out.println(&quot;str&quot;+string);
+        }
+        System.out.println(arr.length);
+    }
+}
+//输出：str1,str2,str3,str4    4
+
+//2、最后一个分隔符被分的字符串不为空时，其余空字符串可被解析。
+public class test {
+    public static void main(St</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-05&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JAVA%E9%9A%8F%E7%AC%94">JAVA随笔</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/10/30/java随笔-PriorityQueue/">
         <p class="h4 index-header">java随笔--PriorityQueue</p>
         
@@ -462,54 +513,6 @@ class Solution {
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/%E5%9B%9E%E6%BA%AF">回溯</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/11/最长回文字符串/">
-        <p class="h4 index-header">最长回文字符串</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">https://leetcode-cn.com/problems/longest-palindromic-substring/solution/
-方法一：中心扩展法
-遍历字符串，以每个字符为中心，判断以其为中心的最长回文串长度。记录最长回文串的起始位置。注意回文串长度分奇偶两种情况。
-class Solution {
-    public String longestPalindrome(String s) {
-        if(s==null||s.length()&lt;1) return s;
-        //回文串左右位置
-        int left=0;int right=0;
-        for(int i=0;i&lt;s.length();i++){
-            //回文串长度为奇数
-            int len1=lengthOfHuiwen(s,i,i);
-            //长度为偶数
-            int len2=lengthOfHuiwen(s,i,i+1);
-            int len=</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-11&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/LeetCode">LeetCode</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">动态规划</a>&nbsp;
           
         
       </div>

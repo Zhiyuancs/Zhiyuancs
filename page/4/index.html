@@ -133,6 +133,55 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/09/21/Mysql学习笔记（三）/">
+        <p class="h4 index-header">Mysql学习笔记（三）</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">select 字段列表form 表名where 查询筛选条件group by 指定分组的列列表having 指定分组后的筛选条件order by 排序列的列表limit 起始索引值，要查询的记录条数
+1、分组查询：group by分组函数（聚合函数）：将多行的值进行统计返回一行结果sum() ; avg();  min();  max(); count().注：分组函数不能和与分组无关的列一起使用；分组查询时，查询的列可以是分组的条件
+SELECT SUM(salary)，COUNT(eid)，did 
+FROM t_employ
+GROUP BY did;
+
+SELECT did,COUNT(eid)
+FROM t_employ
+WHERE salary&gt;10000
+AND did IS NOT NULL
+GROUP BY did;   2、条件中需要使用分组后的结果:having作用和where一样，但是执行顺序在分组之后
+SELECT AVG(salary)
+FROM t_employ
+GROUP BY did
+HAVING AVG(salary)&gt;9000;3、or</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-21&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Mysql">Mysql</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/09/21/Mysql学习笔记（二）/">
         <p class="h4 index-header">Mysql学习笔记（二）</p>
         
@@ -419,55 +468,6 @@ class Solution:
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-08&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Python">Python</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/06/Python3-Counter类、all/">
-        <p class="h4 index-header">Python3 Counter类、all()</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">Counter类(计数器)
-Counter类返回一个字典，统计每个元素出现次数，可以更新
-import collections
-obj = collections.Counter([&#39;11&#39;,&#39;22&#39;])
-obj.update([&#39;22&#39;,&#39;55&#39;])
-print(obj)
-
-#输出：Counter({&#39;22&#39;: 2, &#39;11&#39;: 1, &#39;55&#39;: 1})
-all() 函数用于判断给定的可迭代参数 iterable 中的所有元素是否都为 TRUE，如果是返回 True，否则返回 False。
-class Solution:
-    def countCharacters(self, words: List[str], chars: str) -&gt; int:
-        count=collections.Counter(chars)
-        sumlen=0
-        for word in words:
-            c=collectio</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-06&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>

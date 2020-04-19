@@ -133,6 +133,57 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/19/HashMap源码分析/">
+        <p class="h4 index-header">HashMap源码分析</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">jdk1.8之后的HashMap源码分析：
+1、类的属性//序列号
+private static final long serialVersionUID = 362498820763181265L;
+//默认初始容量为16
+static final int DEFAULT_INITIAL_CAPACITY = 1 &lt;&lt; 4;
+//最大容量
+static final int MAXIMUM_CAPACITY = 1 &lt;&lt; 30;
+//默认装载因子
+static final float DEFAULT_LOAD_FACTOR = 0.75f;
+//超过该值，使用红黑树
+static final int TREEIFY_THRESHOLD = 8;
+//小于该值，转化为链表
+static final int UNTREEIFY_THRESHOLD = 6;
+//转化为红黑树时table的最小大小
+static final int MIN_TREEIFY_CAPACITY = 64;
+//存储元素的数组，大小总为2的幂次方
+transient Node&lt;K,V&g</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-19&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JAVA%E9%9A%8F%E7%AC%94">JAVA随笔</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/02/04/Spring学习笔记/">
         <p class="h4 index-header">Spring学习笔记</p>
         
@@ -438,57 +489,6 @@ Arrays.sort (words ,
       <div>
         
           <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-06&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/JAVA%E9%9A%8F%E7%AC%94">JAVA随笔</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/05/java随笔-一些注意点和tricks/">
-        <p class="h4 index-header">java随笔--一些注意点和tricks</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">split()String类下的split()方法在根据正则表达式对字符串进行分割时会产生空字符串，在处理时需要进行判断。
-//1、空字符串不会被解析
-public class test {
-    public static void main(String[] args) {
-        String str = &quot;1,2,3,4,,,&quot;;
-        String[] arr = str.split(&quot;,&quot;);
-        for (String string : arr) {
-            System.out.println(&quot;str&quot;+string);
-        }
-        System.out.println(arr.length);
-    }
-}
-//输出：str1,str2,str3,str4    4
-
-//2、最后一个分隔符被分的字符串不为空时，其余空字符串可被解析。
-public class test {
-    public static void main(St</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-05&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
