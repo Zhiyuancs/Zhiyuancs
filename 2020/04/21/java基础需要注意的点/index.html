@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="NEU">
+  <meta name="author" content="Zhiyuan">
+  <meta name="keywords" content="初学者">
+  <title>java基础需要注意的点 ~ Solon&#39;s blog</title>
+
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css">
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css">
+
+
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Solon&#39;s blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期二, 四月 21日 2020, 6:07 晚上
+                </p>
+              
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    2k 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      8 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h3 id="java中需要注意的点："><a href="#java中需要注意的点：" class="headerlink" title="java中需要注意的点："></a>java中需要注意的点：</h3><p>1、java中<strong>char类型占用2个字节</strong>。</p>
+<p>2、返回类型不是方法的签名，即不允许两个只有返回类型不同的方法。</p>
+<p>3、String类中使用<code>private final char[] value</code>存储字符串，所以不可变。Java9之后使用<code>private final byte[] value</code></p>
+<p>4、StringBuilder线程不安全，速度较快；StringBuffer线程安全，使用了同步锁</p>
+<p>5、静态方法中无法使用非静态变量。</p>
+<p>6、子类使用super()调用父类构造函数，如果没有指定，则会默认执行无参构造函数，如果父类定义了有参构造函数未定义无参构造函数，则会编译错误。</p>
+<p>7、成员变量如果未赋予初值，会自动赋予默认值；局部变量不会自动赋值。被final修饰的需要显示赋值。成员变量放在堆内存，局部变量放在栈内存。</p>
+<p>8、对象引用存放在栈内存中，对象实例存放在堆内存中。</p>
+<p>9、java不可以通过方法将一个引用指向另一个实例对象。</p>
+<p>10、foreach循环不能修改集合中的元素。应该是由于值传递。如果要循环修改数据，使用for循环。</p>
+<p>11、Comparable接口方法为compareTo()，如TreeMap排序规则是使用对象默认的compareTo()方法，所以改变TreeMap排序规则可以通过重写该方法实现。Comparator接口一般是作为排序函数的参数。</p>
+<p>12、接口和抽象类的区别：(1)接口的默认方法是public，所有方法不可以实现，而抽象类可以有非抽象方法；(2)接口中除了static、final变量，不能有其他变量，而抽象类不一定；(3)一个类可以实现多个接口，而抽象类中则不一定；(4)接口方法的默认修饰符为public，抽象方法可以有public，protected和default修饰符，不可以用private修饰；(5)抽象是对类的抽象，而接口是对行为的抽象，是一种行为的规范。jdk8中接口也可以定义静态方法，jdk9的接口可以定义私有方法。</p>
+<p>13、<strong>final</strong>关键字总结：(1)修饰基本数据类型的变量，则其数值在初始化之后不可以改变；如果为引用类型的变量，则初始化之后不能再让其指向另一个对象。(2)final修饰的类不可以被继承，final类中的所有成员方法都会被隐式地指定为final方法；</p>
+<p>14、异常处理不会执行finally语句的情况：(1)finally语句执行第一行就发生异常，其他行出现问题，还是得到执行；(2)前面的代码执行了System.exit(int)已退出了程序；若该语句在异常之后，仍会执行；(3)程序所在的线程死亡；(4)关闭CPU。</p>
+<p>15、<strong>transient</strong>关键字修饰的变量无法被序列化。</p>
+<p>16、获取键盘输入的常用方式：</p>
+<pre><code class="java">1、通过Scanner
+Scanner input = new Scanner(System.in);
+String s = input.nextLine();
+input.close();
+
+2、通过BufferedReader
+BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+String s = input.readLine();</code></pre>
+<p>17、为什么有了字节流，还要有字符流？</p>
+<p>字符流是由 Java 虚拟机将字节转换得到的，问题就出在这个过程还算是非常耗时，并且，如果我们不知道编码类型就很容易出现乱码问题。所以， I/O 流就干脆提供了一个直接操作字符的接口，方便我们平时对字符进行流操作。如果音频文件、图片等媒体文件用字节流比较好，如果涉及到字符的话使用字符流比较好。</p>
+<p>18、深拷贝和浅拷贝</p>
+<p>（1）<strong>浅拷贝</strong>是对基本数据类型进行值传递，对引用数据类型进行引用传递的拷贝；</p>
+<p>（2）<strong>深拷贝</strong>是对基本数据类型进行值传递，对引用数据类型，创建一个新的对象，并复制其内容。</p>
+<p> 19、<strong>equals方法</strong></p>
+<p>equals方法容易出现空指针异常，应使用常量或确定值的对象来调用equals。更推荐使用<code>java.util.Objects#equals</code></p>
+<pre><code class="java">Objects.equals(null,&quot;yasuo&quot;)  //false</code></pre>
+<p>20、当使用自动装箱方式创建一个Integer对象时，当数值在-128~127时，将创建的对象缓存起来。内存只保存一份数据。（对象<strong>==</strong>会比较内存地址）</p>
+<pre><code class="java">Integer x=3;
+Integer y=3;
+System.out.println(x == y);// true
+Integer a = new Integer(3);
+Integer b = new Integer(3);
+System.out.println(a == b);//false
+System.out.println(a.equals(b));//true
+Integer a = 1234;
+Integer b = 1234;
+System.out.println(a==b);//false</code></pre>
+<p>21、浮点数计算和比较应该使用<strong>BigDecimal</strong>，在使用BigDecimal时，为了防止精度丢失，推荐使用它的 <strong>BigDecimal(String)</strong> 构造方法来创建对象。</p>
+<h3 id="22、Arrays-asList"><a href="#22、Arrays-asList" class="headerlink" title="22、Arrays.asList()"></a>22、<strong>Arrays.asList()</strong></h3><p>将一个数组转化为List集合，但是转化后其底层还是数组，不可以使用修改集合的方法（add/remove/clear)</p>
+<pre><code class="java">/**
+ *返回由指定数组支持的固定大小的列表。此方法作为基于数组和基于集合的API之间的桥梁，
+ 与Collection.toArray()结合使用。返回的List是可序列化并实现RandomAccess接口。
+ */ 
+public static &lt;T&gt; List&lt;T&gt; asList(T... a) {
+    return new ArrayList&lt;&gt;(a);
+}</code></pre>
+<p>Arrays.asList()体现的是适配器模式，只是转换接口，后台的数据仍是数组。</p>
+<p>注意：该方法是<strong>泛型方法</strong>，传入的对象必须是对象数组。</p>
+<pre><code class="java">int[] myArray = { 1, 2, 3 };
+List myList = Arrays.asList(myArray);
+System.out.println(myList.size());//1
+System.out.println(myList.get(0));//数组地址值
+System.out.println(myList.get(1));//报错：ArrayIndexOutOfBoundsException
+int [] array=(int[]) myList.get(0);
+System.out.println(array[0]);//1</code></pre>
+<p>当传入一个原生数据类型数组时，<code>Arrays.asList()</code> 的真正得到的参数就不是数组中的元素，而是数组对象本身！此时List 的唯一元素就是这个数组，这也就解释了上面的代码。可以用包装类型解决上述问题。</p>
+<p><code>Arrays.asList()</code> 方法返回的并不是 <code>java.util.ArrayList</code> ，而是 <code>java.util.Arrays</code> 的一个内部类,这个内部类并没有实现集合的修改方法或者说并没有重写这些方法。</p>
+<pre><code class="java">List myList = Arrays.asList(1, 2, 3);
+System.out.println(myList.getClass());//class java.util.Arrays$ArrayList</code></pre>
+<p>23、正确的将数组转换为ArrayList：</p>
+<pre><code class="java">List list = new ArrayList&lt;&gt;(Arrays.asList(&quot;a&quot;,&quot;b&quot;,&quot;c&quot;));
+
+//使用java8的stream
+Integer[] myArray = {1,2,3};
+List myList = Arrays.stream(myArray).collect(Collectors.toList());
+//基本类型也可以实现转换（依赖boxed的装箱操作）
+int[] myArray2 = {1,3,2};
+List myList = Arrays.stream(myArray2).boxed().collect(Collectors.toList());
+
+//使用 Guava
+//对于不可变集合，你可以使用ImmutableList类及其of()与copyOf()工厂方法：（参数不能为空）
+List&lt;String&gt; il = ImmutableList.of(&quot;string&quot;, &quot;elements&quot;);  // from varargs
+List&lt;String&gt; il = ImmutableList.copyOf(aStringArray);      // from array
+//对于可变集合，你可以使用Lists类及其newArrayList()工厂方法：
+List&lt;String&gt; l1 = Lists.newArrayList(anotherListOrCollection);    // from collection
+List&lt;String&gt; l2 = Lists.newArrayList(aStringArray);               // from array
+List&lt;String&gt; l3 = Lists.newArrayList(&quot;or&quot;, &quot;string&quot;, &quot;elements&quot;); // from varargs
+
+//使用 Apache Commons Collections
+List&lt;String&gt; list = new ArrayList&lt;String&gt;();
+CollectionUtils.addAll(list, str);</code></pre>
+<h3 id="24、Collection-toArray"><a href="#24、Collection-toArray" class="headerlink" title="24、Collection.toArray()"></a>24、Collection.toArray()</h3><p>该方法是一个<strong>泛型方法</strong>：<code>&lt;T&gt; T[] toArray(T[] a);</code> 如果<code>toArray</code>方法中没有传递任何参数的话返回的是<code>Object</code>类型数组。</p>
+<pre><code class="java">String [] s= new String[]{
+    &quot;dog&quot;, &quot;lazy&quot;, &quot;a&quot;, &quot;over&quot;, &quot;jumps&quot;, &quot;fox&quot;, &quot;brown&quot;, &quot;quick&quot;, &quot;A&quot;
+};
+List&lt;String&gt; list = Arrays.asList(s);
+Collections.reverse(list);
+s=list.toArray(new String[0]);//没有指定类型的话会报错</code></pre>
+<p>25、不要在foreach循环中进行元素的remove/add操作。remove操作请使用Iterator方式，如果并发操作，需要对Iterator对象加锁。(原因是java会将foreach循环翻译成Iterator迭代器)</p>
+<pre><code class="java">//正确
+List&lt;String&gt; list = new ArrayList&lt;&gt;();
+list.add(&quot;1&quot;);
+list.add(&quot;2&quot;);
+Iterator&lt;String&gt; iterator = list.iterator();
+while(itreator.hasNext()){
+    if(删除的条件){
+        iterator.remove();
+    }
+}
+
+//反例
+for(String s:list){
+    if(  ){
+        list.remove(s);
+    }
+}</code></pre>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+              <span>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>
+                  &nbsp;
+                
+              </span>&nbsp;&nbsp;
+            
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/JAVA%E9%9A%8F%E7%AC%94">JAVA随笔</a>
+                
+              </span>
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" rel="nofollow noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+      <br><br>
+      
+      
+  <div id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/blueimp-md5@2.11.1/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: '27cd233cc004e0960a88',
+      clientSecret: '7d450d6fa5c421ab91938c60610c580cb1976c31',
+      repo: 'comments',
+      owner: 'Zhiyuancs',
+      admin: 'Zhiyuancs',
+      id: md5(location.pathname),
+      language: 'zh-CN',
+      perPage: 15,
+      pagerDirection: 'last',
+      createIssueManually: 'true',
+      distractionFreeMode: 'false'
+    });
+
+    gitalk.render('gitalk-container')
+  </script>
+
+
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
+    
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
+
+
+
+    
+
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+
+  <script src="/js/lazyload.js" ></script>
+
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "java基础需要注意的点&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+</body>
+</html>

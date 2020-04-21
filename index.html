@@ -133,6 +133,98 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/21/java基础需要注意的点/">
+        <p class="h4 index-header">java基础需要注意的点</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">java中需要注意的点：1、java中char类型占用2个字节。
+2、返回类型不是方法的签名，即不允许两个只有返回类型不同的方法。
+3、String类中使用private final char[] value存储字符串，所以不可变。Java9之后使用private final byte[] value
+4、StringBuilder线程不安全，速度较快；StringBuffer线程安全，使用了同步锁
+5、静态方法中无法使用非静态变量。
+6、子类使用super()调用父类构造函数，如果没有指定，则会默认执行无参构造函数，如果父类定义了有参构造函数未定义无参构造函数，则会编译错误。
+7、成员变量如果未赋予初值，会自动赋予默认值；局部变量不会自动赋值。被final修饰的需要显示赋值。成员变量放在堆内存，局部变量放在栈内存。
+8、对象引用存放在栈内存中，对象实例存放在堆内存中。
+9、java不可以通过方法将一个引用指向另一个实例对象。
+10、foreach循环不能修改集合中的元素。应该是由于值传递。如果要循环修改数据，使用for循环。
+11、Comparable接口方法为compareTo()</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-21&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JAVA%E9%9A%8F%E7%AC%94">JAVA随笔</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/20/LinkedList源码分析/">
+        <p class="h4 index-header">LinkedList源码分析</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">1、简介LinkedList实现接口如图所示，支持高效删除和插入操作，由于实现了Deque接口，使得LinkedList类也具有队列的特性。LinkedList不是线程安全的，如果想保证线程安全，可以使用Collections类的synchronizedList方法：
+List list = Collections.synchronizedList(new LinkedList(……));
+
+2、源码分析2.1 内部结构内部私有类Node
+private static class Node&lt;E&gt; {
+        E item;//节点值
+        Node&lt;E&gt; next;//后继节点
+        Node&lt;E&gt; prev;//前驱节点
+
+        Node(Node&lt;E&gt; prev, E element, Node&lt;E&gt; next) {
+            this.item = element;
+            this.next = next;
+            this.prev </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-20&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java%E9%9A%8F%E7%AC%94">Java随笔</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/04/19/HashMap源码分析/">
         <p class="h4 index-header">HashMap源码分析</p>
         
@@ -404,96 +496,6 @@ System.out.println(&quot;-----------产生1到10之间的随机数</div>
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/StackOverflow">StackOverflow</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/JAVA%E9%9A%8F%E7%AC%94">JAVA随笔</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/06/java随笔-断言、日志/">
-        <p class="h4 index-header">java随笔--断言、日志</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">断言断言机制允许在测试期间向代码中插入一些检查语句，当代码发布时，这些插入的检测语句会被自动地移走。Java语言引入了关键字assert，有两种形式：
-assert 条件;
-assert 条件:表达式;
-这两种形式都会对条件进行检测， 如果结果为false, 则抛出一个AssertionError 异常。在第二种形式中，表达式将被传人AssertionError 的构造器， 并转换成一个消息字符串。
-在默认情况下， 断言被禁用。可以在运行程序时启用断言，断言的启用和禁用不必重新编译程序。启用或禁用断言是类加载器( class loader ) 的功能。当断言被禁用时， 类加载器将跳过断言代码， 因此，不会降低程序运行的速度。
-java -enableassertions MyApp不应该使用断言向程序的其他部分通告发生了可恢复性的错误， 或者，不应该作为程序向用户通告问题的手段。断言只应该用于在测试阶段确定程序内部的错误位置。
-日志日志可以替换测试代码中使用的System.out.println()，不像输出语句测试完还需要删除。
-//基本日志
-Logger.getGlobal().i</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-06&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/JAVA%E9%9A%8F%E7%AC%94">JAVA随笔</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/11/06/java随笔-lambda表达式/">
-        <p class="h4 index-header">java随笔--lambda表达式</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">lambda表达式lambda表达式形式：参数，箭头(-&gt;)以及一个表达式，也可以将操作放在代码块{}中。
-(String first,String second)-&gt;
-{
-    if(first.length()&gt;second.length()) return 1;
-    else if(first.length()&lt;second.length()) return -1;
-    else return 0;
-}
-
-() -&gt; System.out.pringln(&quot;i&quot;);
-对于只有一个抽象方法的接口，需要这种接口的对象时，就可以提供一个lambda表达式。这种接口称为函数式接口。Comparator 就是只有一个方法的接口， 所以可以提供一个lambda 表达式：
-函数式接口中可以包含静态方法（已经实现了的方法），默认方法（default），java.lang.Object里的public方法。
-Arrays.sort (words ,
-    (first , second) -&gt; first.length() - s</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-06&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
           &nbsp;
         
         

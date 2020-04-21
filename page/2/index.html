@@ -133,6 +133,96 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/06/java随笔-断言、日志/">
+        <p class="h4 index-header">java随笔--断言、日志</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">断言断言机制允许在测试期间向代码中插入一些检查语句，当代码发布时，这些插入的检测语句会被自动地移走。Java语言引入了关键字assert，有两种形式：
+assert 条件;
+assert 条件:表达式;
+这两种形式都会对条件进行检测， 如果结果为false, 则抛出一个AssertionError 异常。在第二种形式中，表达式将被传人AssertionError 的构造器， 并转换成一个消息字符串。
+在默认情况下， 断言被禁用。可以在运行程序时启用断言，断言的启用和禁用不必重新编译程序。启用或禁用断言是类加载器( class loader ) 的功能。当断言被禁用时， 类加载器将跳过断言代码， 因此，不会降低程序运行的速度。
+java -enableassertions MyApp不应该使用断言向程序的其他部分通告发生了可恢复性的错误， 或者，不应该作为程序向用户通告问题的手段。断言只应该用于在测试阶段确定程序内部的错误位置。
+日志日志可以替换测试代码中使用的System.out.println()，不像输出语句测试完还需要删除。
+//基本日志
+Logger.getGlobal().i</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-06&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JAVA%E9%9A%8F%E7%AC%94">JAVA随笔</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/06/java随笔-lambda表达式/">
+        <p class="h4 index-header">java随笔--lambda表达式</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">lambda表达式lambda表达式形式：参数，箭头(-&gt;)以及一个表达式，也可以将操作放在代码块{}中。
+(String first,String second)-&gt;
+{
+    if(first.length()&gt;second.length()) return 1;
+    else if(first.length()&lt;second.length()) return -1;
+    else return 0;
+}
+
+() -&gt; System.out.pringln(&quot;i&quot;);
+对于只有一个抽象方法的接口，需要这种接口的对象时，就可以提供一个lambda表达式。这种接口称为函数式接口。Comparator 就是只有一个方法的接口， 所以可以提供一个lambda 表达式：
+函数式接口中可以包含静态方法（已经实现了的方法），默认方法（default），java.lang.Object里的public方法。
+Arrays.sort (words ,
+    (first , second) -&gt; first.length() - s</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-06&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JAVA%E9%9A%8F%E7%AC%94">JAVA随笔</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/11/05/java随笔-一些注意点和tricks/">
         <p class="h4 index-header">java随笔--一些注意点和tricks</p>
         
@@ -420,99 +510,6 @@ public class GoodsTest {
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/JAVA%E9%9A%8F%E7%AC%94">JAVA随笔</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/17/组合总数/">
-        <p class="h4 index-header">组合总数</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">https://leetcode-cn.com/problems/combination-sum/solution/hui-shuo-suan-fa-di-gui-java-by-longchenghuang/
-总结：回溯主要是通过递归对所有情况进行遍历，通过剪枝降低复杂度。难点在于如何通过剪枝降低系统栈深度，降低时间复杂度？
-后面选取的数不能比前面选的数还要小，即 “更深层的边上的数值不能比它上层的边上的数值小”，本题通过这种方式降低复杂度。
-List&lt;List&lt;Integer&gt;&gt; set=new ArrayList&lt;List&lt;Integer&gt;&gt;();
-public List&lt;List&lt;Integer&gt;&gt; combinationSum(int[] candidates, int target) {
-    //排序
-    Arrays.sort(candidates); 
-    List&lt;Integer&gt; list=new ArrayList&lt;Integer&gt;();
-    trace</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-17&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/LeetCode">LeetCode</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%9B%9E%E6%BA%AF">回溯</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/12/电话号码的字母组合/">
-        <p class="h4 index-header">电话号码的字母组合</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/
-思路：DFS、回溯（没有剪枝，解空间即为答案）
-改进：字符串相加可以使用StringBuffer。
-class Solution {
-    //两个大括号的方式初始化(本质上是匿名内部类 + 实例化代码块儿)
-    Map&lt;String,String&gt; hashMap=new HashMap&lt;String,String&gt;(){{
-        put("2","abc"); 
-        put("3","def"); 
-        put("4","ghi"); 
-        put("5","jkl"); 
-        put("6","mno"); 
-        put("7","pqrs"); 
-        put("8","tuv"); 
-        put("9","wxyz"); 
-    }};
-    public List&lt;String&gt; letterCo</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-12&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/LeetCode">LeetCode</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%9B%9E%E6%BA%AF">回溯</a>&nbsp;
           
         
       </div>

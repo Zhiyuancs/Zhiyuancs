@@ -14,7 +14,7 @@
   <meta name="description" content="NEU">
   <meta name="author" content="Zhiyuan">
   <meta name="keywords" content="初学者">
-  <title>归档 ~ Solon&#39;s blog</title>
+  <title>分类 - 学习笔记 ~ Solon&#39;s blog</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css">
@@ -125,7 +125,7 @@
                 
 
 <div class="list-group">
-  <p class="h4">共计 39 篇文章</p>
+<!--  <p class="h4">共计 1 篇文章</p>-->
   <hr>
   
     
@@ -138,6 +138,19 @@
     </a>
   
 </div>
+
+  <nav aria-label="index posts navigation">
+    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
+      <a class="extend prev" rel="prev" href="/categories/学习笔记/page/3/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/categories/学习笔记/">1</a><a class="page-number" href="/categories/学习笔记/page/2/">2</a><a class="page-number" href="/categories/学习笔记/page/3/">3</a><span class="page-number current">4</span>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
+      ele.href += '#board';
+    }
+  </script>
+
 
 
               </div>
@@ -259,7 +272,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "分类 - 学习笔记&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

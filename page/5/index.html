@@ -133,6 +133,107 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/09/09/Hexo-Hueman-Insight-Search配置/">
+        <p class="h4 index-header">Hexo-Hueman Insight-Search配置</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">博客中的搜索功能一直无法使用，使用npm install -S hexo-generator-json-content安装插件后，仍然无法使用。
+通过阅读hexo-generator-json-content的源码配置文件后得知，还需要对hexo的config文件做相应配置：
+jsonContent:
+  meta: true
+  dafts: false
+  file: content.json
+  keywords: undefined
+  dateFormat: undefined
+  pages:
+    title: true
+    slug: true
+    date: true
+    updated: true
+    comments: true
+    path: true
+    link: true
+    permalink: true
+    excerpt: true
+    keywords: false
+    text: true
+    raw: false
+    content: false
+    author: true
+  posts</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-09&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Hexo">Hexo</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/09/08/Python3-while-else、/">
+        <p class="h4 index-header">Python3 while-else、//</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">在LeetCode-自除数答案中学到的几个语法和技巧，
+While-else:
+1、在Python中，else 可以和 while 循环搭配使用，当 while 循环正常执行完的情况下，执行 else 输出；    
+2、如果当 while 循环中执行了跳出循环的语句，比如 break，将不执行 else 代码块的内容。
+//:向下取整
+class Solution:
+    def selfDividingNumbers(self, left: int, right: int) -&gt; List[int]:
+        ans = []
+        for num in range(left,right + 1):
+            copy = num
+            while copy &gt; 0:
+                div, copy = copy % 10, copy // 10
+                if div == 0 or num % div != 0: break
+            else: ans.ap</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-08&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Python">Python</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/09/06/Python3-Counter类、all/">
         <p class="h4 index-header">Python3 Counter类、all()</p>
         

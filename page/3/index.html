@@ -133,6 +133,99 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/17/组合总数/">
+        <p class="h4 index-header">组合总数</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">https://leetcode-cn.com/problems/combination-sum/solution/hui-shuo-suan-fa-di-gui-java-by-longchenghuang/
+总结：回溯主要是通过递归对所有情况进行遍历，通过剪枝降低复杂度。难点在于如何通过剪枝降低系统栈深度，降低时间复杂度？
+后面选取的数不能比前面选的数还要小，即 “更深层的边上的数值不能比它上层的边上的数值小”，本题通过这种方式降低复杂度。
+List&lt;List&lt;Integer&gt;&gt; set=new ArrayList&lt;List&lt;Integer&gt;&gt;();
+public List&lt;List&lt;Integer&gt;&gt; combinationSum(int[] candidates, int target) {
+    //排序
+    Arrays.sort(candidates); 
+    List&lt;Integer&gt; list=new ArrayList&lt;Integer&gt;();
+    trace</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-17&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/LeetCode">LeetCode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E5%9B%9E%E6%BA%AF">回溯</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/12/电话号码的字母组合/">
+        <p class="h4 index-header">电话号码的字母组合</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/
+思路：DFS、回溯（没有剪枝，解空间即为答案）
+改进：字符串相加可以使用StringBuffer。
+class Solution {
+    //两个大括号的方式初始化(本质上是匿名内部类 + 实例化代码块儿)
+    Map&lt;String,String&gt; hashMap=new HashMap&lt;String,String&gt;(){{
+        put("2","abc"); 
+        put("3","def"); 
+        put("4","ghi"); 
+        put("5","jkl"); 
+        put("6","mno"); 
+        put("7","pqrs"); 
+        put("8","tuv"); 
+        put("9","wxyz"); 
+    }};
+    public List&lt;String&gt; letterCo</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-12&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/LeetCode">LeetCode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E5%9B%9E%E6%BA%AF">回溯</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/10/11/最长回文字符串/">
         <p class="h4 index-header">最长回文字符串</p>
         
@@ -443,102 +536,6 @@ fmt.Printf(&quot;%T\n&quot;, add)   // &quot;func(int, int) int</div>
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/Go">Go</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/26/Go-一/">
-        <p class="h4 index-header">Go(一)</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">1.1命名Go中函数名字的开头字母大小决定了该函数在包外的可见性：大写字母开头，这个函数在包外可以使用；小写字母开头不可以在包外部访问。Go语言程序员推荐使用 驼峰式 命名。
-1.2声明var、const、type、func：变量、常量、类型、函数实体对象声明    
-包声明语句之后是import语句导入依赖的其它包，然后是包一级的类型、变量、常量、函数的声明语句。在包一级声明的名字可以在整个包和引用了该包的源文件中访问。
-1.3变量var 变量名字 类型 = 表达式
-go语言中所有变量定义时如果未赋值，都会初始化为一个默认值。 
-在函数内部，有一种称为简短变量声明语句的形式可用于声明和初始化局部变量。它以“名字 := 表达式”形式声明变量，变量的类型根据表达式来自动推导。
-freq := rand.Float64() * 3.0
-t := 0.0
-i, j := 0, 1  //变量声明语句
-i, j = j, i // 交换 i 和 j 的值，赋值语句（元组赋值）
-简短变量声明语句中必须至少要声明一个新的变量，否则不能编译通过。
-1.4指针如果指针名字为p，那么可以说“p指针指向变</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-26&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Go">Go</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/22/java-正则表达式/">
-        <p class="h4 index-header">java随笔--正则表达式</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">题目地址：https://leetcode-cn.com/problems/string-to-integer-atoi/
-import java.util.regex.*;
-class Solution {
-       public static int myAtoi(String str) {
-       str=str.trim();
-
-        String pattern=&quot;^[\\+\\-\\d]\\d*&quot;;//正则表达式，表示以正号或负号或数字开头，且后面是0个或多个数字
-        Pattern p=Pattern.compile(pattern);
-        Matcher m=p.matcher(str);
-
-        String res=&quot;&quot;;
-        if(m.find()){//能匹配到
-            res=str.substring(m.start(),m.end());
-        }else{//不能匹配到
-            return 0;
-     </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-22&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/JAVA%E9%9A%8F%E7%AC%94">JAVA随笔</a>&nbsp;
           
         
       </div>
