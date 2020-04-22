@@ -133,6 +133,109 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/17/二分查找细节详解/">
+        <p class="h4 index-header">二分查找细节详解</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">1、基本二分查找//常见场景：查找一个数
+int binarySearch(int[] nums, int target) {
+    int left = 0; 
+    int right = nums.length - 1; // 注意
+
+    while(left &lt;= right) {
+        int mid = (right + left) / 2;
+        if(nums[mid] == target)
+            return mid; 
+        else if (nums[mid] &lt; target)
+            left = mid + 1; // 注意
+        else if (nums[mid] &gt; target)
+            right = mid - 1; // 注意
+        }
+    return -1;
+}
+1、为什么 while 循环的条件中是 &lt;=，而不是 &lt; ？
+答：因为初始化 right 的赋值是 nums.length-1，即最后一个元</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-17&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/algorithm">algorithm</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE">二分查找</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/17/Java随笔-对象的克隆/">
+        <p class="h4 index-header">Java随笔--对象的克隆</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">java的引用类型（包括类、接口、数组等复杂类型）是无法通过等号直接赋值的。
+public class GoodsTest {
+    public static void main(String[] args){
+        Goods goodsA = new Goods(&quot;GoodsA&quot;,20);
+        Goods goodsB = goodsA;
+        System.out.println(&quot;Before Change:&quot;);
+        goodsA.print();
+        goodsB.print();
+
+        goodsB.setTitle(&quot;GoodsB&quot;);
+        goodsB.setPrice(50);
+        System.out.println(&quot;After Change:&quot;);
+        goodsA.print();
+        goodsB.print();
+    }
+}
+//修改goodsB,goo</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-17&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JAVA%E9%9A%8F%E7%AC%94">JAVA随笔</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/10/17/组合总数/">
         <p class="h4 index-header">组合总数</p>
         
@@ -448,105 +551,11 @@ slice之间不能比较，因此</div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/01/Go-四/">
-        <p class="h4 index-header">Go(四)</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">函数4.1 函数声明函数声明包括函数名、形式参数列表、返回值列表（可省略）以及函数体。
-func name(parameter-list) (result-list) {
-    body
-}
-如果一组形参或返回值有相同的类型，我们不必为每个形参都写出参数类型。
-func f(i, j, k int, s, t string)                 { /* ... */ }
-func f(i int, j int, k int,  s string, t string) { /* ... */ }
-func add(x int, y int) int   {return x + y}
-func sub(x, y int) (z int)   { z = x - y; return}
-func first(x int, _ int) int { return x }
-func zero(int, int) int      { return 0 }
-
-fmt.Printf(&quot;%T\n&quot;, add)   // &quot;func(int, int) int</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-01&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Go">Go</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/26/Go-二/">
-        <p class="h4 index-header">Go(二)</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">基础数据类型2.1 整形*      /      %      &lt;&lt;       &gt;&gt;     &amp;       &amp;^
-+      -      |      ^
-==     !=     &lt;      &lt;=       &gt;      &gt;=
-&amp;&amp;
-||
-二元运算符有五种优先级。在同一个优先级，使用左优先结合规则，但是使用括号可以明确优先顺序，使用括号也可以用于提升优先级。在Go语言中，%取模运算符的符号和被取模数的符号总是一致的，因此-5%3和-5%-3结果都是-2。除法运算符/的行为则依赖于操作数是否为全为整数，比如5.0/4.0的结果是1.25，但是5/4的结果是1，因为整数除法会向着0方向截断余数。
-&amp;      位运算 AND
-|      位运算 OR
-^      位运算 XOR
-&amp;^     位清空 (AND NOT)
-&lt;&lt;     左移
-&gt;&gt;     右移
-位操作运算符^作为二元运算符时是按位异或（XOR），当用作一元运算符时表示按位取反；位操作运</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-26&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Go">Go</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/2/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fas fa-angle-double-right"></i></a>
+      <a class="extend prev" rel="prev" href="/page/2/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

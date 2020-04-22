@@ -133,6 +133,96 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/22/java反射机制/">
+        <p class="h4 index-header">java反射机制</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">介绍JAVA 反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为 java 语言的反射机制。
+获取class对象的方法1、知道具体类的情况下
+Class targetClass = TargetObject.class;
+2、不知道具体类的情况下；
+Class targetClass = Class.forName(&quot;cn.example.TargetObject&quot;);
+package cn.javaguide;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
+public class Main {
+    public static void main(String[] args) throws ClassNotFoundException, NoSuc</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-22&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JAVA%E9%9A%8F%E7%AC%94">JAVA随笔</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/04/22/java关键字总结/">
+        <p class="h4 index-header">java关键字总结</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">final关键字final关键字主要用在三个地方：变量、方法、类。
+
+对于一个final变量，如果是基本数据类型的变量，则其数值一旦在初始化之后便不能更改；如果是引用类型的变量，则在对其初始化之后便不能再让其指向另一个对象。
+当用final修饰一个类时，表明这个类不能被继承。final类中的所有成员方法都会被隐式地指定为final方法。
+使用final方法的原因有两个。第一个原因是把方法锁定，以防任何继承类修改它的含义；第二个原因是效率。在早期的Java实现版本中，会将final方法转为内嵌调用。但是如果方法过于庞大，可能看不到内嵌调用带来的任何性能提升（现在的Java版本已经不需要使用final方法进行这些优化了）。类中所有的private方法都隐式地指定为final。
+
+Static关键字
+修饰成员变量和成员方法: 被 static 修饰的成员属于类，不属于单个这个类的某个对象，被类中所有对象共享，可以并且建议通过类名调用。被static 声明的成员变量属于静态成员变量，静态变量 存放在 Java 内存区域的方法区。调用格式：类名.静态变量名 类名.静态方法名()
+静态变量存放在j</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-04-22&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JAVA%E9%9A%8F%E7%AC%94">JAVA随笔</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/04/21/java基础需要注意的点/">
         <p class="h4 index-header">java基础需要注意的点</p>
         
@@ -416,103 +506,11 @@ void change(int p,i</div>
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/05/并查集/">
-        <p class="h4 index-header">并查集</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">并查集并查集是一种树型的数据结构，用于处理一些不交集（Disjoint Sets）的合并及查询问题。可以求解一些图相关的问题（连通分量）。
-并查集森林是一种将每一个集合以树的形式表示的数据结构，其中每个结点都保存着到他父节点的引用。在并查集森林中，每个集合的代表即是集合的根节点。“查找”根据其父节点的引用向根行进直到到底树根。“联合”将两棵树合并到一起，这通过将一棵树的根连接到另一棵树的根。
-class UnionSet{
-    int[] parent;
-    //初始化并查集,每个结点自成一个集合
-    void UnionSet(int n){
-        parent=new int[n];
-        for(int i=0;i&lt;n;i++){
-            parent[i]=i;
-        }
-    }
-    //递归查找根节点
-    int find(int x){
-        if(parent[x]==x) return x;
-        else return find(parent[x]);
-    }
-    </div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-05&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/algorithm">algorithm</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86">并查集</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/05/生成随机字符串/">
-        <p class="h4 index-header">生成随机字符串</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">11月一直在准备考试和各种结课作业，停滞了很长时间没有学习新技术了。最近在stackoverflow上看到一些有趣的问题，就自己做了相关总结。
-https://stackoverflow.com/questions/41107/how-to-generate-a-random-alpha-numeric-string
-问题：生成伪随机的字母-数字字符串。For example, a generated string of length 12 might look something like &quot;AEYGF7K0DM1X&quot;.
-类的逻辑较为简单，不过使用了一些之前没接触过的库函数。
-1、java.util.concurrent.ThreadLocalRandom
-Random虽然是线程安全的，但是在多线程环境下效率很低，而且Random产生的随机数序列可以预测，顾不适合作为验证码类随机数产生。（思考：图片验证码产生是不是根据产生的随机数从数据库中选出相应的图片作为验证码？）
-System.out.println(&quot;-----------产生1到10之间的随机数</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-05&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/StackOverflow">StackOverflow</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/JAVA%E9%9A%8F%E7%AC%94">JAVA随笔</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

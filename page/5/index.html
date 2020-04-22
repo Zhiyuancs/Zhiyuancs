@@ -133,6 +133,81 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/09/15/Deep-Reinforcement-Learning-for-Unsupervised-Video-Summarization/">
+        <p class="h4 index-header">Deep Reinforcement Learning for Unsupervised V-S </p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Abstract&emsp;&emsp;本文创新点：1、构建DSN网络；2、设计一个新的奖励函数（基于帧的多样性和代表性）；3、设计一个端到端的、基于强化学习的框架来训练网络。
+Introduction&emsp;&emsp;DPP-LSTM效果较好，但是视频摘要的评价时，人类具有更多的主观性，所以非监督方法很有必要。&emsp;&emsp;本文的DSN网络：encoder：CNN（在视频帧上进行特征提取）；decoder：BiLSTM（产生概率分布来选择帧）。RL（增强学习）：通过迭代方式训练agent。&emsp;&emsp;主要贡献：将无监督方法扩展到监督版本，以利用标签；首次将RL应用到无监督视频摘要上。
+
+Model OverviewDeep Summarization Network&emsp;&emsp;采用encoder-decoder结构，CNN选用在ImageNet上预训练好的GoogLeNet，从它倒数第二层提取出视觉特征向量x_{t}。LSTM用来捕获视频帧之间的长时间依赖性。训练中只更新decoder。  
+&emsp;&emsp;将BiLSTM网络的正向和反</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-15&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/AI">AI</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E8%A7%86%E9%A2%91%E6%91%98%E8%A6%81">视频摘要</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/09/15/Video-Summarization-with-Long-Short-term-Memory/">
+        <p class="h4 index-header">Video Summarization with LSTM</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Abstract&emsp;&emsp;这篇文章提出一个新奇的监督学习方法用来进行视频摘要，用来自动选择关键帧或者关键子热点。将这项任务看成一个结构预测问题（structured prediction problem），主要思路是用LSTM对帧的时间依赖性进行建模。
+Introduction&emsp;&emsp;视频摘要如今有两个重要的方法：关键帧选择（keyframe selection，选择一些具有代表性的帧来组成摘要）；关键子热点选择（Key subshot selection，选择一系列在短时间类连续的帧组成摘要，即选择视频中具有代表性的每个时间点，将这些时间点的帧选择）。&emsp;&emsp;非监督学习方法：通过直观标准选择帧&emsp;&emsp;监督学习方法：通过视频帧的标注训练模型，使模型自动学习选择帧的标准。&emsp;&emsp;模型输入是视频的帧序列，输出是一个二元数组（表示这些帧是否选择）。由此得到启发使用LSTM。视频帧内部的依赖性是复杂且不均匀的。&emsp;&emsp;使用LSTM从时间上建立帧的联系，比从视觉上建立联系好（比如不同帧的相似性）。时间上</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-15&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/AI">AI</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E8%A7%86%E9%A2%91%E6%91%98%E8%A6%81">视频摘要</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/09/09/Hexo-Hueman-Insight-Search配置/">
         <p class="h4 index-header">Hexo-Hueman Insight-Search配置</p>
         
@@ -430,47 +505,11 @@ def getnum(self,n:int) -&gt;int:
     </div>
   </div>
 
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/08/30/Python-回文字符串/">
-        <p class="h4 index-header">Python-回文字符串</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">filter(str.isalnum,s)**1、filter() 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成的新列表。该接收两个参数，第一个为函数，第二个为序列，序列的每个元素作为参数传递给函数进行判，然后返回 True 或 False，最后将返回 True 的元素放到新列表中。2、Python isalnum()方法isalnum() 方法检测字符串是否由字母和数字组成。
-</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-08-30&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Python">Python</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
 
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/4/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+      <a class="extend prev" rel="prev" href="/page/4/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   
