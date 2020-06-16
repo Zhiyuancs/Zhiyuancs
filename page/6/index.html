@@ -133,6 +133,60 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/09/02/LeetCode-质数排列/">
+        <p class="h4 index-header">LeetCode-质数排列</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">质数：质数是大于1的，且不能用小于它的两个正整数乘积表示。
+首先求1-n中质数的个数
+def getnum(self,n:int) -&gt;int:
+        num=0
+        for i in range(2,n+1):
+            flag=True
+            for j in range(2,int(i**0.5)+1):
+                if i%j==0:
+                    flag=False
+                    break
+            if flag==True:
+                num+=1
+        return num
+总的方案数就是质数排列数和非质数排列数的乘积
+    def jiecheng(self,n:int) -&gt;int:
+        sums=1
+        for i in range(1,n+1):
+            sums*=i
+        return sums%1000000007
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-02&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/LeetCode">LeetCode</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E6%95%B0%E8%AE%BA">数论</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/08/30/Python-回文字符串/">
         <p class="h4 index-header">Python-回文字符串</p>
         

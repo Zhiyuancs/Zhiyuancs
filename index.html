@@ -133,6 +133,51 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2020/06/16/知识点总结-XMind/">
+        <p class="h4 index-header">内容总结-Xmind</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">1. JVM
+
+
+2. 数据库
+
+3. Redis
+4. Java SE
+
+
+5. 框架
+</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-06-16&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JAVA%E9%9A%8F%E7%AC%94">JAVA随笔</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2020/04/22/java反射机制/">
         <p class="h4 index-header">java反射机制</p>
         
@@ -442,64 +487,6 @@ transient Node&lt;K,V&g</div>
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/Mybatis">Mybatis</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/12/26/线段树/">
-        <p class="h4 index-header">线段树</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">线段树节点数据结构：
-class SegmentTree{
-    int l,r;   //每个区间的左右端点
-    int sum;   //区间数据
-    //其他附加信息
-}
-建树以完全二叉树建树，可以使用父子二倍标记法，子节点下标为父节点下标值的两倍。
-//递归建树
-//p:当前父节点，sak为节点数组
-void build(int p,int l,int r){
-    sak[p].l=l;sak[p].r=r;
-    if(l==r){
-        sak[p].sum=a[l];
-        return;
-    }
-    int mid = (l+r)/2;
-    //依次建立左右子树
-    build(2*p,l,mid);
-    build(2*p+1,mid+1,r);
-    sak[p].sum = sak[2*p].sum+sak[2*p+1].sum;
-}
-单点修改每次操作都是从根节点开始遍历，递归找到需要修改的节点。
-//p:当前节点    x:目标节点      val:修改值    
-void change(int p,i</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-12-26&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/algorithm">algorithm</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91">线段树</a>&nbsp;
           
         
       </div>

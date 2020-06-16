@@ -133,6 +133,56 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/19/java随笔-内部类/">
+        <p class="h4 index-header">java随笔--内部类</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">一、成员内部类​        内部类可以用来实现多继承。成员内部类可以访问外部类的所有成员变量，包括private修饰的。
+​        内部类跟外部类有一个很重要区别：内部类可以用private修饰，而外部类是不能使用private修饰的。如果内部类仅仅在类内部使用时，使用private修饰后，就可以更好的隐藏内部信息。
+​        当需要使用到内部类的时候，还是推荐使用getInnerInstance的方式来获取，特别是当内部类只有无参构造器的时候
+public class Outer {
+    private int num;
+    private Inner inner;
+
+    Outer(){
+        num = 1;
+        inner = new Inner();
+    }
+
+    public void print(){
+        System.out.println(&quot;Outer.print()&quot;);
+        System.out.println(inner.num);
+        Syst</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-19&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JAVA%E9%9A%8F%E7%AC%94">JAVA随笔</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/10/17/二分查找细节详解/">
         <p class="h4 index-header">二分查找细节详解</p>
         
@@ -503,48 +553,6 @@ JDBC本质：其实是官方（sun公司）定义的一套操作所有关系型�
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/JDBC">JDBC</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/10/03/Go-三/">
-        <p class="h4 index-header">Go(三)</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">复合数据类型3.1 数组var a [3]int
-var q [3]int = [3]int{1, 2, 3}
-q := [...]int{1, 2, 3}  //长度由初始化值的个数来计算
-months := [...]string{1: &quot;January&quot;, /* ... */, 12: &quot;December&quot;}  //索引0自动初始化为空字符串
-数组类型可以直接比较（==），只有当两个数组所有元素都是相等的时候数组才是相等的。
-3.2 Slice一个slice由三个部分构成：指针、长度和容量。指针指向第一个slice元素对应的底层数组元素的地址，要注意的是slice的第一个元素并不一定就是数组的第一个元素。长度对应slice中元素的数目；长度不能超过容量，容量一般是从slice的开始位置到底层数据的结尾位置。内置的len和cap函数分别返回slice的长度和容量。
-slice的切片操作s[i:j]，其中0 ≤ i≤ j≤ cap(s)，用于创建一个新的slice，引用s的从第i个元素开始到第j-1个元素的子序列。
-slice之间不能比较，因此</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-03&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Go">Go</a>&nbsp;
           
         
       </div>

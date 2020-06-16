@@ -133,6 +133,48 @@
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/10/03/Go-三/">
+        <p class="h4 index-header">Go(三)</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">复合数据类型3.1 数组var a [3]int
+var q [3]int = [3]int{1, 2, 3}
+q := [...]int{1, 2, 3}  //长度由初始化值的个数来计算
+months := [...]string{1: &quot;January&quot;, /* ... */, 12: &quot;December&quot;}  //索引0自动初始化为空字符串
+数组类型可以直接比较（==），只有当两个数组所有元素都是相等的时候数组才是相等的。
+3.2 Slice一个slice由三个部分构成：指针、长度和容量。指针指向第一个slice元素对应的底层数组元素的地址，要注意的是slice的第一个元素并不一定就是数组的第一个元素。长度对应slice中元素的数目；长度不能超过容量，容量一般是从slice的开始位置到底层数据的结尾位置。内置的len和cap函数分别返回slice的长度和容量。
+slice的切片操作s[i:j]，其中0 ≤ i≤ j≤ cap(s)，用于创建一个新的slice，引用s的从第i个元素开始到第j-1个元素的子序列。
+slice之间不能比较，因此</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-10-03&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0">学习笔记</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Go">Go</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/10/01/Go-四/">
         <p class="h4 index-header">Go(四)</p>
         
@@ -453,46 +495,6 @@ ALTER TABLE 表名 CHANGE 列名 新列名 数据类型8、修改表列的数据
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/Mysql">Mysql</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/21/3/">
-        <p class="h4 index-header">Unsupervised Video Summarization with Adversarial LSTM</p>
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">&emsp;&emsp;本文提出一个由summarizer和discriminator组成的生成对抗框架。目的是选择视频的稀疏子集，使得视频和摘要的表示误差最小。
-
-&emsp;&emsp;原始视频的特征是通过GAN和LSTM提取的，GAN以像素为基础提取特征，LSTM捕捉帧之间的长期依赖关系，得到深度特征向量。由于明确深度特征间的合适距离困难，所以由左边结构转换为右边的结构。
-论文理论基础：Variational Autoencoder(VAE)，GAN
-Model Overview&emsp;&emsp;CNN输出的是视频帧的深度特征（deep features x），sLSTM（selector LSTM）在这些帧中选择一个子集，eLSTM(encoder LSTM)将选择的帧序列编码成向量 e 。sLSTM生成每一个帧的标准化重要性得分s，结合x，输入到eLSTM中。dLSTM(decoder LSTM)以e为输入，重构了输入视频的特征序列。鉴别器（discriminator）用来区分原始和摘要视频帧间的特征，用于估计两者之间的representation error。
-&em</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-21&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/AI">AI</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E8%A7%86%E9%A2%91%E6%91%98%E8%A6%81">视频摘要</a>&nbsp;
           
         
       </div>
